@@ -13,7 +13,7 @@ namespace HeyBus.Models
         public int id_Cliente { get; set; }
 
         [Display (Name ="CPF do cliente"), MaxLength(14), Required]
-        public char cpf_Cliente { get; set; }
+        public string cpf_Cliente { get; set; }
 
         [Display (Name ="Nome do cliente"), MaxLength(70), Required]
         public string nome_Cliente { get; set; }
@@ -23,10 +23,10 @@ namespace HeyBus.Models
         public DateTime nascimento_Cliente { get; set; }
 
         [Display (Name ="Telefone do cliente"), MaxLength(20), Required]
-        public char tel_Cliente { get; set; }
+        public string tel_Cliente { get; set; }
 
         [Display (Name ="Celular do cliente"), MaxLength(20), Required]
-        public char cel_Cliente { get; set; }
+        public string cel_Cliente { get; set; }
         
         [Display (Name ="E-mail do cliente"), MaxLength(60), Required]
         public string email_Cliente { get; set; }

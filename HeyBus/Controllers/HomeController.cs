@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeyBus.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,13 @@ namespace HeyBus.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        Cliente cli = new Cliente();
+        public ActionResult Contato()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View(cli);
         }
     }
 }

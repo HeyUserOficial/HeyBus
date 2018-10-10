@@ -1,4 +1,4 @@
-create database if not exists HeyBus;
+/*create database if not exists HeyBus;
 use HeyBus;
 
 create table if not exists Acesso(
@@ -139,7 +139,7 @@ references Onibus(id_Onibus);
 
 create table if not exists FormaPagamento(
 id_FormPag int auto_increment not null,
-nomr_FormPag char(15),
+nome_FormPag char(15),
 primary key(id_FormPag)
 )ENGINE = innodb;
  
@@ -148,6 +148,7 @@ id_Passagem int auto_increment not null,
 id_Cliente int,
 id_Viagem int,
 id_FormPag int,
+cpf_Cliente char(14),
 descontoPassagem decimal(3,2),
 valorTotal decimal(4,2),
 dataCompra datetime,
@@ -162,3 +163,18 @@ references Viagem(id_Viagem);
 alter table Passagem
 add foreign key(id_FormPag)
 references FormaPagamento(id_FormPag);
+
+create table if not exists Cartao(
+id_Cartao int auto_increment not null,
+num_Cartao int,
+val_Cartao date,
+nome_Cartao varchar(50),
+bandeira_Cartao char(40),
+codigo_Seg int,
+primary key (id_Cartao)
+)ENGINE = innodb;
+alter table Cartao
+add column id_Cliente int;
+alter table Cartao
+add foreign key(id_Cliente)
+references Cliente(id_Cliente);
