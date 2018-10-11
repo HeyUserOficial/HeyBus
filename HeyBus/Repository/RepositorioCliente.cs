@@ -14,6 +14,34 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
         Acesso ac = new Acesso();
+
+        public bool Insert_Foregin_Cliente()
+        {
+            bool voltar  = false;
+            try
+            {
+                conn.abrirConexao();
+                cmd = new MySqlCommand("select count(id_Acesso) as id_Acesso from Acesso;", Conexao.conexao);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ac.id_Acesso = Convert.ToInt32(dr["id_Acesso"]);
+                    return true;
+                }
+                dr.Close();
+            }
+            catch (Exception oi)
+            {
+                throw new Exception(oi.Message);
+                conn.fecharConexao();
+                dr.Close();
+                return false;
+
+
+            }
+            return voltar;
+        }
+
         public bool Insert_Cliente(Cliente cli)
         {
             try
@@ -27,9 +55,8 @@ namespace HeyBus.Repository
                 cmd.Parameters.AddWithValue("@tel", cli.tel_Cliente);
                 cmd.Parameters.AddWithValue("@cel", cli.cel_Cliente);
                 cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
-                ac.id_Acesso = Insert_Foregin_Cliente();
                 cmd.Parameters.AddWithValue("@acesso", ac.id_Acesso);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteScalar();
                 return true;
                 conn.fecharConexao();
             }
@@ -41,27 +68,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public int Insert_Foregin_Cliente()
-        {
-
-            try
-            {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("Select count(id_Acesso) as ID from Acesso", Conexao.conexao);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    return Convert.ToInt16(dr["ID"]);
-                   
-                }
-                return Convert.ToInt16(dr["ID"]);
-            }
-            catch (Exception oi)
-            {
-                throw new Exception(oi.Message);
-                conn.fecharConexao();
-            }
-        }
+       
 
         public bool Update_Cliente(Cliente cli)
         {

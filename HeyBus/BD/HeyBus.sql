@@ -1,3 +1,4 @@
+
 /*create database if not exists HeyBus;
 use HeyBus;
 
@@ -17,7 +18,7 @@ begin
     values(login, senha, nivel);
 end $$
 Delimiter ;
-
+select count(id_Acesso) from Acesso;
 create table if not exists Cliente(
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
@@ -40,7 +41,7 @@ create Procedure SP_Cadastro_Cliente
  in acesso int)
 begin 
 	insert into Cliente (cpf_Cliente, nome_Cliente, nascimento_Cliente, tel_Cliente, cel_Cliente,
-    email_Cleinte, id_Acesso) values (cpf, nome, nascimento, tel, cel, email, acesso);
+    email_Cliente, id_Acesso) values (cpf, nome, nascimento, tel, cel, email, acesso);
 end $$
 Delimiter ;
 
@@ -67,6 +68,8 @@ begin
 	delete from Cliente where id_Cliente = id;
 end $$
 Delimiter ;
+
+call SP_Cadastro_Acesso ("Yuri","euae","Gerente");
 
 Delimiter $$
 create Procedure SP_Consultar_Cliente
@@ -113,6 +116,7 @@ distancia_Rota char(10),
 primary key(id_Rota)
 )ENGINE = innodb;
 
+select * from Cliente;
 create table if not exists Onibus(
 id_Onibus int auto_increment not null,
 viacao_Onibus varchar(30),
@@ -178,3 +182,4 @@ add column id_Cliente int;
 alter table Cartao
 add foreign key(id_Cliente)
 references Cliente(id_Cliente);
+

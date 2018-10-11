@@ -12,6 +12,7 @@ namespace HeyBus.Controllers
     public class ClientesController : Controller
     {
         Cliente cli = new Cliente();
+        Acesso ac = new Acesso();
         // GET: Cliente
         public ActionResult Index()
         {
@@ -27,14 +28,13 @@ namespace HeyBus.Controllers
             cli.cel_Cliente = "111111";
             cli.tel_Cliente = "292929";
             cli.email_Cliente = "yuri@";
-
-            if (clienteRep.Insert_Cliente(cli))
+            if (clienteRep.Insert_Foregin_Cliente() == true && clienteRep.Insert_Cliente(cli))
             {
-                return View("Funcionou");
+                return View("Consulta foda");
             }
             else
             {
-                return View("Nao");
+                return View("Nao funfou");
             }
         }
 
