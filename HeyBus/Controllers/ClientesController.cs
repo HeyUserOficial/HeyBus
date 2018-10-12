@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace HeyBus.Controllers
 {
     public class ClientesController : Controller
-    {
+    {/*
         Cliente cli = new Cliente();
         Acesso ac = new Acesso();
         // GET: Cliente
@@ -38,6 +38,6 @@ namespace HeyBus.Controllers
             }
         }
 
-    }
+    */}
 
 }

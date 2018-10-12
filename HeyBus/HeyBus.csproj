@@ -171,9 +171,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\alimentacao.jpg" />
+    <Content Include="images\duvidas.gif" />
+    <Content Include="images\fortaleza.jpg" />
+    <Content Include="images\historia.gif" />
     <Content Include="images\imagemHome.jpg" />
     <Content Include="images\rio.jpg" />
-    <Content Include="images\salvador.jpg" />
+    <Content Include="images\servicos.gif" />
+    <Content Include="images\viagem.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
