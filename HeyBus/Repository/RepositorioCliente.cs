@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositorioCliente
-    {
+    {/*
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -68,8 +68,6 @@ namespace HeyBus.Repository
             }
         }
 
-       
-
         public bool Update_Cliente(Cliente cli)
         {
             try
@@ -113,13 +111,15 @@ namespace HeyBus.Repository
                     cli.email_Cliente = dr["email_Cliente"].ToString();
                 }
                 return true;
+                dr.Close();
                 conn.fecharConexao();
             }catch(Exception po)
             {
                 throw new Exception(po.Message);
+                dr.Close();
                 conn.fecharConexao();
                 return false;
             }
         }
-    }
+    */}
 }

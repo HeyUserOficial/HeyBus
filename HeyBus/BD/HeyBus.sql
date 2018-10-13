@@ -18,6 +18,29 @@ begin
     values(login, senha, nivel);
 end $$
 Delimiter ;
+
+
+
+Delimiter $$
+create Procedure SP_Alterar_Acesso
+(in id int, in login varchar(25), in senha varchar(25))
+begin
+	update Acesso set
+					 login_Acesso = login,
+					 senha_Acesso = senha
+	where
+					 id_Acesso = id;
+end $$
+Delimiter ;
+
+Delimiter $$
+create procedure SP_Efetuar_Acesso
+(in login varchar(25), in senha(25))
+begin 
+	 select * from Acesso where login_Acesso = login and senha_Acesso = senha;
+end $$
+Delimiter ;
+
 select count(id_Acesso) from Acesso;
 create table if not exists Cliente(
 id_Cliente int auto_increment not null,
@@ -69,14 +92,13 @@ begin
 end $$
 Delimiter ;
 
-call SP_Cadastro_Acesso ("Yuri","euae","Gerente");
-
 Delimiter $$
 create Procedure SP_Consultar_Cliente
 (in id int)
 begin 
-	select Cliente.cpf_Cliente, Cliente.nome_Cliente, Cliente.nascimento_Cliente, Cliente.tel_Cliente, Cliente.cel_Cliente, Cliente.email_Cliente,
-    Acesso.login_Acesso, Acesso.senha_Acesso from Cliente inner join Acesso on Cliente.id_Acesso = Acesso.id_Acesso where id_Cliente = id;
+	select Cliente.cpf_Cliente, Cliente.nome_Cliente, Cliente.nascimento_Cliente, Cliente.tel_Cliente,
+	Cliente.cel_Cliente, Cliente.email_Cliente, Acesso.login_Acesso, Acesso.senha_Acesso
+	from Cliente inner join Acesso on Cliente.id_Acesso = Acesso.id_Acesso where id_Cliente = id;
 end $$
 Delimiter ;
 
@@ -94,6 +116,39 @@ alter table Funcionario
 add foreign key(id_Acesso)
 references Acesso(id_Acesso);
 
+Delimiter $$ 
+create procedure SP_Cadastrar_Func
+(in cpf char(14), in nome varchar(70), in email varchar(60), in endereco varchar(100), in acesso int)
+begin 
+	insert into Funcionario(cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, id_Acesso)
+	values(cpf, nome, email, endereco, acesso);
+end $$
+Delimiter ;
+
+Delimiter $$
+create procedure SP_Alterar_Func
+(in id int, in cpf char(14), in nome varchar(70), in email varchar(60), in endereco varchar(100))
+begin 
+	 update Funcionario set
+						   cpf_Funcionario = cpf,
+						   nome_Funcionario = nome,
+						   email_Funcionario = email,
+						   endereco_Funcionario = endereco
+	where
+						   id_Funcionario = id;
+end $$
+Delimiter ;
+
+Delimiter $$
+create procedure SP_Consultar_Func
+(in int id)
+begin
+	select cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, 
+	Acesso.login_Acesso, Acesso.senha_Acesso from Funcionario inner join Acesso
+	on Funcionario.id_Acesso = Acesso.id_Acesso where id_Funcionario = id;
+end $$
+Delimiter ;
+
 create table if not exists Gerente(
 id_Gerente int auto_increment not null,
 cpf_Gerente char(14),
@@ -106,6 +161,37 @@ add column id_Acesso int;
 alter table Gerente 
 add foreign key(id_Acesso)
 references Acesso(id_Acesso);
+
+Delimiter $$
+create procedure SP_Cadastrar_Ger
+(in cpf char(14), in nome varchar(70), in email varchar(60), in acesso int)
+begin 
+	insert into Gerente(cpf_Gerente, nome_Gerente, email_Gerente, id_Acesso) 
+	values(cpf, nome, email, acesso);
+end $$
+Delimiter ;
+
+Delimiter $$
+create procedure SP_Consultar_Ger
+(in id int)
+begin	
+	select cpf_Gerente, nome_Gerente, email_Gerente, Acesso.login_Acesso, Acesso.senha_Acesso
+	from Gerente inner join Acesso on Gerente.id_Acesso = Acesso.id_Acesso where id_Gerente = id;
+end $$
+Delimiter ;
+
+Delimiter $$
+create procedure SP_Alterar_Ger
+(in id int,in cpf char(14), in nome varchar(70), in email varchar(60))
+begin
+	 update set Gerente 
+					   cpf_Gerente = cpf,
+					   nome_Gerente = nome,
+					   email_Gerente = email
+	where
+					   id_Gerente id;
+end $$
+Delimiter ;
 
 create table if not exists Rota(
 id_Rota int auto_increment not null,
@@ -182,4 +268,3 @@ add column id_Cliente int;
 alter table Cartao
 add foreign key(id_Cliente)
 references Cliente(id_Cliente);
-
