@@ -1,6 +1,7 @@
-
-/*create database if not exists HeyBus;
+drop database if exists HeyBus;
+create database if not exists HeyBus;
 use HeyBus;
+
 
 create table if not exists Acesso(
 id_Acesso int auto_increment not null,
@@ -35,13 +36,13 @@ Delimiter ;
 
 Delimiter $$
 create procedure SP_Efetuar_Acesso
-(in login varchar(25), in senha(25))
+(in login varchar(25), in senha varchar(25))
 begin 
-	 select * from Acesso where login_Acesso = login and senha_Acesso = senha;
+	 select * from Acesso where vlogin_Acesso = login and senha_Acesso = senha;
 end $$
 Delimiter ;
 
-select count(id_Acesso) from Acesso;
+
 create table if not exists Cliente(
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
@@ -50,10 +51,9 @@ nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),
+id_Acesso int,
 primary key (id_Cliente)
 ) ENGINE = innodb;
-alter table Cliente 
-add column id_Acesso int;
 alter table Cliente 
 add foreign key (id_Acesso)
 references Acesso(id_Acesso);
@@ -108,10 +108,9 @@ cpf_Funcionario char(14),
 nome_Funcionario varchar(70),
 email_Funcionario varchar(60),
 endereco_Funcionario varchar(100),
+id_Acesso int,
 primary key (id_Funcionario)
 )ENGINE = innodb;
-alter table Funcionario 
-add column id_Acesso int;
 alter table Funcionario
 add foreign key(id_Acesso)
 references Acesso(id_Acesso);
@@ -141,7 +140,7 @@ Delimiter ;
 
 Delimiter $$
 create procedure SP_Consultar_Func
-(in int id)
+(in id int)
 begin
 	select cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, 
 	Acesso.login_Acesso, Acesso.senha_Acesso from Funcionario inner join Acesso
@@ -154,10 +153,9 @@ id_Gerente int auto_increment not null,
 cpf_Gerente char(14),
 nome_Gerente varchar(70),
 email_Gerente varchar(60),
+id_Acesso int,
 primary key (id_Gerente)
 )ENGINE = innodb;
-alter table Gerente
-add column id_Acesso int;
 alter table Gerente 
 add foreign key(id_Acesso)
 references Acesso(id_Acesso);
@@ -184,14 +182,15 @@ Delimiter $$
 create procedure SP_Alterar_Ger
 (in id int,in cpf char(14), in nome varchar(70), in email varchar(60))
 begin
-	 update set Gerente 
+	 update Gerente set 
 					   cpf_Gerente = cpf,
 					   nome_Gerente = nome,
 					   email_Gerente = email
 	where
-					   id_Gerente id;
+					   id_Gerente = id;
 end $$
 Delimiter ;
+
 
 create table if not exists Rota(
 id_Rota int auto_increment not null,
@@ -202,7 +201,7 @@ distancia_Rota char(10),
 primary key(id_Rota)
 )ENGINE = innodb;
 
-select * from Cliente;
+
 create table if not exists Onibus(
 id_Onibus int auto_increment not null,
 viacao_Onibus varchar(30),
@@ -211,6 +210,7 @@ assentos_Onibus int,
 manutencaoo_Onibus char(15),
 primary key(id_Onibus)
 )ENGINE = innodb;
+
 
 create table if not exists Viagem(
 id_Viagem int auto_increment not null,
@@ -233,6 +233,7 @@ nome_FormPag char(15),
 primary key(id_FormPag)
 )ENGINE = innodb;
  
+
 create table if not exists Passagem(
 id_Passagem int auto_increment not null,
 id_Cliente int,
@@ -253,6 +254,7 @@ references Viagem(id_Viagem);
 alter table Passagem
 add foreign key(id_FormPag)
 references FormaPagamento(id_FormPag);
+
 
 create table if not exists Cartao(
 id_Cartao int auto_increment not null,

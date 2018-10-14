@@ -1,15 +1,75 @@
-﻿using HeyBus.Connection;
+﻿using Dapper;
+using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
 namespace HeyBus.Repository
 {
-    public class RepositorioCliente
-    {/*
+    public class ClientesRepository : IRepository<Cliente>
+    {
+        Conexao con = new Conexao();
+        protected readonly string conString;
+        
+        public ClientesRepository(string connectionString)
+        {
+            conString = connectionString;
+        }
+
+        protected virtual IDbConnection Connection => new MySqlConnection(conString);
+
+        public IEnumerable<Cliente> GetAll()
+        {
+            using (var conn = Connection)
+            {
+                return conn.Query<Cliente>($"Select cpf_Cliente as [CPF], nome_Cliente as [Nome], cel_Cliente as [Celular] from Cliente");
+            }
+        }
+
+        public Cliente GetById(int id)
+        {
+            using (var connection = Connection)
+            {
+                return connection.QueryFirstOrDefault<Cliente>($"Call SP_Consultar_Cliente",
+                new { Id = id });
+            }
+        }
+
+        public void Create(Cliente cli)
+        {
+            using (var con = Connection)
+            {
+                con.Execute($"Call SP_Cadastro_Cliente", cli);
+            }
+        }
+
+        public void Update(Cliente cli)
+        {
+            using (var conn = Connection)
+            {
+                conn.Execute($"Call SP_Atualizar_Cliente", cli);
+            }
+        }
+
+        public void Delete(Cliente cli)
+        {
+            Delete(cli.id_Cliente);
+        }
+
+        public void Delete(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Execute($"Call SP_Deletar_Cliente", new { Id = id });
+            }
+        }
+    }
+}
+/*
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -121,5 +181,4 @@ namespace HeyBus.Repository
                 return false;
             }
         }
-    */}
-}
+    */

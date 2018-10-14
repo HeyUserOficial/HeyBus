@@ -7,37 +7,103 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace HeyBus.Controllers
 {
+    [Route ("Clientes")]
     public class ClientesController : Controller
-    {/*
-        Cliente cli = new Cliente();
-        Acesso ac = new Acesso();
+    {
+        /*private readonly ClientesRepository _repositorio; 
         // GET: Cliente
+        
+       /* public ClientesController(IConfiguration config)
+        {
+            _repositorio = new ClientesRepository(configuration.);
+        }
         public ActionResult Index()
+        {
+            return View(_repositorio.GetAll());
+        }
+
+        [Route ("Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            return View(_repositorio.GetById(id));
+        }
+
+        public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Teste()
+        [HttpPost, Route("Cadastrar")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([FromForm] Cliente cli)
         {
-            RepositorioCliente clienteRep = new RepositorioCliente();
-            cli.cpf_Cliente = "132424";
-            cli.nome_Cliente = "Yuri";
-            cli.nascimento_Cliente = DateTime.Now;
-            cli.cel_Cliente = "111111";
-            cli.tel_Cliente = "292929";
-            cli.email_Cliente = "yuri@";
-            if (clienteRep.Insert_Foregin_Cliente() == true && clienteRep.Insert_Cliente(cli))
+            try
             {
-                return View("Consulta foda");
+                if (ModelState.IsValid)
+                {
+                    _repositorio.Create(cli);
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            else
+            catch (Exception e)
             {
-                return View("Nao funfou");
+                ModelState.AddModelError(String.Empty, e.Message);
             }
+
+            return View(cli);
         }
 
-    */}
+        [HttpPost, Route("Editar/{id}")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([FromRoute] int id, [FromForm] Cliente cli)
+        {
+            if(id != cli.id_Cliente)
+                return BadRequest();
 
+            var cod = _repositorio.GetById(id);
+
+            if (cod == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _repositorio.Update(cli);
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return cod;
+        }
+
+        [HttpPost, Route("Deletar/{id}")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, Cliente cli)
+        {
+            if (id != cli.id_Cliente)
+                return BadRequest();
+
+            if (_repositorio.GetById(id) == null)
+                return NotFound();
+
+            try
+            {
+                _repositorio.Delete(cli);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(cli);
+            }
+        }*/
+     }
 }
