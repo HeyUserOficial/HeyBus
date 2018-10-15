@@ -2507,7 +2507,31 @@ a.btn.disabled,
 fieldset:disabled a.btn {
     pointer-events: none;
 }
-
+.btn-buscar-viagem-home {
+    background-color: #c05100;
+    border-color: transparent;
+    font-size: 1.2em;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    border-radius: 0.55rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor:pointer;
+}
+    .btn-buscar-viagem-home:hover {
+        background-color: #cf5800;
+        border-color: #cc8300;
+    }
+    
 .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -4601,6 +4625,7 @@ input[type="button"].btn-block {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
+    height:185px;
 }
 
 .card-title {
@@ -4677,8 +4702,8 @@ input[type="button"].btn-block {
 
 .card-img-top {
     width: 100%;
-    border-top-left-radius: calc(0.25rem - 1px);
-    border-top-right-radius: calc(0.25rem - 1px);
+    /* border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);*/
 }
 
 .card-img-bottom {
