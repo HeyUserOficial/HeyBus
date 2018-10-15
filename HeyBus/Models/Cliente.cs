@@ -30,12 +30,6 @@ namespace HeyBus.Models
         public string cel_Cliente { get; set; }
         
         [Display (Name ="E-mail do cliente"), MaxLength(60), Required]
-        public string email_Cliente { get; set; }
-
-        [Display (Name ="Nome do usuário"), MaxLength(25), Required]
-        public string usuario_Acesso { get; set; }
-
-        [Display (Name ="Senha do usuário"), MaxLength(25), Required]
-        public string senha_Acesso { get; set; }
+        public string email_Cliente { get; set; }    
     }
 }
