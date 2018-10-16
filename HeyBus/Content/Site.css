@@ -44,15 +44,14 @@
     box-shadow: 0 0 0 0.2rem rgba(252, 181, 103, 0.57);
 }
 
-#box-comprar-passagem button {
-    background-color: #c05100e6;
-    font-size:1.2em;
-    color: #fff;
-    border-radius:0.55rem;
-
+.text-link {
+    color: rgba(0,100,255,0.99);
+    cursor: pointer;
 }
-#boasVindas{
-    
+.text-link:hover{
+    text-decoration:underline;
+}
+#boasVindas {
 }
 #boasVindas ul {
     text-align:left;
@@ -60,7 +59,8 @@
 }
 #boasVindas ul li{
     padding:12px 10px;
-
+    color:rgba(0,0,0,0.75);
+    font-weight:600;
 }
 #boasVindas ul li:hover {
     border:1px solid rgba(200, 92, 1,0.5);
@@ -68,6 +68,26 @@
     cursor:pointer;
     box-shadow: rgb(200, 92, 1) 1px 10px 15px;
 }
-.teste {
-    padding-bottom: 1000px;
+#boasVindas h1 {
+    color: rgba(0,0,0,0.82);    
+}
+#boasVindas {
+    color: rgba(0,0,0,0.78);
+}
+#topViagens h1{
+    font-weight:600;
+}
+#topViagens p {
+    text-align: center;
+    color: rgba(0,0,0,0.79);
+}
+#topViagens h5 {
+    color: rgba(0,0,0,0.84);
+}
+#topViagens{
+    margin: 0 auto;    
+}
+.box-shadow:hover{
+    box-shadow: rgba(0,0,0,0.7) 1px 1px 12px;
+    cursor:pointer;
 }
