@@ -1,4 +1,4 @@
-drop database if exists HeyBus;
+/*drop database if exists HeyBus;
 create database if not exists HeyBus;
 use HeyBus;
 
@@ -59,7 +59,7 @@ add foreign key (id_Acesso)
 references Acesso(id_Acesso);
 
 Delimiter $$ 
-create Procedure SP_Cadastro_Cliente
+create Procedure SP_Cadastrar_Cliente
 (in cpf char(14),in nome varchar(70),in nascimento date,in tel char(20),in cel char(20),in email varchar(60),
  in acesso int)
 begin 

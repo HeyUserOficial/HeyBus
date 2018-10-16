@@ -16,5 +16,10 @@ namespace HeyBus.Models
 
         [Display(Name = "Nome do gerente"), MaxLength(70), Required]
         public string nome_Gerente { get; set; }
+
+        [Display (Name = "E-mail do gerente"), MaxLength(60), Required]
+        public string email_Gerente { get; set; }
+
+        public int id_Acesso { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace HeyBus.Models
 {
     public class Cliente
     {
-        [Display (Name ="Código do cliente"), Key]
+        [Key]
         public int id_Cliente { get; set; }
 
         [Display (Name ="CPF do cliente"), MaxLength(14), Required]
@@ -30,6 +30,8 @@ namespace HeyBus.Models
         public string cel_Cliente { get; set; }
         
         [Display (Name ="E-mail do cliente"), MaxLength(60), Required]
-        public string email_Cliente { get; set; }    
+        public string email_Cliente { get; set; }  
+        
+        public int id_Acesso { get; set; }
     }
 }
