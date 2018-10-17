@@ -27,12 +27,11 @@ namespace HeyBus.Controllers
 
             return View();
         }
-        Cliente cli = new Cliente();
         public ActionResult Contato()
         {
             ViewBag.Message = "Your contact page.";
 
-            return View(cli);
+            return View();
         }
     }
 }

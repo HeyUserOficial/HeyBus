@@ -20,23 +20,9 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        [HttpPost, Route("Cadastrar")]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult Cadastrar(Cliente cli)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    repCli.Insert_Foreign_Cliente(cli);
-                    repCli.Insert_Cliente(cli);
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            catch (Exception e)
-            {
-                ModelState.AddModelError(String.Empty, e.Message);
-            }
             return View(cli);
         }
      }

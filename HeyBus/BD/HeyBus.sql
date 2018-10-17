@@ -12,7 +12,7 @@ primary key (id_Acesso)
 )ENGINE = innodb;
 
 Delimiter $$ 
-create Procedure SP_Cadastro_Acesso
+create Procedure SP_Cadastrar_Acesso
 (in login varchar(25), in senha varchar(25), in nivel char(15))
 begin
 	insert into Acesso (login_Acesso, senha_Acesso, nivel_Acesso) 

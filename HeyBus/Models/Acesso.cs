@@ -8,15 +8,31 @@ namespace HeyBus.Models
 {
     public class Acesso
     {
-        [Display (Name= "Código do login"), Key]
-        public int id_Acesso { get; set; }
+        [Key]
+        public static int id_Acesso;
 
-        [Display(Name = "Nome do usuário"), MaxLength(25), Required]
-        public string usuario_Acesso { get; set; }
+        [MaxLength(25), Required]
+        public static string usuario_Acesso;
 
-        [Display(Name = "Senha do usuário"), MaxLength(25), Required]
-        public string senha_Acesso { get; set; }
+        [MaxLength(25), Required]
+        public static string senha_Acesso;
 
-        public string nivel_Acesso { get; set; }
+        [MaxLength(25), Required]
+        private string login_Acesso;
+        public string login_Ac
+        {
+            get { return login_Acesso; }
+            set { login_Acesso = login_Ac; }
+        }
+
+        [MaxLength(25), Required] 
+        private string password_Acesso;
+        public string password_Ac
+        {
+            get { return password_Acesso; }
+            set { password_Acesso = password_Ac; }
+        }
+
+        public static string nivel_Acesso;
     }
 }

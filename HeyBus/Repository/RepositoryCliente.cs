@@ -113,6 +113,8 @@ namespace HeyBus.Repository
                     cli.tel_Cliente = dr["tel_Cliente"].ToString();
                     cli.cel_Cliente = dr["cel_Cliente"].ToString();
                     cli.email_Cliente = dr["email_Cliente"].ToString();
+                    Acesso.usuario_Acesso = dr["login_Acesso"].ToString();
+                    Acesso.senha_Acesso = dr["senha_Acesso"].ToString();
                 }
                 return true;
                 dr.Close();

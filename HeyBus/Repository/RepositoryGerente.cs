@@ -16,6 +16,7 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
         Acesso ac = new Acesso();
+
         public bool Insert_Foreign_Ger(Gerente ger)
         {
             bool voltar = false;
@@ -78,8 +79,8 @@ namespace HeyBus.Repository
                     ger.cpf_Gerente = dr["cpf_Gerente"].ToString();
                     ger.nome_Gerente = dr["nome_Gerente"].ToString();
                     ger.email_Gerente = dr["email_Gerente"].ToString();
-                    ac.usuario_Acesso = dr["login_Acesso"].ToString();
-                    ac.senha_Acesso = dr["senha_Acesso"].ToString();
+                    Acesso.usuario_Acesso = dr["login_Acesso"].ToString();
+                    Acesso.senha_Acesso = dr["senha_Acesso"].ToString();
                 }
                 dr.Close();
                 conn.fecharConexao();
