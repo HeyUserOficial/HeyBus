@@ -12,16 +12,61 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-100" src="~/images/imagemHome.jpg" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Algum texto aqui?</h5>
-                <p>Vai ter q formatar.</p>
+            <div class="text-slider d-none d-md-block">
+                <h1>Aventure-se</h1> <h2>Divirta-se,</h2> <h3>Encontre a felicidade que você merece.</h3>                
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/rio.jpg" alt="Second slide">
+            <div class="text-rio-slider d-none d-md-block">
+                <button class="btn-show-txtSlider" type="button" data-toggle="collapse" data-target="#rioJaneiro" aria-expanded="false" aria-controls="collapseExample">
+                    Uma curiosidade?
+                </button>
+                <div class="collapse" id="rioJaneiro">
+                    <div class="box-texto pb-1">
+                        <h1 class="display-4">Rio de Janeiro</h1>
+                        <p class="lead">O Rio de Janeiro continua lindo...</p>
+                        <hr class="my-4 bg-light">
+                        <p>A Cidade Maravilhosa, representa a segunda maior economia do Brasil e é um dos principais vetores do turismo no Brasil.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="marketing-rio d-none d-md-block">
+                <div class="circulo-local">
+                    São Paulo <br /> X <br /> Rio de Janeiro
+                </div>
+            </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/fortaleza.jpg" alt="Third slide">
+            <div class="text-fortaleza-slider d-none d-md-block">
+                <button class="btn-show-txtSlider" type="button" data-toggle="collapse" data-target="#fortaleza" aria-expanded="false" aria-controls="collapseExample">
+                    Uma curiosidade?
+                </button>
+                <div class="collapse" id="fortaleza">
+                    <div class="box-texto pb-1">
+                        <h1 class="display-4">Fortaleza</h1>
+                        <p class="lead">Praias, comidas típicas e alegria.</p>
+                        <hr class="my-4 bg-light">
+                        <p>
+                            A infraestrutura é uma das mais anabolizadas para atender quem quer curtir a areia e o mar. É próxima ao maior parque aquático
+                            do país, o Beach Park.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="marketing-fortaleza d-none d-md-block">
+                <div class="circulo-local" style="height:250px">
+                    São Paulo <br /> X <br /> Fortaleza
+                </div>
+                <div class="circulo-preco" style="height:250px">
+                    R$175<br />
+                    <strike>R$300</strike>
+                </div>
+            </div>
         </div>
     </div>
     <!--<a class="carousel-control-prev" href="#sliderHome" role="button" data-slide="prev">

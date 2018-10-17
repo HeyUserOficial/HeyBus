@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿//using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +10,7 @@ namespace HeyBus.Connection
 {
     public class Conexao
     {
-        public static MySqlConnection conexao = new MySqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+       /* public static MySqlConnection conexao = new MySqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
 
         //Construtor
         public Conexao()
@@ -50,5 +50,5 @@ namespace HeyBus.Connection
             }
 
         }
-    }
+    */}
 }
