@@ -20,7 +20,7 @@ namespace HeyBus.Models
         public string nome_Cliente { get; set; }
 
         [Display (Name ="Data de nascimento"), BirthDay(14), DataType(DataType.Date),
-        DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",  ApplyFormatInEditMode = true)]
         public DateTime nascimento_Cliente { get; set; }
 
         [Display (Name ="Telefone do cliente"), MaxLength(20), Required]
