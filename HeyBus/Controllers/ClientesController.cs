@@ -12,7 +12,7 @@ namespace HeyBus.Controllers
 {
     [Route ("Clientes")]
     public class ClientesController : Controller
-    {
+    {/*
         RepositoryCliente repCli = new RepositoryCliente();
 
         public ActionResult Index()
@@ -25,5 +25,5 @@ namespace HeyBus.Controllers
         {
             return View(cli);
         }
-     }
+     */}
 }
