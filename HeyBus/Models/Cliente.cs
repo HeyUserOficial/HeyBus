@@ -19,8 +19,6 @@ namespace HeyBus.Models
         [Display (Name ="Nome do cliente"), MaxLength(70), Required]
         public string nome_Cliente { get; set; }
 
-        [Display (Name ="Data de nascimento"), BirthDay(14), DataType(DataType.Date),
-        DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",  ApplyFormatInEditMode = true)]
         public DateTime nascimento_Cliente { get; set; }
 
         [Display (Name ="Telefone do cliente"), MaxLength(20), Required]
@@ -30,8 +28,12 @@ namespace HeyBus.Models
         public string cel_Cliente { get; set; }
         
         [Display (Name ="E-mail do cliente"), MaxLength(60), Required]
-        public string email_Cliente { get; set; }  
-        
-        public int id_Acesso { get; set; }
+        public string email_Cliente { get; set; }
+
+        [Display(Name = "Nome de usuário"), MaxLength(25), Required]
+        public string usuario_Cliente { get; set; }
+
+        [Display(Name = "Senha do usuário"), MaxLength(25), Required]
+        public string senha_Cliente { get; set; }
     }
 }

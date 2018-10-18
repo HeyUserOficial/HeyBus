@@ -167,6 +167,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Gerente.cs" />
+    <Compile Include="Models\Onibus.cs" />
     <Compile Include="Models\Rota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
@@ -234,6 +235,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\Atualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

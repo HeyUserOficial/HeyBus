@@ -1,5 +1,5 @@
-/*drop database if exists HeyBus;
-create database if not exists HeyBus;
+drop database if exists HeyBus;
+/*create database if not exists HeyBus;
 use HeyBus;
 
 
@@ -51,26 +51,26 @@ nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),
-id_Acesso int,
+usuario_Cliente varchar(25),
+senha_Cliente varchar(25),
 primary key (id_Cliente)
 ) ENGINE = innodb;
-alter table Cliente 
-add foreign key (id_Acesso)
-references Acesso(id_Acesso);
+
 
 Delimiter $$ 
 create Procedure SP_Cadastrar_Cliente
 (in cpf char(14),in nome varchar(70),in nascimento date,in tel char(20),in cel char(20),in email varchar(60),
- in acesso int)
+ in usuario varchar(25), in senha varchar(25))
 begin 
 	insert into Cliente (cpf_Cliente, nome_Cliente, nascimento_Cliente, tel_Cliente, cel_Cliente,
-    email_Cliente, id_Acesso) values (cpf, nome, nascimento, tel, cel, email, acesso);
+    email_Cliente, usuario_Cliente, senha_Cliente) values (cpf, nome, nascimento, tel, cel, email, usuario, senha);
 end $$
 Delimiter ;
 
 Delimiter $$ 
 create Procedure SP_Atualizar_Cliente
-(in id int, in cpf char(14), in nome varchar(70), in nascimento date, in tel char(20), in cel char(20), in email varchar(60))
+(in id int, in cpf char(14), in nome varchar(70), in nascimento date, in tel char(20), in cel char(20), in email varchar(60),
+in usuario varchar(25), senha varchar(25))
 begin 
 	update Cliente set 
 					  cpf_Cliente = cpf,
@@ -78,7 +78,9 @@ begin
                       nascimento_Cliente = nascimento,
                       tel_Cliente = tel,
                       cel_Cliente = cel,
-                      email_Cliente = email
+                      email_Cliente = email,
+                      usuario_Cliente = usuario,
+                      senha_Cliente = senha
 	where 
 					  id_Cliente = id;
 end $$
@@ -96,9 +98,7 @@ Delimiter $$
 create Procedure SP_Consultar_Cliente
 (in id int)
 begin 
-	select Cliente.cpf_Cliente, Cliente.nome_Cliente, Cliente.nascimento_Cliente, Cliente.tel_Cliente,
-	Cliente.cel_Cliente, Cliente.email_Cliente, Acesso.login_Acesso, Acesso.senha_Acesso
-	from Cliente inner join Acesso on Cliente.id_Acesso = Acesso.id_Acesso where id_Cliente = id;
+	select * from Cliente where id_Cliente = id;
 end $$
 Delimiter ;
 
