@@ -9,7 +9,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryAcesso
-    {
+    {/*
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -80,5 +80,5 @@ namespace HeyBus.Repository
                 return false;
             }
         }
-    }
+    */}
 }

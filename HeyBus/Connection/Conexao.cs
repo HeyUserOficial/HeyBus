@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 ﻿
+=======
+>>>>>>> b2034c19b34eb70f6b6d66270015cd12b538ebcc
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

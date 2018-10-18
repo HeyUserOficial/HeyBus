@@ -36,14 +36,22 @@
     left: 5%;
 }
 .marketing-rio {
-    position:absolute;
+    position: absolute;
     top: 30vh;
     right: 42vh;
+    border-radius: 15px 15px;
+    background-color: rgba(255,255,255,0.7);
+    width: 300px;
+    padding: 0px 0px 10px 10px;
 }
 .marketing-fortaleza {
     position: absolute;
     top: 20vh;
-    right: 28vh;
+    right: 2vh;
+    border-radius: 15px 15px;
+    background-color: rgba(255,255,255,0.7);   
+    width: 300px;
+    padding: 0px 0px 10px 10px;
 }
 .text-fortaleza-slider {
     position: absolute;
@@ -59,28 +67,6 @@
     width: 500px;
     }
 
-.circulo-local{
-    padding:30px;
-    height: 300px;
-    border-radius: 150px 150px;
-    background-color: rgba(253,163,75,0.79);
-    text-align:center;
-    border:15px solid rgba(0,0,0,0.27);
-    color:#ccc;
-    font-size:2em;
-    font-weight:700;
-
-}
-.circulo-preco {
-    position: absolute;
-    top: 24vh;
-    left:-15vh;
-    width: 250px;
-    padding: 30px;
-    border-radius: 150px 150px;
-    background-color: rgba(253,163,75,0.79);
-    border: 15px solid rgba(0,0,0,0.27);
-}
 .btn-show-txtSlider {
     display: inline-block;
     font-weight: 400;
@@ -97,8 +83,6 @@
 .btn-show-txtSlider:hover {
    background-color: rgba(255,255,255,0.7);
 }
-
-
    
 #box-comprar-passagem {
     background-color: #FFF;
@@ -185,4 +169,27 @@
 .box-shadow:hover{
     box-shadow: rgba(0,0,0,0.7) 1px 1px 12px;
     cursor:pointer;
+}
+/*Fim config Home*/
+.sidenav-servicos {
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+    .sidenav-servicos a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #2196F3;
+        display: block;
+    }
+.conteudo-servicos {
+    margin-left: 190px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
 }
