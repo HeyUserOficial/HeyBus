@@ -43,7 +43,7 @@ end $$
 Delimiter ;
 
 
-create table if not exists Cliente(
+ create table if not exists Cliente(
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
 nome_Cliente varchar(70),

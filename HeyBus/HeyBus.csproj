@@ -234,12 +234,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Atualizar.cshtml" />
-=======
     <Content Include="Views\Home\Servicos.cshtml" />
->>>>>>> b2034c19b34eb70f6b6d66270015cd12b538ebcc
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
