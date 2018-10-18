@@ -14,6 +14,12 @@ namespace HeyBus.Controllers
             return View();
         }
 
+        public ActionResult Servicos()
+        {
+            ViewBag.Message = "Your service description page.";
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,11 +33,6 @@ namespace HeyBus.Controllers
 
             return View();
         }
-        public ActionResult Contato()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }
