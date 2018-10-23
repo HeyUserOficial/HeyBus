@@ -197,6 +197,7 @@
     <Content Include="images\fortaleza.jpg" />
     <Content Include="images\historia.gif" />
     <Content Include="images\imagemHome.jpg" />
+    <Content Include="images\imgPrincipalServicos.jpg" />
     <Content Include="images\localizacao.gif" />
     <Content Include="images\portoAlegre.gif" />
     <Content Include="images\rio.jpg" />
@@ -279,7 +280,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties appsetings_1json__JSONSchema="http://json.schemastore.org/appsettings" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

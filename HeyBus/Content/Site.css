@@ -55,13 +55,13 @@
 }
 .text-fortaleza-slider {
     position: absolute;
-    top: 56vh;
-    left: 15%;
+    top: 10vh;
+    left: 5%;
 }
     .box-texto {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: rgba(3,13,13,0.39);
+    background-color: rgba(3,13,13,0.75);
     color: rgba(229,229,230, 0.9);
     border-radius: 0.3rem;
     width: 500px;
@@ -171,25 +171,129 @@
     cursor:pointer;
 }
 /*Fim config Home*/
-.sidenav-servicos {
+
+.conteudo-servicos {
+    width: 77%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 220px 500px;
+    
+}
+.sidenav-servicos{
+    grid-column-start:1;
+    grid-column-end:2;
+    grid-row-start:1;
+    grid-row-end:3;
+    background-color:#ccc
+}
+.texto-servicos {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    overflow: hidden scroll;
+}
+.img-servicos {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background: url('../images/imgPrincipalServicos.jpg') bottom;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.89;
+    background-size: cover;
+}
+/*.texto-servicos {
+    font-family: Roboto;
+    background-color: rgba(232, 232, 232, 0.40);
+    margin: 3%;
+    padding: 3%;
+}*/
+.img-princ-servicos {
+    background: url('../images/imgPrincipalServicos.gif');
+ 
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.975;
+    height: 280px;
+    background-size:cover;
+}
+.texto-servicos h1 {
+    font-size: 1em;
+    font-weight: 800;
+    padding: 0;
+    margin: 0;
+}
+.texto-servicos h2 {
+    font-size: .7em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-top: 60px;
+}
+.texto-servicos h3 {
+    font-size: .7em;
+    font-weight: 600;
+}
+.texto-servicos h4 {
+    font-size: .7em;
+    font-weight: 500;
+}
+.texto-servicos ul li {
+    font-size: .6em;
+    font-weight: 400;
+}
+.texto-servicos p {
+    font-size: .6em;
+    font-weight: 400;
+}
+
+/*.sidenav-servicos {
+    height: 100vh;
     width: 180px;
     position: fixed;
-    z-index: 1;
-    top: 100px;
-    left: 10px;
-    background: #eee;
+    z-index: 0;
+    top: 60px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.84);
     overflow-x: hidden;
     padding: 8px 0;
+    border-right: 1px solid #b0b0b0;
+    margin: 0 auto;
+
 }
+    .sidenav-servicos ul {
+        list-style: none;
+        padding-left: 0;
+        
+    }
+    .sidenav-servicos li ul {
+        list-style: none;
+        padding-left: 15px;
+        
+    }
     .sidenav-servicos a {
+        width: 180px;
         padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 25px;
-        color: #2196F3;
+        color: #818181;
         display: block;
+        font-size: 1em;        
     }
-.conteudo-servicos {
-    margin-left: 190px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+    .sidenav-servicos a:hover{
+        color:#b2b2b2;
+        text-decoration:none;
+        box-shadow:rgba(219, 219, 219, 0.30) 0px 3px 7px;
+    }
+
+*/
+.texto-servicos {
+    text-align: justify;
+    font-size: 28px;
+    /*    margin-top:80px;
+    margin-left: 190px;  Same width as the sidebar + left position in px 
+    font-size: 28px; Increased text to enable scrolling 
+    padding: 0px 10px;*/
 }
