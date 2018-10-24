@@ -14,25 +14,31 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult Servicos()
-        {
-            ViewBag.Message = "Your service description page.";
-            return View();
-        }
-
-        public ActionResult About()
+        public ActionResult Sobre()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Servicos()
+        {
+            ViewBag.Message = "Your service description page.";
+            return View();
+        }
+
+        public ActionResult Onibus()
+        {
+            ViewBag.Message = "Your bus service description page.";
+            return View();
+        }
+
+        public ActionResult Contato()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
-        
+
     }
 }
