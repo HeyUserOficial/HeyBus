@@ -22,8 +22,6 @@ begin
 end $$
 Delimiter ;
 
-
-
 Delimiter $$
 create procedure SP_Efetuar_Acesso
 (in login varchar(25), in senha varchar(25))
