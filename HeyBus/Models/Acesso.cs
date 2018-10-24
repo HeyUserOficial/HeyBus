@@ -17,21 +17,11 @@ namespace HeyBus.Models
         [MaxLength(25), Required]
         public static string senha_Acesso;
 
-        [MaxLength(25), Required]
-        private string login_Acesso;
-        public string login_Ac
-        {
-            get { return login_Acesso; }
-            set { login_Acesso = login_Ac; }
-        }
-
-        [MaxLength(25), Required] 
-        private string password_Acesso;
-        public string password_Ac
-        {
-            get { return password_Acesso; }
-            set { password_Acesso = password_Ac; }
-        }
+        [Display (Name = "Usuário"), MaxLength(25), Required]
+        public string login_Acesso { get; set; }
+        
+        [Display (Name = "Senha"), MaxLength(25), Required] 
+        public string password_Acesso { get; set; } 
 
         public static string nivel_Acesso;
     }

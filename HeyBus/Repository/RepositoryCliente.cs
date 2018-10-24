@@ -1,7 +1,6 @@
-﻿//using Dapper;
-using HeyBus.Connection;
+﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,19 +10,18 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryCliente
-    {/*
-
+    {
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-
-        public bool Insert_Cliente(Cliente cli)
+        public void Insert_Cliente(Cliente cli)
         {
             try
             {
                 conn.abrirConexao();
                 cmd = new MySqlCommand("SP_Cadastrar_Cliente", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
                 cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
                 cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente);
@@ -32,19 +30,19 @@ namespace HeyBus.Repository
                 cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
                 cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
                 cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
-                cmd.ExecuteNonQuery();
-                return true;
-                conn.fecharConexao();
+                cmd.ExecuteNonQuery();         
             }
             catch (Exception io)
             {
-                throw new Exception(io.Message);
+                throw;
+            }
+            finally
+            {
                 conn.fecharConexao();
-                return false;
             }
         }
 
-        public bool Update_Cliente(Cliente cli)
+        public void Update_Cliente(Cliente cli)
         {
             try
             {
@@ -60,14 +58,10 @@ namespace HeyBus.Repository
                 cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
                 cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
                 cmd.ExecuteNonQuery();
-                return true;
-                conn.fecharConexao();
             }
             catch (Exception ui)
             {
-                throw;
-                return false;
-                
+                throw;               
             }
             finally
             {
@@ -78,7 +72,7 @@ namespace HeyBus.Repository
         public IEnumerable<Cliente> Consultar_Cliente()
         {
             Cliente cli = new Cliente();
-            List<Cliente> clit = new List<Cliente>();
+            List<Cliente> cliList = new List<Cliente>();
             try
             {
                 conn.abrirConexao();
@@ -94,10 +88,10 @@ namespace HeyBus.Repository
                     cli.email_Cliente = dr["email_Cliente"].ToString();
                     cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
                     cli.senha_Cliente = dr["senha_Cliente"].ToString();
-                    clit.Add(cli);              
+                    cliList.Add(cli);              
                 }
                 dr.Close();
-                return clit;
+                return cliList;
             }
             catch (Exception po)
             {
@@ -108,5 +102,5 @@ namespace HeyBus.Repository
                 conn.fecharConexao();
             }
         }
-    */}
+    }
 }

@@ -9,52 +9,23 @@ namespace HeyBus.Models
     public class Funcionario
     {
         [Key]
-        private int id_Funcionario;
-        public int id_Func
-        {
-            get { return id_Funcionario; }
-            set { id_Funcionario = id_Func; }
-        }
+        public int id_Funcionario { get; set; }
 
-        [MaxLength(14), Required]
-        private string cpf_Funcionario;
-        public string cpf_Func
-        {
-            get { return cpf_Funcionario; }
-            set { cpf_Funcionario = cpf_Func; }
-        }
+        [Display(Name = "CPF"), MaxLength(14), Required]
+        public string cpf_Funcionario { get; set; }
 
-        [MaxLength(70), Required]
-        private string nome_Funcionario;
-        public string nome_Func
-        {
-            get { return nome_Funcionario; }
-            set { nome_Funcionario = nome_Func; } 
-        }
+        [Display(Name = "Nome"), MaxLength(70), Required]
+        public string nome_Funcionario { get; set; }
 
-        [MaxLength(60), Required]
-        private string email_Funcionario;
-        public string email_Func
-        {
-            get { return email_Funcionario; }
-            set { email_Funcionario = email_Func; }
-        }
-        
+        [Display(Name = "E-mail"), MaxLength(60), Required]
+        public string email_Funcionario { get; set; }
 
-        [MaxLength(100), Required]
-        private string endereco_Funcionario;
-        public string endereco_Func
-        {
-            get { return endereco_Funcionario; }
-            set { endereco_Funcionario = endereco_Func; }
-        }
+        [Display(Name = "Endereço"), MaxLength(100), Required]
+        public string endereco_Funcionario { get; set; }
 
+        [Display(Name = "Usuário"), MaxLength(25), Required]
+        public string usuario_Funcionario { get; set; }
 
-        private int id_Acesso;
-        public int id_Ac
-        {
-            get { return id_Acesso; }
-            set { id_Acesso = id_Ac; }
-        }
+        public int id_Acesso { get; set; }
     }
 }

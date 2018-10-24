@@ -86,6 +86,8 @@ primary key(id_FormPag)
 create table if not exists Passagem(
 id_Passagem int auto_increment not null,
 id_Cliente int,
+id_Rota int,
+id_Onibus int,
 id_Viagem int,
 id_FormPag int,
 cpf_Cliente char(14),
@@ -97,6 +99,12 @@ primary key(id_Passagem)
 alter table Passagem
 add foreign key(id_Cliente)
 references Cliente(id_Cliente);
+alter table Passagem
+add foreign key(id_Onibus)
+references Onibus(id_Onibus);
+alter table Passagem
+add foreign key(id_Rota)
+references Rota(id_Rota);
 alter table Passagem
 add foreign key(id_Viagem)
 references Viagem(id_Viagem);
