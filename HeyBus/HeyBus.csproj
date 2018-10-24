@@ -175,6 +175,7 @@
     <Compile Include="Repository\RepositoryAcesso.cs" />
     <Compile Include="Repository\RepositoryCliente.cs" />
     <Compile Include="Repository\RepositoryFuncionario.cs" />
+    <Compile Include="Repository\RepositoryOnibus.cs" />
     <Compile Include="Validations\BirthDayAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
