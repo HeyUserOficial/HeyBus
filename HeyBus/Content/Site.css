@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
+/*Inicio Slider*/
 .full-screen {
     background-size: cover;
     background-position: center;
@@ -35,23 +36,52 @@
     top: 10vh;
     left: 5%;
 }
-.marketing-rio {
+.preco-slider-home {
     position: absolute;
     top: 30vh;
-    right: 42vh;
-    border-radius: 15px 15px;
-    background-color: rgba(255,255,255,0.7);
-    width: 300px;
-    padding: 0px 0px 10px 10px;
-}
-.marketing-fortaleza {
-    position: absolute;
-    top: 20vh;
     right: 2vh;
-    border-radius: 15px 15px;
-    background-color: rgba(255,255,255,0.7);   
-    width: 300px;
-    padding: 0px 0px 10px 10px;
+    width: 400px;
+    height:139px;
+    background-color: rgba(0,0,0,.5);
+    display: grid;
+    grid-template-columns: 92px 80px 1fr;
+    grid-template-rows: 44px 1fr;
+    grid-template-areas: 'OriDest OriDest OriDest'
+                         'description cifrao valor'
+}
+.OriDest {
+    color:rgb(160, 74, 36);
+    grid-area:OriDest;
+    font-size:2rem;
+    margin:0 auto;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    width:94%;
+}
+.description {
+    font-weight: 300;
+    color: #ccc;
+    grid-area: description;
+    position:absolute;
+    bottom:0;
+    padding: 0px 1px 10px 17px;
+  
+}
+.cifrao {
+    font-weight: 700;
+    color: #fff;
+    grid-area: cifrao;
+    position:absolute;
+    bottom: 0;
+    padding: 0px 7px 10px 12px;
+    font-size:1.7rem;
+}
+.valor {
+    font-weight: 900;
+    font-size:3rem;
+    padding-top:1px;
+    color: #fff;
+    grid-area: valor;
 }
 .text-fortaleza-slider {
     position: absolute;
@@ -83,7 +113,9 @@
 .btn-show-txtSlider:hover {
    background-color: rgba(255,255,255,0.7);
 }
-   
+/*Fim Slider*/   
+
+/*Formulário compra de passagem - Home*/
 #box-comprar-passagem {
     background-color: #FFF;
     color: #4a4a4a;
@@ -130,8 +162,8 @@
 .text-link:hover{
     text-decoration:underline;
 }
-#boasVindas {
-}
+
+/*Texto Boas Vindas*/
 #boasVindas ul {
     text-align:left;
     list-style:none;
@@ -153,6 +185,8 @@
 #boasVindas {
     color: rgba(0,0,0,0.78);
 }
+
+/*Top Viagens / Destinos mais procurados*/
 #topViagens h1{
     font-weight:600;
 }
@@ -172,6 +206,17 @@
 }
 /*Fim config Home*/
 
+/*Inicio configuração Sobre*/
+#Sobre{
+    background-color:#fff;
+    margin:0 auto;
+    width:90%;
+}
+
+/*Fim configuração Sobre*/
+
+
+/*Inicio configuração Serviços*/
 .conteudo-servicos {
     width: 77%;
     margin: 0 auto;
@@ -227,20 +272,6 @@
     opacity: 0.89;
     background-size: cover;
 }
-/*.texto-servicos {
-    font-family: Roboto;
-    background-color: rgba(232, 232, 232, 0.40);
-    margin: 3%;
-    padding: 3%;
-}*/
-.img-princ-servicos {
-    background: url('../images/imgPrincipalServicos.gif');
-    z-index: 1;
-    overflow: hidden;
-    opacity: 0.975;
-    height: 280px;
-    background-size:cover;
-}
 .texto-servicos h1 {
     font-size: 1em;
     font-weight: 800;
@@ -268,52 +299,10 @@
     font-size: .6em;
     font-weight: 400;
 }
-
-/*.sidenav-servicos {
-    height: 100vh;
-    width: 180px;
-    position: fixed;
-    z-index: 0;
-    top: 60px;
-    left: 0px;
-    background: rgba(0, 0, 0, 0.84);
-    overflow-x: hidden;
-    padding: 8px 0;
-    border-right: 1px solid #b0b0b0;
-    margin: 0 auto;
-
-}
-    .sidenav-servicos ul {
-        list-style: none;
-        padding-left: 0;
-        
-    }
-    .sidenav-servicos li ul {
-        list-style: none;
-        padding-left: 15px;
-        
-    }
-    .sidenav-servicos a {
-        width: 180px;
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        font-size: 1em;        
-    }
-    .sidenav-servicos a:hover{
-        color:#b2b2b2;
-        text-decoration:none;
-        box-shadow:rgba(219, 219, 219, 0.30) 0px 3px 7px;
-    }
-
-*/
 .texto-servicos {
     text-align: justify;
     font-size: 28px;
-    /*    margin-top:80px;
-    margin-left: 190px;  Same width as the sidebar + left position in px 
-    font-size: 28px; Increased text to enable scrolling 
-    padding: 0px 10px;*/
 }
+
+/*Fim config serviços*/
+
