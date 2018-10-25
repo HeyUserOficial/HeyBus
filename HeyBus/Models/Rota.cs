@@ -9,42 +9,19 @@ namespace HeyBus.Models
     public class Rota
     {
         [Key]
-        private int id_Rota; 
-        public int id_Rot
-        {
-            get { return id_Rota; }
-            set { id_Rota = id_Rot; }
-        }
+        public int id_Rota { get; set; }
 
-        [MaxLength(60), Required]
-        private string origem_Rota;
-        public string origem_Rot
-        {
-            get { return origem_Rota; }
-            set { origem_Rota = origem_Rot; }
-        }
+        [Display (Name = "Origem"), MaxLength(60), Required]
+        public string origem_Rota { get; set; }
 
-        [MaxLength(60), Required]
-        private string destino_Rota;
-        public string destino_Rot
-        {
-            get { return destino_Rota; }
-            set { destino_Rota = destino_Rot; }
-        }
 
-        private DateTime intinerario_Rota;
-        public DateTime intinerario_Rot
-        {
-            get { return intinerario_Rota; }
-            set { intinerario_Rota = intinerario_Rot; }
-        }
+        [Display (Name = "Destino"), MaxLength(60), Required]
+        public string destino_Rota { get; set; }
 
-        [MaxLength(10), Required]
-        private string distancia_Rota;
-        public string distancia_Rot
-        {
-            get { return distancia_Rota; }
-            set { distancia_Rota = distancia_Rot; }
-        }
+        [Display (Name = "Itinerário")]
+        public DateTime itinerario_Rota { get; set; }
+
+        [Display (Name = "Distância"), MaxLength(10), Required]
+        public string distancia_Rota { get; set; }
     }
 }

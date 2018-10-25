@@ -9,49 +9,25 @@ namespace HeyBus.Models
     public class Viagem
     {
         [Key]
-        private int id_Viagem;
-        public int id_Viag
-        {
-            get { return id_Viagem; }
-            set { id_Viagem = id_Viag; }
-        }
+        public int id_Viagem { get; set; }
 
-        [MaxLength(60), Required]
-        private string origem_Viagem;
-        public string origem_Viag
-        {
-            get { return origem_Viagem; }
-            set { origem_Viagem = origem_Viag; }
-        }
+        [Display (Name = "Origem"), MaxLength(60), Required]
+        public string origem_Viagem { get; set; }
 
-        [MaxLength(60), Required]
+        [Display (Name = "Destino"), MaxLength(60), Required]
         private string destino_Viagem;
-        public string destino_Viag
-        {
-            get { return destino_Viagem; }
-            set { destino_Viag = destino_Viagem; }
-        }
 
-        [MaxLength(30), Required]
-        private string viacao_Viagem;
-        public string viacao_Viag
-        {
-            get { return viacao_Viagem; }
-            set { viacao_Viag = viacao_Viagem; }
-        }
+        [Display (Name = "Viãção"), MaxLength(30), Required]
+        public string viacao_Viagem  {get; set; }
 
-        private DateTime data_Viagem;
-        public DateTime data_Viag
-        {
-            get { return data_Viagem; }
-            set { data_Viagem = data_Viag; }
-        }
+        [Display (Name = "Data da viagem")]
+        public DateTime data_Viagem { get; set; }
 
-        private double valor_Viagem;
-        public double valor_Viag
-        {
-            get { return valor_Viagem; }
-            set { valor_Viagem = valor_Viag; }
-        }
+        [Display (Name = "Valor")]
+        public double valor_Viagem { get; set; }
+
+        public int id_Rota { get; set; }
+
+        public int id_Onibus { get; set; }
     }
 }

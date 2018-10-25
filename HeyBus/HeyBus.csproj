@@ -176,6 +176,8 @@
     <Compile Include="Repository\RepositoryCliente.cs" />
     <Compile Include="Repository\RepositoryFuncionario.cs" />
     <Compile Include="Repository\RepositoryOnibus.cs" />
+    <Compile Include="Repository\RepositoryRota.cs" />
+    <Compile Include="Repository\RepositoryViagem.cs" />
     <Compile Include="Validations\BirthDayAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
