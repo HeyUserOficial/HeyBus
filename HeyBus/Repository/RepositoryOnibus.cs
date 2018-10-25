@@ -66,7 +66,22 @@ namespace HeyBus.Repository
 
         public void Update_Onibus(Onibus oni)
         {
-
+            try
+            {
+                conn.abrirConexao();
+                cmd = new MySqlCommand("SP_Alterar_Onibus", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@manutencao", oni.manutencao_Onibus);
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception kl)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.fecharConexao();
+            }
         }
     }
 }
