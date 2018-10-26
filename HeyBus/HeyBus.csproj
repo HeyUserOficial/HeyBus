@@ -176,6 +176,7 @@
     <Compile Include="Repository\RepositoryCliente.cs" />
     <Compile Include="Repository\RepositoryFuncionario.cs" />
     <Compile Include="Repository\RepositoryOnibus.cs" />
+    <Compile Include="Repository\RepositoryPassagem.cs" />
     <Compile Include="Repository\RepositoryRota.cs" />
     <Compile Include="Repository\RepositoryViagem.cs" />
     <Compile Include="Validations\BirthDayAttribute.cs" />
@@ -237,7 +238,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Atualizar.cshtml" />
     <Content Include="Views\Home\Servicos.cshtml" />

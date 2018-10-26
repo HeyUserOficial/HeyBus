@@ -19,26 +19,24 @@ namespace HeyBus.Repository
         {
             try
             {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("SP_Cadastrar_Cliente", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
-                cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
-                cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente);
-                cmd.Parameters.AddWithValue("@tel", cli.tel_Cliente);
-                cmd.Parameters.AddWithValue("@cel", cli.cel_Cliente);
-                cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
-                cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
-                cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
-                cmd.ExecuteNonQuery();         
+                using (cmd = new MySqlCommand("SP_Cadastrar_Cliente", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
+                    cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
+                    cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente);
+                    cmd.Parameters.AddWithValue("@tel", cli.tel_Cliente);
+                    cmd.Parameters.AddWithValue("@cel", cli.cel_Cliente);
+                    cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
+                    cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
+                    cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception io)
             {
                 throw;
-            }
-            finally
-            {
-                conn.fecharConexao();
             }
         }
 
@@ -46,26 +44,24 @@ namespace HeyBus.Repository
         {
             try
             {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("SP_Atualizar_Cliente", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
-                cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
-                cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente.Date);
-                cmd.Parameters.AddWithValue("@tel", cli.tel_Cliente);
-                cmd.Parameters.AddWithValue("@cel", cli.cel_Cliente);
-                cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
-                cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
-                cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
-                cmd.ExecuteNonQuery();
+                using (cmd = new MySqlCommand("SP_Atualizar_Cliente", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
+                    cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
+                    cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente.Date);
+                    cmd.Parameters.AddWithValue("@tel", cli.tel_Cliente);
+                    cmd.Parameters.AddWithValue("@cel", cli.cel_Cliente);
+                    cmd.Parameters.AddWithValue("@email", cli.email_Cliente);
+                    cmd.Parameters.AddWithValue("@usuario", cli.usuario_Cliente);
+                    cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception ui)
-            {
+            {  
                 throw;               
-            }
-            finally
-            {
-                conn.fecharConexao();
             }
         }
 
@@ -75,31 +71,29 @@ namespace HeyBus.Repository
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("Select * from Cliente", Conexao.conexao);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (cmd = new MySqlCommand("Select * from Consultar_Clientes", Conexao.conexao))
                 {
-                    cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
-                    cli.nome_Cliente = dr["nome_Cliente"].ToString();
-                    cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());
-                    cli.tel_Cliente = dr["tel_Cliente"].ToString();
-                    cli.cel_Cliente = dr["cel_Cliente"].ToString();
-                    cli.email_Cliente = dr["email_Cliente"].ToString();
-                    cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
-                    cli.senha_Cliente = dr["senha_Cliente"].ToString();
-                    cliList.Add(cli);              
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
+                        cli.nome_Cliente = dr["nome_Cliente"].ToString();
+                        cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());
+                        cli.tel_Cliente = dr["tel_Cliente"].ToString();
+                        cli.cel_Cliente = dr["cel_Cliente"].ToString();
+                        cli.email_Cliente = dr["email_Cliente"].ToString();
+                        cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
+                        cli.senha_Cliente = dr["senha_Cliente"].ToString();
+                        cliList.Add(cli);
+                    }
+                    dr.Close();
+                    return cliList;
                 }
-                dr.Close();
-                return cliList;
             }
             catch (Exception po)
             {
                 throw;
-            }
-            finally
-            {
-                conn.fecharConexao();
             }
         }
     }

@@ -15,45 +15,22 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-        public void Insert_Acesso(Acesso ac)
-        {
-            try
-            {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("SP_Cadastrar_Acesso", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@login", ac.login_Acesso);
-                cmd.Parameters.AddWithValue("@senha", ac.password_Acesso);
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception kj)
-            {
-                throw;
-            }
-            finally
-            {
-                conn.fecharConexao();
-            }
-        }
-
         public void Update_Acesso(Acesso ac)
         {
             try
             {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("SP_Alterar_Acesso", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@login", ac.login_Acesso);
-                cmd.Parameters.AddWithValue("@senha", ac.password_Acesso);
-                cmd.ExecuteNonQuery();
+                using (cmd = new MySqlCommand("SP_Alterar_Acesso", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@login", ac.login_Acesso);
+                    cmd.Parameters.AddWithValue("@senha", ac.password_Acesso);
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch(Exception kk)
             {
                 throw;
-            }
-            finally
-            {
-                conn.fecharConexao();
             }
         }
     }

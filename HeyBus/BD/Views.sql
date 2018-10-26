@@ -1,33 +1,36 @@
-/*use HeyBus;
+use HeyBus;
 Create View Consultar_Funcionarios as
 select cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, 
-Acesso.login_Acesso from Funcionario inner join Acesso
-on Funcionario.id_Acesso = Acesso.id_Acesso;
-*/
+	   Acesso.login_Acesso 
+       from Funcionario
+       inner join Acesso
+       on 
+       Funcionario.id_Acesso = Acesso.id_Acesso;
 
-/*Create View Consultar_Clientes as
+Create View Consultar_Clientes as
 select * from Cliente;
-*/
 
-/*Create View Consultar_Rotas as 
+Create View Consultar_Rotas as 
 select * from Rota;
-*/
 
-/*Create View Consultar_Onibus
-select * from Onibus;*/
+Create View Consultar_Onibus as
+select * from Onibus;
 
-/*Create View Consultar_Viagens as
-Select destino_Rota.Rota, viacao_Onibus.Onibus, categoria_Onibus.Onibus, data_Viagem, valor_Viagem,
-     itinerario_Rota.Rota, distancia_Rota.Rota, id_Bancos.Onibus
+Create View Consultar_Viagens as
+Select Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Viagem, valor_Viagem, 
+     Rota.itinerario_Rota, Rota.distancia_Rota, Onibus.id_Bancos
      from Viagem 
-     inner join Rota
-     on Viagem.id_Rota = Rota.id_Rota 
-     inner join Onibus 
-     on Viagem.id_Onibus = Onibus.id_Onibus;
-*/
-
-/*Create View Consultar_Passagens as
-	 select nome_Cliente.Cliente, origem_Rota.Rota, viacao_Onibus.Onibus, destino_Rota.Rota, data_Viagem.Viagem, nome_FormPag.FormaPagamento, cpf_Cliente, desconto_Passagem,
+     inner join Rota 
+     on 
+     Viagem.id_Rota = Rota.id_Rota
+     inner join 
+     Onibus
+     on
+     Viagem.id_Onibus = Onibus.id_Onibus;
+     
+Create View Consultar_Passagens as
+	 select Cliente.nome_Cliente, Rota.origem_Rota, Onibus.viacao_Onibus, Rota.destino_Rota,
+     Viagem.data_Viagem, FormaPagamento.nome_FormPag, Passagem.cpf_Cliente, desconto_Passagem,
      valor_Passagem, data_Compra
      from Passagem 
      inner join Cliente
@@ -45,5 +48,4 @@ Select destino_Rota.Rota, viacao_Onibus.Onibus, categoria_Onibus.Onibus, data_Vi
      inner join FormaPagamento
      on
      Passagem.id_FormPag = FormaPagamento.id_FormPag;
-	*/
-
+	

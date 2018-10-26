@@ -13,6 +13,23 @@ namespace HeyBus.Controllers
     {
         RepositoryFuncionario repFunc = new RepositoryFuncionario();
         
+        public ActionResult CadastrarFunc()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("Cadastrar")]
+        public ActionResult Cadastrar(Funcionario func)
+        {
+            if (ModelState.IsValid)
+            {
+                repFunc.Insert_Func(func);
+                return RedirectToAction("Index");
+            }0
+            return View();
+        }
+
         public ActionResult ListFunc()
         {
             List<Funcionario> func = repFunc.Consultar_Func().ToList();

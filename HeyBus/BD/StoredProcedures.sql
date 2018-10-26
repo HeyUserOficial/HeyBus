@@ -1,15 +1,5 @@
-/*Use HeyBus;
-
+Use HeyBus;
 /*<----------------Acesso-------------->*/
-Delimiter $$ 
-create Procedure SP_Cadastrar_Acesso
-(in login varchar(25), in senha varchar(25), in nivel char(15))
-begin
-	insert into Acesso (login_Acesso, senha_Acesso, nivel_Acesso) 
-    values(login, senha, nivel);
-end $$
-Delimiter ;
-
 Delimiter $$
 create Procedure SP_Alterar_Acesso
 (in id int, in login varchar(25), in senha varchar(25))
@@ -91,10 +81,16 @@ Delimiter ;
 /*<----------------Funcionário-------------->*/
 Delimiter $$ 
 create procedure SP_Cadastrar_Func
-(in cpf char(14), in nome varchar(70), in email varchar(60), in endereco varchar(100), in acesso int)
-begin 
+(in cpf char(14), in nome varchar(70), in email varchar(60), in endereco varchar(100), in login varchar(25), in senha varchar(25),
+ in nivel char(15))
+begin
+start transaction;
+   insert into Acesso (login_Acesso, senha_Acesso, nivel_Acesso) 
+    values(login, senha, nivel);
+    
 	insert into Funcionario(cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, id_Acesso)
-	values(cpf, nome, email, endereco, acesso);
+	values(cpf, nome, email, endereco, last_insert_id());
+commit;
 end $$
 Delimiter ;
 
@@ -266,3 +262,4 @@ begin
      where id_Passagem = id;
 end $$
 Delimiter ;
+

@@ -9,61 +9,31 @@ namespace HeyBus.Models
     public class Passagem
     {
         [Key]
-        private int id_Passagem;
-        public int id_Passag
-        {
-            get { return id_Passagem; }
-            set { id_Passagem = id_Passag; }
-        }
+        public int id_Passagem { get; set; }
 
-        [MaxLength(14), Required]
-        private string cpf_Cliente;
-        public string cpf_Cli
-        {
-            get { return cpf_Cliente; }
-            set { cpf_Cliente = cpf_Cli; }
-        }
+        [Display (Name = "CPF"), MaxLength(14)]
+        public string cpf_Cliente { get; set; }
 
-        private string origem_Rota;
-        public string origem_Rot
-        {
-            get { return origem_Rota; }
-            set { origem_Rota = origem_Rot; }
-        }
+        [Display(Name = "Origem"), MaxLength(60)]
+        public string origem_Passagem { get; set; }
 
-        private string destino_Rota;
-        public string destino_Rot
-        {
-            get { return destino_Rota; }
-            set { destino_Rota = destino_Rot; }
-        }
+        [Display(Name = "Destino"), MaxLength(60)]
+        public string destino_Passagem { get; set; }
 
-        private string viacao_Viagem;
-        public string viacao_Viag
-        {
-            get { return viacao_Viagem; }
-            set { viacao_Viagem = viacao_Viag; }
-        }
+        [Display(Name = "Viação"), MaxLength(30)]
+        public string viacao_Onibus { get; set; }
 
-        private double desconto_Passagem;
-        public double desconto_Passag
-        {
-            get { return desconto_Passagem; }
-            set { desconto_Passagem = desconto_Passag; }
-        }
+        [Display (Name = "Desconto")]
+        public double desconto_Passagem { get; set; }
 
-        private double valor_Passagem;
-        public double valor_Passag
-        {
-            get { return valor_Passagem; }
-            set { valor_Passag = valor_Passag; }
-        }
+        [Display(Name = "Valor")]
+        public double valor_Passagem;
 
-        private string forma_Pagamaneto;
-        public string from_Pag
-        {
-            get { return forma_Pagamaneto; }
-            set { forma_Pagamaneto = from_Pag; }
-        }
+        [Display(Name = "Desconto"), MaxLength(15)]
+        public string forma_Pagamaneto { get; set; }
+
+        [Display (Name = "Data de compra")]
+        public DateTime data_Compra { get; set; }
+        public int id_Cliente { get; set; }
     }
 }

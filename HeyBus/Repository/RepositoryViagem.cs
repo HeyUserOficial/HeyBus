@@ -19,21 +19,19 @@ namespace HeyBus.Repository
         {
             try
             {
-                conn.abrirConexao();
-                cmd = new MySqlCommand("SP_Cadastrar_Viagem", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@rota", viag.id_Rota);
-                cmd.Parameters.AddWithValue("@onibus", viag.id_Onibus);
-                cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem.Date);
-                cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
-                cmd.ExecuteNonQuery();
+                using (cmd = new MySqlCommand("SP_Cadastrar_Viagem", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@rota", viag.id_Rota);
+                    cmd.Parameters.AddWithValue("@onibus", viag.id_Onibus);
+                    cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem.Date);
+                    cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
+                    cmd.ExecuteNonQuery();
+                }
             }catch(Exception yo)
             {
                 throw;
-            }
-            finally
-            {
-                conn.fecharConexao();
             }
         }
     }

@@ -1,4 +1,4 @@
-/*drop database if exists HeyBus;
+drop database if exists HeyBus;
 create database if not exists HeyBus;
 use HeyBus;
 create table if not exists Acesso(

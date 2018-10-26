@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HeyBus.Models
 {
-    public class Funcionario
+    public class Funcionario : Acesso
     {
         [Key]
         public int id_Funcionario { get; set; }
@@ -26,6 +26,6 @@ namespace HeyBus.Models
         [Display(Name = "Usuário"), MaxLength(25), Required]
         public string usuario_Funcionario { get; set; }
 
-        public int id_Acesso { get; set; }
+
     }
 }
