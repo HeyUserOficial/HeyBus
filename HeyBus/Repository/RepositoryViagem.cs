@@ -31,7 +31,7 @@ namespace HeyBus.Repository
                 }
             }catch(Exception yo)
             {
-                throw;
+               throw;
             }
         }
     }
