@@ -211,13 +211,82 @@
     background-color:#fff;
     margin:0 auto;
     width:90%;
+    text-align:justify;
 }
 
 /*Fim configuração Sobre*/
 
 
 /*Inicio configuração Serviços*/
-.conteudo-servicos {
+.box-servicos {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 64px 220px 1fr;
+}
+#navegacaoServicos {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.sidenav-servicos {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-image: radial-gradient(circle, rgba(243, 179, 124, 0.80), rgba(148, 79, 13, 0.75));
+    width:100%;
+    height:100vh;
+}
+    .sidenav-servicos a {
+        color: rgba(229,229,230, 0.9);
+        padding: 10px 10px;
+        border-bottom: white solid;
+        font-weight: 500;
+        padding: 15px 30px;
+        color: #fff;
+    }
+        .sidenav-servicos a:hover {
+            background-color: rgba(255,141,0,.5);
+        }
+.img-servicos {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background: url('../images/imgPrincipalServicos.jpg') bottom;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.89;
+    background-size: cover;
+    width: 50%;
+    margin:0 auto;
+    
+}
+.texto-servicos {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    overflow: hidden scroll;
+    padding: 30px 30px;
+    width:70%;
+    margin:0 auto;
+}
+    .texto-servicos::-webkit-scrollbar-track {
+        background-color: rgba(255, 136, 21, 0.29)
+    }
+
+    .texto-servicos::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .texto-servicos::-webkit-scrollbar-thumb {
+        background: rgb(255, 117, 0);
+    }
+/*.conteudo-servicos {
     width: 77%;
     margin: 0 auto;
     display: grid;
@@ -271,7 +340,7 @@
     overflow: hidden;
     opacity: 0.89;
     background-size: cover;
-}
+}*/
 .texto-servicos h1 {
     font-size: 1em;
     font-weight: 800;
