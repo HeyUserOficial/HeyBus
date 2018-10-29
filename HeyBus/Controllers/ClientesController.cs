@@ -67,7 +67,6 @@ namespace HeyBus.Controllers
 
                 return RedirectToAction("Index");
             }
-
             return View();
         }
     }
