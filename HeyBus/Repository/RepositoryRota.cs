@@ -74,7 +74,35 @@ namespace HeyBus.Repository
                         rot.distancia_Rota = dr["distancia_Rota"].ToString();
                     }
                 }
-            }catch(Exception io)
+            }
+            catch (Exception io)
+            {
+                throw;
+            }
+        }
+
+        public IEnumerable<Rota> Consultar_Rotas()
+        {
+            Rota rot = new Rota();
+            List<Rota> rotaList = new List<Rota>();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Consultar_Rotas", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rot.origem_Rota = dr["origem_Rota"].ToString();
+                        rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rot.itinerario_Rota = Convert.ToDateTime(dr["itinerario_Rota"].ToString());
+                        rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        rotaList.Add(rot);
+                    }
+                    dr.Close();
+                    return rotaList;
+                }
+            }catch(Exception jh)
             {
                 throw;
             }

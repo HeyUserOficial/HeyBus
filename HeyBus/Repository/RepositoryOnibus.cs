@@ -78,5 +78,32 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+
+        public IEnumerable<Onibus> Consulta_Onibus()
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Consultar_Onibus", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);               
+                    }
+                    dr.Close();
+                    return oniList;
+                }               
+            }catch(Exception kj)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -13,16 +13,7 @@ namespace HeyBus.Models
 
         [Display (Name = "CPF"), MaxLength(14)]
         public string cpf_Cliente { get; set; }
-
-        [Display(Name = "Origem"), MaxLength(60)]
-        public string origem_Passagem { get; set; }
-
-        [Display(Name = "Destino"), MaxLength(60)]
-        public string destino_Passagem { get; set; }
-
-        [Display(Name = "Viação"), MaxLength(30)]
-        public string viacao_Onibus { get; set; }
-
+        
         [Display (Name = "Desconto")]
         public double desconto_Passagem { get; set; }
 
@@ -34,6 +25,14 @@ namespace HeyBus.Models
 
         [Display (Name = "Data de compra")]
         public DateTime data_Compra { get; set; }
-        public int id_Cliente { get; set; }
+
+        public Rota rot { get; set; }
+
+        public Viagem viag { get; set; } 
+
+        public Cliente cli { get; set; }
+
+        public Onibus bus { get; set; }
+
     }
 }
