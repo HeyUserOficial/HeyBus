@@ -40,7 +40,7 @@ begin
 		  usuario_Cliente = usuario 
           and 
           senha_Cliente = senha;
-end 
+end $$
 Delimiter ;
 
 Delimiter $$ 
@@ -150,6 +150,8 @@ begin
 end $$
 Delimiter ;
 
+call SP_Cadastrar_Cliente ("000.000.000-00", "Yuri Miranda de Lima", "2000-06-06", "(11)3784-7823", "(11)97525-7035",
+						   "yurimlima11@gmail.com", "yurimlima11", "ymlima220003");
 /*<----------------Ônibus-------------->*/
 Delimiter $$
 create procedure SP_Cadastrar_Onibus

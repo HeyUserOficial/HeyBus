@@ -1,11 +1,5 @@
 ﻿@model IEnumerable<HeyBus.Models.Cliente>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -65,7 +59,7 @@
             @Html.DisplayFor(modelItem => item.senha_Cliente)
         </td>
         <td>
-            @Html.ActionLink("Atualizar", "Atualizar", new { id=item.id_Cliente }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Cliente }) |
             @Html.ActionLink("Details", "Details", new { id=item.id_Cliente }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id_Cliente })
         </td>

@@ -36,7 +36,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public void Consultar_Onibus(Onibus oni)
+        public Onibus Consultar_OnibusID(Onibus oni)
         {
             try
             {
@@ -54,6 +54,7 @@ namespace HeyBus.Repository
                         oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
                     }
                 }
+                return oni;
             }
             catch (Exception mk)
             {
@@ -79,7 +80,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public IEnumerable<Onibus> Consulta_Onibus()
+        public IEnumerable<Onibus> Consultar_Onibus()
         {
             Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();

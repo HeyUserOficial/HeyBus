@@ -13,7 +13,7 @@ primary key (id_Acesso)
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
 nome_Cliente varchar(70),
-nascimento_Cliente datetime,
+nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),

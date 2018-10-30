@@ -10,22 +10,21 @@ using System.Web.Mvc;
 
 namespace HeyBus.Controllers
 {
-    [Route ("Clientes")]
+    [Route("Clientes")]
     public class ClientesController : Controller
     {
         RepositoryCliente repCli = new RepositoryCliente();
 
         //GET
+        // GET: Clientes
         public ActionResult Index()
         {
-            RepositoryCliente repCli = new RepositoryCliente();
             List<Cliente> cli = repCli.Consultar_Cliente().ToList();
             return View(cli);
         }
 
         public ActionResult ClienteLista()
         {
-            RepositoryCliente repCli = new RepositoryCliente();
             List<Cliente> cli = repCli.Consultar_Cliente().ToList();
             return View(cli);
         }
@@ -42,7 +41,6 @@ namespace HeyBus.Controllers
         {
             if (ModelState.IsValid)
             {
-                RepositoryCliente repCli = new RepositoryCliente();
                 repCli.Insert_Cliente(cli);
 
                 return RedirectToAction("Index");
@@ -51,18 +49,17 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult Atualizar()
+        public ActionResult Atualizar(int id)
         {
-            return View();
+            return View(repCli.ConsultarPorId(id));
         }
 
         [HttpPost]
         [ActionName("Atualizar")]
-        public ActionResult Atualizar(Cliente cli)
+        public ActionResult AtualizarCli(Cliente cli)
         {
             if (ModelState.IsValid)
             {
-                RepositoryCliente repCli = new RepositoryCliente();
                 repCli.Update_Cliente(cli);
 
                 return RedirectToAction("Index");
@@ -70,4 +67,4 @@ namespace HeyBus.Controllers
             return View();
         }
     }
-}
+}    
