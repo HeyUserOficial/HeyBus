@@ -1,5 +1,4 @@
-﻿//using Dapper;
-using HeyBus.Connection;
+﻿using HeyBus.Connection;
 using HeyBus.Models;
 using MySql.Data.MySqlClient;
 using System;

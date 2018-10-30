@@ -17,7 +17,7 @@ namespace HeyBus.Controllers
 
         //GET
         // GET: Clientes
-        public ActionResult Index()
+        public ActionResult Consultar()
         {
             List<Cliente> cli = repCli.Consultar_Cliente().ToList();
             return View(cli);

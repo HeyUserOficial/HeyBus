@@ -23,7 +23,7 @@ Delimiter ;
 /*<----------------Cliente-------------->*/
 Delimiter $$ 
 create Procedure SP_Cadastrar_Cliente
-(in cpf char(14),in nome varchar(70),in nascimento date,in tel char(20),in cel char(20),in email varchar(60),
+(in cpf char(14),in nome varchar(70),in nascimento varchar(20),in tel char(20),in cel char(20),in email varchar(60),
  in usuario varchar(25), in senha varchar(25))
 begin 
 	insert into Cliente (cpf_Cliente, nome_Cliente, nascimento_Cliente, tel_Cliente, cel_Cliente,
@@ -31,6 +31,8 @@ begin
 end $$
 Delimiter ;
 
+call SP_Cadastrar_Cliente ("000.000.000-00", "Yuri Miranda de Lima", "2000-06-06", "(11)3784-7823", "(11)97525-7035",
+						   "yurimlima11@gmail.com", "yurimlima11", "ymlima220003");
 Delimiter $$ 
 create procedure SP_Login_Cliente
 (in usuario varchar(25), in senha varchar(25))
@@ -45,7 +47,7 @@ Delimiter ;
 
 Delimiter $$ 
 create Procedure SP_Atualizar_Cliente
-(in id int, in cpf char(14), in nome varchar(70), in nascimento datetime, in tel char(20), in cel char(20), in email varchar(60),
+(in id int, in cpf char(14), in nome varchar(70), in nascimento varchar(20), in tel char(20), in cel char(20), in email varchar(60),
 in usuario varchar(25), senha varchar(25))
 begin 
 	update Cliente set 
@@ -150,8 +152,6 @@ begin
 end $$
 Delimiter ;
 
-call SP_Cadastrar_Cliente ("000.000.000-00", "Yuri Miranda de Lima", "2000-06-06", "(11)3784-7823", "(11)97525-7035",
-						   "yurimlima11@gmail.com", "yurimlima11", "ymlima220003");
 /*<----------------Ônibus-------------->*/
 Delimiter $$
 create procedure SP_Cadastrar_Onibus

@@ -43,14 +43,14 @@ namespace HeyBus.Controllers
             return View();
         }
         
-        public ActionResult ConsultaId(Onibus bus)
+        public ActionResult Atualizar(int id)
         {
-            return View(repBus.Consultar_OnibusID(bus));
+            return View(repBus.Consultar_OnibusID(id));
         }
 
         [HttpPost]
         [ActionName ("Atualizar")]
-        public ActionResult Atualizar(Onibus bus)
+        public ActionResult AtualizarOni(Onibus bus)
         {
             if (ModelState.IsValid)
             {

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HeyBus.Models.Rota>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.origem_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destino_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itinerario_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distancia_Rota)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.origem_Rota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destino_Rota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itinerario_Rota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.distancia_Rota)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Rota }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Rota }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Rota })
+        </td>
+    </tr>
+}
+
+</table>
