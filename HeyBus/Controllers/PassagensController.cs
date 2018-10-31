@@ -12,6 +12,7 @@ namespace HeyBus.Controllers
     {
         RepositoryPassagem repPass = new RepositoryPassagem();
         // GET: Passagens
+
         public ActionResult Consultar()
         {
             List<Passagem> pass = repPass.Consultar_Passagens().ToList();
