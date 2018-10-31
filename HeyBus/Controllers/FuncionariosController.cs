@@ -10,7 +10,7 @@ namespace HeyBus.Controllers
 {
     [Route("Funcionarios")]
     public class FuncionariosController : Controller
-    {
+    {/*
         RepositoryFuncionario repFunc = new RepositoryFuncionario();
         
         public ActionResult CadastrarFunc()
@@ -26,7 +26,7 @@ namespace HeyBus.Controllers
             {
                 repFunc.Insert_Func(func);
                 return RedirectToAction("Index");
-            }0
+            }
             return View();
         }
 
@@ -41,5 +41,5 @@ namespace HeyBus.Controllers
             List<Funcionario> func = repFunc.Consultar_Func().ToList();
             return View(func);
         }
-    }
+    */}
 }
