@@ -13,7 +13,7 @@ namespace HeyBus.Controllers
     {
         RepositoryFuncionario repFunc = new RepositoryFuncionario();
         
-        public ActionResult CadastrarFunc()
+        public ActionResult Cadastrar()
         {
             return View();
         }
@@ -30,7 +30,7 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult ListFunc()
+        public ActionResult Consultar()
         {
             List<Funcionario> func = repFunc.Consultar_Func().ToList();
             return View(func);

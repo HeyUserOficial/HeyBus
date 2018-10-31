@@ -123,10 +123,10 @@ Delimiter ;
 /*<----------------Rota-------------->*/
 Delimiter $$ 
 create procedure SP_Cadastrar_Rota
-(in origem varchar(60), in destino varchar(60), in itinerario time, in distancia char(10))
+(in origem varchar(60), in destino varchar(60), in distancia char(10))
 begin
-	insert into Rota(origem_Rota, destino_Rota, itinerario_Rota, distancia_Rota)
-    values(origem, destino, itinerario, distancia);
+	insert into Rota(origem_Rota, destino_Rota, distancia_Rota)
+    values(origem, destino, distancia);
 end $$
 Delimiter ;
 
@@ -140,12 +140,11 @@ Delimiter ;
 
 Delimiter $$
 create procedure SP_Alterar_Rota
-(in id int, in origem varchar(60), in destino varchar(60), in itinerario time, in distancia char(10))
+(in id int, in origem varchar(60), in destino varchar(60), in distancia char(10))
 begin
 	 update Rota set 
 					origem_Rota = origem,
                     destino_Rota = destino, 
-                    itinerario_Rota = itinerario, 
                     distancia_Rota = distancia
 	 where
 					id_Rota = id;
@@ -198,7 +197,7 @@ create procedure SP_Consultar_Viagem
 (in id int)
 begin 
 	 Select destino_Rota.Rota, viacao_Onibus.Onibus, categoria_Onibus.Onibus, data_Viagem, valor_Viagem,
-     itinerario_Rota.Rota, distancia_Rota.Rota, id_Bancos.Onibus
+     distancia_Rota.Rota, id_Bancos.Onibus
      from Viagem 
      inner join Rota
      on Viagem.id_Rota = Rota.id_Rota 

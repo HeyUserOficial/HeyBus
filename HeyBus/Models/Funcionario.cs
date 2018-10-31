@@ -22,10 +22,5 @@ namespace HeyBus.Models
 
         [Display(Name = "Endereço"), MaxLength(100), Required]
         public string endereco_Funcionario { get; set; }
-
-        [Display(Name = "Usuário"), MaxLength(25), Required]
-        public string usuario_Funcionario { get; set; }
-
-
     }
 }

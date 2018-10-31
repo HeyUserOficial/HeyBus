@@ -11,6 +11,7 @@ namespace HeyBus.Models
     public class Cliente
     {
         [Key]
+        [Display(Name = ("Código"))]
         public int id_Cliente { get; set; }
 
         [Display(Name = "CPF do cliente"), MaxLength(14), Required]

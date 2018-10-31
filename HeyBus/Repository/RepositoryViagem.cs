@@ -52,7 +52,6 @@ namespace HeyBus.Repository
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
                         viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
                         viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
-                        viag.rot.itinerario_Rota = Convert.ToDateTime(dr["itinerario_Rota"].ToString());
                         viag.rot.distancia_Rota = dr["distancia_Rota"].ToString();
                         viag.oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
                         viagemList.Add(viag);

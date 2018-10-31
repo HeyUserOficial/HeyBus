@@ -162,7 +162,9 @@
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OnibusController.cs" />
+    <Compile Include="Controllers\PassagensController.cs" />
     <Compile Include="Controllers\RotasController.cs" />
+    <Compile Include="Controllers\ViagensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,7 +243,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Servicos.cshtml" />
-    <Content Include="Views\Funcionarios\ListFunc.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Onibus.cshtml" />
     <Content Include="Views\Shared\LayoutServicos.cshtml" />
@@ -252,6 +253,13 @@
     <Content Include="Views\Onibus\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\Consultar.cshtml" />
     <Content Include="Views\Rotas\Consultar.cshtml" />
+    <Content Include="Views\Rotas\Cadastrar.cshtml" />
+    <Content Include="Views\Rotas\Atualizar.cshtml" />
+    <Content Include="Views\Viagens\Consultar.cshtml" />
+    <Content Include="Views\Viagens\Cadastrar.cshtml" />
+    <Content Include="Views\Funcionarios\Cadastrar.cshtml" />
+    <Content Include="Views\Funcionarios\Consultar.cshtml" />
+    <Content Include="Views\Passagens\Consultar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

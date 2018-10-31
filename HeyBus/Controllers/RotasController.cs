@@ -38,8 +38,26 @@ namespace HeyBus.Controllers
             if (ModelState.IsValid)
             {
                 repRota.Insert_Rota(rot);
-                RedirectToAction("");
+                return RedirectToAction("Consultar");
             }
+            return View();
+        }
+
+        public ActionResult Atualizar(int id)
+        {
+            return View(repRota.Consultar_Rota(id));
+        }
+
+        [HttpPost]
+        [ActionName("Alterar")]
+        public ActionResult AlterarRota(Rota rot)
+        {
+            if (ModelState.IsValid)
+            {
+                repRota.Update_Rota(rot);
+                RedirectToAction("Consultar");
+            }
+            return View();
         }
     }
 }

@@ -39,7 +39,6 @@ create table if not exists Rota(
 id_Rota int auto_increment not null,
 origem_Rota varchar(60),
 destino_Rota varchar(60),
-itinerario_Rota time,
 distancia_Rota char(10),
 primary key(id_Rota)
 )ENGINE = innodb;

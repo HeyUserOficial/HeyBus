@@ -55,7 +55,7 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception io)
+            catch (Exception i)
             {
                 throw;
             }
@@ -107,7 +107,6 @@ namespace HeyBus.Repository
                         cli.cel_Cliente = dr["cel_Cliente"].ToString();
                         cli.email_Cliente = dr["email_Cliente"].ToString();
                         cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
-                        cli.senha_Cliente = dr["senha_Cliente"].ToString();
                     }
                     cli.id_Cliente = id;
                     dr.Close();
@@ -132,6 +131,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
                         cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());
