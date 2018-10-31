@@ -43,7 +43,7 @@ namespace HeyBus.Controllers
             {
                 repCli.Insert_Cliente(cli);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Consultar");
             }
 
             return View();
@@ -62,7 +62,7 @@ namespace HeyBus.Controllers
             {
                 repCli.Update_Cliente(cli);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Consultar");
             }
             return View();
         }

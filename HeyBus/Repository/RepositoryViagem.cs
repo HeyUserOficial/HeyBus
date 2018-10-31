@@ -47,6 +47,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();

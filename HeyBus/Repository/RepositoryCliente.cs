@@ -108,7 +108,6 @@ namespace HeyBus.Repository
                         cli.email_Cliente = dr["email_Cliente"].ToString();
                         cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
                     }
-                    cli.id_Cliente = id;
                     dr.Close();
                 }
                 return cli;

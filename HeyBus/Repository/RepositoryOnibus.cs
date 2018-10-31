@@ -95,6 +95,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
                         oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());

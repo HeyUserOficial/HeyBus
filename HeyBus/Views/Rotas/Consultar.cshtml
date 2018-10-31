@@ -6,6 +6,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.id_Rota)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.origem_Rota)
         </th>
         <th>
@@ -20,6 +23,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.id_Rota)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.origem_Rota)
         </td>
         <td>
@@ -29,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.distancia_Rota)
         </td>
         <td>
-            @Html.ActionLink("Atualizar", "Atualizar", new { id=item.id_Rota }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Rota }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Rota })
+            @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
         </td>
     </tr>
 }

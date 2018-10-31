@@ -95,6 +95,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();
                         rot.distancia_Rota = dr["distancia_Rota"].ToString();

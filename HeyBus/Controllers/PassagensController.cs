@@ -23,5 +23,23 @@ namespace HeyBus.Controllers
             List<Passagem> pass = repPass.Consultar_Passagens().ToList();
             return View(pass);
         }
+
+        [HttpGet]
+        public ActionResult Comprar(Passagem pass)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName ("Comprar")]
+        public ActionResult ComprarPass(Passagem pass)
+        {
+            if (ModelState.IsValid)
+            {
+                repPass.Insert_Passagem(pass);
+                return RedirectToAction("Consultar");
+            }
+            return View();
+        }
     }
 }

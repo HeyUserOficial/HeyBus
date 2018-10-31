@@ -47,19 +47,20 @@ namespace HeyBus.Repository
             List<Passagem> passagensList = new List<Passagem>();
             try
             {
-                using (cmd = new MySqlCommand("Select * Consultar_Passagens", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from Consultar_Passagens", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        pass.id_Passagem = Convert.ToInt32(dr["id_Passagem"].ToString());
                         pass.cli.nome_Cliente = dr["nome_Cliente"].ToString();
-                        pass.rot.origem_Rota = dr["origem_Passagem"].ToString();
+                        pass.rot.origem_Rota = dr["origem_Rota"].ToString();
                         pass.bus.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         pass.rot.destino_Rota = dr["destino_Rota"].ToString();
                         pass.viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
                         pass.forma_Pagamaneto = dr["nome_FormPag"].ToString();
-                        pass.cpf_Cliente = dr["cpf_Cliente"].ToString();
+                        pass.cpf_Cliente = dr["cpf"].ToString();
                         pass.desconto_Passagem = Convert.ToDouble(dr["desconto_Passagem"].ToString());
                         pass.valor_Passagem = Convert.ToDouble(dr["valor_Passagem"].ToString());
                         pass.data_Compra = Convert.ToDateTime(dr["data_Compra"].ToString());

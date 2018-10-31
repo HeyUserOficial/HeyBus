@@ -6,6 +6,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.id_Funcionario)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.cpf_Funcionario)
         </th>
         <th>
@@ -27,6 +30,8 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.id_Funcionario)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cpf_Funcionario)
             </td>
@@ -43,9 +48,9 @@
                 @Html.DisplayFor(modelItem => item.login_Acesso)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new { id=item.id_Funcionario}) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_Funcionario })
             </td>
         </tr>
     }

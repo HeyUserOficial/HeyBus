@@ -72,6 +72,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
                         func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
                         func.email_Funcionario = dr["email_Funcionario"].ToString();
