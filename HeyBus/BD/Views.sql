@@ -18,7 +18,7 @@ select * from Onibus;
 
 Create View Consultar_Viagens as
 Select Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Viagem, valor_Viagem, 
-     Rota.itinerario_Rota, Rota.distancia_Rota, Onibus.id_Bancos
+     Rota.distancia_Rota, Onibus.id_Bancos
      from Viagem 
      inner join Rota 
      on 

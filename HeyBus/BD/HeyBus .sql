@@ -13,7 +13,7 @@ primary key (id_Acesso)
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
 nome_Cliente varchar(70),
-nascimento_Cliente datetime,
+nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),
@@ -39,7 +39,6 @@ create table if not exists Rota(
 id_Rota int auto_increment not null,
 origem_Rota varchar(60),
 destino_Rota varchar(60),
-itinerario_Rota time,
 distancia_Rota char(10),
 primary key(id_Rota)
 )ENGINE = innodb;

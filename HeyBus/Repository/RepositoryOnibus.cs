@@ -25,7 +25,7 @@ namespace HeyBus.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@viacao", oni.viacao_Onibus);
                     cmd.Parameters.AddWithValue("@categoria", oni.categoria_Onibus);
-                    cmd.Parameters.AddWithValue("@banco", oni.assentos_Onibus);
+                    cmd.Parameters.AddWithValue("@bancos", oni.assentos_Onibus);
                     cmd.Parameters.AddWithValue("@manutencao", oni.manutencao_Onibus);
                     cmd.ExecuteNonQuery();
                 }
@@ -36,24 +36,28 @@ namespace HeyBus.Repository
             }
         }
 
-        public void Consultar_Onibus(Onibus oni)
+        public Onibus Consultar_OnibusID(int id)
         {
+            Onibus oni = new Onibus();
             try
             {
                 using (cmd = new MySqlCommand("SP_Consultar_Onibus", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", oni.id_Onibus);
+                    cmd.Parameters.AddWithValue("@id", id);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Banco"].ToString());
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
                         oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
                     }
+                    oni.id_Onibus = id;
+                    dr.Close();
                 }
+                return oni;
             }
             catch (Exception mk)
             {
@@ -78,5 +82,36 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+<<<<<<< HEAD
     */}
+=======
+
+        public IEnumerable<Onibus> Consultar_Onibus()
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Consultar_Onibus", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);               
+                    }
+                    dr.Close();
+                    return oniList;
+                }               
+            }catch(Exception kj)
+            {
+                throw;
+            }
+        }
+    }
+>>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
 }

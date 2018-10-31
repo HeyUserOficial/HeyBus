@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HeyBus.Models.Passagem>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cli.nome_Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rot.origem_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpf_Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desconto_Passagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.forma_Pagamaneto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_Compra)
+        </th>
+        <th></th>
+    </tr>
+        <--pass.cli.nome_Cliente = dr["nome_Cliente"].ToString();
+                        pass.rot.origem_Rota = dr["origem_Passagem"].ToString();
+                        pass.bus.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        pass.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        pass.viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        pass.forma_Pagamaneto = dr["nome_FormPag"].ToString();
+                        pass.cpf_Cliente = dr["cpf_Cliente"].ToString();
+                        pass.desconto_Passagem = Convert.ToDouble(dr["desconto_Passagem"].ToString());
+                        pass.valor_Passagem = Convert.ToDouble(dr["valor_Passagem"].ToString());
+                        pass.data_Compra = Convert.ToDateTime(dr["data_Compra"].ToString()); -->
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpf_Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.desconto_Passagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.forma_Pagamaneto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_Compra)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Passagem }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Passagem }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Passagem })
+        </td>
+    </tr>
+}
+
+</table>

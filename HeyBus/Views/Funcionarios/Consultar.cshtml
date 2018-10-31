@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HeyBus.Models.Funcionario>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cpf_Funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_Funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_Funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endereco_Funcionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.login_Acesso)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf_Funcionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_Funcionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_Funcionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endereco_Funcionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login_Acesso)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

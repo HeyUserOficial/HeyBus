@@ -15,6 +15,27 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
+        public void Login_Cliente(Cliente cli)
+        {
+            try
+            {
+                using(cmd = new MySqlCommand("SP_Login_Cliente"))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@usuario", Cliente.user_Cliente);
+                    cmd.Parameters.AddWithValue("@senha", Cliente.password_Cliente);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        
+                    }
+                }
+            }
+            catch (Exception h)
+            {
+                throw;
+            }
+        }
         public void Insert_Cliente(Cliente cli)
         {
             try
@@ -34,13 +55,13 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception io)
+            catch (Exception i)
             {
                 throw;
             }
         }
 
-        public void Update_Cliente(Cliente cli)
+        public Cliente Update_Cliente(Cliente cli)
         {
             try
             {
@@ -48,6 +69,7 @@ namespace HeyBus.Repository
                 {
                     conn.abrirConexao();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", cli.id_Cliente);
                     cmd.Parameters.AddWithValue("@cpf", cli.cpf_Cliente);
                     cmd.Parameters.AddWithValue("@nome", cli.nome_Cliente);
                     cmd.Parameters.AddWithValue("@nascimento", cli.nascimento_Cliente.Date);
@@ -58,10 +80,42 @@ namespace HeyBus.Repository
                     cmd.Parameters.AddWithValue("@senha", cli.senha_Cliente);
                     cmd.ExecuteNonQuery();
                 }
+                return cli;
             }
             catch (Exception ui)
             {  
                 throw;               
+            }
+        }
+
+        public Cliente ConsultarPorId(int id)
+        {
+            Cliente cli = new Cliente();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Cliente where id_Cliente = @id", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
+                        cli.nome_Cliente = dr["nome_Cliente"].ToString();
+                        cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());
+                        cli.tel_Cliente = dr["tel_Cliente"].ToString();
+                        cli.cel_Cliente = dr["cel_Cliente"].ToString();
+                        cli.email_Cliente = dr["email_Cliente"].ToString();
+                        cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
+                    }
+                    cli.id_Cliente = id;
+                    dr.Close();
+                }
+                return cli;
+            }
+            catch (Exception jk)
+            {
+                throw;
             }
         }
 
@@ -77,6 +131,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
                         cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());

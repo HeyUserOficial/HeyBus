@@ -25,7 +25,6 @@ namespace HeyBus.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@origem", rot.origem_Rota);
                     cmd.Parameters.AddWithValue("@destino", rot.destino_Rota);
-                    cmd.Parameters.AddWithValue("@itinerario", rot.itinerario_Rota.TimeOfDay);
                     cmd.Parameters.AddWithValue("@distancia", rot.distancia_Rota);
                     cmd.ExecuteNonQuery();
                 }
@@ -44,9 +43,9 @@ namespace HeyBus.Repository
                 {
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", rot.id_Rota);
                     cmd.Parameters.AddWithValue("@origem", rot.origem_Rota);
                     cmd.Parameters.AddWithValue("@destino", rot.destino_Rota);
-                    cmd.Parameters.AddWithValue("@itinerario", rot.itinerario_Rota.TimeOfDay);
                     cmd.Parameters.AddWithValue("@distancia", rot.distancia_Rota);
                     cmd.ExecuteNonQuery();
                 }
@@ -56,25 +55,55 @@ namespace HeyBus.Repository
             }
         }
 
-        public void Consultar_Rota(Rota rot)
+        public Rota Consultar_Rota(int id)
         {
+            Rota rot = new Rota();
             try
             {
                 using (cmd = new MySqlCommand("SP_Consultar_Rota", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", rot.id_Rota);
+                    cmd.Parameters.AddWithValue("@id", id);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();
-                        rot.itinerario_Rota = Convert.ToDateTime(dr["itinerario_Rota"].ToString());
                         rot.distancia_Rota = dr["distancia_Rota"].ToString();
                     }
+                    rot.id_Rota = id;
+                    dr.Close();
                 }
-            }catch(Exception io)
+                return rot;
+            }
+            catch (Exception io)
+            {
+                throw;
+            }
+        }
+
+        public IEnumerable<Rota> Consultar_Rotas()
+        {
+            Rota rot = new Rota();
+            List<Rota> rotaList = new List<Rota>();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Consultar_Rotas", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rot.origem_Rota = dr["origem_Rota"].ToString();
+                        rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        rotaList.Add(rot);
+                    }
+                    dr.Close();
+                    return rotaList;
+                }
+            }catch(Exception jh)
             {
                 throw;
             }

@@ -14,7 +14,7 @@ namespace HeyBus.Models
         [Display (Name = "Viação"), MaxLength(30), Required]
         public string viacao_Onibus { get; set; }
 
-        [Display (Name = "Categôria"), MaxLength(30), Required]
+        [Display (Name = "Categoria"), MaxLength(30), Required]
         public string categoria_Onibus { get; set; }
 
         [Display (Name = "Bancos")]
