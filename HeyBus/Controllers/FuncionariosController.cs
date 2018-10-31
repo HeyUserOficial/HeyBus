@@ -10,7 +10,7 @@ namespace HeyBus.Controllers
 {
     [Route("Funcionarios")]
     public class FuncionariosController : Controller
-    {
+    {/*
         RepositoryFuncionario repFunc = new RepositoryFuncionario();
         
         public ActionResult Cadastrar()
@@ -41,5 +41,5 @@ namespace HeyBus.Controllers
             List<Funcionario> func = repFunc.Consultar_Func().ToList();
             return View(func);
         }
-    }
+    */}
 }

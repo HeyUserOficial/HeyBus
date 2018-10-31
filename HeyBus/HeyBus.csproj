@@ -187,23 +187,37 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\alimentacao.jpg" />
+    <Content Include="images\alimentacao.gif" />
+    <Content Include="images\ar-condicionado.gif" />
+    <Content Include="images\bagagem.gif" />
     <Content Include="images\bonito.gif" />
     <Content Include="images\brasilia.gif" />
     <Content Include="images\camposDoJordao.gif" />
+    <Content Include="images\cifrao.gif" />
+    <Content Include="images\convencional.gif" />
     <Content Include="images\duvidas.gif" />
+    <Content Include="images\executivo.gif" />
     <Content Include="images\fernandoDeNoronha.gif" />
     <Content Include="images\fortaleza.jpg" />
+    <Content Include="images\frigobar.gif" />
     <Content Include="images\historia.gif" />
     <Content Include="images\imagemHome.jpg" />
-    <Content Include="images\imgPrincipalServicos.jpg" />
+    <Content Include="images\img-onibus.gif" />
+    <Content Include="images\leito.gif" />
     <Content Include="images\localizacao.gif" />
+    <Content Include="images\outros.jpg" />
     <Content Include="images\portoAlegre.gif" />
     <Content Include="images\rio.jpg" />
     <Content Include="images\salvador.gif" />
+    <Content Include="images\semi-leito.gif" />
     <Content Include="images\servicos.gif" />
+    <Content Include="images\toilet.gif" />
+    <Content Include="images\travesseiro.gif" />
+    <Content Include="images\tv.gif" />
+    <Content Include="images\veiculos.gif" />
     <Content Include="images\viagem.gif" />
     <Content Include="BD\Views.sql" />
+    <Content Include="images\wifi.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -236,6 +250,9 @@
     <Content Include="Views\Home\Servicos.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Onibus.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\Contato.cshtml" />
+=======
     <Content Include="Views\Shared\LayoutServicos.cshtml" />
     <Content Include="Views\Clientes\Atualizar.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
@@ -251,6 +268,7 @@
     <Content Include="Views\Funcionarios\Cadastrar.cshtml" />
     <Content Include="Views\Funcionarios\Consultar.cshtml" />
     <Content Include="Views\Passagens\Consultar.cshtml" />
+>>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

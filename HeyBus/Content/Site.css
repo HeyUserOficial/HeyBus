@@ -1,5 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
+.hidden {
+    overflow: hidden
+}
 /*Inicio Slider*/
 .full-screen {
     background-size: cover;
@@ -216,162 +219,90 @@
 
 /*Fim configuração Sobre*/
 
-
 /*Inicio configuração Serviços*/
-.box-servicos {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    grid-template-rows: 64px 220px 1fr;
-}
-#navegacaoServicos {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-.sidenav-servicos {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    background-image: radial-gradient(circle, rgba(243, 179, 124, 0.80), rgba(148, 79, 13, 0.75));
-    width:100%;
-    height:100vh;
-}
-    .sidenav-servicos a {
-        color: rgba(229,229,230, 0.9);
-        padding: 10px 10px;
-        border-bottom: white solid;
-        font-weight: 500;
-        padding: 15px 30px;
-        color: #fff;
-    }
-        .sidenav-servicos a:hover {
-            background-color: rgba(255,141,0,.5);
-        }
-.img-servicos {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    background: url('../images/imgPrincipalServicos.jpg') bottom;
-    z-index: 1;
-    overflow: hidden;
-    opacity: 0.89;
-    background-size: cover;
-    width: 50%;
-    margin:0 auto;
-    
-}
-.texto-servicos {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    overflow: hidden scroll;
-    padding: 30px 30px;
-    width:70%;
-    margin:0 auto;
-}
-    .texto-servicos::-webkit-scrollbar-track {
-        background-color: rgba(255, 136, 21, 0.29)
-    }
-
-    .texto-servicos::-webkit-scrollbar {
-        width: 3px;
-    }
-
-    .texto-servicos::-webkit-scrollbar-thumb {
-        background: rgb(255, 117, 0);
-    }
-/*.conteudo-servicos {
-    width: 77%;
+.txt-introServicos {
+    color: #2b2b2b;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    grid-template-rows: 220px 500px;
-    
+    box-shadow: rgba(0,0,0,.7) 0px 1px 20px;
 }
-.sidenav-servicos {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    background-image: radial-gradient(circle, rgba(243, 179, 124, 0.80), rgba(148, 79, 13, 0.75));
-}
-    .sidenav-servicos a{
-        color:rgba(229,229,230, 0.9);
-        padding: 10px 10px;
-        border-bottom: white solid;
-        font-weight:500;
-       padding:15px 30px;
-        color:#fff;
+    .txt-introServicos h1 {
+        font-family: Roboto;
+        font-weight: 800;
+        padding: 4vw;
+        padding-top: 12px;
+        padding-bottom: 5px;
+        text-align: center;
     }
-    .sidenav-servicos a:hover {
-        background-color: rgba(255,141,0,.5);
-    }
-.texto-servicos {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    overflow: hidden scroll;
-    padding:30px 30px;
 
-}
-    .texto-servicos::-webkit-scrollbar-track {
-        background-color: rgba(255, 136, 21, 0.29)
+    .txt-introServicos h2 {
+        font-family: Roboto;
+        font-weight: 300;
+        padding: 15px;
+        font-size: 1.7rem;
+        text-align: center
     }
-    .texto-servicos::-webkit-scrollbar {
-        width: 3px;
-    }
-    .texto-servicos::-webkit-scrollbar-thumb {
-        background: rgb(255, 117, 0);
-    }
-.img-servicos {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background: url('../images/imgPrincipalServicos.jpg') bottom;
-    z-index: 1;
-    overflow: hidden;
-    opacity: 0.89;
-    background-size: cover;
-}*/
-.texto-servicos h1 {
-    font-size: 1em;
-    font-weight: 800;
-    padding: 0;
-    margin: 0;
-}
-.texto-servicos h2 {
-    font-size: .7em;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-.texto-servicos h3 {
-    font-size: .7em;
-    font-weight: 600;
-}
-.texto-servicos h4 {
-    font-size: .7em;
-    font-weight: 500;
-}
-.texto-servicos ul li {
-    font-size: .6em;
-    font-weight: 400;
-}
-.texto-servicos p {
-    font-size: .6em;
-    font-weight: 400;
-}
-.texto-servicos {
-    text-align: justify;
-    font-size: 28px;
-}
-
+/*.bar1, .bar2{width: 20px;height: 4px;background-color: #333; margin: 6px 0; transition: 0.4s;}
+.bar1{transform:translate(8px,25px)}
+.bar2 { transform: rotate(90deg) translate(15px, -8.9px);}
+.change .bar1 {opacity: 0;}
+.change .bar2 {-webkit-transform: rotate(-45deg) translate(0px, -2px);transform: rotate(-0deg) translate(10px, 14px);}*/
+.img-Serv-Oferecidos{background-size: cover;background-attachment: fixed;z-index: 1;min-height: 100%;overflow: hidden;
+background-position:center;opacity: 0.75;height: 440px;text-align: center;padding-top: 30vh;}
+.tit-Serv-Oferecidos{padding: 20px 20px; font-size:40px; color:white;font-family: Gotham Black, Arial Black; background-color: rgba(0,0,0,0.975);width: 50%;margin: 0 auto}
+.txt-Serv-Oferecidos{color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;}
+#Alimentacao{background-image:url(/images/alimentacao.gif)}
+#Bagagem{background-image:url(/images/bagagem.gif);opacity:.7}
+#Veiculos{background-image:url(/images/veiculos.gif);opacity:.7}
+#Outros{background-image:url(/images/outros.jpg);opacity:.7;background-position:bottom;}
 /*Fim config serviços*/
 
+/*Inicio configuração ônibus*/
+
+.grid-categoria-onibus{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 65px;
+}
+.txt-categoria-onibus {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position:relative;
+}
+.icons-categoria-onibus {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.shadow-cat-onibus{
+    box-shadow:rgba(0,0,0,.2) 0px 0px 7px;
+}
+.img-princ-onibus img {
+   width:100%;
+   opacity:.9;
+}
+.justify{
+    text-align:justify;
+}
+.onibus {
+    font-family: Roboto;
+}
+    .onibus p {
+        color:rgba(0,0,0,.75);
+    }
+    .onibus h1 {
+        font-size: 2rem;
+        padding: 0px 32px;
+        padding-top:20px;
+        font-weight: 700;
+        color:rgba(0,0,0,.76)
+    }
+    .onibus h1 span{
+        color:rgba(222, 104, 4, 0.92);
+        font-weight:700
+    }
+    .onibus h2{
+        color:rgba(0,0,0,.77);
+        font-size:1.7rem;
+    }
+/*Fim configuração ônibus*/
+
+/*Inicio da configuração Contato*/

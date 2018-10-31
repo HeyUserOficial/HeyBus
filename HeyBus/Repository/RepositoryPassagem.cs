@@ -1,5 +1,5 @@
 ﻿using HeyBus.Connection;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using HeyBus.Models;
 namespace HeyBus.Repository
 {
     public class RepositoryPassagem
-    {
+    {/*
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -40,6 +40,9 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+<<<<<<< HEAD
+    */}
+=======
 
         public IEnumerable<Passagem> Consultar_Passagens()
         {
@@ -75,4 +78,5 @@ namespace HeyBus.Repository
             }
         }
     }
+>>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
 }
