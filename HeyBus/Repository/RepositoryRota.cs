@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryRota
-    {/*
+    {
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -109,5 +109,5 @@ namespace HeyBus.Repository
                 throw;
             }
         }
-    */}
+    }
 }
