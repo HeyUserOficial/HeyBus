@@ -49,6 +49,47 @@ num_Banco int,
 primary key(id_Bancos)
 )ENGINE = innodb;
 
+insert into Bancos(num_Banco) values(1);
+insert into Bancos(num_Banco) values(2);
+insert into Bancos(num_Banco) values(3);
+insert into Bancos(num_Banco) values(4);
+insert into Bancos(num_Banco) values(5);
+insert into Bancos(num_Banco) values(6);
+insert into Bancos(num_Banco) values(7);
+insert into Bancos(num_Banco) values(8);
+insert into Bancos(num_Banco) values(9);
+insert into Bancos(num_Banco) values(10);
+insert into Bancos(num_Banco) values(11);
+insert into Bancos(num_Banco) values(12);
+insert into Bancos(num_Banco) values(13);
+insert into Bancos(num_Banco) values(14);
+insert into Bancos(num_Banco) values(15);
+insert into Bancos(num_Banco) values(16);
+insert into Bancos(num_Banco) values(17);
+insert into Bancos(num_Banco) values(18);
+insert into Bancos(num_Banco) values(19);
+insert into Bancos(num_Banco) values(20);
+insert into Bancos(num_Banco) values(21);
+insert into Bancos(num_Banco) values(22);
+insert into Bancos(num_Banco) values(23);
+insert into Bancos(num_Banco) values(24);
+insert into Bancos(num_Banco) values(25);
+insert into Bancos(num_Banco) values(26);
+insert into Bancos(num_Banco) values(27);
+insert into Bancos(num_Banco) values(28);
+insert into Bancos(num_Banco) values(29);
+insert into Bancos(num_Banco) values(30);
+insert into Bancos(num_Banco) values(31);
+insert into Bancos(num_Banco) values(32);
+insert into Bancos(num_Banco) values(33);
+insert into Bancos(num_Banco) values(34);
+insert into Bancos(num_Banco) values(35);
+insert into Bancos(num_Banco) values(36);
+insert into Bancos(num_Banco) values(37);
+insert into Bancos(num_Banco) values(38);
+insert into Bancos(num_Banco) values(39);
+insert into Bancos(num_Banco) values(40);
+
 create table if not exists Onibus(
 id_Onibus int auto_increment not null,
 viacao_Onibus varchar(30),

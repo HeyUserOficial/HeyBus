@@ -266,6 +266,8 @@
     <Content Include="Views\Funcionarios\Cadastrar.cshtml" />
     <Content Include="Views\Funcionarios\Consultar.cshtml" />
     <Content Include="Views\Passagens\Consultar.cshtml" />
+    <Content Include="Views\Passagens\Comprar.cshtml" />
+    <Content Include="Views\Clientes\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

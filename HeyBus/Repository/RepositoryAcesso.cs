@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,9 +10,8 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryAcesso
-    {/*
+    {
         MySqlCommand cmd;
-        MySqlDataReader dr;
         Conexao conn = new Conexao();
 
         public void Update_Acesso(Acesso ac)
@@ -28,10 +27,10 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch(Exception kk)
+            catch(Exception)
             {
                 throw;
             }
         }
-    */}
+    }
 }

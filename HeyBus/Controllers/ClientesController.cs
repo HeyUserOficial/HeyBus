@@ -12,7 +12,7 @@ namespace HeyBus.Controllers
 {
     [Route("Clientes")]
     public class ClientesController : Controller
-    {/*
+    {
         RepositoryCliente repCli = new RepositoryCliente();
 
         //GET
@@ -66,10 +66,6 @@ namespace HeyBus.Controllers
             }
             return View();
         }
-<<<<<<< HEAD
-    */}
-}
-=======
     }
-}    
->>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
+}
+

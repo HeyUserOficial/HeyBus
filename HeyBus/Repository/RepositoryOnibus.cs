@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryOnibus
-    {/*
+    {
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -30,7 +30,7 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception kj)
+            catch (Exception)
             {
                 throw;
             }
@@ -59,7 +59,7 @@ namespace HeyBus.Repository
                 }
                 return oni;
             }
-            catch (Exception mk)
+            catch (Exception)
             {
                 throw;
             }
@@ -77,14 +77,15 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch(Exception kl)
+            catch(Exception
+            )
             {
                 throw;
             }
         }
-<<<<<<< HEAD
-    */}
-=======
+
+    
+
 
         public IEnumerable<Onibus> Consultar_Onibus()
         {
@@ -108,11 +109,10 @@ namespace HeyBus.Repository
                     dr.Close();
                     return oniList;
                 }               
-            }catch(Exception kj)
+            }catch(Exception)
             {
                 throw;
             }
         }
     }
->>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
 }

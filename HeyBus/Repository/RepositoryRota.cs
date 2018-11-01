@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryRota
-    {/*
+    {
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -29,7 +29,7 @@ namespace HeyBus.Repository
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch(Exception tu)
+            catch(Exception)
             {
                 throw;
             }
@@ -49,7 +49,7 @@ namespace HeyBus.Repository
                     cmd.Parameters.AddWithValue("@distancia", rot.distancia_Rota);
                     cmd.ExecuteNonQuery();
                 }
-            }catch(Exception hj)
+            }catch(Exception)
             {
                 throw;
             }
@@ -77,7 +77,7 @@ namespace HeyBus.Repository
                 }
                 return rot;
             }
-            catch (Exception io)
+            catch (Exception)
             {
                 throw;
             }
@@ -104,10 +104,10 @@ namespace HeyBus.Repository
                     dr.Close();
                     return rotaList;
                 }
-            }catch(Exception jh)
+            }catch(Exception)
             {
                 throw;
             }
         }
-    */}
+    }
 }

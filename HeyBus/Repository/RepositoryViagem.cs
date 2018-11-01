@@ -1,6 +1,6 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Web;
 namespace HeyBus.Repository
 {
     public class RepositoryViagem
-    {/*
+    {
         MySqlCommand cmd;
         MySqlDataReader dr;
         Conexao conn = new Conexao();
@@ -29,14 +29,14 @@ namespace HeyBus.Repository
                     cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
                     cmd.ExecuteNonQuery();
                 }
-            }catch(Exception yo)
+            }catch(Exception)
             {
                throw;
             }
         }
-<<<<<<< HEAD
-    */}
-=======
+
+    
+
 
         public IEnumerable<Viagem> Consultar_Viagens()
         {
@@ -63,11 +63,10 @@ namespace HeyBus.Repository
                     dr.Close();
                     return viagemList;
                 }
-            }catch(Exception jh)
+            }catch(Exception)
             {
                 throw;
             }
         }
     }
->>>>>>> 302a6d4822827d78abbf2dfce2dc1988f736b803
 }
