@@ -3,6 +3,66 @@
     ViewBag.Title = "Contato";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<body class="bg-light">
+    <div class="Contato mt-5">
+        <h1 class="text-center shadow-cat-onibus p-3 bg-white">Central de contato</h1>
+        <div class="grid-contato">
+            <article class="duvidas">
+                <img src="#" alt="Icon" /><h2>Tire dúvidas online</h2>
+                <a href="#">Clique aqui e veja algumas das perguntas já respondidas</a>
+                <h2>Não ficou satisfeito? Envie uma mensagem para nós</h2>
+                <a href="#">Mensagem</a><br/>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FormContato">
+                    Launch demo modal
+                </button>
 
-<h2>Contato</h2>
+                <!-- Modal -->
+                <div class="modal fade"  id="FormContato" tabindex="-1" role="dialog" aria-labelledby="FormContatoTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="background-image: linear-gradient(to right, rgb(255, 106, 0), rgb(255, 216, 0));">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="FormContatoTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form-compra-passagem">
 
+                                    <div class="form-group">
+                                        <label for="origem">Origem</label>
+                                        <input type="text" class="design-input-comprar" id="origem" placeholder="Digite seu ponto de partida.">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="destino">Destino</label>
+                                        <input type="text" class="design-input-comprar" id="destino" placeholder="Digite seu destino.">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-6 col-sm-12 col-md-6">
+                                            <label for="dataIda">Data de Saída</label>
+                                            <input type="date" class="design-input-comprar" id="dataIda">
+                                        </div>
+                                        <div class="form-group col-6 col-sm-12 col-md-6">
+                                            <label for="dataVolta">Data de Volta</label>
+                                            <input type="date" class="design-input-comprar" id="dataVolta">
+                                            <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
+                                        </div>
+                                        <div class="form-row col-12 justify-content-center">
+                                            <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
+                                        </div>
+                                    </div>
+                                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
