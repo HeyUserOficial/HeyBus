@@ -36,6 +36,8 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+        
+
         public void Insert_Cliente(Cliente cli)
         {
             try
@@ -150,9 +152,8 @@ namespace HeyBus.Repository
                 throw;
             }
         }
-<<<<<<< HEAD
+
+    
+
     }
-=======
-   }
->>>>>>> e84be96fa5fd40e8cbe7f6d9f49346c6d3b0eee5
 }
