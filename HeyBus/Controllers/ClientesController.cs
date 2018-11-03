@@ -93,9 +93,6 @@ namespace HeyBus.Controllers
             }
             return View();
         }
-<<<<<<< HEAD
-=======
-
         [NonAction]
         public bool EmailExiste(string email)
         {
@@ -135,7 +132,6 @@ namespace HeyBus.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
->>>>>>> c141e47864392b4d68a067b61ff64fd5c7ebf820
 
             using (var message = new MailMessage(fromEmail, toEmail)
             {
@@ -148,11 +144,3 @@ namespace HeyBus.Controllers
     }
 }
 
-<<<<<<< HEAD
-    
-
-    
-
-
-=======
->>>>>>> c141e47864392b4d68a067b61ff64fd5c7ebf820

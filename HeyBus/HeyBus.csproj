@@ -278,11 +278,8 @@
     <Content Include="Views\Passagens\Consultar.cshtml" />
     <Content Include="Views\Passagens\Comprar.cshtml" />
     <Content Include="Views\Clientes\Login.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Home\Duvidas.cshtml" />
-=======
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
->>>>>>> c141e47864392b4d68a067b61ff64fd5c7ebf820
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
