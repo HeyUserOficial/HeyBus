@@ -1,10 +1,14 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
 using HeyBus.Repository;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 
@@ -13,6 +17,10 @@ namespace HeyBus.Controllers
     [Route("Clientes")]
     public class ClientesController : Controller
     {
+        Cliente cli = new Cliente();
+        MySqlCommand cmd;
+        Conexao conn = new Conexao();
+        MySqlDataReader dr;
         RepositoryCliente repCli = new RepositoryCliente();
 
         //GET
@@ -37,16 +45,35 @@ namespace HeyBus.Controllers
 
         [HttpPost]
         [ActionName("Cadastrar")]
-        public ActionResult Cadastrar(Cliente cli)
+        public ActionResult Cadastrar([Bind(Exclude = "email_Verify,ativacao_Cliente")]Cliente cli)
         {
+            bool status = false;
+            string message = "";
+
             if (ModelState.IsValid)
             {
-                repCli.Insert_Cliente(cli);
+                var existe = EmailExiste(cli.email_Cliente);
+                if (existe)
+                {
+                    ModelState.AddModelError("EmailExiste", "E-mail já está em uso");
+                    cli.ativacao_Cliente = Guid.NewGuid();
+                    cli.senha_Cliente = Crypto.Hash(cli.senha_Cliente);
+                    cli.confirma_Senha = Crypto.Hash(cli.confirma_Senha);
+                    cli.email_Verify = false;
+                    repCli.Insert_Cliente(cli);
 
-                return RedirectToAction("Consultar");
+                    EnviarVerificacao(cli.email_Cliente, cli.ativacao_Cliente.ToString());
+                    message = "Cadastro feito com sucesso. Link para ativar" +
+                        "a conta foi enviado no seu email:" + cli.email_Cliente;
+                    status = true;
+                    return View(cli);
+                }
             }
-
-            return View();
+            else
+            {
+                message = "Invalid Request";
+            }
+            return View(cli);
         }
 
         public ActionResult Atualizar(int id)
@@ -66,12 +93,66 @@ namespace HeyBus.Controllers
             }
             return View();
         }
+<<<<<<< HEAD
+=======
 
+        [NonAction]
+        public bool EmailExiste(string email)
+        {
+            bool v = true;
+            using (cmd = new MySqlCommand("Select * from Cliente where email_Cliente = @email"))
+            {
+                conn.abrirConexao();
+                cmd.Parameters.AddWithValue("@email", email);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                     v = Convert.ToBoolean(dr["@email"].Equals(email));
+                }              
+            }
+            return v;
+        }
+
+        [NonAction]
+        public void EnviarVerificacao(string email, string ativacao)
+        {
+            var verifyUrl = "/Clientes/VarificarConta" + ativacao;
+            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
+            var fromEmail = new MailAddress("heyuseroficial@gmail.com", "Hey User");
+            var toEmail = new MailAddress(email);
+            var fromEmailPassword = "heyuser123";
+            string subject = "Conta criada com sucesso! Bem vindo à HeyBus!";
+            string body = "<br/><br/>Nós estamos muito felizes de lhe avisar que sua conta na HeyBus"+
+                "foi criada com sucesso. Por favor entre no link abaixo para verificar sua conta"+
+                "<br/><br/><a href='"+ link +"'>"+link+"<a/> ";
+
+            var stmp = new SmtpClient
+            {
+                Host = "stmp@gmail.com",
+                Port = 587,
+                EnableSsl = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
+>>>>>>> c141e47864392b4d68a067b61ff64fd5c7ebf820
+
+            using (var message = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                stmp.Send(message);
+        }
     }
 }
 
+<<<<<<< HEAD
     
 
     
 
 
+=======
+>>>>>>> c141e47864392b4d68a067b61ff64fd5c7ebf820

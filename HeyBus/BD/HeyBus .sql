@@ -17,6 +17,8 @@ nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),
+email_Verify bit,
+ativacao_Cliente char(38) UNIQUE,
 usuario_Cliente varchar(25),
 senha_Cliente varchar(25),
 primary key (id_Cliente)
