@@ -4,62 +4,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <body class="bg-light">
-    <div class="Contato mt-5">
-        <h1 class="text-center shadow-cat-onibus p-3 bg-white">Central de contato</h1>
-        <div class="grid-contato">
-            <article class="duvidas">
-                <img src="#" alt="Icon" /><h2>Tire dúvidas online</h2>
+    <div class="img-princ-contato"></div>
+    <div class="contato">
+        <h1 class="text-center shadow-cat-onibus p-3 bg-white">
+            <img src="~/images/Atendimento.gif" style="width:55px;padding-right:10px;" />Central de Atendimento
+        </h1>
+        <div class="grid-contato mt-5">
+            <article class="duvida shadow-cat-onibus">
+                <h2><img src="~/images/duvidasContato.gif" alt="Icon" style="width:40px;" />Tire dúvidas online</h2>
                 <a href="#">Clique aqui e veja algumas das perguntas já respondidas</a>
-                <h2>Não ficou satisfeito? Envie uma mensagem para nós</h2>
-                <a href="#">Mensagem</a><br/>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FormContato">
-                    Launch demo modal
-                </button>
+                <hr />
+                <h3 class="pb-3">Não encontrou a sua dúvida?<br /> Envie uma mensagem para nós.</h3>
+                <form id="form-tira-duvida">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="design-input-duvida" id="nome" placeholder="Digite seu nome.">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="design-input-duvida" id="email" placeholder="Digite seu e-mail.">
+                    </div>
+                    <div class="form-group">
+                        <label for="assunto">Assunto</label>
+                        <input type="text" class="design-input-duvida" id="assunto" placeholder="Digite o assunto.">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Digite a mensagem</label>
+                        <textarea id="mensagem" class="design-input-duvida" style="height:70px;" rows="3"></textarea>
+                    </div>
+                </form>
+            </article>
 
-                <!-- Modal -->
-                <div class="modal fade"  id="FormContato" tabindex="-1" role="dialog" aria-labelledby="FormContatoTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content" style="background-image: linear-gradient(to right, rgb(255, 106, 0), rgb(255, 216, 0));">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="FormContatoTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="form-compra-passagem">
+            <article class="telefone shadow-cat-onibus">
+                <h2>Telefone</h2>
+                <h3>Você também pode entrar em contato conosco através de nosso telefone e whatsapp.</h3>
+                <hr />
+                <p>
+                    <img src="~/images/telefone.gif" style="width:20px;margin-right:30px;"/>(11) 3231-6624
+                </p>
+                <p>
+                    <img src="~/images/wpp.gif" style="width:30px;margin-right:20px;"/>(11) 98465-4412
+                </p>
+                <h4 class="mt-5 pt-5">Uma simples <span>ligação</span> pode resumir mais de 10 e-mails.</h4>
+            </article>
 
-                                    <div class="form-group">
-                                        <label for="origem">Origem</label>
-                                        <input type="text" class="design-input-comprar" id="origem" placeholder="Digite seu ponto de partida.">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="destino">Destino</label>
-                                        <input type="text" class="design-input-comprar" id="destino" placeholder="Digite seu destino.">
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-6 col-sm-12 col-md-6">
-                                            <label for="dataIda">Data de Saída</label>
-                                            <input type="date" class="design-input-comprar" id="dataIda">
-                                        </div>
-                                        <div class="form-group col-6 col-sm-12 col-md-6">
-                                            <label for="dataVolta">Data de Volta</label>
-                                            <input type="date" class="design-input-comprar" id="dataVolta">
-                                            <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
-                                        </div>
-                                        <div class="form-row col-12 justify-content-center">
-                                            <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
-                                        </div>
-                                    </div>
-                                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                            </div>
-                        </div>
+            <article class="endereco shadow-cat-onibus">
+                
+                <div class="row w-100 hidden m-auto">
+                    <div class="texto-endereco m-auto col-12 col-md-6">
+                        <h2>Endereço</h2>
+                        <h3>Nos encontre <span>pessoalmente</span> também no seguinte local</h3>
+                        <hr class="bg-white" style="opacity:.4" />
+                        <p>Rua Henrique da Rocha Lima, 45<br /><span>Butantã</span><br />São Paulo/SP - Brasil<br /><span>CEP:</span> 03178-200</p>
+                    </div>
+                    <div class="mapa col-12 col-md-6 text-center">
+                        <img src="~/images/mapa.PNG" class="shadow-cat-onibus border" style="width:450px; opacity:.9" />
                     </div>
                 </div>
             </article>

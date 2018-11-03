@@ -46,7 +46,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -189,13 +193,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\alimentacao.gif" />
     <Content Include="images\ar-condicionado.gif" />
+    <Content Include="images\Atendimento.gif" />
     <Content Include="images\bagagem.gif" />
+    <Content Include="images\banner_contato.png" />
     <Content Include="images\bonito.gif" />
     <Content Include="images\brasilia.gif" />
     <Content Include="images\camposDoJordao.gif" />
     <Content Include="images\cifrao.gif" />
     <Content Include="images\convencional.gif" />
     <Content Include="images\duvidas.gif" />
+    <Content Include="images\duvidasContato.gif" />
     <Content Include="images\executivo.gif" />
     <Content Include="images\fernandoDeNoronha.gif" />
     <Content Include="images\fortaleza.jpg" />
@@ -205,12 +212,14 @@
     <Content Include="images\img-onibus.gif" />
     <Content Include="images\leito.gif" />
     <Content Include="images\localizacao.gif" />
+    <Content Include="images\mapa.PNG" />
     <Content Include="images\outros.jpg" />
     <Content Include="images\portoAlegre.gif" />
     <Content Include="images\rio.jpg" />
     <Content Include="images\salvador.gif" />
     <Content Include="images\semi-leito.gif" />
     <Content Include="images\servicos.gif" />
+    <Content Include="images\telefone.gif" />
     <Content Include="images\toilet.gif" />
     <Content Include="images\travesseiro.gif" />
     <Content Include="images\tv.gif" />
@@ -218,6 +227,7 @@
     <Content Include="images\viagem.gif" />
     <Content Include="BD\Views.sql" />
     <Content Include="images\wifi.gif" />
+    <Content Include="images\wpp.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -268,6 +278,7 @@
     <Content Include="Views\Passagens\Consultar.cshtml" />
     <Content Include="Views\Passagens\Comprar.cshtml" />
     <Content Include="Views\Clientes\Login.cshtml" />
+    <Content Include="Views\Home\Duvidas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

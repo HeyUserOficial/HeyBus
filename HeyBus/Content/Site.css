@@ -249,7 +249,10 @@
 .img-Serv-Oferecidos{background-size: cover;background-attachment: fixed;z-index: 1;min-height: 100%;overflow: hidden;
 background-position:center;opacity: 0.75;height: 440px;text-align: center;padding-top: 30vh;}
 .tit-Serv-Oferecidos{padding: 20px 20px; font-size:40px; color:white;font-family: Gotham Black, Arial Black; background-color: rgba(0,0,0,0.975);width: 50%;margin: 0 auto}
-.txt-Serv-Oferecidos{color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;}
+.txt-Serv-Oferecidos{color:#fff;background-color:rgb(44, 44, 44);text-align:center;padding:50px 80px;text-align: justify; font-family:Roboto}
+.txt-Serv-Oferecidos p{font-weight:400;}
+.txt-Serv-Oferecidos p span{font-weight:600;letter-spacing:1px; font-size:1.1rem;}
+.txt-Serv-Oferecidos h3 span{color:rgb(232, 108, 5)}
 #Alimentacao{background-image:url(/images/alimentacao.gif)}
 #Bagagem{background-image:url(/images/bagagem.gif);opacity:.7}
 #Veiculos{background-image:url(/images/veiculos.gif);opacity:.7}
@@ -275,9 +278,15 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .shadow-cat-onibus{
     box-shadow:rgba(0,0,0,.2) 0px 0px 7px;
 }
-.img-princ-onibus img {
-   width:100%;
-   opacity:.9;
+.img-princ-onibus {
+    opacity: .9;
+    background: url(/images/img-onibus.gif) top right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    z-index: 1;
+    overflow: hidden;
+    height: 52vh;
 }
 .justify{
     text-align:justify;
@@ -289,7 +298,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
         color:rgba(0,0,0,.75);
     }
     .onibus h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         padding: 0px 32px;
         padding-top:20px;
         font-weight: 700;
@@ -305,4 +314,141 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     }
 /*Fim configuração ônibus*/
 
+/*Inicio da configuração página Duvidas*/
+.tit-duvidas{
+    width:90%;
+    margin:0 auto;
+}
+.duvidas {font-family:Roboto}
+.duvidas h1{font-weight:500;color:rgba(0,0,0,.8)}
+
+/*Fim da configuração página Duvidas*/
+
 /*Inicio da configuração Contato*/
+.img-princ-contato {
+    background: url(/images/banner_contato.png) top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: hidden;
+    height: 55vh;
+}
+.contato{
+    font-family:Roboto;
+}
+    .contato h1 {
+        color:rgba(0,0,0,.79)
+    }
+    .contato h2 {
+        color: rgba(0,0,0,.76);
+        font-size:1.5rem;
+    }
+    .contato h3 {
+        color: rgba(0,0,0,.74);
+        font-size: 1.4rem;
+        font-weight:400
+    }
+.grid-contato {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;    
+}
+.duvida {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px;
+}
+    .duvidas h3 {
+        /*color:rgb(221,120,34)*/
+    }
+#form-duvida {
+    background-color: #FFF;
+    color: #4a4a4a;
+    border: 1px solid #ccc;
+    padding: 20px 20px;
+    box-shadow: rgba(0,0,0,0.4) 0px 0px 50px;
+    font-family: 'Roboto', sans-serif;
+}
+    #form-duvida label {
+        font-size: 0.95em;
+        font-weight: 400;
+    }
+.design-input-duvida {
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.55rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #5e5f5f;
+    background-color: #fff;
+    border:none;
+    border-bottom: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .design-input-duvida:focus {
+        border-color: rgba(252, 162, 84, 0.88);
+        outline: 0;
+
+    }
+
+.telefone {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+    padding: 20px;
+    margin-right: 20px;
+}
+    .telefone p {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: rgba(0,0,0,.77);
+        padding-top:30px;
+    }
+    .telefone h4 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: rgba(0,0,0,.79);
+        text-align:center
+    }
+    .telefone h4 span {
+        font-weight: 600;
+        color: rgb(200, 92, 10);
+
+    }
+.endereco {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: rgb(44, 44, 44);
+    padding:100px 50px;
+    padding-right: 0px;
+    margin-top: 67px;
+}
+    .endereco p {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: 300
+    }
+    .endereco h2 {
+        font-size: 2.8rem;
+        color: rgb(225, 105, 5);
+        font-weight: 700;
+    }
+    .endereco h3 {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 500
+    }
+    .endereco span {
+        color: rgb(225, 105, 5);
+        font-weight: 400
+    }

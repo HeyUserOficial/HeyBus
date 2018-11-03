@@ -33,6 +33,12 @@ namespace HeyBus.Controllers
             return View();
         }
 
+        public ActionResult Duvidas()
+        {
+            ViewBag.Message = "Your doubts page.";
+
+            return View();
+        }
         public ActionResult Contato()
         {
             ViewBag.Message = "Your contact page.";

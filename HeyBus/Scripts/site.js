@@ -28,4 +28,41 @@ $('.carousel').carousel({
 });
 
 
+function Enviar()
+	{
+		var Nome =document.getElementById("nome").value;
+		var Email =document.getElementById("email").value;
+		var Assunto = document.getElementById("assunto").value;
+		var Mensagem = document.getElementById("mensagem").value;
+		if (Nome == "") {
+			alert('Preencha seu nome.');
+			document.getElementById("nome").focus();
+			return false;
+		}
+ 		else if(Email == ""){
+ 			alert('Digite um e-mail valido');
+			document.getElementById("email").focus();
+			return false;
+		}
+		else if (Assunto == "") {
+			alert('Escreva o assunto da sua mensagem.');
+			document.getElementById("assunto").focus();
+			return false;
+		}
+ 		else if(Mensagem == ""){
+ 			alert('Escreva a mensagem que deseja nos enviar.');
+			document.getElementById("mensagem").focus();
+			return false;
+ 		}
+		else{
+		
+		window.alert("Mensagem enviada com sucesso!");
+		document.getElementById("nome").value="";
+		document.getElementById("email").value="";
+		document.getElementById("assunto").value="";
+		document.getElementById("mensagem").value = "";
+		document.getElementById("nome").focus();
+	}
+	}
+
 

@@ -2531,6 +2531,32 @@ fieldset:disabled a.btn {
         background-color: #cf5800;
         border-color: #cc8300;
     }
+
+.btn-laranja {
+    background-color: rgba(250, 90, 20, 0.9);
+    border-color: transparent;
+    font-size: 1rem;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    border-radius: 0.35rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+    .btn-laranja:hover {
+        background-color: rgba(235, 81, 13, 0.90);
+        box-shadow: #cc8300 0px 0px 4px;
+    }
     
 .btn-primary {
     color: #fff;
