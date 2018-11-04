@@ -40,17 +40,29 @@
     left: 5%;
 }
 .preco-slider-home {
+    animation-name: PrecoSlider;
+    animation-duration: 5s;
     position: absolute;
     top: 30vh;
     right: 2vh;
     width: 400px;
-    height:139px;
+    height: 139px;
     background-color: rgba(0,0,0,.5);
     display: grid;
     grid-template-columns: 92px 80px 1fr;
     grid-template-rows: 44px 1fr;
-    grid-template-areas: 'OriDest OriDest OriDest'
-                         'description cifrao valor'
+    grid-template-areas: 'OriDest OriDest OriDest' 'description cifrao valor'
+}
+@keyframes PrecoSlider {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0%;
+        opacity: 1;
+    }
 }
 .OriDest {
     color:rgb(160, 74, 36);
@@ -210,15 +222,20 @@
 /*Fim config Home*/
 
 /*Inicio configuração Sobre*/
-#Sobre{
-    background-color:#fff;
-    margin:0 auto;
+.sobre{
+    font-family:Roboto;
+    color:rgba(0,0,0,.78);
     width:90%;
+    margin:0 auto;
     text-align:justify;
 }
+.sobre span{color:rgb(200, 92, 1)}
+.sobre h1{font-weight:700;font-size:1.6rem}
+.sobre h2{font-weight:600; font-size:1.3rem;}
+.sobre h3{font-weight:500; font-size:1rem;color:rgba(0,0,0,.7)}
+.sobre p a{color:rgb(232, 108, 4)}
 
 /*Fim configuração Sobre*/
-
 /*Inicio configuração Serviços*/
 .txt-introServicos {
     color: #2b2b2b;
@@ -280,7 +297,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 }
 .img-princ-onibus {
     opacity: .9;
-    background: url(/images/img-onibus.gif) top right;
+    background: url(/images/img-onibus.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -319,11 +336,38 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     width:90%;
     margin:0 auto;
 }
-.duvidas {font-family:Roboto}
+.duvidas {font-family:Roboto;text-align:justify}
 .duvidas h1{font-weight:500;color:rgba(0,0,0,.8)}
+.duvidas p{padding:5px 20px;font-weight:500; color:rgba(0,0,0,.7)}
+.duvidas p a{color:rgb(232, 108, 4)}
+.duvidas p a:hover{color:rgb(204, 97, 8)}
+.box-titulos-duvidas {
+    padding: 1rem 2rem;
+    margin-bottom: 0;
+    background-color: rgba(232, 108, 4,.95);
+    color: white;
+    cursor: pointer;   
+}
+.box-titulos-duvidas h3{font-size:1rem;}
+.box-texto-duvidas {
+    padding: 28px 50px;
+    border: 1px solid rgba(232, 108, 4,.25);
+    border-top: none;
+    color: rgba(0,0,0,.63);
+    font-weight: 400;
+    line-height: 30px;
+    height: 300px;
+    overflow: hidden scroll;
+}
+    .box-texto-duvidas p {
+        color: rgba(0,0,0,.63);
+        font-weight: 400;
+        line-height: 30px;
+    }
+    .box-texto-duvidas h4{ color: rgba(0,0,0,.63);font-size:1.2rem;}
+.box-texto-duvidas span{font-size:.7rem;}
 
 /*Fim da configuração página Duvidas*/
-
 /*Inicio da configuração Contato*/
 .img-princ-contato {
     background: url(/images/banner_contato.png) top right;
@@ -345,23 +389,22 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     }
     .contato h3 {
         color: rgba(0,0,0,.74);
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         font-weight:400
     }
 .grid-contato {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    grid-gap: 20px;    
+    grid-gap: 20px;   
+    grid-template-areas: 'duvida telefone'
+                          'endereco endereco'
 }
 .duvida {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
     background-color: white;
     padding: 20px;
     margin-left: 20px;
+    grid-area:duvida;
 }
     .duvidas h3 {
         /*color:rgb(221,120,34)*/
@@ -398,16 +441,13 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     }
 
 .telefone {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
     background-color: white;
     padding: 20px;
     margin-right: 20px;
+    grid-area:telefone;
 }
     .telefone p {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 600;
         color: rgba(0,0,0,.77);
         padding-top:30px;
@@ -424,14 +464,11 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 
     }
 .endereco {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
     background-color: rgb(44, 44, 44);
     padding:100px 50px;
     padding-right: 0px;
     margin-top: 67px;
+    grid-area:endereco;
 }
     .endereco p {
         font-size: 1.3rem;
@@ -452,3 +489,17 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
         color: rgb(225, 105, 5);
         font-weight: 400
     }
+@media (max-width: 768px) {
+    .grid-contato {
+.4        grid-template-rows: auto auto auto;
+        grid-gap: 20px;
+        grid-template-areas: 'duvida' 'telefone' 'endereco'
+    }
+}
+
+/*Configuração do menu*/
+.destaque-menu{
+    background-color:white;
+    font-weight:600;
+    box-shadow:rgba(0,0,0,.4) 0px 0px 10px
+}

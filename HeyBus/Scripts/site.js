@@ -63,6 +63,17 @@ function Enviar()
 		document.getElementById("mensagem").value = "";
 		document.getElementById("nome").focus();
 	}
+}
+
+window.onscroll = function () { scrollFunction() };
+const elemento = document.querySelector(".barra-menu");
+
+function scrollFunction() {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		elemento.classList.add("destaque-menu")
+	} else {
+		elemento.classList.remove("destaque-menu")
 	}
+}
 
 
