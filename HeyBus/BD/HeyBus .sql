@@ -17,12 +17,16 @@ nascimento_Cliente date,
 tel_Cliente char(20),
 cel_Cliente char(20),
 email_Cliente varchar(60),
-email_Verify bit,
+email_Verify bit(1),
 ativacao_Cliente char(38) UNIQUE,
 usuario_Cliente varchar(25),
 senha_Cliente varchar(25),
 primary key (id_Cliente)
 ) ENGINE = innodb;
+
+select * from Cliente;
+Update Cliente set ativacao_Cliente = 2
+where id_Cliente = 1;
 
 create table if not exists Funcionario(
 id_Funcionario int auto_increment not null,

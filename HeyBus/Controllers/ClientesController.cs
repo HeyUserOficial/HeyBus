@@ -76,6 +76,35 @@ namespace HeyBus.Controllers
             return View(cli);
         }
 
+        [HttpGet]
+        public ActionResult VerificacaoConta(string id, string email)
+        {
+            bool status = false;
+            using (cmd = new MySqlCommand("Select ativacao_Cliente from Cliente where email_Cliente = @email", Conexao.conexao))
+            {
+                cmd.Parameters.AddWithValue("@email", email);
+
+                dr = cmd.ExecuteReader();         
+                while (dr.Read())
+                {
+                    var v = dr["ativacao_Cliente"].Equals(new Guid(id));
+                    if(v != null)
+                    {
+                       using(cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where email_Cliente = @email", Conexao.conexao))
+                       {
+                            cmd.Parameters.AddWithValue("@email", email);
+                            status = true;
+                       }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Invalid Request";
+                    }
+                }
+            }
+            ViewBag.Status = status;
+            return View();
+        }
         public ActionResult Atualizar(int id)
         {
             return View(repCli.ConsultarPorId(id));
@@ -93,19 +122,20 @@ namespace HeyBus.Controllers
             }
             return View();
         }
+
         [NonAction]
         public bool EmailExiste(string email)
         {
             bool v = true;
-            using (cmd = new MySqlCommand("Select * from Cliente where email_Cliente = @email"))
+            using (cmd = new MySqlCommand("Select * from Cliente where email_Cliente = @email", Conexao.conexao))
             {
                 conn.abrirConexao();
                 cmd.Parameters.AddWithValue("@email", email);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                     v = Convert.ToBoolean(dr["@email"].Equals(email));
-                }              
+                     v = Convert.ToBoolean(dr["@email"].Equals(email));     
+                }             
             }
             return v;
         }
