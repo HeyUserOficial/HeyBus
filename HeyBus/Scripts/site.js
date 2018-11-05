@@ -65,11 +65,12 @@ function Enviar()
 	}
 }
 
+window.onresize = function () { scrollFunction() };
 window.onscroll = function () { scrollFunction() };
 const elemento = document.querySelector(".barra-menu");
 
 function scrollFunction() {
-	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 || window.innerWidth < 992) {
 		elemento.classList.add("destaque-menu")
 	} else {
 		elemento.classList.remove("destaque-menu")
