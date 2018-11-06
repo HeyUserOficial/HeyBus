@@ -20,7 +20,7 @@ email_Cliente varchar(60),
 email_Verify bit(1),
 ativacao_Cliente char(38) UNIQUE,
 usuario_Cliente varchar(25),
-senha_Cliente varchar(25),
+senha_Cliente varchar(30),
 primary key (id_Cliente)
 ) ENGINE = innodb;
 

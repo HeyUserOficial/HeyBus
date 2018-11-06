@@ -83,16 +83,15 @@ namespace HeyBus.Controllers
             using (cmd = new MySqlCommand("Select ativacao_Cliente from Cliente where email_Cliente = @email", Conexao.conexao))
             {
                 cmd.Parameters.AddWithValue("@email", email);
-
                 dr = cmd.ExecuteReader();         
                 while (dr.Read())
                 {
                     var v = dr["ativacao_Cliente"].Equals(new Guid(id));
+                    dr.Read();
                     if(v != null)
                     {
-                       using(cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where email_Cliente = @email", Conexao.conexao))
+                       using(cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where ativacao_Cliente = 1", Conexao.conexao))
                        {
-                            cmd.Parameters.AddWithValue("@email", email);
                             status = true;
                        }
                     }
@@ -135,7 +134,8 @@ namespace HeyBus.Controllers
                 while (dr.Read())
                 {
                      v = Convert.ToBoolean(dr["@email"].Equals(email));     
-                }             
+                }
+                dr.Close();
             }
             return v;
         }
