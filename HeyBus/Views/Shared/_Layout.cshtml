@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu" id="navegacao-site">
         <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
             <img src="~/images/logo.svg" width="30" height="30" alt="Logo">
         </a>
@@ -66,9 +66,35 @@
     </nav>
     <div class="body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Today.Year - Aerarium</p>
+
+        <footer class="rodape">
+            <div class="rodape-empresa">
+                <h1><a href="Sobre">EMPRESA</a></h1>
+                <h2><a href="Sobre">Sobre</a></h2>
+                <h2><a href="Sobre">Missão</a></h2>
+                <h2><a href="Sobre">Visão</a></h2>
+                <h2><a href="Sobre">Valores</a></h2>
+            </div>
+            <div class="rodape-servicos">
+                <h1><a href="Servicos">SERVIÇOS</a></h1>
+                <h2><a href="Servicos#Veiculos">Veículos</a></h2>
+                <h2><a href="Servicos#Alimentacao">Alimentação</a></h2>
+                <h2><a href="Servicos#Bagagem">Bagagem</a></h2>
+            </div>
+            <div class="rodape-faleConosco">
+                <h1><a href="Contato">FALE CONOSCO</a></h1>
+                <h2><a href="Contato#msg">Enviar Mensagem</a></h2>
+                <h2>Dúvidas, Horários, Preços e Compra de Passagens<br /><span>3231-6624</span><br /><small>Segunda a Sexta de 09h às 21h</small></h2>
+                <h1 class="p-0 pt-2">WhatsApp</h1>
+                <h2><span>(11) 98465-4412</span></h2>
+            </div>
+            <div class="rodape-redes">
+                <h2>facebook twitter instagram</h2>
+            </div>
+            <div class="rodape-copyright">
+                <hr style="background-color: rgba(255,255,255,.4); opacity:.2"/>
+                <p>&copy; @DateTime.Today.Year - HeyUser Ltda. <br /> <small>designed by HeyUser</small></p>
+            </div>
         </footer>
     </div>
 

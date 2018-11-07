@@ -1,5 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .hidden {
     overflow: hidden
 }
@@ -517,8 +517,62 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 }
 
 /*Configuração do menu*/
-.destaque-menu{
-    background-color:white;
+#navegacao-site{
     font-weight:600;
-    box-shadow:rgba(0,0,0,.4) 0px 0px 10px
+    cursor:pointer;
 }
+#navegacao-site a{
+    color:rgba(0,0,0,.7)
+}
+#navegacao-site a:hover{
+    color:rgb(207, 97, 5)
+}
+.destaque-menu {
+    background-color: white !important;
+    font-weight: 600;
+    box-shadow: rgba(0,0,0,.4) 0px 0px 10px
+}
+
+/*Rodapé*/
+
+.rodape {
+    margin-top:200px;
+    background-color: rgb(30,30,31);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 'logo Empresa Servicos FaleConosco Redes' 'copyright copyright copyright copyright copyright'
+}
+.rodape h1 a{color: rgba(255,255,255,.7);font-size:.95rem; padding-bottom:10px;text-decoration:none;}
+.rodape h2 a{color: rgba(255,255,255,.4);font-size:.9rem; font-weight:400; text-decoration:none;}
+.rodape h1 a:hover{color: rgba(255,255,255,.85);}
+.rodape h2 a:hover{color: rgba(255,255,255,.6);}
+.rodape h1 {color: rgba(255,255,255,.7);font-size:.95rem; padding-bottom:10px}
+.rodape h2 {color: rgba(255,255,255,.4);font-size:.9rem; font-weight:400}
+.rodape{padding-top:50px}
+
+.rodape-empresa{
+    grid-area:Empresa;
+}
+.rodape-servicos{
+    grid-area:Servicos;
+}
+.rodape-faleConosco{
+    grid-area:FaleConosco;
+}
+    .rodape-faleConosco span {
+        font-weight: 600;
+        font-size: 1rem;
+        color: rgba(255,255,255,.8)
+    }
+
+.rodape-redes{
+    grid-area:Redes;
+    text-align:center
+}
+.rodape-copyright {
+    grid-area: copyright;
+    color: rgba(255,255,255,.4);
+    font-size: .95rem;
+}
+.rodape-copyright p{padding-left: 10px;}
