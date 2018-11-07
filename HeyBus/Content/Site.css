@@ -534,9 +534,8 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 }
 
 /*Rodapé*/
-
 .rodape {
-    margin-top:200px;
+    margin-top: 200px;
     background-color: rgb(30,30,31);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
