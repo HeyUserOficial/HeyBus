@@ -27,7 +27,7 @@ create Procedure SP_Cadastrar_Cliente
  in usuario varchar(25), in senha varchar(30))
 begin 
 	insert into Cliente (cpf_Cliente, nome_Cliente, nascimento_Cliente, tel_Cliente, cel_Cliente,
-    email_Cliente, usuario_Cliente, senha_Cliente) values (cpf, nome, nascimento, tel, cel, email, usuario, senha);
+    email_Cliente, ativacao_Cliente, usuario_Cliente, senha_Cliente) values (cpf, nome, nascimento, tel, cel, email, uuid(), usuario, senha);
 end $$
 Delimiter ;
 

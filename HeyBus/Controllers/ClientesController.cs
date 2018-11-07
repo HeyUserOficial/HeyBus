@@ -1,6 +1,7 @@
 ﻿using HeyBus.Connection;
 using HeyBus.Models;
 using HeyBus.Repository;
+using HeyBus.Validations;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
 
 
@@ -53,20 +53,20 @@ namespace HeyBus.Controllers
             if (ModelState.IsValid)
             {
                 var existe = EmailExiste(cli.email_Cliente);
-                if (existe)
+                if (existe > 0)
                 {
-                    ModelState.AddModelError("EmailExiste", "E-mail já está em uso");
+                    ModelState.AddModelError("EmailExiste", "E-mail já está em uso");                  
+                    return View(cli);
+                }
+                else
+                {
                     cli.ativacao_Cliente = Guid.NewGuid();
-                    cli.senha_Cliente = Crypto.Hash(cli.senha_Cliente);
-                    cli.confirma_Senha = Crypto.Hash(cli.confirma_Senha);
                     cli.email_Verify = false;
                     repCli.Insert_Cliente(cli);
-
                     EnviarVerificacao(cli.email_Cliente, cli.ativacao_Cliente.ToString());
                     message = "Cadastro feito com sucesso. Link para ativar" +
                         "a conta foi enviado no seu email:" + cli.email_Cliente;
                     status = true;
-                    return View(cli);
                 }
             }
             else
@@ -80,30 +80,43 @@ namespace HeyBus.Controllers
         public ActionResult VerificacaoConta(string id, string email)
         {
             bool status = false;
-            using (cmd = new MySqlCommand("Select ativacao_Cliente from Cliente where email_Cliente = @email", Conexao.conexao))
+            var go = VerifyAccount(new Guid(id).ToString(), email);
+            if (go)
             {
-                cmd.Parameters.AddWithValue("@email", email);
-                dr = cmd.ExecuteReader();         
-                while (dr.Read())
+                using (cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where email_Cliente = @email", Conexao.conexao))
                 {
-                    var v = dr["ativacao_Cliente"].Equals(new Guid(id));
-                    dr.Read();
-                    if(v != null)
-                    {
-                       using(cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where ativacao_Cliente = 1", Conexao.conexao))
-                       {
-                            status = true;
-                       }
-                    }
-                    else
-                    {
-                        ViewBag.Message = "Invalid Request";
-                    }
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@email", email);
+                    status = true;
                 }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid Request";
             }
             ViewBag.Status = status;
             return View();
         }
+
+        [NonAction]
+        public bool VerifyAccount(string id, string email)
+        {
+            Cliente cli = new Cliente();
+            bool v = false;
+            using (cmd = new MySqlCommand("Select ativacao_Cliente from Cliente where email_Cliente = @email", Conexao.conexao))
+            {
+                cmd.Parameters.AddWithValue("@email", email);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    id = dr["ativacao_Cliente"].ToString();
+                }
+                cli.ativacao_Cliente = new Guid(id);
+                dr.Close();
+                return v;
+            }
+        }
+
         public ActionResult Atualizar(int id)
         {
             return View(repCli.ConsultarPorId(id));
@@ -116,28 +129,28 @@ namespace HeyBus.Controllers
             if (ModelState.IsValid)
             {
                 repCli.Update_Cliente(cli);
-
                 return RedirectToAction("Consultar");
             }
             return View();
         }
 
         [NonAction]
-        public bool EmailExiste(string email)
+        public int EmailExiste(string email)
         {
-            bool v = true;
+            int r = 0;
             using (cmd = new MySqlCommand("Select * from Cliente where email_Cliente = @email", Conexao.conexao))
             {
                 conn.abrirConexao();
                 cmd.Parameters.AddWithValue("@email", email);
                 dr = cmd.ExecuteReader();
-                while (dr.Read())
+                if (dr.HasRows)
                 {
-                     v = Convert.ToBoolean(dr["@email"].Equals(email));     
+                    dr.Read();
+                    r = Convert.ToInt32(dr["id_Cliente"]);
                 }
                 dr.Close();
             }
-            return v;
+            return r;
         }
 
         [NonAction]
@@ -155,9 +168,9 @@ namespace HeyBus.Controllers
 
             var stmp = new SmtpClient
             {
-                Host = "stmp@gmail.com",
+                Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
