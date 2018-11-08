@@ -191,6 +191,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\acesso.gif" />
     <Content Include="images\alimentacao.gif" />
     <Content Include="images\ar-condicionado.gif" />
     <Content Include="images\Atendimento.gif" />
@@ -199,10 +200,12 @@
     <Content Include="images\bonito.gif" />
     <Content Include="images\brasilia.gif" />
     <Content Include="images\camposDoJordao.gif" />
+    <Content Include="images\cel-preto.gif" />
     <Content Include="images\cifrao.gif" />
     <Content Include="images\convencional.gif" />
     <Content Include="images\duvidas.gif" />
     <Content Include="images\duvidasContato.gif" />
+    <Content Include="images\email-preto.gif" />
     <Content Include="images\executivo.gif" />
     <Content Include="images\fernandoDeNoronha.gif" />
     <Content Include="images\fortaleza.jpg" />
@@ -212,6 +215,7 @@
     <Content Include="images\img-onibus.gif" />
     <Content Include="images\leito.gif" />
     <Content Include="images\localizacao.gif" />
+    <Content Include="images\logoheybus-branco.png" />
     <Content Include="images\mapa.PNG" />
     <Content Include="images\outros.jpg" />
     <Content Include="images\portoAlegre.gif" />
@@ -219,6 +223,7 @@
     <Content Include="images\salvador.gif" />
     <Content Include="images\semi-leito.gif" />
     <Content Include="images\servicos.gif" />
+    <Content Include="images\tel-preto.gif" />
     <Content Include="images\telefone.gif" />
     <Content Include="images\toilet.gif" />
     <Content Include="images\travesseiro.gif" />
@@ -261,7 +266,6 @@
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Onibus.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
-    <Content Include="Views\Shared\LayoutServicos.cshtml" />
     <Content Include="Views\Clientes\Atualizar.cshtml" />
     <Content Include="Views\Onibus\Consultar.cshtml" />
     <Content Include="Views\Onibus\Atualizar.cshtml" />
@@ -280,6 +284,7 @@
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
+    <Content Include="Views\Home\testePerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

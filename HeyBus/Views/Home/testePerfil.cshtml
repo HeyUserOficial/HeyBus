@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "testePerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="bg-light">
+    <section class="perfil-cliente">
+        <div class="box-dados-clientes">
+            <div class="imagem-perfil">
+                <img src="~/images/logoheybus-branco.png" style="width:120px" />
+                <h1 class="text-center">Seu Perfil</h1>
+            </div>
+            <div class="perfil-dados-clientes">
+                <h1 class="pb-0">Dados</h1>
+                <hr style="width:90%;" />
+                <form id="form-meu-perfil" class="p-2 pl-3">
+                    <div class="form-group">
+                        <label for="nome" class="mb-0">Nome Completo</label>
+                        <input type="text" class="design-input-perfil mt-0" id="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf" class="mb-0">CPF</label>
+                        <input type="text" class="design-input-perfil mt-0" id="cpf">
+                    </div>
+                    <div class="form-group">
+                        <label for="nascimento" class="mb-0">Data de Nascimento</label>
+                        <input type="date" class="design-input-perfil mt-0" id="nascimento">
+                    </div>
+                </form>
+                <hr style="width:90%;" />
+                <h1 class="pt-0 mt-0">Contato</h1>
+                <form id="form-meu-perfil-contato" class="p-2 pl-3">
+                    <div class="d-flex">
+                        <img src="~/images/tel-preto.gif" style="width:15px" class="m-2"/><input type="tel" class="design-input-perfil mt-0" id="telefone">
+                    </div>
+                    <div class="d-flex">
+                        <img src="~/images/cel-preto.gif" style="width:12px" class="m-2 mr-3"/><input type="tel" class="design-input-perfil mt-0" id="celular">
+                    </div>
+                    <div class="d-flex">
+                        <img src="~/images/email-preto.gif" style="width:17px" class="m-2" /><input type="text" class="design-input-perfil mt-0" id="email">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="pedidos-cliente"><h1>Pedidos</h1></div>
+    </section>
+</body>
