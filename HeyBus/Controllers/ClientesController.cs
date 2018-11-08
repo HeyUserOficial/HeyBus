@@ -55,7 +55,7 @@ namespace HeyBus.Controllers
                 var existe = EmailExiste(cli.email_Cliente);
                 if (existe > 0)
                 {
-                    ModelState.AddModelError("EmailExiste", "E-mail já está em uso");                  
+                    ModelState.AddModelError("EmailExiste", "E-mail já está em uso");
                     return View(cli);
                 }
                 else
@@ -65,7 +65,7 @@ namespace HeyBus.Controllers
                     repCli.Insert_Cliente(cli);
                     EnviarVerificacao(cli.email_Cliente, cli.ativacao_Cliente.ToString());
                     message = "Cadastro feito com sucesso. Link para ativar" +
-                        "a conta foi enviado no seu email:" + cli.email_Cliente;
+                        "a conta foi enviado no seu email: " + cli.email_Cliente;
                     status = true;
                 }
             }
@@ -73,6 +73,8 @@ namespace HeyBus.Controllers
             {
                 message = "Invalid Request";
             }
+            ViewBag.Message = message;
+            ViewBag.Status = status;
             return View(cli);
         }
 
@@ -80,10 +82,10 @@ namespace HeyBus.Controllers
         public ActionResult VerificacaoConta(string id, string email)
         {
             bool status = false;
-            var go = VerifyAccount(new Guid(id).ToString(), email);
-            if (go)
+            var go = VerifyAccount(id, email);
+            if (go == true)
             {
-                using (cmd = new MySqlCommand("Update Cliente set ativacao_Cliente = 2 where email_Cliente = @email", Conexao.conexao))
+                using (cmd = new MySqlCommand("Update Cliente set email_Verify = 2 where email_Cliente = @email", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@email", email);
@@ -107,11 +109,11 @@ namespace HeyBus.Controllers
             {
                 cmd.Parameters.AddWithValue("@email", email);
                 dr = cmd.ExecuteReader();
-                while (dr.Read())
+                if (dr.Read())
                 {
                     id = dr["ativacao_Cliente"].ToString();
-                }
-                cli.ativacao_Cliente = new Guid(id);
+                    v = true;
+                }     
                 dr.Close();
                 return v;
             }
@@ -156,17 +158,17 @@ namespace HeyBus.Controllers
         [NonAction]
         public void EnviarVerificacao(string email, string ativacao)
         {
-            var verifyUrl = "/Clientes/VarificarConta" + ativacao;
+            var verifyUrl = "/Clientes/VerificacaoConta/" + ativacao +"/"+ email;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("heyuseroficial@gmail.com", "Hey User");
             var toEmail = new MailAddress(email);
             var fromEmailPassword = "heyuser123";
             string subject = "Conta criada com sucesso! Bem vindo à HeyBus!";
-            string body = "<br/><br/>Nós estamos muito felizes de lhe avisar que sua conta na HeyBus"+
-                "foi criada com sucesso. Por favor entre no link abaixo para verificar sua conta"+
-                "<br/><br/><a href='"+ link +"'>"+link+"<a/> ";
+            string body = "<br/><br/>Nós estamos muito felizes de lhe avisar que sua conta na HeyBus" +
+                "foi criada com sucesso. Por favor entre no link abaixo para verificar sua conta" +
+                "<br/><br/><a href='" + link + "'>" + link + "<a/> ";
 
-            var stmp = new SmtpClient
+            var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
@@ -182,7 +184,7 @@ namespace HeyBus.Controllers
                 Body = body,
                 IsBodyHtml = true
             })
-                stmp.Send(message);
+            smtp.Send(message);
         }
     }
 }
