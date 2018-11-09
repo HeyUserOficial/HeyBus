@@ -11,12 +11,6 @@ namespace HeyBus.Models
         [Key]
         public static int id_Acesso;
 
-        [MaxLength(25), Required]
-        public static string usuario_Acesso;
-
-        [MaxLength(25), Required]
-        public static string senha_Acesso;
-
         [Display (Name = "Usuário"), MaxLength(25)]
         public string login_Acesso { get; set; }
         

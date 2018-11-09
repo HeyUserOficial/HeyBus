@@ -43,6 +43,12 @@ namespace HeyBus.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ActionName("Cadastrar")]
         public ActionResult Cadastrar([Bind(Exclude = "email_Verify,ativacao_Cliente")]Cliente cli)
@@ -63,8 +69,8 @@ namespace HeyBus.Controllers
                     cli.ativacao_Cliente = Guid.NewGuid();
                     cli.email_Verify = false;
                     repCli.Insert_Cliente(cli);
-                    EnviarVerificacao(cli.email_Cliente, cli.ativacao_Cliente.ToString());
-                    message = "Cadastro feito com sucesso. Link para ativar" +
+                    EnviarVerificacao(cli.email_Cliente, cli.ativacao_Cliente.ToString(), cli.usuario_Cliente);
+                    message = "Ola! "+ cli.usuario_Cliente +", seu cadastro feito com sucesso. Link para ativar" +
                         "a conta foi enviado no seu email: " + cli.email_Cliente;
                     status = true;
                 }
@@ -79,16 +85,15 @@ namespace HeyBus.Controllers
         }
 
         [HttpGet]
-        public ActionResult VerificacaoConta(string id, string email)
+        public ActionResult VerificacaoConta(string id, string usuario)
         {
+            id = new Guid(id).ToString();
             bool status = false;
-            var go = VerifyAccount(id, email);
-            if (go == true)
-            {
-                using (cmd = new MySqlCommand("Update Cliente set email_Verify = 2 where email_Cliente = @email", Conexao.conexao))
+            if (id != null)
+            { 
+                using (cmd = new MySqlCommand("Update Cliente set email_Verify = b'1' where last_insert_id()", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@email", email);
                     status = true;
                 }
             }
@@ -98,25 +103,6 @@ namespace HeyBus.Controllers
             }
             ViewBag.Status = status;
             return View();
-        }
-
-        [NonAction]
-        public bool VerifyAccount(string id, string email)
-        {
-            Cliente cli = new Cliente();
-            bool v = false;
-            using (cmd = new MySqlCommand("Select ativacao_Cliente from Cliente where email_Cliente = @email", Conexao.conexao))
-            {
-                cmd.Parameters.AddWithValue("@email", email);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    id = dr["ativacao_Cliente"].ToString();
-                    v = true;
-                }     
-                dr.Close();
-                return v;
-            }
         }
 
         public ActionResult Atualizar(int id)
@@ -156,9 +142,9 @@ namespace HeyBus.Controllers
         }
 
         [NonAction]
-        public void EnviarVerificacao(string email, string ativacao)
+        public void EnviarVerificacao(string email, string ativacao, string usuario)
         {
-            var verifyUrl = "/Clientes/VerificacaoConta/" + ativacao +"/"+ email;
+            var verifyUrl = "/Clientes/VerificacaoConta/" + ativacao;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("heyuseroficial@gmail.com", "Hey User");
             var toEmail = new MailAddress(email);

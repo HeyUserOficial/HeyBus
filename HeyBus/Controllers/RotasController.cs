@@ -10,6 +10,7 @@ namespace HeyBus.Controllers
 {
     public class RotasController : Controller
     {
+        private int idTela = 3;
         RepositoryRota repRota = new RepositoryRota();
         // GET: Rotas
         [HttpGet]
@@ -28,7 +29,16 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            return View();
+            //Pegar usuário
+            //Pegar telas que ele tem acesso
+            //list
+
+                return View();
+
+
+
+            
+           
         }
 
         [HttpPost]

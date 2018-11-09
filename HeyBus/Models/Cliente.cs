@@ -69,9 +69,5 @@ namespace HeyBus.Models
         public System.Guid ativacao_Cliente { get; set; }
 
         public bool email_Verify { get; set; }
-
-        public static string user_Cliente { get; set;}
-
-        public static string password_Cliente { get; set; }
     }
 }

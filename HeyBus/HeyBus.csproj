@@ -152,6 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connection\Conexao.cs" />
+    <Compile Include="Controllers\AcessoController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -276,10 +277,10 @@
     <Content Include="Views\Funcionarios\Consultar.cshtml" />
     <Content Include="Views\Passagens\Consultar.cshtml" />
     <Content Include="Views\Passagens\Comprar.cshtml" />
-    <Content Include="Views\Clientes\Login.cshtml" />
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
+    <Content Include="Views\Acesso\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

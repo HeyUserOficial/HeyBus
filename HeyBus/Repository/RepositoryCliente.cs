@@ -15,25 +15,50 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-        public void Login_Cliente(Cliente cli)
+        public string Login_Cliente(Acesso ac)
         {
             try
             {
-                using(cmd = new MySqlCommand("SP_Login_Cliente"))
+                using(cmd = new MySqlCommand("SP_Login_Cliente", Conexao.conexao))
                 {
+                    
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@usuario", Cliente.user_Cliente);
-                    cmd.Parameters.AddWithValue("@senha", Cliente.password_Cliente);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@usuario", ac.login_Acesso);
+                    cmd.Parameters.AddWithValue("@senha", ac.password_Acesso);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        
+                       if(ac.login_Acesso == dr["usuario_Cliente"].ToString())
+                       {
+                            if(ac.password_Acesso == dr["senha_Cliente"].ToString())
+                            {
+                                return "Bem Vindo!";
+                            }
+                            else
+                            {
+                                return "Sua senha está incorreta!";
+                            }
+                       }
+                       else
+                       {
+                            return "Nome do usuário não encontrado!";
+                       }
                     }
+                    else
+                    {
+                        return "Nome do usuário e senha não encontrados!";
+                    }
+                   
                 }
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                dr.Close();
             }
         }
         

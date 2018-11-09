@@ -1,4 +1,4 @@
-Use HeyBus;
+/*Use HeyBus;
 /*<----------------Acesso-------------->*/
 Delimiter $$
 create Procedure SP_Alterar_Acesso

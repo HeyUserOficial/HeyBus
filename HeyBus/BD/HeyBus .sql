@@ -1,4 +1,4 @@
-drop database if exists HeyBus;
+/*drop database if exists HeyBus;
 create database if not exists HeyBus;
 use HeyBus;
 create table if not exists Acesso(
@@ -24,9 +24,6 @@ senha_Cliente varchar(30),
 primary key (id_Cliente)
 ) ENGINE = innodb;
 
-select * from Cliente;
-Update Cliente set ativacao_Cliente = 2
-where id_Cliente = 1;
 
 create table if not exists Funcionario(
 id_Funcionario int auto_increment not null,

@@ -11,6 +11,20 @@ namespace HeyBus.Controllers
     {
         public ActionResult Index()
         {
+
+            Cliente cliente = new Cliente();
+            cliente.id_Cliente = 1;
+            cliente.nome_Cliente = "yuri";
+            cliente.tel_Cliente = "1194487-121";
+
+            Session["clientelogado"] = cliente;
+
+            string login = "";
+
+            if (Session["login_yuri"] != null)
+            {
+                login = Session["login_yuri"].ToString();
+            }
             return View();
         }
 
