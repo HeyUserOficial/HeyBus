@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu" id="navegacao-site">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu" >
         <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
             <img src="~/images/logo.svg" width="30" height="30" alt="Logo">
         </a>
@@ -26,7 +26,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" id="navegacao-site">
                 <li class="nav-item">
                     <a class="nav-link" href="~/Home/Index">Home</a>
                 </li>
@@ -51,18 +51,26 @@
             </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item dropdown">
-                    <a asp-controller="Employees" asp-action="Index" class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3" style="border-radius:10px" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a asp-controller="Employees" asp-action="Index" class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Bem Vindo, faça seu login<br />
-                        Acesso
+
+                        <img src="~/images/acesso.gif" style="width:25px;margin-right:10px;opacity:.5"/>Acesso
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="row w-100 m-0">
-                            <a asp-controller="Login" asp-action="Index" class="dropdown-item col-12 text-center">Fazer Login</a>
-                            <div class="col-12 dropdown-item"> Cliente novo?<a asp-controller="Employees" asp-action="Index" class="">Cadastrar-se</a></div>
-                            <a asp-controller="Employees" asp-action="Index" class="dropdown-item col-12">Perfil</a>
-                            <a asp-controller="Employees" asp-action="Index" class="dropdown-item col-12">Carrinho</a>
-                            
-                            <a asp-controller="Employees" asp-action="Index" class="dropdown-item border-top">Logout</a>
+                            <div class="dropdown-item col-12 text-center">
+                                <a asp-controller="Login" asp-action="Index" class="btn-laranja">Faça Login</a>
+                            </div>
+                            <div class="col-12 dropdown-item border-bottom text-center" style="margin-top:-9px">
+                                <small>Cliente novo? <a asp-controller="Employees" asp-action="Index" class="link">Cadastrar-se</a></small>
+                            </div>
+                            <div class="dropdown-item col-12 text-center mt-3">
+                                <a asp-controller="Employees" asp-action="Index" class="hover-laranja">Perfil</a>
+                            </div>
+                            <div class="dropdown-item col-12 text-center mb-3">
+                                <a asp-controller="Employees" asp-action="Index" class="hover-laranja">Carrinho</a>
+                            </div>
+                            <a asp-controller="Employees" asp-action="Index" class="dropdown-item border-top hover-laranja text-right">Logout</a>
                         </div>
                         
 
@@ -92,8 +100,6 @@
                 <h1><a href="Contato">FALE CONOSCO</a></h1>
                 <h2><a href="Contato#msg">Enviar Mensagem</a></h2>
                 <h2>Dúvidas, Horários, Preços e Compra de Passagens<br /><span>3231-6624</span><br /><small>Segunda a Sexta de 09h às 21h</small></h2>
-                <h1 class="p-0 pt-2">WhatsApp</h1>
-                <h2><span>(11) 98465-4412</span></h2>
             </div>
             <div class="rodape-redes">
                 <h2>facebook twitter instagram</h2>

@@ -65,6 +65,7 @@ function Enviar()
 	}
 }
 
+window.onload = function () { scrollFunction() };
 window.onresize = function () { scrollFunction() };
 window.onscroll = function () { scrollFunction() };
 const elemento = document.querySelector(".barra-menu");
