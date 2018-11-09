@@ -4,7 +4,10 @@
 }
 
 <div class="box-cadastro-cliente">
-    <h1>Crie sua conta</h1>
+    <div class="d-flex align-items-baseline">
+        <h1 class="pr-2">Crie sua conta</h1>
+        <img src="~/images/acesso.gif" style="width:70px;opacity:.7" />
+    </div>
     <p>Faça seu cadastro e tenha acesso a conteudos exclusivos</p>
     @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
     {
@@ -25,104 +28,103 @@
 
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="ml-3 ml-sm-5">
+                    <div class="row hidden m-auto">
+                        <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
+                            @Html.LabelFor(model => model.nome_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.nome_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.nome_Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                <div class="row w-100 hidden m-auto">
-                    <div class="form-group col-4">
-                        @Html.LabelFor(model => model.nome_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.nome_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.nome_Cliente, "", new { @class = "text-danger" })
+                        <div class="form-group col-5 col-sm-5 col-lg-3 col-xl-3">
+                            @Html.LabelFor(model => model.cpf_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.cpf_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.cpf_Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-6 col-sm-5 col-lg-3 col-xl-2">
+                            @Html.LabelFor(model => model.nascimento_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.nascimento_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.nascimento_Cliente, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
+                    <div class="row hidden m-auto">
+                        <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
+                            @Html.LabelFor(model => model.email_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.email_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.email_Cliente, "", new { @class = "text-danger" })
+                                @Html.ValidationMessage("EmailExiste", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                    <div class="form-group col-3">
-                        @Html.LabelFor(model => model.cpf_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.cpf_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.cpf_Cliente, "", new { @class = "text-danger" })
+                        <div class="form-group col-6 col-sm-5 col-lg-3 col-xl-2">
+                            @Html.LabelFor(model => model.tel_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.tel_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.tel_Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-5 col-sm-5 col-lg-3 col-xl-3">
+                            @Html.LabelFor(model => model.cel_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.cel_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.cel_Cliente, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
+                    <div class="row hidden m-auto">
+                        <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-3">
+                            @Html.LabelFor(model => model.usuario_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.usuario_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.usuario_Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                    <div class="form-group col-2">
-                        @Html.LabelFor(model => model.nascimento_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.nascimento_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.nascimento_Cliente, "", new { @class = "text-danger" })
+                        <div class="form-group col-6 col-sm-5 col-lg-3 col-xl-3">
+                            @Html.LabelFor(model => model.senha_Cliente, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.senha_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.senha_Cliente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-5 col-sm-5 col-lg-3 col-xl-3">
+                            @Html.LabelFor(model => model.confirma_Senha, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.confirma_Senha, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.confirma_Senha, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row w-100 hidden m-auto">
-                    <div class="form-group col-4">
-                        @Html.LabelFor(model => model.email_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.email_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.email_Cliente, "", new { @class = "text-danger" })
-                            @Html.ValidationMessage("EmailExiste", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group col-2">
-                        @Html.LabelFor(model => model.tel_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.tel_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.tel_Cliente, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                        @Html.LabelFor(model => model.cel_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.cel_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.cel_Cliente, "", new { @class = "text-danger" })
-                        </div>
+                <div class="form-group">
+                    <div class="hidden mt-4" style="margin-left:5vw">
+                        <input type="submit" value="Cadastrar" class="btn-laranja" style="font-weight:500" /> <a style="padding-left:15px;" href="~/Home/index">Voltar a página inicial</a>
                     </div>
                 </div>
-                <div class="row w-100 hidden m-auto">
-                    <div class="form-group col-3">
-                        @Html.LabelFor(model => model.usuario_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.usuario_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.usuario_Cliente, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group col-3">
-                        @Html.LabelFor(model => model.senha_Cliente, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.senha_Cliente, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.senha_Cliente, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group col-3">
-                        @Html.LabelFor(model => model.confirma_Senha, htmlAttributes: new { @class = "control-label" })
-                        <div>
-                            @Html.EditorFor(model => model.confirma_Senha, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                            @Html.ValidationMessageFor(model => model.confirma_Senha, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
-                if (ViewBag.Message != null)
-                {
+            </div>
+            if (ViewBag.Message != null)
+            {
                 <div class="alert alert-danger">
                     <strong>Erro!</strong>@ViewBag.Message
                 </div>
-                }
-                }
-                }
-            </div>
-
-
-
-<div>
-    @Html.ActionLink("Login", "Login")
+            }
+        }
+    }
 </div>
+
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
