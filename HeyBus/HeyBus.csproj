@@ -164,8 +164,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Acesso.cs" />
+    <Compile Include="Models\Assentos.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Onibus.cs" />
     <Compile Include="Models\Passagem.cs" />
     <Compile Include="Models\Rota.cs" />
@@ -284,11 +286,8 @@
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Acesso\Login.cshtml" />
-=======
     <Content Include="Views\Home\testePerfil.cshtml" />
->>>>>>> 3e20d0a7a9bc689212e6d7b9376f9b1059185738
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

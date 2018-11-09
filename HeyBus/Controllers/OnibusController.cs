@@ -45,10 +45,7 @@ namespace HeyBus.Controllers
         
         public ActionResult Atualizar(int id, string nomeLogin)
         {
-
-            Cliente cliente = (Cliente)Session["clienteLogado"];
-       
-            return View(repBus.Consultar_OnibusID(id,cliente.nome_Cliente));
+            return View(repBus.Consultar_OnibusID(id));
         }
 
         [HttpPost]

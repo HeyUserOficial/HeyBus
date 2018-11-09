@@ -1,4 +1,4 @@
-/*use HeyBus;
+use HeyBus;
 Create View Consultar_Funcionarios as
 select id_Funcionario, cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, 
 	   Acesso.login_Acesso 

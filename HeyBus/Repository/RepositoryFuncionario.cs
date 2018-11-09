@@ -25,7 +25,6 @@ namespace HeyBus.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@login", func.login_Acesso);
                     cmd.Parameters.AddWithValue("@senha", func.password_Acesso);
-                    cmd.Parameters.AddWithValue("@nivel", func.level_Acesso);
                     cmd.Parameters.AddWithValue("@cpf", func.cpf_Funcionario);
                     cmd.Parameters.AddWithValue("@nome", func.nome_Funcionario);
                     cmd.Parameters.AddWithValue("@email", func.email_Funcionario);

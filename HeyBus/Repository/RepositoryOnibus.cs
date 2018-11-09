@@ -36,7 +36,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public Onibus Consultar_OnibusID(int id, string nomeUsuario)
+        public Onibus Consultar_OnibusID(int id)
         {
             Onibus oni = new Onibus();
             try
@@ -52,7 +52,7 @@ namespace HeyBus.Repository
                         oni.viacao_Onibus =   dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
                         oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
-                        oni.manutencao_Onibus = nomeUsuario; //dr["manutencao_Onibus"].ToString();
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
                     }
                     oni.id_Onibus = id;
                     dr.Close();

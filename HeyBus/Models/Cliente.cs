@@ -8,7 +8,7 @@ using System.Web;
 
 namespace HeyBus.Models
 {
-    public class Cliente
+    public class Cliente : Acesso
     {
         [Key]
         [Display(Name = ("Código"))]

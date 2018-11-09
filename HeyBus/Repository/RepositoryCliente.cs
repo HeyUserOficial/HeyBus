@@ -15,7 +15,7 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-        public string Login_Cliente(Acesso ac)
+        public string Login_Cliente(Cliente cli)
         {
             try
             {
@@ -24,14 +24,14 @@ namespace HeyBus.Repository
                     
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@usuario", ac.login_Acesso);
-                    cmd.Parameters.AddWithValue("@senha", ac.password_Acesso);
+                    cmd.Parameters.AddWithValue("@usuario", cli.login_Acesso);
+                    cmd.Parameters.AddWithValue("@senha", cli.password_Acesso);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                       if(ac.login_Acesso == dr["usuario_Cliente"].ToString())
+                       if(cli.login_Acesso == dr["usuario_Cliente"].ToString())
                        {
-                            if(ac.password_Acesso == dr["senha_Cliente"].ToString())
+                            if(cli.password_Acesso == dr["senha_Cliente"].ToString())
                             {
                                 return "Bem Vindo!";
                             }
@@ -48,8 +48,7 @@ namespace HeyBus.Repository
                     else
                     {
                         return "Nome do usuário e senha não encontrados!";
-                    }
-                   
+                    }                   
                 }
             }
             catch (Exception)

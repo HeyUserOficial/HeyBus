@@ -19,19 +19,16 @@ namespace HeyBus.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Acesso ac)
+        public ActionResult Login(Cliente cli)
         {
             try
             {
-
-                Session["login_yuri"] = ac.login_Acesso;
-
                 if (ModelState.IsValid)
                 {
-                    string autenticacao = repCli.Login_Cliente(ac);
+                    var autenticacao = repCli.Login_Cliente(cli);
                     if (autenticacao.Equals("Bem Vindo!"))
                     {
-                        //return RedirectToAction("Index", new { area = "Home" });
+                        Session["cliente_Logado"] = cli;
                         return RedirectToAction("Index","Home");
                     }
                     else if (autenticacao.Equals("Sua senha está incorreta!"))
@@ -49,7 +46,7 @@ namespace HeyBus.Controllers
             {
                 ModelState.AddModelError(string.Empty, e.Message);
             }
-            return View(ac);
+            return View(cli);
         }
     }
 }

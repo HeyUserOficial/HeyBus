@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HeyBus.Models
 {
-    public class Acesso : Passagem
+    public class Acesso
     {
         [Key]
         public static int id_Acesso;
@@ -16,10 +16,5 @@ namespace HeyBus.Models
         
         [Display (Name = "Senha"), MaxLength(25)] 
         public string password_Acesso { get; set; } 
-
-        public static string nivel_Acesso;
-
-        [Display (Name = "Nível de acesso"), MaxLength(15)]
-        public string level_Acesso;
     }
 }
