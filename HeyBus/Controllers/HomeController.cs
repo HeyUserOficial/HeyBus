@@ -17,10 +17,6 @@ namespace HeyBus.Controllers
         MySqlDataReader dr;
         RepositoryCliente repCli = new RepositoryCliente();
 
-        public ActionResult _Layout()
-        {
-            return View();
-        }
         public ActionResult Index()
         {
             
@@ -56,6 +52,11 @@ namespace HeyBus.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult testeMenu()
+        {
             return View();
         }
     }
