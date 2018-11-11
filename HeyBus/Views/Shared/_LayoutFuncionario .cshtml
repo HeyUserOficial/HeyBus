@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <aside id="menu-lateral-funcionario" class="aparecerMenu">
+    <aside id="menu-lateral-funcionario" >
         <div class="fecharMenu d-flex align-items-center">
             <div class="bars" style="cursor:pointer" onclick="fecharMenu()">
                 <div class="bar1"></div>
@@ -30,7 +30,7 @@
             <button class="accordion" onclick="abrirMenu()" id="accordion-nav-func">
                 <img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" />Funcionário
             </button>
-            <div class="panel">
+            <div class="panel" id="panelFunc">
                 <ul>
                     <li><a href="~/Funcionarios/Cadastrar">Cadastro</a></li>
                     <li><a href="~/Funcionarios/Consultar">Consulta</a></li>
@@ -40,7 +40,7 @@
             <button class="accordion" onclick="abrirMenu()" id="accordion-nav-bus">
                 <img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" />Ônibus
             </button>
-            <div class="panel">
+            <div class="panel" id="panelBus">
                 <ul>
                     <li><a href="~/Onibus/Cadastrar">Cadastro</a></li>
                     <li><a href="~/Onibus/Consultar">Consulta</a></li>
@@ -50,7 +50,7 @@
             <button class="accordion" onclick="abrirMenu()" id="accordion-nav-rota">
                 <img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" />Rota
             </button>
-            <div class="panel">
+            <div class="panel" id="panelRota">
                 <ul>
                     <li><a href="~/Rotas/Cadastrar">Cadastrar</a></li>
                     <li><a href="~/Rotas/Consultar">Consultar</a></li>
@@ -59,18 +59,18 @@
             </div>
         </nav>
         <div class="sair">
-            <img src="~/images/logout.gif" style="width:28px; opacity:.85; padding-right:3px" />Logout
+            <img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" />Logout
         </div>
 
-        <div class="bar-fechado d-none" onclick="abrirMenu()" id="toggle-abriMenu">
+        <div class="bar-fechado" onclick="abrirMenu()" id="toggle-abriMenu">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-        <div class="icon-func-fechado d-none" onclick="abrirMenu()"><img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
-        <div class="icon-bus-fechado d-none" onclick="abrirMenu()"><img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
-        <div class="icon-rota-fechado d-none" onclick="abrirMenu()"><img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
-        <div class="icon-sair-fechado d-none" ><img src="~/images/logout.gif" style="width:28px; opacity:.85; padding-right:3px" /></div>
+        <div class="icon-func-fechado" onclick="abrirMenu()"><img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-bus-fechado" onclick="abrirMenu()"><img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-rota-fechado" onclick="abrirMenu()"><img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-sair-fechado" ><img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" /></div>
     </aside>
     <div class="body-content">
         @RenderBody()
@@ -80,6 +80,7 @@
             <p>&copy; @DateTime.Today.Year - HeyUser Ltda. <br /> <small>designed by HeyUser</small></p>
         </footer>
     </div>
+
 
     <environment include="Development">
         <script src="~/Scripts/jquery.js"></script>

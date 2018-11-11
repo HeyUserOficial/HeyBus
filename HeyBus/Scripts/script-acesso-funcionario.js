@@ -5,6 +5,9 @@
 	const iconBus = document.querySelector(".icon-bus-fechado")
 	const iconRota = document.querySelector(".icon-rota-fechado")
 	const iconSair = document.querySelector(".icon-sair-fechado")
+	const a = document.querySelector("#accordion-nav-func")
+	const b = document.querySelector("#accordion-nav-bus")
+	const c = document.querySelector("#accordion-nav-rota")
 
 	fecharMenu.classList.remove("aparecerMenu")
 	toggleAbrir.classList.add("bar-fechado")
@@ -13,6 +16,13 @@
 	iconBus.classList.remove("d-none")
 	iconRota.classList.remove("d-none")
 	iconSair.classList.remove("d-none")
+	a.classList.remove("active")
+	b.classList.remove("active")
+	c.classList.remove("active")
+
+	$("#panelFunc").removeAttr('style');
+	$("#panelBus").removeAttr('style');
+	$("#panelRota").removeAttr('style');
 }
 function abrirMenu() {
 	const fecharMenu = document.querySelector("#menu-lateral-funcionario");

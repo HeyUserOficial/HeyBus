@@ -295,7 +295,6 @@
     <Content Include="Views\Acesso\Login.cshtml" />
     <Content Include="Views\Clientes\Perfil.cshtml" />
     <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
-    <Content Include="Views\Home\testeMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
