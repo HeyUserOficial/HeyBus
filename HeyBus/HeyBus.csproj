@@ -196,6 +196,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\estilo-acesso-funcionario.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,16 +220,20 @@
     <Content Include="images\fernandoDeNoronha.gif" />
     <Content Include="images\fortaleza.jpg" />
     <Content Include="images\frigobar.gif" />
+    <Content Include="images\funcionario.gif" />
     <Content Include="images\historia.gif" />
     <Content Include="images\imagemHome.jpg" />
     <Content Include="images\img-onibus.gif" />
     <Content Include="images\leito.gif" />
     <Content Include="images\localizacao.gif" />
     <Content Include="images\logoheybus-branco.png" />
+    <Content Include="images\logout.gif" />
     <Content Include="images\mapa.PNG" />
+    <Content Include="images\onibus.gif" />
     <Content Include="images\outros.jpg" />
     <Content Include="images\portoAlegre.gif" />
     <Content Include="images\rio.jpg" />
+    <Content Include="images\rota.gif" />
     <Content Include="images\salvador.gif" />
     <Content Include="images\semi-leito.gif" />
     <Content Include="images\servicos.gif" />
@@ -247,6 +252,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\jquery.mask.min.js" />
     <Content Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -256,6 +262,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script-acesso-funcionario.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -292,10 +299,16 @@
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Home\testePerfil.cshtml" />
     <Content Include="Views\Acesso\LoginFuncionario.cshtml" />
     <Content Include="Views\Funcionarios\Alterar.cshtml" />
+=======
+    <Content Include="Views\Acesso\Login.cshtml" />
+    <Content Include="Views\Clientes\Perfil.cshtml" />
+    <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
+>>>>>>> 93394123d6f9f69bc34af9e273c63e9b07c04442
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

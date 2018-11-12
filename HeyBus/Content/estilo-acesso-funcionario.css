@@ -1,0 +1,80 @@
+﻿body {margin-left: 55px;font-family:Roboto}
+/*Configuração do menu do acesso funcionário*/
+.bar1, .bar2, .bar3{width: 25px;height: 3.1px;background-color: #fff; margin: 6px 0; transition: 0.4s;}
+
+/*Box do menu lateral*/
+#menu-lateral-funcionario {-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;
+transition: all 0.5s ease; font-size: 1.1em; background: rgb(42,42,42); height: 100vh; overflow: hidden; width: 230px;
+    position: fixed; left: -170px; display: grid;   grid-template-columns: 230px; grid-template-rows: 1fr 9fr 1fr;
+    grid-template-areas: 'abrirFechar' 'navegacoes' 'sair';z-index:10
+}
+
+/*Toggle*/
+.fecharMenu{grid-area: abrirFechar;background-color: rgb(255, 106, 0); padding:0px 15px;}
+.fecharMenu h1{font-weight:500; font-size:1rem;padding:0px 10px; color:rgba(0,0,0,.7); margin-bottom:0}
+
+/*Configurando as navegações em si*/
+.accordion {background-color: transparent;color: white;cursor: pointer; padding: 18px; width: 100%; border: none;
+    text-align: left;font-size: .84rem;font-weight:400;transition: 0.3s;}
+    .active, .accordion:hover {background-color: #ccc;background-color: rgba(0,0,0,.3);box-shadow:rgba(150,150,150,.3) 0px 0px 3px}
+.panel {padding: 0 18px;background-color: transparent;max-height: 0;overflow: hidden;transition: max-height 0.2s ease-out;}
+    .panel li{list-style:none;padding:5px 0px;}
+    .panel a{color: #fff;font-size: .84rem;}
+#navegacao-funcionario {
+    grid-area: navegacoes;
+    overflow: hidden auto;
+}
+    #navegacao-funcionario li a:hover {text-decoration:none;color: rgb(255, 106, 0);transition: all 0.4s ease;}
+
+/*Sair*/
+.sair{grid-area:sair; color:white;padding:10px; font-size: .84rem}
+
+/*Faz o menu "aparecer"*/
+.aparecerMenu {overflow-y: scroll;-moz-transform: translate(210px, 0);-webkit-transform: translate(210px, 0);-o-transform: translate(210px, 0);
+    transform: translate(170px, 0);padding-right: 0;}
+
+/*Configuração de quando o menu estiver fechado*/
+.bar-fechado {z-index: 10;position: fixed; left: 12px; top: 10px; cursor:pointer;}
+.icon-func-fechado{z-index: 10;position: fixed; left: 12px; top: 73px; cursor:pointer;}
+.icon-bus-fechado{z-index: 10;position: fixed; left: 12px; top: 137px; cursor:pointer;}
+.icon-rota-fechado{z-index: 10;position: fixed; left: 12px; top: 198px; cursor:pointer;}
+.icon-sair-fechado{z-index: 10;position: fixed; left: 12px; bottom: 18px; cursor:pointer;}
+
+
+/*Fim configuração menu*/
+
+/*Telas de cadastro*/
+.box-cadastro {
+    padding: 30px 0px 10px 10px;
+    color: rgba(0,0,0,.76);    
+}
+    .box-cadastro h1 {
+        font-size: 1.7rem;
+        padding-left: 20px;
+    }
+
+    .box-cadastro h2 {
+        font-size: .88rem;
+        color: rgba(0,0,0,.7);
+        padding-left: 20px;
+    }
+    .box-cadastro h2 span {
+        font-size: .92rem;
+        color: rgba(0,0,0,.89);
+    }
+
+    .box-cadastro h3 {
+        font-size: 1.25rem;
+        color: rgba(0,0,0,.77);
+        padding-left: 20px;
+    }
+
+/*Configuração padrão para todas as telas do "sistema de acesso pelo funcionário"*/
+.cabecalho{
+    background-color:rgb(134,100,77);
+    color:#fff;
+    padding:15px 0px 0.1px 45px;
+}
+.cabecalho h1{font-weight:400;font-size:1.5rem;}
+.cabecalho h1 span{font-weight:300;font-size:1rem;}
+.cabecalho img{margin-right:15px;width:150px;opacity:.95}

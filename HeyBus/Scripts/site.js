@@ -78,4 +78,9 @@ function scrollFunction() {
 	}
 }
 
-
+$(document).ready(function () {
+	$(".maskcpf").mask("999.999.999-99");
+	$(".masktelefone").mask("(99) 9999-9999");
+	$(".maskcelular").mask("(99) 9 9999-9999");
+	$(".maskdata").mask("99/99/9999");
+})

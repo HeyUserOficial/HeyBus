@@ -17,10 +17,6 @@ namespace HeyBus.Controllers
         MySqlDataReader dr;
         RepositoryCliente repCli = new RepositoryCliente();
 
-        public ActionResult _Layout()
-        {
-            return View();
-        }
         public ActionResult Index()
         {
             
@@ -59,9 +55,13 @@ namespace HeyBus.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         public ActionResult testePerfil()
         {
             return View();
         }
+=======
+       
+>>>>>>> 93394123d6f9f69bc34af9e273c63e9b07c04442
     }
 }

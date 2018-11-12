@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aerarium</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/Content/bootstrap.css" />
+        <link rel="stylesheet" href="~/Content/estilo-acesso-funcionario.css" />
+    </environment>
+    <environment exclude="Development">
+        <!--<link rel="stylesheet" href="~/Content/bootstrap.min.css"
+           asp-fallback-href="~/Content/bootstrap.min.css"
+           asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    -->
+    </environment>
+</head>
+<body>
+    <aside id="menu-lateral-funcionario" >
+        <div class="fecharMenu d-flex align-items-center">
+            <div class="bars" style="cursor:pointer" onclick="fecharMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h1>Menu de opções</h1>
+        </div>
+        <nav id="navegacao-funcionario">
+            <button class="accordion" onclick="abrirMenu()" id="accordion-nav-func">
+                <img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" />Funcionário
+            </button>
+            <div class="panel" id="panelFunc">
+                <ul>
+                    <li><a href="~/Funcionarios/Cadastrar">Cadastro</a></li>
+                    <li><a href="~/Funcionarios/Consultar">Consulta</a></li>
+                    <li><a href="~/Funcionarios/Atualizar">Alteração</a></li>
+                </ul>
+            </div>
+            <button class="accordion" onclick="abrirMenu()" id="accordion-nav-bus">
+                <img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" />Ônibus
+            </button>
+            <div class="panel" id="panelBus">
+                <ul>
+                    <li><a href="~/Onibus/Cadastrar">Cadastro</a></li>
+                    <li><a href="~/Onibus/Consultar">Consulta</a></li>
+                    <li><a href="~/Onibus/Atualizar">Manutenção</a></li>
+                </ul>
+            </div>
+            <button class="accordion" onclick="abrirMenu()" id="accordion-nav-rota">
+                <img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" />Rota
+            </button>
+            <div class="panel" id="panelRota">
+                <ul>
+                    <li><a href="~/Rotas/Cadastrar">Cadastrar</a></li>
+                    <li><a href="~/Rotas/Consultar">Consultar</a></li>
+                    <li><a href="~/Rotas/Atualizar">Atualizar</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sair">
+            <img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" />Logout
+        </div>
+
+        <div class="bar-fechado" onclick="abrirMenu()" id="toggle-abriMenu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="icon-func-fechado" onclick="abrirMenu()"><img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-bus-fechado" onclick="abrirMenu()"><img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-rota-fechado" onclick="abrirMenu()"><img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-sair-fechado" ><img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" /></div>
+    </aside>
+    <div class="body-content">
+        @RenderBody()
+
+        <footer class="text-center">
+            <hr style="background-color: rgba(255,255,255,.4); width:70%;box-shadow:rgb(42,42,42) 5px 3px 10px" />
+            <p>&copy; @DateTime.Today.Year - HeyBus Ltda. <br /> <small>designed by HeyUser</small></p>
+        </footer>
+    </div>
+
+
+    <environment include="Development">
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery.mask.min.js"></script>
+        <script src="~/Scripts/script-acesso-funcionario.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/Scripts/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
+                asp-fallback-src="~/Scripts/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
