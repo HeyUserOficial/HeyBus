@@ -15,6 +15,7 @@ namespace HeyBus.Models
         public string login_Acesso { get; set; }
         
         [Display (Name = "Senha"), MaxLength(25)] 
+        [DataType(DataType.Password)]
         public string password_Acesso { get; set; } 
     }
 }

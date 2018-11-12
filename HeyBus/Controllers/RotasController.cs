@@ -43,7 +43,7 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult Atualizar(int id)
+        public ActionResult Alterar(int id)
         {
             return View(repRota.Consultar_Rota(id));
         }

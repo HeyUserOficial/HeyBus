@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HeyBus.Models
 {
@@ -22,5 +23,9 @@ namespace HeyBus.Models
 
         [Display (Name = "Manutenção"), MaxLength(15), Required]
         public string manutencao_Onibus { get; set; }
+
+        public IEnumerable<SelectListItem> PuxarOnibus { get; set; }
+
+        public IEnumerable<SelectListItem> PuxarCategoria { get; set; }
     }
 }

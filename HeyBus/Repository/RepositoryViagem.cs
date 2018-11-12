@@ -24,7 +24,7 @@ namespace HeyBus.Repository
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@rota", viag.rot.destino_Rota);
-                    cmd.Parameters.AddWithValue("@onibus", viag.oni.viacao_Onibus);
+                    cmd.Parameters.AddWithValue("@onibus", viag.oni.id_Onibus);
                     cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem.Date);
                     cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
                     cmd.ExecuteNonQuery();
@@ -36,7 +36,57 @@ namespace HeyBus.Repository
         }
 
     
+        public IEnumerable<Viagem> ProcurarOnibus()
+        {
+            Viagem onib = new Viagem();
+            List<Viagem> listaOni = new List<Viagem>();
+            
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Onibus where manutencao_Onibus = Preparado", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        onib.oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"]);
+                        onib.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        listaOni.Add(onib);
+                    }
+                    dr.Close();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return listaOni;
+        }
 
+        public IEnumerable<Viagem> ProcurarRota()
+        {
+            Viagem rotas = new Viagem();
+            List<Viagem> listaRota = new List<Viagem>();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Rota", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rotas.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
+                        rotas.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        listaRota.Add(rotas);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return listaRota;
+        }
 
         public IEnumerable<Viagem> Consultar_Viagens()
         {

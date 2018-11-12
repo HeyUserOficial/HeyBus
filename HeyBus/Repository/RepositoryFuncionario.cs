@@ -38,20 +38,68 @@ namespace HeyBus.Repository
             }
         }
 
-        public void Update_Func(Funcionario func)
+        public string Login_Func(Funcionario func)
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_Alterar_Func", Conexao.conexao))
+                using (cmd = new MySqlCommand("SP_Efetuar_Acesso", Conexao.conexao))
+                {
+
+                    conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@usuario", func.login_Acesso);
+                    cmd.Parameters.AddWithValue("@senha", func.password_Acesso);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        if (func.login_Acesso == dr["login_Acesso"].ToString())
+                        {
+                            if (func.password_Acesso == dr["senha_Acesso"].ToString())
+                            {
+                                return "Bem Vindo!";
+                            }
+                            else
+                            {
+                                return "Sua senha está incorreta!";
+                            }
+                        }
+                        else
+                        {
+                            return "Nome do usuário não encontrado!";
+                        }
+                    }
+                    else
+                    {
+                        return "Nome do usuário e senha não encontrados!";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                dr.Close();
+            }
+        }
+
+        public Funcionario Update_Func(Funcionario func)
+        {
+            try
+            {
+                using(cmd = new MySqlCommand("SP_Alterar_Func", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", func.id_Funcionario);
                     cmd.Parameters.AddWithValue("@cpf", func.cpf_Funcionario);
                     cmd.Parameters.AddWithValue("@nome", func.nome_Funcionario);
                     cmd.Parameters.AddWithValue("@email", func.email_Funcionario);
                     cmd.Parameters.AddWithValue("@endereco", func.endereco_Funcionario);
                     cmd.ExecuteNonQuery();
                 }
+                return func;
             }
             catch (Exception)
             {
@@ -86,6 +134,34 @@ namespace HeyBus.Repository
             {
                 throw;
             }   
+        }
+
+
+        public Funcionario BuscarPorId(int id)
+        {
+            Funcionario func = new Funcionario();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Funcionario where id_Funcionario = @id", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", func.id_Funcionario);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
+                        func.nome_Funcionario = dr["nome_Funcionario"].ToString();
+                        func.email_Funcionario = dr["email_Funcionario"].ToString();
+                        func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
+                    }
+                    dr.Close();
+                }
+                return func;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

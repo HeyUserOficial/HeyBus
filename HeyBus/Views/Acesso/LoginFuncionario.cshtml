@@ -1,15 +1,17 @@
 ﻿@model HeyBus.Models.Acesso
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "LoginFuncionario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>LoginFuncionario</h2>
 
-@using (Html.BeginForm()) 
-{
+@using (Html.BeginForm())
+{ 
+
     @Html.AntiForgeryToken()
-    
-<div class="login-cliente" style="margin-top:150px!important;">
+<div class="login-funcionario" style="margin-top:150px!important;">
     <h1>Acesso</h1>
     <form>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -33,9 +35,6 @@
             <input type="submit" value="Login" class="btn btn-default" />
         </div>
     </div>
-</div>
+</div> 
+    
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

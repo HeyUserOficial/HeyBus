@@ -105,14 +105,14 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult Atualizar(int id)
+        public ActionResult Alterar(int id)
         {
             return View(repCli.ConsultarPorId(id));
         }
 
         [HttpPost]
-        [ActionName("Atualizar")]
-        public ActionResult AtualizarCli(Cliente cli)
+        [ActionName("Alterar")]
+        public ActionResult Alterar(Cliente cli)
         {
             if (ModelState.IsValid)
             {

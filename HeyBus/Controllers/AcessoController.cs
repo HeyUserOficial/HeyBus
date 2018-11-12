@@ -10,37 +10,37 @@ namespace HeyBus.Controllers
 {
     public class AcessoController : Controller
     {
+        RepositoryFuncionario repFunc = new RepositoryFuncionario();
         RepositoryCliente repCli = new RepositoryCliente();
 
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult LoginCliente()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(Cliente cli)
+        public ActionResult LoginCliente(Cliente cli)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var autenticacao = repCli.Login_Cliente(cli);
-                    if (autenticacao.Equals("Bem Vindo!"))
+                    var autenticacaoCli = repCli.Login_Cliente(cli);
+                    if (autenticacaoCli.Equals("Bem Vindo!"))
                     {
                         Session["cliente_Logado"] = cli;
                         return RedirectToAction("Index","Home");
                     }
-                    else if (autenticacao.Equals("Sua senha está incorreta!"))
+                    else if (autenticacaoCli.Equals("Sua senha está incorreta!"))
                     {
-                        ModelState.AddModelError(string.Empty, autenticacao);
+                        ModelState.AddModelError(string.Empty, autenticacaoCli);
                     }
-                    else if (autenticacao.Equals("Nome do usuário não encontrado!"))
+                    else if (autenticacaoCli.Equals("Nome do usuário não encontrado!"))
                     {
-                        ModelState.AddModelError(string.Empty, autenticacao);
+                        ModelState.AddModelError(string.Empty, autenticacaoCli);
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -48,5 +48,42 @@ namespace HeyBus.Controllers
             }
             return View(cli);
         }
+
+        [HttpGet]
+        public ActionResult LoginFuncionario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginFuncionario(Funcionario func)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var autenticacaoFunc = repFunc.Login_Func(func);
+                    if (autenticacaoFunc.Equals("Bem vindo!"))
+                    {
+                        Session["funcionario_Logado"] = func;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (autenticacaoFunc.Equals("Sua senha está incorreta!"))
+                    {
+                        ModelState.AddModelError(string.Empty, autenticacaoFunc);
+                    }
+                    else if (autenticacaoFunc.Equals("Nome do usuário não encontrado!"))
+                    {
+                        ModelState.AddModelError(string.Empty, autenticacaoFunc);
+                    }
+                    }
+                }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return View(func);
+        }
+
     }
 }

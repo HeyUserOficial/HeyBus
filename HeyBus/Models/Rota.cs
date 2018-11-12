@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HeyBus.Models
 {
@@ -19,5 +20,9 @@ namespace HeyBus.Models
 
         [Display (Name = "Distância"), MaxLength(10), Required]
         public string distancia_Rota { get; set; }
+
+        public IEnumerable<SelectListItem> PuxarRota { get; set; }
+
+        public IEnumerable<SelectListItem> PuxarOrigem { get; set; }
     }
 }

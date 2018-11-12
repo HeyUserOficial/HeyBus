@@ -30,8 +30,25 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult Consultar()
+        public ActionResult Alterar(int id)
         {
+            return View(repFunc.BuscarPorId(id));
+        }
+
+        [HttpPost]
+        [ActionName("Alterar")]
+        public ActionResult Alterar(Funcionario func)
+        {
+            if (ModelState.IsValid)
+            {
+                repFunc.Update_Func(func);
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
+        public ActionResult Consultar()
+        {           
             List<Funcionario> func = repFunc.Consultar_Func().ToList();
             return View(func);
         }

@@ -184,8 +184,14 @@
     <Compile Include="Validations\Crypto.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BD\HeyBus .sql" />
-    <Content Include="BD\StoredProcedures.sql" />
+    <Content Include="BD\Estrutura\HeyBus .sql" />
+    <Content Include="BD\Stored Procedures\SPs_Acesso.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Cliente.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Funcionarios.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Onibus.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Passagem.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Rota.sql" />
+    <Content Include="BD\Stored Procedures\SPs_Viagem.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -233,7 +239,7 @@
     <Content Include="images\tv.gif" />
     <Content Include="images\veiculos.gif" />
     <Content Include="images\viagem.gif" />
-    <Content Include="BD\Views.sql" />
+    <Content Include="BD\ViewsDB\Views.sql" />
     <Content Include="images\wifi.gif" />
     <Content Include="images\wpp.gif" />
     <Content Include="Scripts\bootstrap.js" />
@@ -269,14 +275,14 @@
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Onibus.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
-    <Content Include="Views\Clientes\Atualizar.cshtml" />
+    <Content Include="Views\Clientes\Alterar.cshtml" />
     <Content Include="Views\Onibus\Consultar.cshtml" />
-    <Content Include="Views\Onibus\Atualizar.cshtml" />
+    <Content Include="Views\Onibus\Alterar.cshtml" />
     <Content Include="Views\Onibus\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\Consultar.cshtml" />
     <Content Include="Views\Rotas\Consultar.cshtml" />
     <Content Include="Views\Rotas\Cadastrar.cshtml" />
-    <Content Include="Views\Rotas\Atualizar.cshtml" />
+    <Content Include="Views\Rotas\Alterar.cshtml" />
     <Content Include="Views\Viagens\Consultar.cshtml" />
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Funcionarios\Cadastrar.cshtml" />
@@ -286,8 +292,10 @@
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
-    <Content Include="Views\Acesso\Login.cshtml" />
+    <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Home\testePerfil.cshtml" />
+    <Content Include="Views\Acesso\LoginFuncionario.cshtml" />
+    <Content Include="Views\Funcionarios\Alterar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
