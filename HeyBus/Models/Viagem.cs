@@ -17,8 +17,8 @@ namespace HeyBus.Models
         [Display (Name = "Valor")]
         public double valor_Viagem { get; set; }
 
-        public Rota rot { get; set; }
+        public Rota rot { get; set; } = new Rota();
 
-        public Onibus oni { get; set; }
+        public Onibus oni { get; set; } = new Onibus();
     }
 }

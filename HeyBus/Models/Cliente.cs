@@ -17,9 +17,7 @@ namespace HeyBus.Models
         [Display(Name = "CPF")]
         [MaxLength(14)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Preencha o campo CPF corretamente")]
-        [DisplayFormat(DataFormatString = @"000\.000\.000\-00", ApplyFormatInEditMode = true)]
         public string cpf_Cliente { get; set; }
-
 
         [Display(Name = "Nome Completo", Description = "Nome e Sobrenome.")]
         [Required(ErrorMessage = "O nome completo é obrigatório.")]

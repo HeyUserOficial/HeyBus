@@ -34,10 +34,10 @@ namespace HeyBus.Controllers
         public ActionResult Cadastrar()
         {
             Viagem viag = new Viagem();
-            viag.oni.PuxarOnibus = PegarOnibus();
-            viag.oni.PuxarCategoria = PegarCategoria();
-            viag.rot.PuxarOrigem = PegarOrigem();
-            viag.rot.PuxarRota = PegarRota();
+            ViewBag.Viacao = viag.oni.PuxarOnibus = PegarOnibus();
+            ViewBag.Categoria= viag.oni.PuxarCategoria = PegarCategoria();
+            ViewBag.Destino = viag.rot.PuxarRota = PegarRota();
+            ViewBag.Origem = viag.rot.PuxarOrigem = PegarOrigem();
             return View(viag);
         }
 
@@ -47,7 +47,6 @@ namespace HeyBus.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 repViagem.Insert_Viagem(viag);
                 return RedirectToAction("Consultar");
             }
@@ -56,7 +55,7 @@ namespace HeyBus.Controllers
 
         public IEnumerable<SelectListItem> PegarOnibus()
         {
-            var onibus = repViagem.ProcurarOnibus().
+               var onibus = repViagem.ProcurarOnibus().
                 Select(v => new SelectListItem
                 {
                     Value = v.oni.id_Onibus.ToString(),
@@ -87,7 +86,7 @@ namespace HeyBus.Controllers
                 using(cmd = new MySqlCommand("Select * from Onibus where id_Onibus = @id", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", x.FirstOrDefault());
+                    cmd.Parameters.AddWithValue("@id", x.FirstOrDefault().Value);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
@@ -96,13 +95,13 @@ namespace HeyBus.Controllers
                         listaOni.Add(onib);
                     }
                     dr.Close();
+                    return listaOni;
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-            return listaOni;
         }
 
         public IEnumerable<SelectListItem> PegarRota()
@@ -138,22 +137,22 @@ namespace HeyBus.Controllers
                 using(cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", b.FirstOrDefault());
+                    cmd.Parameters.AddWithValue("@id", b.FirstOrDefault().Value);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
                         rota.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
-                        rota.rot.destino_Rota = dr["destino_Origem"].ToString();
+                        rota.rot.origem_Rota = dr["origem_Rota"].ToString();
                         listaRota.Add(rota);
                     }
                     dr.Close();
+                    return listaRota;
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-            return listaRota;
         }
     }
 }
