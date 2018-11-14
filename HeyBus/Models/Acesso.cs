@@ -9,7 +9,7 @@ namespace HeyBus.Models
     public class Acesso
     {
         [Key]
-        public static int id_Acesso;
+        public int id_Acesso;
 
         [Display (Name = "Usuário"), MaxLength(25)]
         public string login_Acesso { get; set; }

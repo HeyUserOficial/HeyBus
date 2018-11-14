@@ -15,7 +15,7 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-        public void Cadastrar_Onibus(Onibus oni)
+        public void Insert_Onibus(Onibus oni)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public void Update_Onibus(Onibus oni)
+        public Onibus Update_Onibus(Onibus oni)
         {
             try
             {
@@ -82,6 +82,7 @@ namespace HeyBus.Repository
             {
                 throw;
             }
+            return oni;
         }
 
     

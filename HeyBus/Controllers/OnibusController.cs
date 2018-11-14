@@ -37,7 +37,7 @@ namespace HeyBus.Controllers
         {
             if (ModelState.IsValid)
             {
-                repBus.Cadastrar_Onibus(bus);
+                repBus.Insert_Onibus(bus);
                 return RedirectToAction("Consultar");
             }
             return View();

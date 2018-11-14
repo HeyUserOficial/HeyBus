@@ -30,9 +30,15 @@ namespace HeyBus.Controllers
             return View(viagem);
         }
 
+        [HttpGet]
         public ActionResult Cadastrar()
         {
-            return View();
+            Viagem viag = new Viagem();
+            viag.oni.PuxarOnibus = PegarOnibus();
+            viag.oni.PuxarCategoria = PegarCategoria();
+            viag.rot.PuxarOrigem = PegarOrigem();
+            viag.rot.PuxarRota = PegarRota();
+            return View(viag);
         }
 
         [HttpPost]
@@ -41,12 +47,11 @@ namespace HeyBus.Controllers
         {
             if (ModelState.IsValid)
             {
-                viag.oni.PuxarOnibus = PegarOnibus();
-                viag.oni.PuxarCategoria = PegarCategoria();
+
                 repViagem.Insert_Viagem(viag);
                 return RedirectToAction("Consultar");
             }
-            return View();
+            return View(viag);
         }
 
         public IEnumerable<SelectListItem> PegarOnibus()

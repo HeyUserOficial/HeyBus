@@ -11,14 +11,14 @@ namespace HeyBus.Models
         [Key]
         public int id_Viagem { get; set; }
 
-        public Rota rot { get; set; }
-
-        public Onibus oni { get; set; }
-
         [Display (Name = "Data da viagem")]
         public DateTime data_Viagem { get; set; }
 
         [Display (Name = "Valor")]
         public double valor_Viagem { get; set; }
+
+        public Rota rot { get; set; }
+
+        public Onibus oni { get; set; }
     }
 }

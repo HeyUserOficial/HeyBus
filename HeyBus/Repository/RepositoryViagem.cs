@@ -36,14 +36,14 @@ namespace HeyBus.Repository
         }
 
     
-        public IEnumerable<Viagem> ProcurarOnibus()
+        public List<Viagem> ProcurarOnibus()
         {
             Viagem onib = new Viagem();
             List<Viagem> listaOni = new List<Viagem>();
             
             try
             {
-                using(cmd = new MySqlCommand("Select * from Onibus where manutencao_Onibus = Preparado", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select * from Onibus where manutencao_Onibus = 'Preparado'", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
@@ -53,19 +53,22 @@ namespace HeyBus.Repository
                         onib.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         listaOni.Add(onib);
                     }
-                    dr.Close();
                 }
             }
             catch (Exception)
             {
                 throw;
             }
+            finally
+            {
+                dr.Close();
+            }
             return listaOni;
         }
 
-        public IEnumerable<Viagem> ProcurarRota()
+        public List<Viagem> ProcurarRota()
         {
-            Viagem rotas = new Viagem();
+            
             List<Viagem> listaRota = new List<Viagem>();
             try
             {
@@ -75,6 +78,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem rotas = new Viagem();
                         rotas.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
                         rotas.rot.destino_Rota = dr["destino_Rota"].ToString();
                         listaRota.Add(rotas);
@@ -88,7 +92,7 @@ namespace HeyBus.Repository
             return listaRota;
         }
 
-        public IEnumerable<Viagem> Consultar_Viagens()
+        public List<Viagem> Consultar_Viagens()
         {
             Viagem viag = new Viagem();
             List<Viagem> viagemList = new List<Viagem>();
