@@ -2,10 +2,10 @@ Use HeyBus;
 /*<----------------Viagem-------------->*/
 Delimiter $$
 create procedure SP_Cadastrar_Viagem
-(in rota int, in onibus int, in dataVi date, in valor decimal(3,2))
+(in rota int, in onibus int, in dataVi varchar(25), in horario varchar(10), in valor decimal(3,2))
 begin
-     insert into Viagem(id_Rota, id_Onibus, data_Viagem, valor_Viagem)
-     values(rota, onibus, dataVi, valor);
+     insert into Viagem(id_Rota, id_Onibus, data_Viagem, horario_Viagem, valor_Viagem)
+     values(rota, onibus, dataVi, horario, valor);
 end $$
 Delimiter ;
 
@@ -14,8 +14,8 @@ Delimiter $$
 create procedure SP_Consultar_Viagem
 (in id int)
 begin 
-	 Select destino_Rota.Rota, viacao_Onibus.Onibus, categoria_Onibus.Onibus, data_Viagem, valor_Viagem,
-     distancia_Rota.Rota, id_Bancos.Onibus
+	 Select Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Viagem, horario_Viagem, 
+     valor_Viagem, Rota.distancia_Rota, Onibus.id_Bancos
      from Viagem 
      inner join Rota
      on Viagem.id_Rota = Rota.id_Rota 

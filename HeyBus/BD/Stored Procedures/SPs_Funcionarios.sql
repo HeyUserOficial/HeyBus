@@ -6,8 +6,8 @@ create procedure SP_Cadastrar_Func
  in nivel char(15))
 begin
 start transaction;
-   insert into Acesso (login_Acesso, senha_Acesso, nivel_Acesso) 
-    values(login, senha, nivel);
+   insert into Acesso (login_Acesso, senha_Acesso) 
+    values(login, senha);
     
 	insert into Funcionario(cpf_Funcionario, nome_Funcionario, email_Funcionario, endereco_Funcionario, id_Acesso)
 	values(cpf, nome, email, endereco, last_insert_id());

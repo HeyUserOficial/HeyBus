@@ -11,8 +11,14 @@ namespace HeyBus.Models
         [Key]
         public int id_Viagem { get; set; }
 
-        [Display (Name = "Data da viagem")]
+        [Display(Name = "Data da viagem")]
+        [DataType(DataType.Date),
+        DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime data_Viagem { get; set; }
+
+        [DataType(DataType.Time),
+        DisplayFormat(DataFormatString = "00:00", ApplyFormatInEditMode = true)]
+        public DateTime horario_Viagem { get; set; }
 
         [Display (Name = "Valor")]
         public double valor_Viagem { get; set; }

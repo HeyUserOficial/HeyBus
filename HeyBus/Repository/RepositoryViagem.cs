@@ -23,9 +23,10 @@ namespace HeyBus.Repository
                 {
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@rota", viag.rot.destino_Rota);
+                    cmd.Parameters.AddWithValue("@rota", viag.rot.id_Rota);
                     cmd.Parameters.AddWithValue("@onibus", viag.oni.id_Onibus);
-                    cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem.Date);
+                    cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem);
+                    cmd.Parameters.AddWithValue("@horario", viag.horario_Viagem);
                     cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
                     cmd.ExecuteNonQuery();
                 }
@@ -48,7 +49,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        onib.oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"]);
+                        onib.oni.id_Onibus =  Convert.ToInt32(dr["id_Onibus"]);
                         onib.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         listaOni.Add(onib);
                     }

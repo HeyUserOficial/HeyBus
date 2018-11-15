@@ -2,7 +2,7 @@ Use HeyBus;
 /*<----------------Cliente-------------->*/
 Delimiter $$ 
 create Procedure SP_Cadastrar_Cliente
-(in cpf char(14),in nome varchar(70),in nascimento varchar(20),in tel char(20),in cel char(20),in email varchar(60),
+(in cpf char(14),in nome varchar(70), in nascimento varchar(20),in tel char(20),in cel char(20),in email varchar(60),
  in usuario varchar(25), in senha varchar(30))
 begin 
 	insert into Cliente (cpf_Cliente, nome_Cliente, nascimento_Cliente, tel_Cliente, cel_Cliente,
