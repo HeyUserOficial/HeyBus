@@ -7,50 +7,55 @@
     <h1><span>Ônibus |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.viacao_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.categoria_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.assentos_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.manutencao_Onibus)
-        </th>
-        <th></th>
-    </tr>
+<div class="box-consulta">
+    <table class="table table-bordered tbResizable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.viacao_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.categoria_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.assentos_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.manutencao_Onibus)
+                </th>
+                <th class="text-center">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.viacao_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoria_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.assentos_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.manutencao_Onibus)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Onibus }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.viacao_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoria_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.assentos_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.manutencao_Onibus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_Onibus }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
-            </td>
-        </tr>
-    }
-
-</table>
+    </table>
+</div>

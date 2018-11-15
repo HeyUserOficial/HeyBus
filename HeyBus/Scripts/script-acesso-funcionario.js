@@ -73,3 +73,5 @@ for (i = 0; i < acc.length; i++) {
 $(document).ready(function () {
 	$(".maskcpf").mask("999.999.999-99");
 })
+
+$('.tbResizable').resizableColumns();

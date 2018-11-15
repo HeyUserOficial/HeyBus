@@ -1,64 +1,72 @@
-﻿@model IEnumerable<HeyBus.Models.Viagem>
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFuncionario .cshtml";
+}
+@model IEnumerable<HeyBus.Models.Viagem>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.rot.destino_Rota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.oni.categoria_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.data_Viagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valor_Viagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rot.distancia_Rota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.oni.assentos_Onibus)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.rot.destino_Rota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oni.viacao_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oni.categoria_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.data_Viagem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.valor_Viagem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rot.distancia_Rota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oni.assentos_Onibus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_Viagem }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_Viagem }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_Viagem })
-            </td>
-        </tr>
-    }
-
-</table>
+<header class="cabecalho d-flex justify-content-between align-items-baseline">
+    <h1><span>Viagem |</span> Consulta</h1>
+    <img src="~/images/logoheybus-branco.png" />
+</header>
+<div class="box-consulta">
+    <table class="table table-bordered tbResizable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.rot.destino_Rota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oni.categoria_Onibus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.data_Viagem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.valor_Viagem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.rot.distancia_Rota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oni.assentos_Onibus)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rot.destino_Rota)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oni.viacao_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oni.categoria_Onibus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.data_Viagem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.valor_Viagem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rot.distancia_Rota)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oni.assentos_Onibus)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Viagem }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_Viagem }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Viagem })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

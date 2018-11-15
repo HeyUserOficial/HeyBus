@@ -55,9 +55,6 @@ namespace HeyBus.Controllers
             return View();
         }
 
-        public ActionResult testePerfil()
-        {
-            return View();
-        }
+       
     }
 }
