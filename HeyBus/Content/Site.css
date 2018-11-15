@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .hidden {
     overflow: hidden
 }
@@ -241,13 +242,13 @@
 /*Fim config Home*/
 
 /*Inicio configuração Sobre*/
-.sobre{
-    font-family:Roboto;
-    color:rgba(0,0,0,.78);
-    width:90%;
-    margin:0 auto;
-    text-align:justify;
-    margin-top:100px;
+.sobre {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: rgba(0,0,0,.78);
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+    margin-top: 100px;
 }
 .sobre span{color:rgb(200, 92, 1)}
 .sobre h1{font-weight:700;font-size:1.6rem}
@@ -263,7 +264,7 @@
     box-shadow: rgba(0,0,0,.7) 0px 1px 20px;
 }
     .txt-introServicos h1 {
-        font-family: Roboto;
+        font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
         font-weight: 800;
         padding: 4vw;
         padding-top: 12px;
@@ -272,7 +273,7 @@
     }
 
     .txt-introServicos h2 {
-        font-family: Roboto;
+        font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
         font-weight: 300;
         padding: 15px;
         font-size: 1.7rem;
@@ -286,7 +287,7 @@
 .img-Serv-Oferecidos{background-size: cover;background-attachment: fixed;z-index: 1;min-height: 100%;overflow: hidden;
 background-position:center;opacity: 0.75;height: 440px;text-align: center;padding-top: 30vh;}
 .tit-Serv-Oferecidos{padding: 20px 20px; font-size:40px; color:white;font-family: Gotham Black, Arial Black; background-color: rgba(0,0,0,0.975);width: 50%;margin: 0 auto}
-.txt-Serv-Oferecidos{color:#fff;background-color:rgb(44, 44, 44);text-align:center;padding:50px 80px;text-align: justify; font-family:Roboto}
+.txt-Serv-Oferecidos{color:#fff;background-color:rgb(44, 44, 44);text-align:center;padding:50px 80px;text-align: justify; font-family:Roboto, 'Helvetica Neue', Arial, sans-serif;}
 .txt-Serv-Oferecidos p{font-weight:400;}
 .txt-Serv-Oferecidos p span{font-weight:600;letter-spacing:1px; font-size:1.1rem;}
 .txt-Serv-Oferecidos h3 span{color:rgb(232, 108, 5)}
@@ -298,10 +299,11 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 
 /*Inicio configuração ônibus*/
 
-.grid-categoria-onibus{
-    display:grid;
+.grid-categoria-onibus {
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 65px;
+
 }
 .txt-categoria-onibus {
     grid-row-start: 1;
@@ -329,7 +331,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     text-align:justify;
 }
 .onibus {
-    font-family: Roboto;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
     .onibus p {
         color:rgba(0,0,0,.75);
@@ -356,7 +358,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     width:90%;
     margin:0 auto;
 }
-.duvidas {font-family:Roboto;text-align:justify}
+.duvidas {    font-family:Roboto, 'Helvetica Neue', Arial, sans-serif;text-align:justify}
 .duvidas h1{font-weight:500;color:rgba(0,0,0,.8)}
 .duvidas p{padding:5px 20px;font-weight:500; color:rgba(0,0,0,.7)}
 .duvidas p a{color:rgb(232, 108, 4)}
@@ -397,8 +399,8 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     overflow: hidden;
     height: 55vh;
 }
-.contato{
-    font-family:Roboto;
+.contato {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
     .contato h1 {
         color:rgba(0,0,0,.79)
@@ -435,7 +437,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     border: 1px solid #ccc;
     padding: 20px 20px;
     box-shadow: rgba(0,0,0,0.4) 0px 0px 50px;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
     #form-duvida label {
         font-size: 0.95em;
@@ -511,10 +513,12 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     }
 @media (max-width: 768px) {
     .grid-contato {
-.4        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
         grid-gap: 20px;
-        grid-template-areas: 'duvida' 'telefone' 'endereco'
+        grid-template-areas: 'duvida' 'telefone' 'endereco';
     }
+
 }
 
 /*Configuração do menu*/
@@ -539,9 +543,10 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     margin-top: 200px;
     background-color: rgb(30,30,31);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
     grid-template-rows: auto auto;
-    grid-template-areas: 'logo Empresa Servicos FaleConosco Redes' 'copyright copyright copyright copyright copyright'
+    grid-template-areas: 'logo linksrap FaleConosco Redes' 'copyright copyright copyright copyright';
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 .rodape h1 a{color: rgba(255,255,255,.7);font-size:.95rem; padding-bottom:10px;text-decoration:none;}
 .rodape h2 a{color: rgba(255,255,255,.4);font-size:.9rem; font-weight:400; text-decoration:none;}
@@ -551,11 +556,16 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .rodape h2 {color: rgba(255,255,255,.4);font-size:.9rem; font-weight:400}
 .rodape{padding-top:50px}
 
-.rodape-empresa{
-    grid-area:Empresa;
+.rodape-logo{
+    grid-area:logo;
+    text-align:center
 }
-.rodape-servicos{
-    grid-area:Servicos;
+    .rodape-logo img{
+        width:140px;
+        opacity:.9
+    }
+.rodape-linksrap{
+    grid-area:linksrap;
 }
 .rodape-faleConosco{
     grid-area:FaleConosco;
@@ -579,18 +589,28 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .link{color:#007bff !important;}
 .link:hover {text-decoration:underline !important;}
 .hover-laranja:hover{color:rgb(207, 97, 5)!important;cursor:pointer;}
-
+@media (max-width: 768px){
+    .rodape {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 'logo linksrap' 'Redes FaleConosco' 'copyright copyright';
+    }
+    .rodape-faleConosco, .rodape-redes {
+        margin-top:30px;
+    }
+}
 
 /*Layout do "Sistema" */
 /*Perfil do cliente*/
-.perfil-cliente{
+.perfil-cliente {
     display: grid;
-    grid-template-columns:1fr 2fr;
-    grid-template-rows:auto;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
     grid-template-areas: 'dados pedidos';
-    grid-gap:20px;
-    margin:20px;
-    margin-top:90px;
+    grid-gap: 20px;
+    margin: 20px;
+    margin-top: 90px;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 .box-dados-clientes {
     grid-area: dados;

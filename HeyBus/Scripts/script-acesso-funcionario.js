@@ -5,9 +5,13 @@
 	const iconBus = document.querySelector(".icon-bus-fechado")
 	const iconRota = document.querySelector(".icon-rota-fechado")
 	const iconSair = document.querySelector(".icon-sair-fechado")
+	const iconCliente = document.querySelector(".icon-cliente-fechado")
+	const iconViagem = document.querySelector(".icon-viagem-fechado")
 	const a = document.querySelector("#accordion-nav-func")
 	const b = document.querySelector("#accordion-nav-bus")
 	const c = document.querySelector("#accordion-nav-rota")
+	const d = document.querySelector("#accordion-nav-cliente")
+	const e = document.querySelector("#accordion-nav-viagem")
 
 	fecharMenu.classList.remove("aparecerMenu")
 	toggleAbrir.classList.add("bar-fechado")
@@ -16,13 +20,19 @@
 	iconBus.classList.remove("d-none")
 	iconRota.classList.remove("d-none")
 	iconSair.classList.remove("d-none")
+	iconCliente.classList.remove("d-none")
+	iconViagem.classList.remove("d-none")
 	a.classList.remove("active")
 	b.classList.remove("active")
 	c.classList.remove("active")
+	d.classList.remove("active")
+	e.classList.remove("active")
 
 	$("#panelFunc").removeAttr('style');
 	$("#panelBus").removeAttr('style');
 	$("#panelRota").removeAttr('style');
+	$("#panelCliente").removeAttr('style');
+	$("#panelViagem").removeAttr('style');
 }
 function abrirMenu() {
 	const fecharMenu = document.querySelector("#menu-lateral-funcionario");
@@ -31,6 +41,8 @@ function abrirMenu() {
 	const iconBus = document.querySelector(".icon-bus-fechado")
 	const iconRota = document.querySelector(".icon-rota-fechado")
 	const iconSair = document.querySelector(".icon-sair-fechado")
+	const iconCliente = document.querySelector(".icon-cliente-fechado")
+	const iconViagem = document.querySelector(".icon-viagem-fechado")
 
 	fecharMenu.classList.add("aparecerMenu")
 	toggleAbrir.classList.remove("bar-fechado")
@@ -39,6 +51,8 @@ function abrirMenu() {
 	iconBus.classList.add("d-none")
 	iconRota.classList.add("d-none")
 	iconSair.classList.add("d-none")
+	iconCliente.classList.add("d-none")
+	iconViagem.classList.add("d-none")
 }
 
 var acc = document.getElementsByClassName("accordion");
