@@ -212,6 +212,7 @@
     <Content Include="images\camposDoJordao.gif" />
     <Content Include="images\cel-preto.gif" />
     <Content Include="images\cifrao.gif" />
+    <Content Include="images\cliente.gif" />
     <Content Include="images\convencional.gif" />
     <Content Include="images\duvidas.gif" />
     <Content Include="images\duvidasContato.gif" />
@@ -243,10 +244,12 @@
     <Content Include="images\travesseiro.gif" />
     <Content Include="images\tv.gif" />
     <Content Include="images\veiculos.gif" />
+    <Content Include="images\viagem-icon.gif" />
     <Content Include="images\viagem.gif" />
     <Content Include="BD\ViewsDB\Views.sql" />
     <Content Include="images\wifi.gif" />
     <Content Include="images\wpp.gif" />
+    <Content Include="Scripts\bootstrap-notify.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -299,7 +302,6 @@
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
-    <Content Include="Views\Home\testePerfil.cshtml" />
     <Content Include="Views\Acesso\LoginFuncionario.cshtml" />
     <Content Include="Views\Funcionarios\Alterar.cshtml" />
     <Content Include="Views\Acesso\Login.cshtml" />

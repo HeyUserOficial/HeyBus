@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <aside id="menu-lateral-funcionario" >
+    <aside id="menu-lateral-funcionario">
         <div class="fecharMenu d-flex align-items-center">
             <div class="bars" style="cursor:pointer" onclick="fecharMenu()">
                 <div class="bar1"></div>
@@ -57,6 +57,23 @@
                     <li><a href="~/Rotas/Atualizar">Atualizar</a></li>
                 </ul>
             </div>
+            <button class="accordion" onclick="abrirMenu()" id="accordion-nav-cliente">
+                <img src="~/images/cliente.gif" style="width:23px; opacity:.8; margin-right:15px" />Cliente
+            </button>
+            <div class="panel" id="panelCliente">
+                <ul>
+                    <li><a href="~/Clientes/Consultar">Consultar</a></li>
+                </ul>
+            </div>
+            <button class="accordion" onclick="abrirMenu()" id="accordion-nav-viagem">
+                <img src="~/images/viagem-icon.gif" style="width:23px; opacity:.8; margin-right:15px" />Viagem
+            </button>
+            <div class="panel" id="panelViagem">
+                <ul>
+                    <li><a href="~/Viagens/Cadastrar">Cadastrar</a></li>
+                    <li><a href="~/Viagens/Consultar">Consultar</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="sair">
             <img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" />Logout
@@ -70,7 +87,9 @@
         <div class="icon-func-fechado" onclick="abrirMenu()"><img src="~/images/funcionario.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
         <div class="icon-bus-fechado" onclick="abrirMenu()"><img src="~/images/onibus.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
         <div class="icon-rota-fechado" onclick="abrirMenu()"><img src="~/images/rota.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
-        <div class="icon-sair-fechado" ><img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" /></div>
+        <div class="icon-cliente-fechado" onclick="abrirMenu()"><img src="~/images/cliente.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-viagem-fechado" onclick="abrirMenu()"><img src="~/images/viagem-icon.gif" style="width:23px; opacity:.8; margin-right:15px" /></div>
+        <div class="icon-sair-fechado"><img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" /></div>
     </aside>
     <div class="body-content">
         @RenderBody()

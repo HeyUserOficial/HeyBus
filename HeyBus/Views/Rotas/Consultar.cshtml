@@ -1,8 +1,12 @@
-﻿@model IEnumerable<HeyBus.Models.Rota>
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFuncionario .cshtml";
+}
+@model IEnumerable<HeyBus.Models.Rota>
+<header class="cabecalho d-flex justify-content-between align-items-baseline">
+    <h1><span>Rota |</span> Consulta</h1>
+    <img src="~/images/logoheybus-branco.png" />
+</header>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -20,26 +24,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_Rota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.origem_Rota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.destino_Rota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.distancia_Rota)
-        </td>
-        <td>
-            @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
-            @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_Rota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.origem_Rota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.destino_Rota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distancia_Rota)
+            </td>
+            <td>
+                @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
+            </td>
+        </tr>
+    }
 
 </table>

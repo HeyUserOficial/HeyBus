@@ -35,34 +35,65 @@ function Enviar()
 		var Assunto = document.getElementById("assunto").value;
 		var Mensagem = document.getElementById("mensagem").value;
 		if (Nome == "") {
-			alert('Preencha seu nome.');
+			$.notify({
+				message: 'Preencha seu nome corretamente'
+			}, {
+					type: 'danger',
+					timer: 1000,
+				});
 			document.getElementById("nome").focus();
 			return false;
 		}
  		else if(Email == ""){
- 			alert('Digite um e-mail valido');
+			$.notify({
+				message: 'Digite um e-mail valido'
+			}, {
+					type: 'danger',
+					timer: 1000,
+				});
 			document.getElementById("email").focus();
 			return false;
 		}
 		else if (Assunto == "") {
-			alert('Escreva o assunto da sua mensagem.');
+			$.notify({
+				message: 'Escreva o assunto da sua mensagem'
+			}, {
+					type: 'danger',
+					timer: 1000,
+				});
 			document.getElementById("assunto").focus();
 			return false;
 		}
  		else if(Mensagem == ""){
- 			alert('Escreva a mensagem que deseja nos enviar.');
+			$.notify({
+				message: 'Escreva a mensagem que deseja nos enviar'
+			}, {
+					type: 'danger',
+					timer: 1000,
+				});
 			document.getElementById("mensagem").focus();
 			return false;
  		}
 		else{
-		
-		window.alert("Mensagem enviada com sucesso!");
+			$.notify({
+				message: 'Mensagem enviada com sucesso!'
+			}, {
+					type: "success",
+					timer: 1000,
+				});
 		document.getElementById("nome").value="";
 		document.getElementById("email").value="";
 		document.getElementById("assunto").value="";
 		document.getElementById("mensagem").value = "";
 		document.getElementById("nome").focus();
 	}
+}
+function Clear() {
+	document.getElementById("nome").value = "";
+	document.getElementById("email").value = "";
+	document.getElementById("assunto").value = "";
+	document.getElementById("mensagem").value = "";
+	document.getElementById("nome").focus();
 }
 
 window.onload = function () { scrollFunction() };
