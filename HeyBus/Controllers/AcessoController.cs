@@ -16,7 +16,14 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult LoginCliente()
         {
-            return View();
+            if(Session["cliente_logado"] != null)
+            {
+                return RedirectToAction("Index", "Home", new { cliente_logado = Session["cliente_logado"].ToString()});
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
@@ -29,8 +36,9 @@ namespace HeyBus.Controllers
                     var autenticacaoCli = repCli.Login_Cliente(cli);
                     if (autenticacaoCli.Equals("Bem Vindo!"))
                     {
-                        Session["cliente_Logado"] = cli;
-                        return RedirectToAction("Index","Home");
+                        var g = repCli.RetornaNome(cli.usuario_Cliente);
+                        Session["cliente_logado"] = g;
+                        return RedirectToAction("Index", "Home", new { cliente_logado = cli.nome_Cliente});
                     }
                     else if (autenticacaoCli.Equals("Sua senha está incorreta!"))
                     {

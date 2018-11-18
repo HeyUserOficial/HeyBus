@@ -61,6 +61,30 @@ namespace HeyBus.Repository
             }
         }
         
+        public string RetornaNome(string usuario)
+        {
+            Cliente c = new Cliente();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Cliente where usuario_Cliente = @usuario", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        c.id_Cliente = Convert.ToInt32(dr["id_Cliente"]);
+                        c.nome_Cliente = dr["nome_Cliente"].ToString();                        
+                    }
+                    dr.Close();
+                    return c.nome_Cliente;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public void Insert_Cliente(Cliente cli)
         {

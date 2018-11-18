@@ -17,54 +17,45 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu" >
-        <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
-            <img src="~/images/logo.svg" width="30" height="30" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    @if (ViewBag.Nome != null)
+    {
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu">
+            <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.svg" width="30" height="30" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" id="navegacao-site">
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Sobre">A HeyBus</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Servicos">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Onibus">Ônibus</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Duvidas">Dúvidas</a>
-                    <!--asp-area="" asp-controller="Home" asp-action="Index"-->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Contato">Contato</a>
-                </li>
-
-
-            </ul>
-            <ul class="navbar-nav ">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bem Vindo, faça seu login<br />
-
-                        <img src="~/images/acesso.gif" style="width:25px;margin-right:10px;opacity:.5"/>Acesso
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div class="row w-100 m-0">
-                            <div class="dropdown-item col-12 text-center">
-                                <a href="~/Acesso/Login" class="btn-laranja">Faça Login</a>
-                            </div>
-                            <div class="col-12 dropdown-item border-bottom text-center" style="margin-top:-9px">
-                                <small>Cliente novo? <a href="~/Clientes/Cadastrar" class="link">Cadastrar-se</a></small>
-                            </div>
-                            <div class="dropdown-item col-12 text-center mt-3">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" id="navegacao-site">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Sobre">A HeyBus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Onibus">Ônibus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Duvidas">Dúvidas</a>
+                        <!--asp-area="" asp-controller="Home" asp-action="Index"-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Contato">Contato</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @ViewBag.Nome
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="row w-100 m-0">
                                 <a href="~/Clientes/Perfil" class="hover-laranja">Perfil</a>
                             </div>
                             <div class="dropdown-item col-12 text-center mb-3">
@@ -72,64 +63,167 @@
                             </div>
                             <a class="dropdown-item border-top hover-laranja text-right">Logout</a>
                         </div>
-                        
+                    </li>
+                </ul>              
+            </div>
+        </nav>
+        <div class="body-content">
+            @RenderBody()
 
-                    </div>
-                </li>
-            </ul>
+            <footer class="rodape">
+                <div class="rodape-logo">
+                    <img src="~/images/logoheybus-branco.png" />
+                </div>
+                <div class="rodape-linksrap">
+                    <h1>Links rápidos</h1>
+                    <h2><a href="Sobre">A empresa</a></h2>
+                    <h2><a href="Servicos">Serviços</a></h2>
+                    <h2><a href="#">Portal do Funcionário</a></h2>
+                </div>
+                <div class="rodape-faleConosco">
+                    <h1><a href="Contato">FALE CONOSCO</a></h1>
+                    <h2><a href="Contato#msg">Enviar Mensagem</a></h2>
+                    <h2>Dúvidas, Horários, Preços e Compra de Passagens<br /><span>3231-6624</span><br /><small>Segunda a Sexta de 09h às 21h</small></h2>
+                </div>
+                <div class="rodape-redes">
+                    <h2><a href="#" class="mr-2">facebook</a> <a href="#" class="mr-2">twitter</a> <a href="#">instagram</a></h2>
+                </div>
+                <div class="rodape-copyright">
+                    <hr style="background-color: rgba(255,255,255,.4); opacity:.2" />
+                    <p>&copy; @DateTime.Today.Year - HeyUser Ltda. <br /> <small>designed by HeyUser</small></p>
+                </div>
+            </footer>
         </div>
-    </nav>
-    <div class="body-content">
-        @RenderBody()
 
-        <footer class="rodape">
-            <div class="rodape-logo">
-                <img src="~/images/logoheybus-branco.png" />
-            </div>
-            <div class="rodape-linksrap">
-                <h1>Links rápidos</h1>
-                <h2><a href="Sobre">A empresa</a></h2>
-                <h2><a href="Servicos">Serviços</a></h2>
-                <h2><a href="#">Portal do Funcionário</a></h2>
-            </div>
-            <div class="rodape-faleConosco">
-                <h1><a href="Contato">FALE CONOSCO</a></h1>
-                <h2><a href="Contato#msg">Enviar Mensagem</a></h2>
-                <h2>Dúvidas, Horários, Preços e Compra de Passagens<br /><span>3231-6624</span><br /><small>Segunda a Sexta de 09h às 21h</small></h2>
-            </div>
-            <div class="rodape-redes">
-                <h2><a href="#" class="mr-2">facebook</a> <a href="#" class="mr-2">twitter</a> <a href="#">instagram</a></h2>
-            </div>
-            <div class="rodape-copyright">
-                <hr style="background-color: rgba(255,255,255,.4); opacity:.2" />
-                <p>&copy; @DateTime.Today.Year - HeyUser Ltda. <br /> <small>designed by HeyUser</small></p>
-            </div>
-        </footer>
-    </div>
+        <environment include="Development">
+            <script src="~/Scripts/jquery.js"></script>
+            <script src="~/Scripts/jquery.mask.min.js"></script>
+            <script src="~/Scripts/bootstrap-notify.min.js"></script>
+            <script src="~/Scripts/bootstrap.js"></script>
+            <script src="~/Scripts/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/Scripts/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
+                    asp-fallback-src="~/Scripts/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
 
-    <environment include="Development">
-        <script src="~/Scripts/jquery.js"></script>
-        <script src="~/Scripts/jquery.mask.min.js"></script>
-        <script src="~/Scripts/bootstrap-notify.min.js"></script>
-        <script src="~/Scripts/bootstrap.js"></script>
-        <script src="~/Scripts/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/Scripts/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
-                asp-fallback-src="~/Scripts/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        
-    </environment>
+        </environment>
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu">
+            <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.svg" width="30" height="30" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" id="navegacao-site">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Sobre">A HeyBus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Onibus">Ônibus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Duvidas">Dúvidas</a>
+                        <!--asp-area="" asp-controller="Home" asp-action="Index"-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Contato">Contato</a>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bem Vindo, faça seu login<br />
+                            <img src="~/images/acesso.gif" style="width:25px;margin-right:10px;opacity:.5" />Acesso
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="row w-100 m-0">
+                                <div class="dropdown-item col-12 text-center">
+                                    <a href="~/Acesso/LoginCliente" class="btn-laranja">Faça Login</a>
+                                </div>
+                                <div class="col-12 dropdown-item border-bottom text-center" style="margin-top:-9px">
+                                    <small>Cliente novo? <a href="~/Clientes/Cadastrar" class="link">Cadastrar-se</a></small>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="body-content">
+            @RenderBody()
+
+            <footer class="rodape">
+                <div class="rodape-logo">
+                    <img src="~/images/logoheybus-branco.png" />
+                </div>
+                <div class="rodape-linksrap">
+                    <h1>Links rápidos</h1>
+                    <h2><a href="Sobre">A empresa</a></h2>
+                    <h2><a href="Servicos">Serviços</a></h2>
+                    <h2><a href="#">Portal do Funcionário</a></h2>
+                </div>
+                <div class="rodape-faleConosco">
+                    <h1><a href="Contato">FALE CONOSCO</a></h1>
+                    <h2><a href="Contato#msg">Enviar Mensagem</a></h2>
+                    <h2>Dúvidas, Horários, Preços e Compra de Passagens<br /><span>3231-6624</span><br /><small>Segunda a Sexta de 09h às 21h</small></h2>
+                </div>
+                <div class="rodape-redes">
+                    <h2><a href="#" class="mr-2">facebook</a> <a href="#" class="mr-2">twitter</a> <a href="#">instagram</a></h2>
+                </div>
+                <div class="rodape-copyright">
+                    <hr style="background-color: rgba(255,255,255,.4); opacity:.2" />
+                    <p>&copy; @DateTime.Today.Year - HeyUser Ltda. <br /> <small>designed by HeyUser</small></p>
+                </div>
+            </footer>
+        </div>
+
+        <environment include="Development">
+            <script src="~/Scripts/jquery.js"></script>
+            <script src="~/Scripts/jquery.mask.min.js"></script>
+            <script src="~/Scripts/bootstrap-notify.min.js"></script>
+            <script src="~/Scripts/bootstrap.js"></script>
+            <script src="~/Scripts/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/Scripts/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
+                    asp-fallback-src="~/Scripts/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+
+        </environment>
+    }
     @RenderSection("Scripts", required: false)
 </body>
 </html>

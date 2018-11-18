@@ -38,28 +38,31 @@ namespace HeyBus.Controllers
             ViewBag.categoria = new SelectList(TrazerCategoria(), "oni.id_Onibus", "oni.categoria_Onibus");
             ViewBag.destino = new SelectList(repViagem.ProcurarRota(), "rot.id_Rota", "rot.destino_Rota");
             ViewBag.origem = new SelectList(ProcurarOrigem(), "rot.id_Rota", "rot.origem_Rota");
+            viag.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
+            viag.rot.id_Rota = Convert.ToInt32(Request["destino"]);
             return View(viag);
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Cadastrar")]
-        public ActionResult Cadastrar(Viagem vi/*, string viacoes, string categorias, string destinos, string origens*/)
+        public ActionResult Cadastrar(Viagem vi)
         {
             if (ModelState.IsValid)
             {
                 vi.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
-                vi.rot.id_Rota = Convert.ToInt32(Request["destino"]);
+                vi .rot.id_Rota = Convert.ToInt32(Request["destino"]);
                 repViagem.Insert_Viagem(vi);
             }
             return View(vi);
         }
+
         [NonAction]
         public IEnumerable<Viagem> TrazerCategoria()
         {
             Viagem onib = new Viagem();
             List<Viagem> listaOni = new List<Viagem>();
-            int x = Convert.ToInt32(Request["viacao"]);
+            int x = onib.oni.id_Onibus;
             try
             {
                 using (cmd = new MySqlCommand("Select * from Onibus where id_Onibus = @id", Conexao.conexao))
@@ -88,7 +91,7 @@ namespace HeyBus.Controllers
         {
             Viagem rota = new Viagem();
             List<Viagem> listaRota = new List<Viagem>();
-            var b = Convert.ToInt32(Request["destino"]);
+            var b = rota.rot.id_Rota;
             try
             {
                 using (cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))

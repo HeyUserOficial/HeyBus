@@ -18,8 +18,7 @@ namespace HeyBus.Controllers
         RepositoryCliente repCli = new RepositoryCliente();
 
         public ActionResult Index()
-        {
-            
+        {            
             return View();
         }
 
