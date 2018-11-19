@@ -18,7 +18,7 @@ namespace HeyBus.Controllers
         {
             if(Session["cliente_logado"] != null)
             {
-                return RedirectToAction("Index", "Home", new { cliente_logado = Session["cliente_logado"].ToString()});
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -27,71 +27,74 @@ namespace HeyBus.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoginCliente(Cliente cli)
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginCliente(Acesso cli)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var autenticacaoCli = repCli.Login_Cliente(cli);
+                if (autenticacaoCli == true)
                 {
-                    var autenticacaoCli = repCli.Login_Cliente(cli);
-                    if (autenticacaoCli.Equals("Bem Vindo!"))
-                    {
-                        var g = repCli.RetornaNome(cli.usuario_Cliente);
-                        Session["cliente_logado"] = g;
-                        return RedirectToAction("Index", "Home", new { cliente_logado = cli.nome_Cliente});
-                    }
-                    else if (autenticacaoCli.Equals("Sua senha está incorreta!"))
-                    {
-                        ModelState.AddModelError(string.Empty, autenticacaoCli);
-                    }
-                    else if (autenticacaoCli.Equals("Nome do usuário não encontrado!"))
-                    {
-                        ModelState.AddModelError(string.Empty, autenticacaoCli);
-                    }
+                    var g = repCli.RetornaNome(cli.login_Acesso);
+                    Session["cliente_logado"] = g;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("ContaErradaCli", "Login está incorreto!");
                 }
             }
-            catch (Exception e)
-            {
-                ModelState.AddModelError(string.Empty, e.Message);
-            }
             return View(cli);
+        }
+
+        public ActionResult LogoutCli()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public ActionResult LoginFuncionario()
         {
+            if (Session["cliente_logado"] == null || Session["cliente_logado"] != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else if(Session["func_logado"] != null)
+            {
+                return RedirectToAction("Consultar", "Clientes");
+            }
+            else if (Session["func_logado"] == null)
+            {
+                return View();
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult LoginFuncionario(Funcionario func)
+        public ActionResult LoginFuncionario(Acesso func)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var autenticacaoFunc = repFunc.Login_Func(func);
+                if(autenticacaoFunc == true)
                 {
-                    var autenticacaoFunc = repFunc.Login_Func(func);
-                    if (autenticacaoFunc.Equals("Bem vindo!"))
-                    {
-                        Session["funcionario_Logado"] = func;
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else if (autenticacaoFunc.Equals("Sua senha está incorreta!"))
-                    {
-                        ModelState.AddModelError(string.Empty, autenticacaoFunc);
-                    }
-                    else if (autenticacaoFunc.Equals("Nome do usuário não encontrado!"))
-                    {
-                        ModelState.AddModelError(string.Empty, autenticacaoFunc);
-                    }
-                    }
+                    var t = repFunc.RetornarNome(func.login_Acesso);
+                    Session["func_logado"] = t;
+                    return RedirectToAction("Consultar", "Clientes");
                 }
-            catch (Exception e)
-            {
-                ModelState.AddModelError(string.Empty, e.Message);
+                else
+                {
+                    ModelState.AddModelError("ContaErradaFunc", "Login está incorreto!");
+                }
             }
             return View(func);
         }
 
+        public ActionResult LogoutFunc()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

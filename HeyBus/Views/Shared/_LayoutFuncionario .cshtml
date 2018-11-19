@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@if (Session["func_logado"] != null)
+{
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -75,8 +77,12 @@
                 </ul>
             </div>
         </nav>
+        <div>
+            <h1>@Session["func_logado"]</h1>
+        </div>
         <div class="sair">
-            <img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" />Logout
+            <img src="~/images/logout.gif" style="width:25px; opacity:.85; padding-right:3px" />
+            @Html.ActionLink("Logout", "LogoutFunc", "Acesso");
         </div>
 
         <div class="bar-fechado" onclick="abrirMenu()" id="toggle-abriMenu">
@@ -127,3 +133,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+}

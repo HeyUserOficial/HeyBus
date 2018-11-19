@@ -159,7 +159,6 @@
     <Compile Include="Controllers\OnibusController.cs" />
     <Compile Include="Controllers\PassagensController.cs" />
     <Compile Include="Controllers\RotasController.cs" />
-    <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Controllers\ViagensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -303,13 +302,13 @@
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
-    <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Acesso\LoginFuncionario.cshtml" />
     <Content Include="Views\Funcionarios\Alterar.cshtml" />
     <Content Include="Views\Acesso\Login.cshtml" />
     <Content Include="Views\Clientes\Perfil.cshtml" />
     <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
+    <Content Include="Views\Acesso\LoginCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

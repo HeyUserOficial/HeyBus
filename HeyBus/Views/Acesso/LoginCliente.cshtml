@@ -1,17 +1,18 @@
 ﻿@model HeyBus.Models.Acesso
-
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "LoginCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="login-cliente" style="margin-top:150px!important;">
-    @using (Html.BeginForm())
-    {
+<h2>LoginCliente</h2>
+@using (Html.BeginForm())
+{
+    <div class="login-cliente" style="margin-top:150px!important;">
         @Html.AntiForgeryToken()
-    <div class="d-flex align-items-end justify-content-between">
-        <h1>Fazer login </h1>
-        <img src="~/images/logoheybus-branco.png" style="width:150px" />
-    </div>
+        { 
+        <div class="d-flex align-items-end justify-content-between">
+            <h1>Fazer login </h1>
+            <img src="~/images/logoheybus-branco.png" style="width:150px" />
+        </div>
         <hr />
         <form>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -37,7 +38,6 @@
         </div>
         <hr />
         <p>Não possui login? <a href="~/Clientes/Cadastrar">Cadastre-se</a></p>
-    }
-</div>
+        }
+    </div>
 }
-

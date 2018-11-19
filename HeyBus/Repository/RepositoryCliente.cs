@@ -15,7 +15,7 @@ namespace HeyBus.Repository
         MySqlDataReader dr;
         Conexao conn = new Conexao();
 
-        public string Login_Cliente(Cliente cli)
+        public bool Login_Cliente(Acesso cli)
         {
             try
             {
@@ -29,25 +29,12 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                       if(cli.login_Acesso == dr["usuario_Cliente"].ToString())
-                       {
-                            if(cli.password_Acesso == dr["senha_Cliente"].ToString())
-                            {
-                                return "Bem Vindo!";
-                            }
-                            else
-                            {
-                                return "Sua senha está incorreta!";
-                            }
-                       }
-                       else
-                       {
-                            return "Nome do usuário não encontrado!";
-                       }
+                        return true;
+                            
                     }
                     else
                     {
-                        return "Nome do usuário e senha não encontrados!";
+                        return false;
                     }                   
                 }
             }

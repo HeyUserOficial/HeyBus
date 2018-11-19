@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    @if (ViewBag.Nome != null)
+    @if (HttpContext.Current.Session["cliente_logado"] != null)
     {
         <nav class="navbar navbar-expand-lg navbar-light fixed-top barra-menu">
             <a class="navbar-brand pt-0 mr-5 pr-5" asp-controller="Home" asp-action="Index">
@@ -52,7 +52,7 @@
                 <ul class="navbar-nav ">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @ViewBag.Nome
+                            @Session["cliente_logado"]
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="row w-100 m-0">
@@ -61,7 +61,7 @@
                             <div class="dropdown-item col-12 text-center mb-3">
                                 <a asp-controller="Employees" asp-action="Index" class="hover-laranja">Carrinho</a>
                             </div>
-                            <a class="dropdown-item border-top hover-laranja text-right">Logout</a>
+                            <a class="dropdown-item border-top hover-laranja text-right">@Html.ActionLink("Logout", "LogoutCli", "Acesso")</a>
                         </div>
                     </li>
                 </ul>              

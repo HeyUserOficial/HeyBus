@@ -38,7 +38,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public string Login_Func(Funcionario func)
+        public bool Login_Func(Acesso func)
         {
             try
             {
@@ -52,25 +52,11 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        if (func.login_Acesso == dr["login_Acesso"].ToString())
-                        {
-                            if (func.password_Acesso == dr["senha_Acesso"].ToString())
-                            {
-                                return "Bem Vindo!";
-                            }
-                            else
-                            {
-                                return "Sua senha está incorreta!";
-                            }
-                        }
-                        else
-                        {
-                            return "Nome do usuário não encontrado!";
-                        }
+                        return true;
                     }
                     else
                     {
-                        return "Nome do usuário e senha não encontrados!";
+                        return false;
                     }
                 }
             }
@@ -84,6 +70,31 @@ namespace HeyBus.Repository
             }
         }
 
+        public string RetornarNome(string usuario)
+        {
+            Funcionario f = new Funcionario();
+            try
+            {
+                using(cmd = new MySqlCommand("select * from Funcionario inner join Acesso"
+                                           + "on Funcionario.id_Acesso = Acesso.id_Acesso where login_Acesso = @usuario", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        f.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"]);
+                        f.nome_Funcionario = dr["nome_Funcionario"].ToString();
+                    }
+                    dr.Close();
+                    return f.nome_Funcionario;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public Funcionario Update_Func(Funcionario func)
         {
             try
