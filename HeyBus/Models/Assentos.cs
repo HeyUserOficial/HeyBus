@@ -10,6 +10,10 @@ namespace HeyBus.Models
     {
         [Display(Name="Escolha seu banco")]
         [Range(1, 50)]
-        public int banco;
+        public int banco { get; set; }
+
+        public int[] bancos { get; set; }
+
+        public double[] bancosValor { get; set; }
     }
 }
