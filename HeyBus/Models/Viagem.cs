@@ -26,5 +26,7 @@ namespace HeyBus.Models
         public Rota rot { get; set; } = new Rota();
 
         public Onibus oni { get; set; } = new Onibus();
+
+        public Assentos assentos { get; set; } = new Assentos();
     }
 }

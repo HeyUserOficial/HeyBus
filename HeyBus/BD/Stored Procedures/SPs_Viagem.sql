@@ -45,3 +45,18 @@ begin
      where id_Viagem = id;
 end $$
 Delimiter ;
+
+Delimiter $$
+create procedure SP_Detalhes_Viagem
+(in id int)
+begin
+	 Select Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Viagem, horario_Viagem, 
+     valor_Viagem, Rota.distancia_Rota, Onibus.id_Bancos, id_Viagem
+     from Viagem 
+     inner join Rota
+     on Viagem.id_Rota = Rota.id_Rota 
+     inner join Onibus 
+     on Viagem.id_Onibus = Onibus.id_Onibus
+     where id_Viagem = id;
+end $$
+Delimiter ;

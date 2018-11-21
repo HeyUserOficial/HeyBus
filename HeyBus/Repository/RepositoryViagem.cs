@@ -119,5 +119,36 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+
+        public Viagem Detalhes_Viagem(int id)
+        {
+            Viagem viag = new Viagem();
+            try
+            {
+                using(cmd = new MySqlCommand("SP_Detalhes_Viagem", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
+                        viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        viag.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
+                        viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        viag.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        viag.rot.origem_Rota = dr["origem_Rota"].ToString();
+                        viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
+                        viag.assentos.banco = Convert.ToInt32(dr["id_Bancos"].ToString());
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return viag;
+        }
     }
 }

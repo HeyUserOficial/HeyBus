@@ -61,9 +61,7 @@
                         @Html.DisplayFor(modelItem => item.oni.assentos_Onibus)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Viagem }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id_Viagem }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Viagem })
+                        @Html.ActionLink("Detalhes", "Comprar Passagem", new { id = item.id_Viagem })
                     </td>
                 </tr>
             }

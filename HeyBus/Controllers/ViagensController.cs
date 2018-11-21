@@ -114,6 +114,23 @@ namespace HeyBus.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        public ActionResult ComprarPassagem()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Detalhes(int id)
+        {
+            return View(repViagem.Detalhes_Viagem(id));
+        }
+
+       /* public ActionResult Detalhes(Viagem v)
+        {
+
+        }*/
     }
 }
 /*  [HttpGet]
