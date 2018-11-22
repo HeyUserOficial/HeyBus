@@ -25,7 +25,7 @@ namespace HeyBus.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@rota", viag.rot.id_Rota);
                     cmd.Parameters.AddWithValue("@onibus", viag.oni.id_Onibus);
-                    cmd.Parameters.AddWithValue("@dataVi", viag.data_Viagem);
+                    cmd.Parameters.AddWithValue("@dataVi", viag.data_Ida);
                     cmd.Parameters.AddWithValue("@horario", viag.horario_Viagem);
                     cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
                     cmd.ExecuteNonQuery();
@@ -105,10 +105,9 @@ namespace HeyBus.Repository
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        viag.data_Ida = Convert.ToDateTime(dr["data_Viagem"].ToString());
                         viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
                         viag.rot.distancia_Rota = dr["distancia_Rota"].ToString();
-                        viag.oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
                         viagemList.Add(viag);
                     }
                     dr.Close();
@@ -128,13 +127,14 @@ namespace HeyBus.Repository
                 using(cmd = new MySqlCommand("SP_Detalhes_Viagem", Conexao.conexao))
                 {
                     conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id", id);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
                         viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
-                        viag.data_Viagem = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        viag.data_Ida = Convert.ToDateTime(dr["data_Viagem"].ToString());
                         viag.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
@@ -149,6 +149,42 @@ namespace HeyBus.Repository
                 throw;
             }
             return viag;
+        }
+
+        public Viagem PesquisarViagemCompleto(DateTime dataPartida, string origem, string destino, DateTime dataVolta)
+        {
+            Viagem v = new Viagem();
+            try
+            {
+                using (cmd = new MySqlCommand("SP_Pesquisar_Viagens_Completo", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@dataPartida", dataPartida);
+                    cmd.Parameters.AddWithValue("@origem", origem);
+                    cmd.Parameters.AddWithValue("@destino", destino);
+                    cmd.Parameters.AddWithValue("@dataVolta", dataVolta);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        v.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
+                        v.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        v.rot.origem_Rota = dr["origem_Rota"].ToString();
+                        v.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        v.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        v.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
+                        v.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
+                        v.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
+                        v.rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                    }
+                    dr.Close();
+                    return v;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

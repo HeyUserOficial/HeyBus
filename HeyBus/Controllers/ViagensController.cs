@@ -116,23 +116,12 @@ namespace HeyBus.Controllers
         }
 
         [HttpGet]
-        public ActionResult ComprarPassagem()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult Detalhes(int id)
+        public ActionResult ComprarPassagem(int id)
         {
             Viagem v = new Viagem();
             v.assentos.bancos = new int[v.assentos.banco];
             return View(repViagem.Detalhes_Viagem(id));
         }
-
-        /*public ActionResult Detalhes()
-        {
-            
-        }*/
     }
 }
 /*  [HttpGet]

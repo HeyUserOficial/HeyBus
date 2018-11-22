@@ -9,7 +9,7 @@ nivel_Acesso char(15),
 primary key (id_Acesso)
 )ENGINE = innodb;
 
- create table if not exists Cliente(
+create table if not exists Cliente(
 id_Cliente int auto_increment not null,
 cpf_Cliente char(14),
 nome_Cliente varchar(70),
@@ -37,6 +37,7 @@ primary key (id_Funcionario)
 alter table Funcionario
 add foreign key(id_Acesso)
 references Acesso(id_Acesso);
+
 
 create table if not exists Rota(
 id_Rota int auto_increment not null,
@@ -92,6 +93,16 @@ insert into Bancos(num_Banco) values(37);
 insert into Bancos(num_Banco) values(38);
 insert into Bancos(num_Banco) values(39);
 insert into Bancos(num_Banco) values(40);
+insert into Bancos(num_Banco) values(41);
+insert into Bancos(num_Banco) values(42);
+insert into Bancos(num_Banco) values(43);
+insert into Bancos(num_Banco) values(44);
+insert into Bancos(num_Banco) values(45);
+insert into Bancos(num_Banco) values(46);
+insert into Bancos(num_Banco) values(47);
+insert into Bancos(num_Banco) values(48);
+insert into Bancos(num_Banco) values(49);
+insert into Bancos(num_Banco) values(50);
 
 create table if not exists Onibus(
 id_Onibus int auto_increment not null,
@@ -109,8 +120,10 @@ create table if not exists Viagem(
 id_Viagem int auto_increment not null,
 id_Rota int,
 id_Onibus int,
-data_Viagem date,
-valor_Viagem decimal(3,2),
+data_Ida date,
+data_Volta date,
+valor_Viagem decimal(4,2),
+horario_Viagem time,
 primary key(id_Viagem)
 )ENGINE = innodb;
 alter table Viagem 
@@ -129,10 +142,9 @@ primary key(id_FormPag)
 create table if not exists Passagem(
 id_Passagem int auto_increment not null,
 id_Cliente int,
-id_Rota int,
-id_Onibus int,
 id_Viagem int,
 id_FormPag int,
+poltrona int,
 cpf char(14),
 desconto_Passagem decimal(3,2),
 valor_Passagem decimal(3,2),
@@ -142,12 +154,6 @@ primary key(id_Passagem)
 alter table Passagem
 add foreign key(id_Cliente)
 references Cliente(id_Cliente);
-alter table Passagem
-add foreign key(id_Onibus)
-references Onibus(id_Onibus);
-alter table Passagem
-add foreign key(id_Rota)
-references Rota(id_Rota);
 alter table Passagem
 add foreign key(id_Viagem)
 references Viagem(id_Viagem);

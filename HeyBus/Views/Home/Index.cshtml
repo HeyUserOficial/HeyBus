@@ -1,8 +1,7 @@
-﻿@{
+﻿@model HeyBus.Models.Viagem
+@{
     ViewData["Title"] = "Home Page";
 }
-
-
 <section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#sliderHome" data-slide-to="0" class="active"></li>
@@ -13,7 +12,7 @@
         <div class="carousel-item active">
             <img class="d-block w-100" src="~/images/imagemHome.jpg" alt="First slide">
             <div class="text-slider d-none d-md-block">
-                <h1>Aventure-se</h1> <h2>Divirta-se,</h2> <h3>Encontre a felicidade que você merece.</h3>                
+                <h1>Aventure-se</h1> <h2>Divirta-se,</h2> <h3>Encontre a felicidade que você merece.</h3>
             </div>
         </div>
         <div class="carousel-item">
@@ -32,12 +31,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="preco-slider-home" id="RioJaneiro">
-                <div class="OriDest">São Paulo x Rio de Janeiro</div>                
+                <div class="OriDest">São Paulo x Rio de Janeiro</div>
                 <div class="description">Viaje por apenas</div>
                 <div class="cifrao">R$</div>
-                <div class="valor">102,25</div>                                  
+                <div class="valor">102,25</div>
             </div>
 
         </div>
@@ -135,14 +134,14 @@
             <div class="modal-body">
                 ...
             </div>
-            
+
         </div>
     </div>
 </div>
 <!--Fim Modal-->
 <section id="topViagens" class="container-fluid">
     <div class="d-flex d-inline-block flex-wrap mb-5 mt-5 align-items-baseline">
-        <h1>Destinos mais procurados</h1> <img src="~/images/localizacao.gif" style="width:35px" class="ml-2"/>
+        <h1>Destinos mais procurados</h1> <img src="~/images/localizacao.gif" style="width:35px" class="ml-2" />
     </div>
     <div class="row ">
         <div class="col-md-6 col-lg-4 p-2 ">
