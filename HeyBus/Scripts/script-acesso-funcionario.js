@@ -7,11 +7,13 @@
 	const iconSair = document.querySelector(".icon-sair-fechado")
 	const iconCliente = document.querySelector(".icon-cliente-fechado")
 	const iconViagem = document.querySelector(".icon-viagem-fechado")
+	const iconHome = document.querySelector(".icon-home-fechado")
 	const a = document.querySelector("#accordion-nav-func")
 	const b = document.querySelector("#accordion-nav-bus")
 	const c = document.querySelector("#accordion-nav-rota")
 	const d = document.querySelector("#accordion-nav-cliente")
 	const e = document.querySelector("#accordion-nav-viagem")
+	const f = document.querySelector("#accordion-nav-home")
 
 	fecharMenu.classList.remove("aparecerMenu")
 	toggleAbrir.classList.add("bar-fechado")
@@ -22,11 +24,13 @@
 	iconSair.classList.remove("d-none")
 	iconCliente.classList.remove("d-none")
 	iconViagem.classList.remove("d-none")
+	iconHome.classList.remove("d-none")
 	a.classList.remove("active")
 	b.classList.remove("active")
 	c.classList.remove("active")
 	d.classList.remove("active")
 	e.classList.remove("active")
+	f.classList.remove("active")
 
 	$("#panelFunc").removeAttr('style');
 	$("#panelBus").removeAttr('style');
@@ -43,6 +47,7 @@ function abrirMenu() {
 	const iconSair = document.querySelector(".icon-sair-fechado")
 	const iconCliente = document.querySelector(".icon-cliente-fechado")
 	const iconViagem = document.querySelector(".icon-viagem-fechado")
+	const iconHome = document.querySelector(".icon-home-fechado")
 
 	fecharMenu.classList.add("aparecerMenu")
 	toggleAbrir.classList.remove("bar-fechado")
@@ -53,6 +58,7 @@ function abrirMenu() {
 	iconSair.classList.add("d-none")
 	iconCliente.classList.add("d-none")
 	iconViagem.classList.add("d-none")
+	iconHome.classList.add("d-none")
 }
 
 var acc = document.getElementsByClassName("accordion");
