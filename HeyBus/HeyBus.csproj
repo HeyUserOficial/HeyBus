@@ -223,6 +223,7 @@
     <Content Include="images\frigobar.gif" />
     <Content Include="images\funcionario.gif" />
     <Content Include="images\historia.gif" />
+    <Content Include="images\home.gif" />
     <Content Include="images\imagemHome.jpg" />
     <Content Include="images\img-onibus.gif" />
     <Content Include="images\leito.gif" />
@@ -309,7 +310,12 @@
     <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
+=======
+    <Content Include="Views\Viagens\Detalhes.cshtml" />
+    <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
+>>>>>>> a248e9170c34ab797bb5671c2394a47a8fbfb31c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,54 +1,74 @@
-﻿@model HeyBus.Models.Viagem
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    <h4>Viagem</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.data_Viagem, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.data_Viagem, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.data_Viagem.Date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.horario_Viagem, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.horario_Viagem, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.horario_Viagem, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div>
-        @Html.LabelFor(m => m.oni.viacao_Onibus)
-        @Html.DropDownList("viacao", "Viações")
-    </div>
-    <div>
-        @Html.LabelFor(m => m.oni.categoria_Onibus)
-        @Html.DropDownList("categoria", "Categorias")
-    </div>
-    <div>
-        @Html.LabelFor(m => m.rot.destino_Rota)
-        @Html.DropDownList("destino", "Destinos")
-    </div>
-    <div>
-        @Html.LabelFor(m => m.rot.origem_Rota)
-        @Html.DropDownList("origem", "Origens")
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.valor_Viagem, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.valor_Viagem, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.valor_Viagem, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFuncionario .cshtml";
 }
+@model HeyBus.Models.Viagem
+<header class="cabecalho d-flex justify-content-between align-items-baseline">
+    <h1><span>Viagem |</span> Cadastro</h1>
+    <img src="~/images/logoheybus-branco.png" />
+</header>
+<div class="box-cadastro">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h1>Cadastro de viagens</h1>
+        <h2>
+            Realize o preenchimento de <span>todos</span> os campos, com <span>atenção</span>, para o cadastro ser efetuado corretamente.
+            <br /><span>Observações:</span> Os campos com <span style="color:red">*(asterisco)</span> são de preenchimento obrigatório.
+        </h2>
+        <hr style="margin-left: 20px;margin-right:20px;margin-top:4px;border:.8px solid rgba(42,42,42,.27);margin-top:60px" />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(model => model.data_Viagem, htmlAttributes: new { @class = "control-label" })
+            <div class="col-11 col-md-10">
+                @Html.EditorFor(model => model.data_Viagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.data_Viagem.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(model => model.horario_Viagem, htmlAttributes: new { @class = "control-label" })
+            <div class="col-11 col-md-10">
+                @Html.EditorFor(model => model.horario_Viagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.horario_Viagem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(m => m.oni.viacao_Onibus)<br />
+            <select id="viacao" name="viacao" class="custom-select col-4 ml-3">
+                <option value="">Viações</option>
+            </select>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(m => m.oni.categoria_Onibus)<br />
+            <select id="categoria" name="categoria" class="custom-select col-4 ml-3">
+                <option value="">Categorias</option>
+            </select>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(m => m.rot.destino_Rota)<br />
+            <select id="destino" name="destino" class="custom-select col-4 ml-3">
+                <option value="">Destinos</option>
+            </select>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(m => m.rot.origem_Rota)<br />
+            <select id="origem" name="origem" class="custom-select col-4 ml-3">
+                <option value="">Origens</option>
+            </select>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <span style="color:red">*</span>@Html.LabelFor(model => model.valor_Viagem, htmlAttributes: new { @class = "control-label" })
+            <div class="col-11 col-md-10">
+                @Html.EditorFor(model => model.valor_Viagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.valor_Viagem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group ml-2 ml-sm-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar" class="btn-laranja" style="font-weight:400" />
+            </div>
+        </div>
+    </div>
+    }
+</div>

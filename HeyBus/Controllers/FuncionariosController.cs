@@ -58,5 +58,10 @@ namespace HeyBus.Controllers
             List<Funcionario> func = repFunc.Consultar_Func().ToList();
             return View(func);
         }
+
+        public ActionResult IndexFunc()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "IndexFunc";
+    Layout = "~/Views/Shared/_LayoutFuncionario .cshtml";
+}
+
+<h1 class="operador"><span>Operador:</span> @Session["func_logado"]</h1>
+<div class="jumbotron txt-operador">
+    <h2>Bem vindo @Session["func_logado"]</h2>
+    <p class="lead mb-0" style="font-size:1.15rem">Você está logado no sistema da HeyBus.</p>
+    <p class="lead" style="font-size:1.15rem">Leia as seguintes instruções para entender melhor o funcionamento do sistema.</p>
+    <hr class="my-4">
+    <h3>Instruções</h3>
+    <ol>
+        <li>O sistema possui funcionalidades de cadastro, consulta e alteração para as várias necessidades da rodoviária.</li>
+        <li>
+            Em algumas partes do sistema, existem campos obrigatórios de preenchimento para concluir a ação. Eles são sinalizados
+            por um <span style="color:red">asterisco(*)</span>.
+        </li>
+        <li>
+            As funções podem ser acessadas a partir do menu lateral, localizado na esquerda. Você escolhe a categoria, clique, e
+            assim consegue visualizar as ações.
+        </li>
+    </ol>
+    <p>
+        Os demais conhecimentos para manuseio do sistema, são especificos de área para área, caso sinta dúvida, entre em contato com o KeyUser
+        respectivo.
+    </p>
+</div>

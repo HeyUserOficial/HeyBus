@@ -56,18 +56,6 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult LoginFuncionario()
         {
-            if (Session["cliente_logado"] == null || Session["cliente_logado"] != null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else if(Session["func_logado"] != null)
-            {
-                return RedirectToAction("Consultar", "Clientes");
-            }
-            else if (Session["func_logado"] == null)
-            {
-                return View();
-            }
             return View();
         }
 
