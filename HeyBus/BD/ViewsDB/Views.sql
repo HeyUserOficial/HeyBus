@@ -17,7 +17,7 @@ Create View Consultar_Onibus as
 select * from Onibus;
 
 Create View Consultar_Viagens as
-Select id_Viagem, Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Viagem, valor_Viagem, 
+Select id_Viagem, Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Ida, data_Volta, valor_Viagem, 
      Rota.distancia_Rota, Onibus.id_Bancos
      from Viagem 
      inner join Rota 
@@ -29,19 +29,12 @@ Select id_Viagem, Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onib
      Viagem.id_Onibus = Onibus.id_Onibus;
      
 Create View Consultar_Passagens as
-	 select Passagem.id_Passagem, Cliente.nome_Cliente, Rota.origem_Rota, Onibus.viacao_Onibus, Rota.destino_Rota,
-     Viagem.data_Viagem, FormaPagamento.nome_FormPag, Passagem.cpf, desconto_Passagem,
+	 select Passagem.id_Passagem, Cliente.nome_Cliente, Viagem.data_Ida, Viagem.data_Volta, FormaPagamento.nome_FormPag, Passagem.cpf, desconto_Passagem,
      valor_Passagem, data_Compra
      from Passagem 
      inner join Cliente
      on 
      Passagem.id_Cliente = Cliente.id_Cliente
-     inner join Rota
-     on
-     Passagem.id_Rota = Rota.id_Rota
-     inner join Onibus
-     on 
-     Passagem.id_Onibus = Onibus.id_Onibus
      inner join Viagem
      on 
      Passagem.id_Viagem = Viagem.id_Viagem

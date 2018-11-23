@@ -122,6 +122,27 @@ namespace HeyBus.Controllers
             v.assentos.bancos = new int[v.assentos.banco];
             return View(repViagem.Detalhes_Viagem(id));
         }
+
+        [HttpGet]
+        public ActionResult BuscarViagemCompleta(DateTime dataPartida, string origem, string destino, DateTime dataVolta)
+        {
+            var h = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
+            return View(h);
+        }
+
+        [HttpGet]
+        public ActionResult BuscarViagemIda(DateTime dataPartida, string origem, string destino)
+        {
+            var j = repViagem.PesquisarViagemIda(dataPartida, origem, destino);
+            return View(j);
+        }
+
+        [HttpGet]
+        public ActionResult BuscarViagemDestino(string origem, string destino)
+        {
+            var k = repViagem.PesquisarViagemDestino(origem, destino);
+            return View(k);
+        }
     }
 }
 /*  [HttpGet]

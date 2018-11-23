@@ -305,17 +305,15 @@
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
     <Content Include="Views\Acesso\LoginFuncionario.cshtml" />
     <Content Include="Views\Funcionarios\Alterar.cshtml" />
-    <Content Include="Views\Acesso\Login.cshtml" />
     <Content Include="Views\Clientes\Perfil.cshtml" />
     <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
-=======
-    <Content Include="Views\Viagens\Detalhes.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
->>>>>>> a248e9170c34ab797bb5671c2394a47a8fbfb31c
+    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
+    <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
+    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,7 +2,7 @@ Use HeyBus;
 /*<----------------Viagem-------------->*/
 Delimiter $$
 create procedure SP_Cadastrar_Viagem
-(in rota int, in onibus int, in dataIda varchar(25), in dataVolta varchar(25), in horario varchar(10), in valor decimal(3,2))
+(in rota int, in onibus int, in dataIda varchar(25), in dataVolta varchar(25), in horario varchar(10), in valor decimal(4,2))
 begin
      insert into Viagem(id_Rota, id_Onibus, data_Ida, data_Volta, horario_Viagem, valor_Viagem)
      values(rota, onibus, dataIda, dataVolta, horario, valor);
@@ -80,7 +80,7 @@ Delimiter $$
 create procedure SP_Pesquisar_Viagens_Ida
 (in dataPartida varchar(25), in origem varchar(30), in destino varchar(30))
 begin
-     Select id_Viagem, Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Ida, data_Volta, horario_Viagem, 
+     Select id_Viagem, Rota.destino_Rota, Rota.origem_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Ida, horario_Viagem, 
      valor_Viagem, Rota.distancia_Rota
      from Viagem 
      inner join Rota
@@ -95,7 +95,7 @@ Delimiter $$
 create procedure SP_Pesquisar_Viagens_Destino
 (in origem varchar(30), in destino varchar(30))
 begin
-     Select id_Viagem, Rota.destino_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Ida, data_Volta, horario_Viagem, 
+     Select id_Viagem, Rota.destino_Rota, Rota.origem_Rota, Onibus.viacao_Onibus, Onibus.categoria_Onibus, data_Ida, data_Volta, horario_Viagem, 
      valor_Viagem, Rota.distancia_Rota
      from Viagem 
      inner join Rota
