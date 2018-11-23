@@ -209,6 +209,7 @@
     <Content Include="images\banner_contato.png" />
     <Content Include="images\bonito.gif" />
     <Content Include="images\brasilia.gif" />
+    <Content Include="images\bus_login_func.png" />
     <Content Include="images\camposDoJordao.gif" />
     <Content Include="images\cel-preto.gif" />
     <Content Include="images\cifrao.gif" />
@@ -310,10 +311,16 @@
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
+=======
+    <Content Include="Views\Viagens\Detalhes.cshtml" />
+    <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
+    <Content Include="Views\Shared\_LayoutFuncionarioSemNav.cshtml" />
+>>>>>>> 3753a7d6b8c09f1a29680e8bb40c5b6068641755
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
