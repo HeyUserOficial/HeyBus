@@ -1,43 +1,45 @@
 ﻿@model HeyBus.Models.Acesso
 @{
-    ViewBag.Title = "LoginCliente";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login Cliente";
+    Layout = "~/Views/Shared/_LayoutSemNav.cshtml";
 }
-<h2>LoginCliente</h2>
-@using (Html.BeginForm())
-{
-    <div class="login-cliente" style="margin-top:150px!important;">
-        @Html.AntiForgeryToken()
-        { 
-        <div class="d-flex align-items-end justify-content-between">
-            <h1>Fazer login </h1>
-            <img src="~/images/logoheybus-branco.png" style="width:150px" />
+<body style="background-image: linear-gradient(to left, rgba(144, 76, 28, 0.7411764705882353), rgba(255, 165, 0, 0.08))">
+    <section class="login-cliente d-flex  ml-lg-5">
+        <div class="img-login-cliente">
+            <img src="~/images/bus_login_func.png" />
         </div>
-        <hr />
-        <form>
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.login_Acesso, htmlAttributes: new { @class = "control-label" })
-                <div>
-                    @Html.EditorFor(model => model.login_Acesso, new { htmlAttributes = new { @class = "design-input-login" } })
-                    @Html.ValidationMessageFor(model => model.login_Acesso, "", new { @class = "text-danger" })
+        <div class="form-login-cliente">
+            <h2 class="m-1 ml-2" style="font-size:1.5rem;font-weight:600; color:rgba(42,42,42,.75)">Login</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div>                   
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div>
+                            <div class="col-11">
+                                @Html.EditorFor(model => model.login_Acesso, new { htmlAttributes = new { @class = "input-login-cliente", placeholder = "Usuário" } })
+                                @Html.ValidationMessageFor(model => model.login_Acesso, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-11">
+                                @Html.EditorFor(model => model.password_Acesso, new { htmlAttributes = new { @class = "input-login-cliente", placeholder = "Senha" } })
+                                @Html.ValidationMessageFor(model => model.password_Acesso, "", new { @class = "text-danger" })
+                            </div>
+                        </div>                   
+                    <div class="mt-4 ml-2">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Login" class="btn-login mr-5" /> <a href="~/Home/Index">Voltar a página inicial</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.password_Acesso, htmlAttributes: new { @class = "control-label" })
-                <div>
-                    @Html.EditorFor(model => model.password_Acesso, new { htmlAttributes = new { @class = "design-input-login" } })
-                    @Html.ValidationMessageFor(model => model.password_Acesso, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </form>
-        <div class="form-group">
-            <div class="text-center mt-4">
-                <input type="submit" value="Entrar" style="padding:5px 100px" class="btn-laranja" />
-            </div>
+            }
         </div>
-        <hr />
-        <p>Não possui login? <a href="~/Clientes/Cadastrar">Cadastre-se</a></p>
-        }
-    </div>
-}
+        <div class="informativo-login d-none d-xl-block col-5">            
+            <h1>Faça login </h1>
+            <h2>Não possui cadastro?</h2>
+            <p>Faça seu cadastro através do link a seguir</p>
+            <a href="~/Clientes/Cadastrar"><button class="btn-login" style="height:2rem;">Cadastre-se</button></a> 
+        </div>
+    </section>
+</body>
