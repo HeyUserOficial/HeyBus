@@ -7,44 +7,48 @@
     <img src="~/images/logoheybus-branco.png" />
 </header>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_Rota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.origem_Rota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.destino_Rota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.distancia_Rota)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_Rota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.origem_Rota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.destino_Rota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.distancia_Rota)
-            </td>
-            <td>
-                @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
-            </td>
-        </tr>
-    }
-
-</table>
+<div class="box-consulta">
+    <table class="table table-bordered tbResizable">
+        <thead>
+            <tr>
+                <th style="min-width:10px;max-width:150px; font-weight:400" class="p-2">
+                    @Html.DisplayNameFor(model => model.id_Rota)
+                </th>
+                <th style="min-width:10px;max-width:250px; font-weight:400" class="p-2">
+                    @Html.DisplayNameFor(model => model.origem_Rota)
+                </th>
+                <th style="min-width:10px;max-width:250px; font-weight:400" class="p-2">
+                    @Html.DisplayNameFor(model => model.destino_Rota)
+                </th>
+                <th style="min-width:10px;max-width:170px; font-weight:400" class="p-2">
+                    @Html.DisplayNameFor(model => model.distancia_Rota)
+                </th>
+                <th class="text-center p-2" style="min-width:200px;max-width:200px; font-weight:400">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-weight:300" class="p-2">
+                        @Html.DisplayFor(modelItem => item.id_Rota)
+                    </td>
+                    <td style="font-weight:300" class="p-2">
+                        @Html.DisplayFor(modelItem => item.origem_Rota)
+                    </td>
+                    <td style="font-weight:300" class="p-2">
+                        @Html.DisplayFor(modelItem => item.destino_Rota)
+                    </td>
+                    <td style="font-weight:300" class="p-2">
+                        @Html.DisplayFor(modelItem => item.distancia_Rota)
+                    </td>
+                    <td style="font-weight:300" class="p-2">
+                        @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -11,54 +11,50 @@
     <table class="table table-bordered tbResizable">
         <thead>
             <tr>
-                <th style="min-width:20px;max-width:150px;">
+                <th style="min-width:10px;max-width:150px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.id_Funcionario)
                 </th>
-                <th style="max-width:170px;">
+                <th style="min-width:10px;max-width:170px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.cpf_Funcionario)
                 </th>
-                <th style="max-width:400px;">
+                <th style="min-width:10px;max-width:400px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.nome_Funcionario)
                 </th>
-                <th style="max-width:320px;">
+                <th style="min-width:10px;max-width:320px;font-weight:400"class="p-2">
                     @Html.DisplayNameFor(model => model.email_Funcionario)
                 </th>
-                <th style="max-width:340px;">
+                <th style="min-width:10px;max-width:340px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.endereco_Funcionario)
                 </th>
-                <th style="max-width:170px;">
+                <th style="min-width:10px;max-width:170px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.login_Acesso)
                 </th>
-                <th class="text-center">Ação</th>
+                
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.id_Funcionario)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.cpf_Funcionario)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.nome_Funcionario)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.email_Funcionario)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.endereco_Funcionario)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.login_Acesso)
                     </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Funcionario }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id_Funcionario }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Funcionario })
-                    </td>
+                    
                 </tr>
             }
         </tbody>

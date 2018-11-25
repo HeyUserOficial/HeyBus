@@ -654,3 +654,23 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .box-cadastro-funcionario{
     margin-top: 100px;
 }
+
+.comprar-passagem-fixed {
+    position: fixed;
+    right: 0px;
+    bottom: 45px;
+    width: 210px;
+    background-color: #c36428;
+    padding: 10px;
+    box-shadow: rgba(42,42,42,.5) 5px 5px 4px;
+    border-radius: 5px;
+}
+    .comprar-passagem-fixed a{
+        color:rgba(237, 237, 237, 0.82);
+        font-weight:600;
+        font-size:.94rem;
+    }
+    .comprar-passagem-fixed a:hover {
+        color: rgb(255, 255, 255);
+        text-decoration:none;
+    }

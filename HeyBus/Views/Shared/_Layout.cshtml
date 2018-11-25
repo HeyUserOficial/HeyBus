@@ -54,14 +54,14 @@
                         <a class="nav-link dropdown-toggle text-right bg-white pl-3 pr-3 hover-laranja" style="border-radius:10px; font-weight:600" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @Session["cliente_logado"]
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="row w-100 m-0">
-                                <a href="~/Clientes/Perfil" class="hover-laranja">Perfil</a>
+                        <div class="dropdown-menu col-12 box-shadow shadow-cat-onibus" style="border-radius:15px" aria-labelledby="navbarDropdown">
+                            <div class="row w-100 m-0 mt-2">
+                                <a href="~/Clientes/Perfil" class="dropdown-item hover-laranja ml-2" style="text-decoration:none">&#xe181; Perfil</a>
                             </div>
-                            <div class="dropdown-item col-12 text-center mb-3">
-                                <a asp-controller="Employees" asp-action="Index" class="hover-laranja">Carrinho</a>
-                            </div>
-                            <a class="dropdown-item border-top hover-laranja text-right">@Html.ActionLink("Logout", "LogoutCli", "Acesso")</a>
+                            <div class="row w-100 m-0 mb-2">
+                                <a href="~/Clientes/Perfil" class="dropdown-item hover-laranja ml-2" style="text-decoration:none">&#xe138; Carrinho</a>
+                            </div>                            
+                            <a href="/Acesso/LogoutCli" class="dropdown-item border-top hover-laranja text-right" style="text-decoration:none">&#xe127;Logout</a>
                         </div>
                     </li>
                 </ul>              
@@ -158,12 +158,12 @@
                             Bem Vindo, faça seu login<br />
                             <img src="~/images/acesso.gif" style="width:25px;margin-right:10px;opacity:.5" />Acesso
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu col-12 box-shadow shadow-cat-onibus" style="border-radius:15px" aria-labelledby="navbarDropdown">
                             <div class="row w-100 m-0">
                                 <div class="dropdown-item col-12 text-center">
                                     <a href="~/Acesso/LoginCliente" class="btn-laranja">Faça Login</a>
                                 </div>
-                                <div class="col-12 dropdown-item border-bottom text-center" style="margin-top:-9px">
+                                <div class="col-12 dropdown-item text-center" style="margin-top:-9px">
                                     <small>Cliente novo? <a href="~/Clientes/Cadastrar" class="link">Cadastrar-se</a></small>
                                 </div>
                             </div>
