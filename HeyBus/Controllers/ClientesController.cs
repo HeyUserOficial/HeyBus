@@ -177,6 +177,34 @@ namespace HeyBus.Controllers
             })
             smtp.Send(message);
         }
+
+        public JsonResult GetFiltrarDados(string Filtros, string ValorFiltro)
+        {
+            List<Cliente> cli = new List<Cliente>();
+            if(Filtros == "ID")
+            {
+                try
+                {
+                    int ID = Convert.ToInt32(ValorFiltro);
+                    cli = repCli.ProcurarPorID(ID).ToList();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("{0} Não é um ID ", ValorFiltro);
+                }
+                return Json(cli, JsonRequestBehavior.AllowGet);
+            }
+            else if(Filtros == "CPF")
+            {
+                cli = repCli.ProcurarPorCPF(ValorFiltro).ToList();
+                return Json(cli, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                cli = repCli.ProcurarPorNome(ValorFiltro).ToList();
+                return Json(cli, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
 

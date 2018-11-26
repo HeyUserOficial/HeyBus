@@ -63,5 +63,33 @@ namespace HeyBus.Controllers
         {
             return View();
         }
+
+        public JsonResult GetFiltrarDados(string Filtros, string ValorFiltro)
+        {
+            List<Funcionario> func = new List<Funcionario>();
+            if (Filtros == "ID")
+            {
+                try
+                {
+                    int ID = Convert.ToInt32(ValorFiltro);
+                    func = repFunc.ProcurarPorID(ID).ToList();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("{0} Não é um ID ", ValorFiltro);
+                }
+                return Json(func, JsonRequestBehavior.AllowGet);
+            }
+            else if (Filtros == "CPF")
+            {
+                func = repFunc.ProcurarPorCPF(ValorFiltro).ToList();
+                return Json(func, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                func = repFunc.ProcurarPorNome(ValorFiltro).ToList();
+                return Json(func, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

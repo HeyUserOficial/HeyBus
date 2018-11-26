@@ -7,7 +7,14 @@
     <h1><span>Ônibus |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
-<<<<<<< HEAD
+<b>Procurar por : </b>
+<select id="Filtros">
+    <option value="ID">ID</option>
+    <option value="Viacao">Viação</option>
+    <option value="Categoria">Categoria</option>
+    <option value="Manutencao">Manutenção</option>
+</select><br /><br />
+@Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
 <div class="box-consulta">
     <table class="table table-bordered tbResizable">
         <thead>
@@ -50,84 +57,43 @@
                         @Html.DisplayFor(modelItem => item.manutencao_Onibus)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Onibus }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
+                        @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Onibus })
                     </td>
                 </tr>
             }
         </tbody>
-
     </table>
 </div>
-=======
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.viacao_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.categoria_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.assentos_Onibus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.manutencao_Onibus)
-        </th>
-        <th></th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_Onibus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.viacao_Onibus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.categoria_Onibus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.assentos_Onibus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.manutencao_Onibus)
-        </td>
-        <td>
-            @Html.ActionLink("Alterar", "Alterar", new { id = item.id_Onibus }) |
-            @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
-        </td>
-    </tr>
-}
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.viacao_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.categoria_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.assentos_Onibus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.manutencao_Onibus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_Onibus }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
-            </td>
-        </tr>
-    }
-</table>
->>>>>>> 596ecbceeab22adcc54a73adecf0a329bc8e7c43
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#BtnFiltrar").click(function () {
+            var Filtros = $("#Filtros").val();
+            var Filtrar = $("#Filtrar").val();
+            var RecebeData = $("#ProcurarDados");
+            RecebeData.html("");
+            $.ajax({
+                type: "post",
+                url: "/Onibus/GetFiltrarDados?Filtros=" + Filtros + "&ValorFiltro=" + Filtrar,
+                contentType: "html",
+                success: function (resultado) {
+                    if (resultado.length == 0) {
+                        RecebeData.append('<tr style="color: red"><td colspan="3">Nenhum dado encontrado</td></tr>')
+                    }
+                    else {
+                        $.each(resultado, function (index, value) {
+                            var Dados = "<tr>" +
+                                "<td>" + value.id_Onibus + "</td>" +
+                                "<td>" + value.viacao_Onibus + "</td>" +
+                                "<td>" + value.categoria_Onibus + "</td>" +
+                                "<td>" + value.id_Bancos + "</td>" +
+                                "<td>" + value.manutencao_Onibus + "</td>" +
+                                "</tr>";
+                            RecebeData.append(Dados);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>

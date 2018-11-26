@@ -52,38 +52,5 @@ namespace HeyBus.Controllers
 
             return View();
         }  
-        
-        public ActionResult BuscarViagem()
-        {
-            Viagem v = new Viagem();
-            if (ModelState.IsValid)
-            {
-                repVi.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
-                RedirectToAction("BuscarViagemCompleta", "Viagens", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta });
-            }
-            return View();
-        }
-
-        public ActionResult BuscarViagemIda()
-        {
-            Viagem v = new Viagem();
-            if (ModelState.IsValid)
-            {
-                repVi.PesquisarViagemIda(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota);
-                RedirectToAction("BuscarViagemIda", "Viagens", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota });
-            }
-            return View();
-        }
-
-        public ActionResult BuscarViagemDestino()
-        {
-            Viagem v = new Viagem();
-            if (ModelState.IsValid)
-            {
-                repVi.PesquisarViagemDestino(v.rot.origem_Rota, v.rot.destino_Rota);
-                RedirectToAction("BuscaViagemDestino","Viagens", new { v.rot.origem_Rota, v.rot.destino_Rota });
-            }
-            return View();
-        }
     }
 }

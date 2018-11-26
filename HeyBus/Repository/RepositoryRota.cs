@@ -109,5 +109,92 @@ namespace HeyBus.Repository
                 throw;
             }
         }
+
+        public List<Rota> ProcurarPorID(int id)
+        {
+            List<Rota> listaRota = new List<Rota>();
+            Rota rot = new Rota();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
+                        rot.origem_Rota = dr["origem_Rota"].ToString();
+                        rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaRota.Add(rot);
+                    }
+                    dr.Close();
+                    return listaRota;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Rota> ProcurarPorDestino(string destino)
+        {
+            List<Rota> listaRota = new List<Rota>();
+            Rota rot = new Rota();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Rota where destino_Rota = @destino", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@destino", destino);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
+                        rot.origem_Rota = dr["origem_Rota"].ToString();
+                        rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaRota.Add(rot);
+                    }
+                    dr.Close();
+                    return listaRota;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Rota> ProcurarPorOrigem(string origem)
+        {
+            List<Rota> listaRota = new List<Rota>();
+            Rota rot = new Rota();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Rota where origem_Rota = @origem", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@origem", origem);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
+                        rot.origem_Rota = dr["origem_Rota"].ToString();
+                        rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaRota.Add(rot);
+                    }
+                    dr.Close();
+                    return listaRota;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

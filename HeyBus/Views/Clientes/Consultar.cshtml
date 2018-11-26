@@ -7,6 +7,13 @@
     <h1><span>Cliente |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
+<b>Procurar por : </b>
+<select id="Filtros">
+    <option value="ID">ID</option>
+    <option value="Nome">Nome</option>
+    <option value="CPF">CPF</option>
+</select><br /><br />
+@Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
 <div class="box-consulta">
     <table class="table table-bordered tbResizable">
         <thead>
@@ -14,7 +21,7 @@
                 <th style="min-width:20px;max-width:100px;">
                     @Html.DisplayNameFor(model => model.id_Cliente)
                 </th>
-                <th  style="max-width:170px;">
+                <th style="max-width:170px;">
                     @Html.DisplayNameFor(model => model.cpf_Cliente)
                 </th>
                 <th style="max-width:400px;">
@@ -73,5 +80,41 @@
             }
         </tbody>
     </table>
-    
+
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#BtnFiltrar").click(function () {
+            var Filtros = $("#Filtros").val();
+            var Filtrar = $("#Filtrar").val();
+            var RecebeData = $("#ProcurarDados");
+            RecebeData.html("");
+            $.ajax({
+                type: "post",
+                url: "/Clientes/GetFiltrarDados?Filtros=" + Filtros + "&ValorFiltro=" + Filtrar,
+                contentType: "html",
+                success: function (resultado) {
+                    if (resultado.length == 0) {
+                        RecebeData.append('<tr style="color: red"><td colspan="3">Nenhum dado encontrado</td></tr>')
+                    }
+                    else {
+                        $.each(resultado, function (index, value) {
+                            var Dados = "<tr>" +
+                                "<td>" + value.id_Cliente + "</td>" +
+                                "<td>" + value.cpf_Cliente + "</td>" +
+                                "<td>" + value.nome_Cliente + "</td>" +
+                                "<td>" + value.nascimento_Cliente + "</td>" +
+                                "<td>" + value.tel_Cliente + "</td>" +
+                                "<td>" + value.cel_Cliente + "</td>" +
+                                "<td>" + value.email_Cliente + "</td>" +
+                                "<td>" + value.usuario_Cliente + "</td>"+
+                                "</tr>";
+                            RecebeData.append(Dados);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>

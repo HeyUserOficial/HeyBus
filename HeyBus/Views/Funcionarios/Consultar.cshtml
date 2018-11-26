@@ -7,6 +7,13 @@
     <h1><span>Funcionário |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
+<b>Procurar por : </b>
+<select id="Filtros">
+    <option value="ID">ID</option>
+    <option value="Nome">Nome</option>
+    <option value="CPF">CPF</option>
+</select><br /><br />
+@Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
 <div class="box-consulta">
     <table class="table table-bordered tbResizable">
         <thead>
@@ -25,9 +32,6 @@
                 </th>
                 <th style="max-width:340px;">
                     @Html.DisplayNameFor(model => model.endereco_Funcionario)
-                </th>
-                <th style="max-width:170px;">
-                    @Html.DisplayNameFor(model => model.login_Acesso)
                 </th>
                 <th class="text-center">Ação</th>
             </tr>
@@ -51,16 +55,41 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.endereco_Funcionario)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.login_Acesso)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Funcionario }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id_Funcionario }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Funcionario })
-                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#BtnFiltrar").click(function () {
+            var Filtros = $("#Filtros").val();
+            var Filtrar = $("#Filtrar").val();
+            var RecebeData = $("#ProcurarDados");
+            RecebeData.html("");
+            $.ajax({
+                type: "post",
+                url: "/Funcionarios/GetFiltrarDados?Filtros=" + Filtros + "&ValorFiltro=" + Filtrar,
+                contentType: "html",
+                success: function (resultado) {
+                    if (resultado.length == 0) {
+                        RecebeData.append('<tr style="color: red"><td colspan="3">Nenhum dado encontrado</td></tr>')
+                    }
+                    else {
+                        $.each(resultado, function (index, value) {
+                            var Dados = "<tr>" +
+                                "<td>" + value.id_Funcionario + "</td>" +
+                                "<td>" + value.cpf_Funcionario + "</td>" +
+                                "<td>" + value.nome_Funcionario + "</td>" +
+                                "<td>" + value.email_Funcionario + "</td>" +
+                                "<td>" + value.endereco_Funcionario + "</td>" +
+                                "</tr>";
+                            RecebeData.append(Dados);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>

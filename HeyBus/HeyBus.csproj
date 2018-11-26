@@ -257,6 +257,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.mask.min.js" />
     <Content Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -311,16 +312,12 @@
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
-=======
     <Content Include="Views\Viagens\Detalhes.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
     <Content Include="Views\Shared\_LayoutFuncionarioSemNav.cshtml" />
->>>>>>> 3753a7d6b8c09f1a29680e8bb40c5b6068641755
+    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
+    <Content Include="Views\Viagens\FiltroTeste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

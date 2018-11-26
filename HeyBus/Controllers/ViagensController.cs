@@ -124,14 +124,14 @@ namespace HeyBus.Controllers
         }
 
         [HttpGet]
-        public ActionResult BuscarViagemCompleta(DateTime dataPartida, string origem, string destino, DateTime dataVolta)
+        public ActionResult BuscarViagemCompleta(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
             var h = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
             return View(h);
         }
 
         [HttpGet]
-        public ActionResult BuscarViagemIda(DateTime dataPartida, string origem, string destino)
+        public ActionResult BuscarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
             var j = repViagem.PesquisarViagemIda(dataPartida, origem, destino);
             return View(j);
@@ -142,6 +142,24 @@ namespace HeyBus.Controllers
         {
             var k = repViagem.PesquisarViagemDestino(origem, destino);
             return View(k);
+        }
+
+        [HttpGet]
+        public ActionResult FiltroTeste()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult FiltroTeste(Viagem v)
+        {          
+            if (ModelState.IsValid)
+            {
+                repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
+                RedirectToAction("BuscarViagemCompleta","Viagens", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta });
+            }
+            return View(v);
         }
     }
 }

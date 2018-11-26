@@ -15,22 +15,28 @@
                     @Html.DisplayNameFor(model => model.rot.destino_Rota)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.rot.origem_Rota)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.oni.categoria_Onibus)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.data_Viagem)
+                    @Html.DisplayNameFor(model => model.data_Ida)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.data_Volta)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.valor_Viagem)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.rot.distancia_Rota)
+                    @Html.DisplayNameFor(model => model.horario_Viagem)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.oni.assentos_Onibus)
+                    @Html.DisplayNameFor(model => model.rot.distancia_Rota)
                 </th>
                 <th></th>
             </tr>
@@ -43,22 +49,28 @@
                         @Html.DisplayFor(modelItem => item.rot.destino_Rota)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.rot.origem_Rota)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.oni.viacao_Onibus)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.oni.categoria_Onibus)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.data_Viagem)
+                        @Html.DisplayFor(modelItem => item.data_Ida)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.data_Volta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.horario_Viagem)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.valor_Viagem)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.rot.distancia_Rota)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oni.assentos_Onibus)
                     </td>
                     <td>
                         @Html.ActionLink("Detalhes", "Comprar Passagem", new { id = item.id_Viagem })

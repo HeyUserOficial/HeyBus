@@ -115,6 +115,125 @@ namespace HeyBus.Repository
                 throw;
             }
         }
-   
+        
+        public List<Onibus> ProcurarPorID(int id)
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using(cmd = new MySqlCommand("select * from Onibus where id_Onibus = @id", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);
+                    }
+                    dr.Close();
+                    return oniList;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Onibus> ProcurarPorViacao(string viacao)
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using(cmd = new MySqlCommand("select * from Onibus where viacao_Onibus = @viacao", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@viacao", viacao);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);
+                    }
+                    dr.Close();
+                    return oniList;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Onibus> ProcurarPorCategoria(string categoria)
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using (cmd = new MySqlCommand("select * from Onibus where categoria_Onibus = @categoria", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@categoria", categoria);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);
+                    }
+                    dr.Close();
+                    return oniList;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Onibus> ProcurarPorManutencao(string manutencao)
+        {
+            Onibus oni = new Onibus();
+            List<Onibus> oniList = new List<Onibus>();
+            try
+            {
+                using (cmd = new MySqlCommand("select * from Onibus where manutencao_Onibus = @manutencao", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@manutencao", manutencao);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
+                        oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        oni.assentos_Onibus = Convert.ToInt32(dr["id_Bancos"].ToString());
+                        oni.manutencao_Onibus = dr["manutencao_Onibus"].ToString();
+                        oniList.Add(oni);
+                    }
+                    dr.Close();
+                    return oniList;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

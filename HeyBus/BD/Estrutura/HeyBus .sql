@@ -146,8 +146,8 @@ id_Viagem int,
 id_FormPag int,
 poltrona int,
 cpf char(14),
-desconto_Passagem decimal(3,2),
-valor_Passagem decimal(3,2),
+desconto_Passagem decimal(4,2),
+valor_Passagem decimal(4,2),
 data_Compra datetime,
 primary key(id_Passagem)
 )ENGINE = innodb;

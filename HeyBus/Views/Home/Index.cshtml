@@ -2,11 +2,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@using (Html.BeginForm())
-{
 <section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
-    @Html.AntiForgeryToken()
-    {
     <ol class="carousel-indicators">
         <li data-target="#sliderHome" data-slide-to="0" class="active"></li>
         <li data-target="#sliderHome" data-slide-to="1"></li>
@@ -89,29 +85,28 @@
 
                 <div class="form-group">
                     <label for="origem">Origem</label>
-                    <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida." @Html.EditorFor(model => model.rot.origem_Rota)
+                    <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida."/>
                 </div>
                 <div class="form-group">
                     <label for="destino">Destino</label>
-                    <input type="text" class="design-input-comprar" placeholder="Digite seu destino." @Html.EditorFor(model => model.rot.destino_Rota)
+                    <input type="text" class="design-input-comprar" placeholder="Digite seu destino."/>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6 col-sm-12 col-md-6">
                         <label for="dataIda">Data de Saída</label>
-                        <input type="date" class="design-input-comprar" id="dataIda" @Html.EditorFor(model => model.data_Ida)
+                        <input type="date" class="design-input-comprar" id="dataIda"/>
                     </div>
                     <div class="form-group col-6 col-sm-12 col-md-6">
                         <label for="dataVolta">Data de Volta</label>
-                        <input type="date" class="design-input-comprar" id="dataVolta" @Html.EditorFor(model => model.data_Volta)
+                        <input type="date" class="design-input-comprar" id="dataVolta" />
                         <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
                     </div>
                     <div class="form-row col-12 justify-content-center">
-                        <button type="submit" class="btn-buscar-viagem-home col-8 ">@Html.ActionLink("Buscar Viagem", "BuscarViagem", "Home")</button>
+                        <button type="submit" class="btn-buscar-viagem-home col-8 "></button>
                     </div>
                 </div>
                 <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
             </form>
-
         </aside>
         <article id="boasVindas" class="col-lg-7 text-center">
             <h1>Bem Vindos ao site oficial da HeyBus!</h1>
@@ -216,5 +211,5 @@
             </div>
         </div>
     </section>
-    }
- }
+    
+ 

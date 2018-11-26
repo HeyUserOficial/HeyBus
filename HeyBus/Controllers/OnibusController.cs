@@ -59,5 +59,38 @@ namespace HeyBus.Controllers
             }
             return View();
         }
+
+        public JsonResult GetFiltrarDados(string Filtros, string ValorFiltro)
+        {
+            List<Onibus> oni = new List<Onibus>();
+            if (Filtros == "ID")
+            {
+                try
+                {
+                    int ID = Convert.ToInt32(ValorFiltro);
+                    oni = repBus.ProcurarPorID(ID).ToList();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("{0} Não é um ID ", ValorFiltro);
+                }
+                return Json(oni, JsonRequestBehavior.AllowGet);
+            }
+            else if (Filtros == "Viacao")
+            {
+                oni = repBus.ProcurarPorViacao(ValorFiltro).ToList();
+                return Json(oni, JsonRequestBehavior.AllowGet);
+            }
+            else if(Filtros == "Categoria")
+            {
+                oni = repBus.ProcurarPorCategoria(ValorFiltro).ToList();
+                return Json(oni, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                oni = repBus.ProcurarPorManutencao(ValorFiltro).ToList();
+                return Json(oni, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

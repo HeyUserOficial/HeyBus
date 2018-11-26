@@ -27,7 +27,7 @@ Delimiter ;
 
 Delimiter $$
 create procedure SP_Alterar_Viagem
-(in id int, in dataVi datetime, valor decimal(3,2))
+(in id int, in dataVi datetime, valor decimal(4,2))
 begin
 	 update Viagem set 
 					  data_Viagem_Viagem = dataVi,
@@ -72,7 +72,8 @@ begin
      on Viagem.id_Rota = Rota.id_Rota 
      inner join Onibus 
      on Viagem.id_Onibus = Onibus.id_Onibus
-     where data_Ida = dataPartida AND data_Volta = dataVolta AND destino_Rota = destino AND origem_Rota = origem;
+     where data_Ida = str_to_date(dataPartida, '%d/%m/%Y') AND data_Volta = str_to_date(dataVolta, '%d/%m/%Y')
+     AND destino_Rota = destino AND origem_Rota = origem;
 end $$
 Delimiter ;
 
@@ -87,7 +88,7 @@ begin
      on Viagem.id_Rota = Rota.id_Rota 
      inner join Onibus 
      on Viagem.id_Onibus = Onibus.id_Onibus
-     where data_Ida = dataPartida AND destino_Rota = destino AND origem_Rota = origem;
+     where data_Ida = str_to_date(dataPartida, '%d/%m/%Y') AND destino_Rota = destino AND origem_Rota = origem;
 end $$
 Delimiter ;
 

@@ -6,7 +6,13 @@
     <h1><span>Rota |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
-
+<b>Procurar por : </b>
+<select id="Filtros">
+    <option value="ID">ID</option>
+    <option value="Destino">Destino</option>
+    <option value="Origem">Origem</option>
+</select><br /><br />
+@Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
 <table class="table">
     <tr>
         <th>
@@ -40,11 +46,41 @@
                 @Html.DisplayFor(modelItem => item.distancia_Rota)
             </td>
             <td>
-                @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Rota }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_Rota }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_Rota })
+                @Html.ActionLink("Alterar", "Alterar", new { id = item.id_Rota })
             </td>
         </tr>
     }
 
 </table>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#BtnFiltrar").click(function () {
+            var Filtros = $("#Filtros").val();
+            var Filtrar = $("#Filtrar").val();
+            var RecebeData = $("#ProcurarDados");
+            RecebeData.html("");
+            $.ajax({
+                type: "post",
+                url: "/Clientes/GetFiltrarDados?Filtros=" + Filtros + "&ValorFiltro=" + Filtrar,
+                contentType: "html",
+                success: function (resultado) {
+                    if (resultado.length == 0) {
+                        RecebeData.append('<tr style="color: red"><td colspan="3">Nenhum dado encontrado</td></tr>')
+                    }
+                    else {
+                        $.each(resultado, function (index, value) {
+                            var Dados = "<tr>" +
+                                "<td>" + value.id_Rota + "</td>" +
+                                "<td>" + value.destino_Rota + "</td>" +
+                                "<td>" + value.origem_Rota + "</td>" +
+                                "<td>" + value.distancia_Rota + "</td>" +
+                                "</tr>";
+                            RecebeData.append(Dados);
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>

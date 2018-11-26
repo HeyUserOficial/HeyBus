@@ -152,7 +152,7 @@ namespace HeyBus.Repository
             return viag;
         }
 
-        public Viagem PesquisarViagemCompleto(DateTime dataPartida, string origem, string destino, DateTime dataVolta)
+        public Viagem PesquisarViagemCompleto(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
             Viagem v = new Viagem();
             try
@@ -189,7 +189,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public Viagem PesquisarViagemIda(DateTime dataPartida, string origem, string destino)
+        public Viagem PesquisarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
             Viagem v = new Viagem();
             try

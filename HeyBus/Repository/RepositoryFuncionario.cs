@@ -135,7 +135,6 @@ namespace HeyBus.Repository
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
                         func.email_Funcionario = dr["email_Funcionario"].ToString();
                         func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
-                        func.login_Acesso = dr["login_Acesso"].ToString();
                         funcList.Add(func);
                     }
                     dr.Close();
@@ -168,6 +167,97 @@ namespace HeyBus.Repository
                     dr.Close();
                 }
                 return func;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Funcionario> ProcurarPorID(int id)
+        {
+            Funcionario func = new Funcionario();
+            List<Funcionario> listaFunc = new List<Funcionario>();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Funcionario where id_Funcionario = @id", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
+                        func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
+                        func.nome_Funcionario = dr["nome_Funcionario"].ToString();
+                        func.email_Funcionario = dr["email_Funcionario"].ToString();
+                        func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
+                        listaFunc.Add(func);
+                    }
+                    dr.Close();
+                    return listaFunc;
+                }               
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public List<Funcionario> ProcurarPorCPF(string cpf)
+        {
+            Funcionario func = new Funcionario();
+            List<Funcionario> listaFunc = new List<Funcionario>();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Funcionario where cpf_Funcionario = @cpf", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
+                        func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
+                        func.nome_Funcionario = dr["nome_Funcionario"].ToString();
+                        func.email_Funcionario = dr["email_Funcionario"].ToString();
+                        func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
+                        listaFunc.Add(func);
+                    }
+                    dr.Close();
+                    return listaFunc;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Funcionario> ProcurarPorNome(string nome)
+        {
+            Funcionario func = new Funcionario();
+            List<Funcionario> listaFunc = new List<Funcionario>();
+            try
+            {
+                using (cmd = new MySqlCommand("Select * from Funcionario where nome_Funcionario = @nome", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
+                        func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
+                        func.nome_Funcionario = dr["nome_Funcionario"].ToString();
+                        func.email_Funcionario = dr["email_Funcionario"].ToString();
+                        func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
+                        listaFunc.Add(func);
+                    }
+                    dr.Close();
+                    return listaFunc;
+                }
             }
             catch (Exception)
             {
