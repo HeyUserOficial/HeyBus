@@ -12,6 +12,9 @@
         <thead>
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.rot.origem_Rota)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.rot.destino_Rota)
                 </th>
                 <th>
@@ -46,6 +49,9 @@
             {
                 <tr>
                     <td>
+                        @Html.DisplayNameFor(model => model.rot.origem_Rota)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.rot.destino_Rota)
                     </td>
                     <td>
@@ -59,6 +65,12 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.data_Ida)
+<<<<<<< HEAD
+=======
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.data_Volta)
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.data_Volta)

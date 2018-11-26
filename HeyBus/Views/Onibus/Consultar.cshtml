@@ -7,6 +7,7 @@
     <h1><span>Ônibus |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
+<<<<<<< HEAD
 <b>Procurar por : </b>
 <select id="Filtros">
     <option value="ID">ID</option>
@@ -15,55 +16,66 @@
     <option value="Manutencao">Manutenção</option>
 </select><br /><br />
 @Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
+=======
+
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
 <div class="box-consulta">
     <table class="table table-bordered tbResizable">
         <thead>
             <tr>
-                <th>
+                <th style="min-width:10px;max-width:150px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.id_Onibus)
                 </th>
-                <th>
+                <th style="min-width:10px;max-width:250px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.viacao_Onibus)
                 </th>
-                <th>
+                <th style="min-width:10px;max-width:250px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.categoria_Onibus)
                 </th>
-                <th>
+                <th style="min-width:10px;max-width:150px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.assentos_Onibus)
                 </th>
-                <th>
+                <th style="min-width:10px;max-width:150px; font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.manutencao_Onibus)
                 </th>
-                <th class="text-center">Ação</th>
+                <th class="text-center p-2" style="min-width:200px;max-width:200px; font-weight:400">Ação</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.id_Onibus)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.viacao_Onibus)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.categoria_Onibus)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.assentos_Onibus)
                     </td>
-                    <td>
+                    <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.manutencao_Onibus)
                     </td>
+<<<<<<< HEAD
                     <td>
                         @Html.ActionLink("Atualizar", "Atualizar", new { id = item.id_Onibus })
+=======
+                    <td style="font-weight:300" class="p-2">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_Onibus }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_Onibus }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_Onibus })
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+<<<<<<< HEAD
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
     $(document).ready(function (){
@@ -97,3 +109,6 @@
         });
     });
 </script>
+=======
+
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785

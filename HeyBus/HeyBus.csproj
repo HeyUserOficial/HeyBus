@@ -214,6 +214,7 @@
     <Content Include="images\cel-preto.gif" />
     <Content Include="images\cifrao.gif" />
     <Content Include="images\cliente.gif" />
+    <Content Include="images\clip.png" />
     <Content Include="images\convencional.gif" />
     <Content Include="images\duvidas.gif" />
     <Content Include="images\duvidasContato.gif" />
@@ -225,6 +226,7 @@
     <Content Include="images\funcionario.gif" />
     <Content Include="images\historia.gif" />
     <Content Include="images\home.gif" />
+    <Content Include="images\icon.png" />
     <Content Include="images\imagemHome.jpg" />
     <Content Include="images\img-onibus.gif" />
     <Content Include="images\leito.gif" />
@@ -312,12 +314,22 @@
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
+=======
+    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
+    <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
+    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
     <Content Include="Views\Viagens\Detalhes.cshtml" />
+    <Content Include="Views\Shared\_LayoutSemNav.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_LayoutFuncionarioSemNav.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
     <Content Include="Views\Viagens\FiltroTeste.cshtml" />
+=======
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

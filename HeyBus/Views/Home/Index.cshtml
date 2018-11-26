@@ -2,7 +2,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<<<<<<< HEAD
 <section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
+=======
+
+<section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
+
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
     <ol class="carousel-indicators">
         <li data-target="#sliderHome" data-slide-to="0" class="active"></li>
         <li data-target="#sliderHome" data-slide-to="1"></li>
@@ -78,11 +84,12 @@
       </a> setas de controle-->
 </section>
 
-    <div id="buscar-passagem" class="pt-5 row w-100 align-items-center bg-light p-3 m-0">
-        <aside id="box-comprar-passagem" class="col-lg-4 ml-md-5 mr-3">
-            <p>Confira as viagens e compre a <span>passagem</span> que mais se adequa a você!</p>
-            <form id="form-compra-passagem">
+<div id="buscar-passagem" class="pt-5 row w-100 align-items-center bg-light p-3 m-0">
+    <aside id="box-comprar-passagem" class="col-lg-4 ml-md-5 mr-3">
+        <p>Confira as viagens e compre a <span>passagem</span> que mais se adequa a você!</p>
+                <form id="form-compra-passagem">
 
+<<<<<<< HEAD
                 <div class="form-group">
                     <label for="origem">Origem</label>
                     <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida."/>
@@ -134,82 +141,152 @@
                     ...
                 </div>
 
+=======
+                    <div class="form-group">
+                        <label for="origem">Origem</label>
+                        <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida." />
+                    </div>
+                    <div class="form-group">
+                        <label for="destino">Destino</label>
+                        <input type="text" class="design-input-comprar" placeholder="Digite seu destino." />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6 col-sm-12 col-md-6">
+                            <label for="dataIda">Data de Saída</label>
+                            <input type="date" class="design-input-comprar" id="dataIda" />
+                        </div>
+                        <div class="form-group col-6 col-sm-12 col-md-6">
+                            <label for="dataVolta">Data de Volta</label>
+                            <input type="date" class="design-input-comprar" id="dataVolta" />
+                            <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
+                        </div>
+                        <div class="form-row col-12 justify-content-center">
+                            <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
+                        </div>
+                    </div>
+                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
+                </form>
+    </aside>
+    <article id="boasVindas" class="col-lg-7 text-center">
+        <h1>Bem Vindos ao site oficial da HeyBus!</h1>
+        <h2 class="pb-5">Aqui você encontra tudo sobre nós.</h2>
+        <ul>
+            <li><img src="~/images/historia.gif" style="width:30px;" /> História</li>
+            <li><img src="~/images/viagem.gif" style="width:30px;" /> Viagens</li>
+            <li><img src="~/images/servicos.gif" style="width:30px;" /> Serviços</li>
+            <li><img src="~/images/duvidas.gif" style="width:30px;" /> Tire suas dúvidas</li>
+        </ul>
+        E muitas outras coisas... Navegue e descubra mais!
+    </article>
+</div>
+<!-- Modal - form onde serão escritas as instruções-->
+<div class="modal fade" id="instrucoes" tabindex="-1" role="dialog" aria-labelledby="instrucoesTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="instrucoesTitle">Instruções para pesquisa de viagens</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body justify p-4 pt-0" style="color:rgba(0,0,0,.78);line-height:1.6;">
+                Este Formulário apresenta instruções relacionadas a compra de passagens. Nele você poderá
+                escolher a origem e o destino do local que deseja, além de escolher a data de saída e data de
+                volta de sua viagem, com isso você será redirecionado a área do cliente, onde poderá
+                consultar e verificar sua escolha. Veja as instruções a seguir:
+                <ol class="mt-3 ">
+                    <li>Os únicos campos obrigatórios são: Destino e Origem.</li>
+                    <li>
+                        Tome cuidado ao preencher os nomes das cidades, pois estes se escritos
+                        incorretamente, resultarão na falha da busca.
+                    </li>
+                    <li>Qualquer outra dúvida, entre em contato conosco, clicando no link ao lado <a href="~/Home/Contato">clique aqui.</a></li>
+                </ol>
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
+            </div>
+
         </div>
     </div>
-    <!--Fim Modal-->
-    <section id="topViagens" class="container-fluid">
-        <div class="d-flex d-inline-block flex-wrap mb-5 mt-5 align-items-baseline">
-            <h1>Destinos mais procurados</h1> <img src="~/images/localizacao.gif" style="width:35px" class="ml-2" />
-        </div>
-        <div class="row ">
-            <div class="col-md-6 col-lg-4 p-2 ">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/salvador.gif" alt="Salvador">
-                    <div class="card-body">
-                        <h5 class="card-title">Salvador</h5>
-                        <hr />
-                        <p class="card-text mb-2">Foi a 1ª Capital Brasileira. <br />É um Destino Turistico conhecido internacionalmente</p>
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 p-2">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/portoAlegre.gif" alt="Porto Alegre">
-                    <div class="card-body">
-                        <h5 class="card-title">Porto Alegre</h5>
-                        <hr />
-                        <p class="card-text mb-2">É bastante conhecido pelo seu monumento aos Açorianos e por ser uma cidade bem arborizada</p>
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 p-2">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/brasilia.gif" alt="Brasília">
-                    <div class="card-body">
-                        <h5 class="card-title">Brasília</h5>
-                        <hr />
-                        <p class="card-text mb-2">Atual capital do Brasil, uma cidade repleta de atrações arquitetônicas e urbanísticas.</p>
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 p-2">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/fernandoDeNoronha.gif" alt="Fernando de Noronha">
-                    <div class="card-body">
-                        <h5 class="card-title">Fernando de Noronha</h5>
-                        <hr />
-                        <p class="card-text mb-2">Um lugar com praias pitorescas, locais de mergulho e golfinhos.</p><br />
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 p-2">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/camposDoJordao.gif" alt="Campos do Jordão">
-                    <div class="card-body">
-                        <h5 class="card-title">Campos do Jordão</h5>
-                        <hr />
-                        <p class="card-text mb-2">Venha conhecer um lindo lugar com arquitetura de estilo suiço.</p><br />
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 p-2">
-                <div class="card box-shadow" style="width: 21rem;margin:auto">
-                    <img class="card-img-top" src="~/images/bonito.gif" alt="Bonito">
-                    <div class="card-body">
-                        <h5 class="card-title">Bonito</h5>
-                        <hr />
-                        <p class="card-text mb-2">Centro de ecoturismo brasileiro com rios de águas limpas, cochoeiras extensas e trilhas florestais.</p>
-                        <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
-                    </div>
+</div>
+<!--Fim Modal-->
+<section id="topViagens" class="container-fluid">
+    <div class="d-flex d-inline-block flex-wrap mb-5 mt-5 align-items-baseline">
+        <h1>Destinos mais procurados</h1> <img src="~/images/localizacao.gif" style="width:35px" class="ml-2" />
+    </div>
+    <div class="row ">
+        <div class="col-md-6 col-lg-4 p-2 ">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/salvador.gif" alt="Salvador">
+                <div class="card-body">
+                    <h5 class="card-title">Salvador</h5>
+                    <hr />
+                    <p class="card-text mb-2">Foi a 1ª Capital Brasileira. <br />É um Destino Turistico conhecido internacionalmente</p>
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-4 p-2">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/portoAlegre.gif" alt="Porto Alegre">
+                <div class="card-body">
+                    <h5 class="card-title">Porto Alegre</h5>
+                    <hr />
+                    <p class="card-text mb-2">É bastante conhecido pelo seu monumento aos Açorianos e por ser uma cidade bem arborizada</p>
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 p-2">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/brasilia.gif" alt="Brasília">
+                <div class="card-body">
+                    <h5 class="card-title">Brasília</h5>
+                    <hr />
+                    <p class="card-text mb-2">Atual capital do Brasil, uma cidade repleta de atrações arquitetônicas e urbanísticas.</p>
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 p-2">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/fernandoDeNoronha.gif" alt="Fernando de Noronha">
+                <div class="card-body">
+                    <h5 class="card-title">Fernando de Noronha</h5>
+                    <hr />
+                    <p class="card-text mb-2">Um lugar com praias pitorescas, locais de mergulho e golfinhos.</p><br />
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 p-2">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/camposDoJordao.gif" alt="Campos do Jordão">
+                <div class="card-body">
+                    <h5 class="card-title">Campos do Jordão</h5>
+                    <hr />
+                    <p class="card-text mb-2">Venha conhecer um lindo lugar com arquitetura de estilo suiço.</p><br />
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 p-2">
+            <div class="card box-shadow" style="width: 21rem;margin:auto">
+                <img class="card-img-top" src="~/images/bonito.gif" alt="Bonito">
+                <div class="card-body">
+                    <h5 class="card-title">Bonito</h5>
+                    <hr />
+                    <p class="card-text mb-2">Centro de ecoturismo brasileiro com rios de águas limpas, cochoeiras extensas e trilhas florestais.</p>
+                    <small class="text-link"><a href="#buscar-passagem">Clique aqui para pesquisar sua viagem.</a></small>
+                </div>
+            </div>
+        </div>
+<<<<<<< HEAD
     </section>
     
  
+=======
+    </div>
+</section>
+
+
+>>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
