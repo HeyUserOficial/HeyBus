@@ -161,7 +161,7 @@ namespace HeyBus.Repository
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Consultar_Clientes", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from cliente", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
@@ -175,8 +175,8 @@ namespace HeyBus.Repository
                         cli.cel_Cliente = dr["cel_Cliente"].ToString();
                         cli.email_Cliente = dr["email_Cliente"].ToString();
                         cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
-                        cliList.Add(cli);
                     }
+                    cliList.Add(cli);
                     dr.Close();
                     return cliList;
                 }
@@ -184,7 +184,7 @@ namespace HeyBus.Repository
             catch (Exception)
             {
                 throw;
-            }
+            }            
         }
         
         public List<Cliente> ProcurarPorID(int id)

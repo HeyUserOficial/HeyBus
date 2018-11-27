@@ -314,22 +314,15 @@
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
     <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
-=======
     <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
->>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
     <Content Include="Views\Viagens\Detalhes.cshtml" />
     <Content Include="Views\Shared\_LayoutSemNav.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_LayoutFuncionarioSemNav.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
     <Content Include="Views\Viagens\FiltroTeste.cshtml" />
-=======
->>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
+    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

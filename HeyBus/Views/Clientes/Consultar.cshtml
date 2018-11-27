@@ -21,11 +21,8 @@
                 <th style="min-width:10px;max-width:100px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.id_Cliente)
                 </th>
-<<<<<<< HEAD
-                <th style="max-width:170px;">
-=======
+           
                 <th  style="min-width:10px;max-width:170px;font-weight:400" class="p-2">
->>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
                     @Html.DisplayNameFor(model => model.cpf_Cliente)
                 </th>
                 <th style="min-width:10px;max-width:400px;font-weight:400" class="p-2">
@@ -49,8 +46,8 @@
 
             </tr>
         </thead>
-        <tbody>
-            @foreach (var item in Model)
+        <tbody id="ProcurarDados">
+            @foreach(var item in Model)
             {
 
                 <tr>
@@ -88,8 +85,8 @@
 </div>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
-    $(document).ready(function (){
-        $("#BtnFiltrar").click(function () {
+    $(document).ready(function () {
+        $("#Filtrar").keyup(function () {
             var Filtros = $("#Filtros").val();
             var Filtrar = $("#Filtrar").val();
             var RecebeData = $("#ProcurarDados");
@@ -103,7 +100,7 @@
                         RecebeData.append('<tr style="color: red"><td colspan="3">Nenhum dado encontrado</td></tr>')
                     }
                     else {
-                        $.each(resultado, function (index, value) {
+                        $.each(resultado, function (consultar, value) {
                             var Dados = "<tr>" +
                                 "<td>" + value.id_Cliente + "</td>" +
                                 "<td>" + value.cpf_Cliente + "</td>" +

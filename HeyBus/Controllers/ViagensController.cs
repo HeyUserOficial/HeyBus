@@ -157,7 +157,7 @@ namespace HeyBus.Controllers
             if (ModelState.IsValid)
             {
                 repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
-                RedirectToAction("BuscarViagemCompleta","Viagens", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta });
+                RedirectToAction("BuscarViagemCompleta", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta });
             }
             return View(v);
         }

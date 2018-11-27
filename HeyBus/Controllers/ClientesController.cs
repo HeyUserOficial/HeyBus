@@ -30,6 +30,11 @@ namespace HeyBus.Controllers
             return View();
         }
 
+        public ActionResult ConsWeb()
+        {
+            return View();
+        }
+
         public ActionResult Consultar()
         {
             List<Cliente> cli = repCli.Consultar_Cliente().ToList();

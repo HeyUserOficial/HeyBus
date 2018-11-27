@@ -33,17 +33,13 @@
                 <th style="min-width:10px;max-width:340px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.endereco_Funcionario)
                 </th>
-<<<<<<< HEAD
                 <th class="text-center">Ação</th>
-=======
                 <th style="min-width:10px;max-width:170px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.login_Acesso)
                 </th>
-                
->>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
             </tr>
         </thead>
-        <tbody>
+        <tbody id="ProcurarDados">
             @foreach (var item in Model)
             {
                 <tr>
@@ -62,13 +58,9 @@
                     <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.endereco_Funcionario)
                     </td>
-<<<<<<< HEAD
-=======
                     <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.login_Acesso)
                     </td>
-                    
->>>>>>> 3effb5bd42b9c0440ad72aa97b5d78a74edfc785
                 </tr>
             }
         </tbody>
