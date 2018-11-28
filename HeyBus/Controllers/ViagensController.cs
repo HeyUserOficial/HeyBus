@@ -35,9 +35,7 @@ namespace HeyBus.Controllers
         {
             Viagem viag = new Viagem();
             ViewBag.viacao = new SelectList(repViagem.ProcurarOnibus(), "oni.id_Onibus", "oni.viacao_Onibus");
-            ViewBag.categoria = new SelectList(TrazerCategoria(), "oni.id_Onibus", "oni.categoria_Onibus");
             ViewBag.destino = new SelectList(repViagem.ProcurarRota(), "rot.id_Rota", "rot.destino_Rota");
-            ViewBag.origem = new SelectList(ProcurarOrigem(), "rot.id_Rota", "rot.origem_Rota");
             viag.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
             viag.rot.id_Rota = Convert.ToInt32(Request["destino"]);
             return View(viag);
@@ -57,64 +55,6 @@ namespace HeyBus.Controllers
             return View(vi);
         }
 
-        [NonAction]
-        public IEnumerable<Viagem> TrazerCategoria()
-        {
-            Viagem onib = new Viagem();
-            List<Viagem> listaOni = new List<Viagem>();
-            int x = onib.oni.id_Onibus;
-            try
-            {
-                using (cmd = new MySqlCommand("Select * from Onibus where id_Onibus = @id", Conexao.conexao))
-                {
-                    conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", x);
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        onib.oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"]);
-                        onib.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        listaOni.Add(onib);
-                    }
-                    dr.Close();
-                    return listaOni;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        [NonAction]
-        public IEnumerable<Viagem> ProcurarOrigem()
-        {
-            Viagem rota = new Viagem();
-            List<Viagem> listaRota = new List<Viagem>();
-            var b = rota.rot.id_Rota;
-            try
-            {
-                using (cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))
-                {
-                    conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", b);
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        rota.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
-                        rota.rot.origem_Rota = dr["origem_Rota"].ToString();
-                        listaRota.Add(rota);
-                    }
-                    dr.Close();
-                    return listaRota;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         [HttpGet]
         public ActionResult ComprarPassagem(int id)
         {
@@ -126,22 +66,25 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult BuscarViagemCompleta(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
-            var h = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
-            return View(h);
+            var listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
+            return View(listaViag);
         }
+
+      
 
         [HttpGet]
         public ActionResult BuscarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
-            var j = repViagem.PesquisarViagemIda(dataPartida, origem, destino);
-            return View(j);
+            var g = repViagem.PesquisarViagemIda(dataPartida, origem, destino);
+            return View(g);
         }
 
         [HttpGet]
         public ActionResult BuscarViagemDestino(string origem, string destino)
         {
-            var k = repViagem.PesquisarViagemDestino(origem, destino);
-            return View(k);
+            List<Viagem> listaViag = new List<Viagem>();
+            listaViag = repViagem.PesquisarViagemDestino(origem, destino).ToList();
+            return View(listaViag);
         }
 
         [HttpGet]
@@ -152,12 +95,12 @@ namespace HeyBus.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult FiltroTeste(Viagem v)
+        public ActionResult FiltroTeste1(Viagem v)
         {          
             if (ModelState.IsValid)
             {
                 repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
-                RedirectToAction("BuscarViagemCompleta", new { v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta });
+                RedirectToAction("BuscarViagemCompleta="+v.data_Ida + v.rot.origem_Rota + v.rot.destino_Rota + v.data_Volta);
             }
             return View(v);
         }
@@ -233,6 +176,7 @@ namespace HeyBus.Controllers
 
         [NonAction]
         public IEnumerable<Viagem> ProcurarOrigem()
+
         {
             Viagem rota = new Viagem();
             List<Viagem> listaRota = new List<Viagem>();

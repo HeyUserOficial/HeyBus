@@ -185,12 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BD\Estrutura\HeyBus .sql" />
-    <Content Include="BD\Stored Procedures\SPs_Acesso.sql" />
-    <Content Include="BD\Stored Procedures\SPs_Cliente.sql" />
-    <Content Include="BD\Stored Procedures\SPs_Funcionarios.sql" />
-    <Content Include="BD\Stored Procedures\SPs_Onibus.sql" />
-    <Content Include="BD\Stored Procedures\SPs_Passagem.sql" />
-    <Content Include="BD\Stored Procedures\SPs_Rota.sql" />
     <Content Include="BD\Stored Procedures\SPs_Viagem.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -313,16 +307,11 @@
     <Content Include="Views\Shared\_LayoutFuncionario .cshtml" />
     <Content Include="Views\Viagens\Cadastrar.cshtml" />
     <Content Include="Views\Acesso\LoginCliente.cshtml" />
-    <Content Include="Views\Viagens\ComprarPassagem.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
-    <Content Include="Views\Viagens\Detalhes.cshtml" />
-    <Content Include="Views\Shared\_LayoutSemNav.cshtml" />
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
-    <Content Include="Views\Shared\_LayoutFuncionarioSemNav.cshtml" />
     <Content Include="Views\Viagens\FiltroTeste.cshtml" />
-    <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
+    <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
+    <Content Include="Views\Shared\_LayoutSemNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

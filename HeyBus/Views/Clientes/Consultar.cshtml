@@ -43,13 +43,11 @@
                 <th style="font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.usuario_Cliente)
                 </th>
-
             </tr>
         </thead>
         <tbody id="ProcurarDados">
             @foreach(var item in Model)
             {
-
                 <tr>
                     <td style="font-weight:300" class="p-2">
                         @Html.DisplayFor(modelItem => item.id_Cliente)
@@ -78,10 +76,9 @@
 
                 </tr>
 
-            }
+             }
         </tbody>
     </table>
-
 </div>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>

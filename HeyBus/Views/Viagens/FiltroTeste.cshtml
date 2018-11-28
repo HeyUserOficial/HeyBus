@@ -11,42 +11,42 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Viagem</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.data_Ida, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data_Ida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data_Ida, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
-            @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
-            <div>
-                @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
-            @Html.LabelFor(model => model.rot.origem_Rota, htmlAttributes: new { @class = "control-label" })
-            <div>
-                @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
-                @Html.ValidationMessageFor(model => model.rot.origem_Rota, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.data_Volta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data_Volta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data_Volta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Buscar Viagem", "BuscarViagemCompleta", new { Model.data_Ida,Model.rot.origem_Rota, Model.rot.destino_Rota, Model.data_Volta })
-            </div>
+<div class="form-horizontal">
+    <h4>Viagem</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.data_Ida, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.data_Ida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.data_Ida, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
+        @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
+        <div>
+            @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
+            @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
+        @Html.LabelFor(model => model.rot.origem_Rota, htmlAttributes: new { @class = "control-label" })
+        <div>
+            @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
+            @Html.ValidationMessageFor(model => model.rot.origem_Rota, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.data_Volta, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.data_Volta, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.data_Volta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buscar Viagem" class="btn-laranja" style="font-weight:400" />
+            </div>
+    </div>
+</div>
 }

@@ -90,7 +90,6 @@ namespace HeyBus.Repository
 
         public IEnumerable<Onibus> Consultar_Onibus()
         {
-            Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();
             try
             {
@@ -100,6 +99,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Onibus oni = new Onibus();
                         oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
@@ -118,7 +118,6 @@ namespace HeyBus.Repository
         
         public List<Onibus> ProcurarPorID(int id)
         {
-            Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();
             try
             {
@@ -129,6 +128,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Onibus oni = new Onibus();
                         oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
@@ -148,7 +148,6 @@ namespace HeyBus.Repository
 
         public List<Onibus> ProcurarPorViacao(string viacao)
         {
-            Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();
             try
             {
@@ -159,6 +158,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Onibus oni = new Onibus();
                         oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
@@ -178,7 +178,6 @@ namespace HeyBus.Repository
 
         public List<Onibus> ProcurarPorCategoria(string categoria)
         {
-            Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();
             try
             {
@@ -189,6 +188,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Onibus oni = new Onibus();
                         oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
@@ -208,7 +208,6 @@ namespace HeyBus.Repository
 
         public List<Onibus> ProcurarPorManutencao(string manutencao)
         {
-            Onibus oni = new Onibus();
             List<Onibus> oniList = new List<Onibus>();
             try
             {
@@ -219,6 +218,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Onibus oni = new Onibus();
                         oni.id_Onibus = Convert.ToInt32(dr["id_Onibus"].ToString());
                         oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         oni.categoria_Onibus = dr["categoria_Onibus"].ToString();

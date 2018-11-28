@@ -41,28 +41,12 @@
             </div>
         </div>
         <div class="form-group ml-2 ml-sm-3">
-            <span style="color:red">*</span>@Html.LabelFor(m => m.oni.viacao_Onibus)<br />
-            <select id="viacao" name="viacao" class="custom-select col-4 ml-3">
-                <option value="">Viações</option>
-            </select>
+            @Html.LabelFor(m => m.oni.viacao_Onibus)
+            @Html.DropDownList("viacao", "Viações")
         </div>
         <div class="form-group ml-2 ml-sm-3">
-            <span style="color:red">*</span>@Html.LabelFor(m => m.oni.categoria_Onibus)<br />
-            <select id="categoria" name="categoria" class="custom-select col-4 ml-3">
-                <option value="">Categorias</option>
-            </select>
-        </div>
-        <div class="form-group ml-2 ml-sm-3">
-            <span style="color:red">*</span>@Html.LabelFor(m => m.rot.destino_Rota)<br />
-            <select id="destino" name="destino" class="custom-select col-4 ml-3">
-                <option value="">Destinos</option>
-            </select>
-        </div>
-        <div class="form-group ml-2 ml-sm-3">
-            <span style="color:red">*</span>@Html.LabelFor(m => m.rot.origem_Rota)<br />
-            <select id="origem" name="origem" class="custom-select col-4 ml-3">
-                <option value="">Origens</option>
-            </select>
+            @Html.LabelFor(m => m.rot.destino_Rota)
+            @Html.DropDownList("destino", "Destinos")
         </div>
         <div class="form-group ml-2 ml-sm-3">
             <span style="color:red">*</span>@Html.LabelFor(model => model.valor_Viagem, htmlAttributes: new { @class = "control-label" })

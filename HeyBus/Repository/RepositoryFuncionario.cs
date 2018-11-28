@@ -44,7 +44,6 @@ namespace HeyBus.Repository
             {
                 using (cmd = new MySqlCommand("SP_Efetuar_Acesso", Conexao.conexao))
                 {
-
                     conn.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@usuario", func.login_Acesso);
@@ -75,8 +74,8 @@ namespace HeyBus.Repository
             Funcionario f = new Funcionario();
             try
             {
-                using(cmd = new MySqlCommand("select * from Funcionario inner join Acesso"
-                                           + "on Funcionario.id_Acesso = Acesso.id_Acesso where login_Acesso = @usuario", Conexao.conexao))
+                using(cmd = new MySqlCommand("select * from funcionario inner join acesso"
+                                           + "on funcionario.id_Acesso = acesso.id_Acesso where login_Acesso = @usuario", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -120,7 +119,6 @@ namespace HeyBus.Repository
 
         public IEnumerable<Funcionario> Consultar_Func()
         {
-            Funcionario func = new Funcionario();
             List<Funcionario> funcList = new List<Funcionario>();
             try
             {
@@ -130,6 +128,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Funcionario func = new Funcionario();
                         func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
                         func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
@@ -152,7 +151,7 @@ namespace HeyBus.Repository
             Funcionario func = new Funcionario();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Funcionario where id_Funcionario = @id", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select * from funcionario where id_Funcionario = @id", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@id", func.id_Funcionario);
@@ -176,17 +175,17 @@ namespace HeyBus.Repository
 
         public List<Funcionario> ProcurarPorID(int id)
         {
-            Funcionario func = new Funcionario();
             List<Funcionario> listaFunc = new List<Funcionario>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Funcionario where id_Funcionario = @id", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from funcionario where id_Funcionario = @id", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@id", id);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Funcionario func = new Funcionario();
                         func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
                         func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
@@ -206,18 +205,18 @@ namespace HeyBus.Repository
 
 
         public List<Funcionario> ProcurarPorCPF(string cpf)
-        {
-            Funcionario func = new Funcionario();
+        {          
             List<Funcionario> listaFunc = new List<Funcionario>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Funcionario where cpf_Funcionario = @cpf", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from funcionario where cpf_Funcionario = @cpf", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@cpf", cpf);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Funcionario func = new Funcionario();
                         func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
                         func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
@@ -237,17 +236,17 @@ namespace HeyBus.Repository
 
         public List<Funcionario> ProcurarPorNome(string nome)
         {
-            Funcionario func = new Funcionario();
             List<Funcionario> listaFunc = new List<Funcionario>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Funcionario where nome_Funcionario = @nome", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from funcionario where nome_Funcionario = @nome", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@nome", nome);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Funcionario func = new Funcionario();
                         func.id_Funcionario = Convert.ToInt32(dr["id_Funcionario"].ToString());
                         func.cpf_Funcionario = dr["cpf_Funcionario"].ToString();
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();

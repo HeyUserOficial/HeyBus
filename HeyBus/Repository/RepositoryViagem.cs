@@ -38,20 +38,20 @@ namespace HeyBus.Repository
         }
 
     
-        public IEnumerable<Viagem> ProcurarOnibus()
+        public List<Viagem> ProcurarOnibus()
         {
-            Viagem onib = new Viagem();
             List<Viagem> listaOni = new List<Viagem>();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Onibus where manutencao_Onibus = 'Preparado'", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select id_Onibus, concat(viacao_Onibus,'-', categoria_Onibus) as Onibus from onibus order by Onibus asc", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem onib = new Viagem();
                         onib.oni.id_Onibus =  Convert.ToInt32(dr["id_Onibus"]);
-                        onib.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
+                        onib.oni.viacao_Onibus = dr["Onibus"].ToString();
                         listaOni.Add(onib);
                     }
                     dr.Close();
@@ -64,20 +64,20 @@ namespace HeyBus.Repository
             }
         }
 
-        public IEnumerable<Viagem> ProcurarRota()
+        public List<Viagem> ProcurarRota()
         {
-            Viagem rotas = new Viagem();
             List<Viagem> listaRota = new List<Viagem>();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Rota", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select id_Rota, concat(origem_Rota ,'-', destino_Rota) as Rota from rota order by Rota ASC", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
-                    {                 
+                    {
+                        Viagem rotas = new Viagem();
                         rotas.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
-                        rotas.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        rotas.rot.destino_Rota = dr["Rota"].ToString();
                         listaRota.Add(rotas);
                     }
                     dr.Close();
@@ -92,7 +92,6 @@ namespace HeyBus.Repository
 
         public IEnumerable<Viagem> Consultar_Viagens()
         {
-            Viagem viag = new Viagem();
             List<Viagem> viagemList = new List<Viagem>();
             try
             {
@@ -102,6 +101,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem viag = new Viagem();
                         viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
@@ -155,6 +155,7 @@ namespace HeyBus.Repository
         public Viagem PesquisarViagemCompleto(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
             Viagem v = new Viagem();
+            List<Viagem> listaViag = new List<Viagem>();
             try
             {
                 using (cmd = new MySqlCommand("SP_Pesquisar_Viagens_Completo", Conexao.conexao))
@@ -178,6 +179,7 @@ namespace HeyBus.Repository
                         v.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
                         v.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
                         v.rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaViag.Add(v);
                     }
                     dr.Close();
                     return v;
@@ -189,9 +191,9 @@ namespace HeyBus.Repository
             }
         }
 
-        public Viagem PesquisarViagemIda(DateTime? dataPartida, string origem, string destino)
+        public List<Viagem> PesquisarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
-            Viagem v = new Viagem();
+            List<Viagem> listaViag = new List<Viagem>();
             try
             {
                 using(cmd = new MySqlCommand("SP_Pesquisar_Viagens_Ida", Conexao.conexao))
@@ -204,6 +206,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem v = new Viagem();
                         v.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         v.rot.destino_Rota = dr["destino_Rota"].ToString();
                         v.rot.origem_Rota = dr["origem_Rota"].ToString();
@@ -213,9 +216,10 @@ namespace HeyBus.Repository
                         v.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
                         v.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
                         v.rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaViag.Add(v);
                     }
                     dr.Close();
-                    return v;
+                    return listaViag;
                 }
             }
             catch (Exception)
@@ -224,9 +228,9 @@ namespace HeyBus.Repository
             }
         }
 
-        public Viagem PesquisarViagemDestino(string origem, string destino)
+        public List<Viagem> PesquisarViagemDestino(string origem, string destino)
         {
-            Viagem v = new Viagem();
+            List<Viagem> listaViag = new List<Viagem>();
             try
             {
                 using(cmd = new MySqlCommand("SP_Pesquisar_Viagens_Destino", Conexao.conexao))
@@ -238,6 +242,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem v = new Viagem();
                         v.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         v.rot.destino_Rota = dr["destino_Rota"].ToString();
                         v.rot.origem_Rota = dr["origem_Rota"].ToString();
@@ -248,9 +253,10 @@ namespace HeyBus.Repository
                         v.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
                         v.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
                         v.rot.distancia_Rota = dr["distancia_Rota"].ToString();
+                        listaViag.Add(v);
                     }
                     dr.Close();
-                    return v;
+                    return listaViag;
                 }
             }
             catch (Exception)

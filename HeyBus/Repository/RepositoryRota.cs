@@ -85,7 +85,6 @@ namespace HeyBus.Repository
 
         public IEnumerable<Rota> Consultar_Rotas()
         {
-            Rota rot = new Rota();
             List<Rota> rotaList = new List<Rota>();
             try
             {
@@ -95,6 +94,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Rota rot = new Rota();
                         rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();
@@ -113,7 +113,6 @@ namespace HeyBus.Repository
         public List<Rota> ProcurarPorID(int id)
         {
             List<Rota> listaRota = new List<Rota>();
-            Rota rot = new Rota();
             try
             {
                 using(cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))
@@ -123,6 +122,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Rota rot = new Rota();
                         rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();
@@ -142,7 +142,6 @@ namespace HeyBus.Repository
         public List<Rota> ProcurarPorDestino(string destino)
         {
             List<Rota> listaRota = new List<Rota>();
-            Rota rot = new Rota();
             try
             {
                 using (cmd = new MySqlCommand("Select * from Rota where destino_Rota = @destino", Conexao.conexao))
@@ -152,6 +151,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Rota rot = new Rota();
                         rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();
@@ -171,7 +171,6 @@ namespace HeyBus.Repository
         public List<Rota> ProcurarPorOrigem(string origem)
         {
             List<Rota> listaRota = new List<Rota>();
-            Rota rot = new Rota();
             try
             {
                 using (cmd = new MySqlCommand("Select * from Rota where origem_Rota = @origem", Conexao.conexao))
@@ -181,6 +180,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Rota rot = new Rota();
                         rot.id_Rota = Convert.ToInt32(dr["id_Rota"].ToString());
                         rot.origem_Rota = dr["origem_Rota"].ToString();
                         rot.destino_Rota = dr["destino_Rota"].ToString();

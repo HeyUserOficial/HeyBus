@@ -53,7 +53,7 @@ namespace HeyBus.Repository
             Cliente c = new Cliente();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Cliente where usuario_Cliente = @usuario", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select * from cliente where usuario_Cliente = @usuario", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -130,7 +130,7 @@ namespace HeyBus.Repository
             Cliente cli = new Cliente();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Cliente where id_Cliente = @id", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select * from cliente where id_Cliente = @id", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@id", id);
@@ -156,17 +156,17 @@ namespace HeyBus.Repository
         }
 
         public IEnumerable<Cliente> Consultar_Cliente()
-        {
-            Cliente cli = new Cliente();
+        {         
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from cliente", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from Consultar_Clientes", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Cliente cli = new Cliente();
                         cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
@@ -175,8 +175,8 @@ namespace HeyBus.Repository
                         cli.cel_Cliente = dr["cel_Cliente"].ToString();
                         cli.email_Cliente = dr["email_Cliente"].ToString();
                         cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
-                    }
-                    cliList.Add(cli);
+                        cliList.Add(cli);
+                    }                
                     dr.Close();
                     return cliList;
                 }
@@ -189,17 +189,17 @@ namespace HeyBus.Repository
         
         public List<Cliente> ProcurarPorID(int id)
         {
-            Cliente cli = new Cliente();
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                using(cmd = new MySqlCommand("Select * from Cliente where id_Cliente = @id", Conexao.conexao))
+                using(cmd = new MySqlCommand("Select * from cliente where id_Cliente like @id ", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@id", "%" + id + "%");
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Cliente cli = new Cliente();
                         cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
@@ -221,18 +221,18 @@ namespace HeyBus.Repository
         }
 
         public List<Cliente> ProcurarPorCPF(string cpf)
-        {
-            Cliente cli = new Cliente();
+        {            
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Cliente where cpf_Cliente = @cpf", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from cliente where cpf_Cliente like @cpf", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    cmd.Parameters.AddWithValue("@cpf", "%" + cpf + "%");
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Cliente cli = new Cliente();
                         cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
@@ -254,18 +254,18 @@ namespace HeyBus.Repository
         }
 
         public List<Cliente> ProcurarPorNome(string nome)
-        {
-            Cliente cli = new Cliente();
+        {         
             List<Cliente> cliList = new List<Cliente>();
             try
             {
-                using (cmd = new MySqlCommand("Select * from Cliente where nome_Cliente = @nome", Conexao.conexao))
+                using (cmd = new MySqlCommand("Select * from cliente where nome_Cliente like @nome", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@nome", nome);
+                    cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Cliente cli = new Cliente();
                         cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"].ToString());
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();

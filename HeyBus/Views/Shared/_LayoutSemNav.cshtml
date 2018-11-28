@@ -1,57 +1,56 @@
-﻿    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Aerarium</title>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aerarium</title>
 
-        <environment include="Development">
-            <link rel="stylesheet" href="~/Content/bootstrap.css" />
-            <link rel="stylesheet" href="~/Content/estilo-acesso-funcionario.css" />
-        </environment>
-        <environment exclude="Development">
-            <!--<link rel="stylesheet" href="~/Content/bootstrap.min.css"
-                   asp-fallback-href="~/Content/bootstrap.min.css"
-                   asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            -->
-        </environment>
-    </head>
-    <body class="m-0">
-        
-        <div class="body-content">
-            @RenderBody()
+    <environment include="Development">
+        <link rel="stylesheet" href="~/Content/bootstrap.css" />
+        <link rel="stylesheet" href="~/Content/estilo-acesso-funcionario.css" />
+    </environment>
+    <environment exclude="Development">
+        <!--<link rel="stylesheet" href="~/Content/bootstrap.min.css"
+               asp-fallback-href="~/Content/bootstrap.min.css"
+               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        -->
+    </environment>
+</head>
+<body class="m-0">
 
-            <footer class="text-center">
-                <hr style="background-color: rgba(255,255,255,.4); width:70%;box-shadow:rgb(42,42,42) 5px 3px 10px" />
-                <p>&copy; @DateTime.Today.Year - HeyBus Ltda. <br /> <small>designed by HeyUser</small></p>
-            </footer>
-        </div>
+    <div class="body-content">
+        @RenderBody()
+
+        <footer class="text-center">
+            <hr style="background-color: rgba(255,255,255,.4); width:70%;box-shadow:rgb(42,42,42) 5px 3px 10px" />
+            <p>&copy; @DateTime.Today.Year - HeyBus Ltda. <br /> <small>designed by HeyUser</small></p>
+        </footer>
+    </div>
 
 
-        <environment include="Development">
-            <script src="~/Scripts/jquery.js"></script>
-            <script src="~/Scripts/bootstrap.js"></script>
-            <script src="~/Scripts/jQuery.resizableColumns.min.js"></script>
-            <script src="~/Scripts/jquery.mask.min.js"></script>
-            <script src="~/Scripts/script-acesso-funcionario.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/Scripts/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
-                    asp-fallback-src="~/Scripts/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
+    <environment include="Development">
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jQuery.resizableColumns.min.js"></script>
+        <script src="~/Scripts/jquery.mask.min.js"></script>
+        <script src="~/Scripts/script-acesso-funcionario.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/Scripts/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js"
+                asp-fallback-src="~/Scripts/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
 
-        </environment>
+    </environment>
 
-        @RenderSection("Scripts", required: false)
-    </body>
+    @RenderSection("Scripts", required: false)
+</body>
 </html>
-

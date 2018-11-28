@@ -46,7 +46,6 @@ namespace HeyBus.Repository
 
         public IEnumerable<Passagem> Consultar_Passagens()
         {
-            Passagem pass = new Passagem();
             List<Passagem> passagensList = new List<Passagem>();
             try
             {
@@ -56,6 +55,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Passagem pass = new Passagem();
                         pass.id_Passagem = Convert.ToInt32(dr["id_Passagem"].ToString());
                         pass.cli.nome_Cliente = dr["nome_Cliente"].ToString();
                         pass.rot.origem_Rota = dr["origem_Rota"].ToString();
