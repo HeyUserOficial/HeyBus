@@ -74,8 +74,7 @@ namespace HeyBus.Repository
             Funcionario f = new Funcionario();
             try
             {
-                using(cmd = new MySqlCommand("select * from funcionario inner join acesso"
-                                           + "on funcionario.id_Acesso = acesso.id_Acesso where login_Acesso = @usuario", Conexao.conexao))
+                using(cmd = new MySqlCommand("select id_Funcionario, nome_Funcionario from funcionario inner join acesso on funcionario.id_Acesso = acesso.id_Acesso where acesso.login_Acesso = @usuario", Conexao.conexao))
                 {
                     conn.abrirConexao();
                     cmd.Parameters.AddWithValue("@usuario", usuario);

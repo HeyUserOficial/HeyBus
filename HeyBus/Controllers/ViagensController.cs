@@ -95,12 +95,13 @@ namespace HeyBus.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult FiltroTeste1(Viagem v)
-        {          
+        public ActionResult FiltroTeste(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
+        {
+            Viagem v = new Viagem();
             if (ModelState.IsValid)
             {
                 repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
-                RedirectToAction("BuscarViagemCompleta="+v.data_Ida + v.rot.origem_Rota + v.rot.destino_Rota + v.data_Volta);
+                RedirectToAction("BuscarViagemCompleta", new { dataPartida = v.data_Ida, origem = v.rot.origem_Rota, destino = v.rot.destino_Rota, dataVolta = v.data_Volta });
             }
             return View(v);
         }
