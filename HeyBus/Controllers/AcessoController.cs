@@ -69,7 +69,7 @@ namespace HeyBus.Controllers
                 {
                     var t = repFunc.RetornarNome(func.login_Acesso);
                     Session["func_logado"] = t;
-                    return RedirectToAction("Consultar", "Clientes");
+                    return RedirectToAction("IndexFunc", "Funcionarios");
                 }
                 else
                 {

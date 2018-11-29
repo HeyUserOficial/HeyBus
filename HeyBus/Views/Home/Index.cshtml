@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
+
+
 <section id="sliderHome" class="carousel slide d-none d-sm-block" data-ride="carousel" data-interval="6000">
 
     <ol class="carousel-indicators">
@@ -83,81 +84,32 @@
 <div id="buscar-passagem" class="pt-5 row w-100 align-items-center bg-light p-3 m-0">
     <aside id="box-comprar-passagem" class="col-lg-4 ml-md-5 mr-3">
         <p>Confira as viagens e compre a <span>passagem</span> que mais se adequa a você!</p>
-                <form id="form-compra-passagem">
-                <div class="form-group">
-                    <label for="origem">Origem</label>
-                    <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida."/>
+        <form id="form-compra-passagem">
+
+            <div class="form-group">
+                <label for="origem">Origem</label>
+                <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida." />
+            </div>
+            <div class="form-group">
+                <label for="destino">Destino</label>
+                <input type="text" class="design-input-comprar" placeholder="Digite seu destino." />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6 col-sm-12 col-md-6">
+                    <label for="dataIda">Data de Saída</label>
+                    <input type="date" class="design-input-comprar" id="dataIda" />
                 </div>
-                <div class="form-group">
-                    <label for="destino">Destino</label>
-                    <input type="text" class="design-input-comprar" placeholder="Digite seu destino."/>
+                <div class="form-group col-6 col-sm-12 col-md-6">
+                    <label for="dataVolta">Data de Volta</label>
+                    <input type="date" class="design-input-comprar" id="dataVolta" />
+                    <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-6 col-sm-12 col-md-6">
-                        <label for="dataIda">Data de Saída</label>
-                        <input type="date" class="design-input-comprar" id="dataIda"/>
-                    </div>
-                    <div class="form-group col-6 col-sm-12 col-md-6">
-                        <label for="dataVolta">Data de Volta</label>
-                        <input type="date" class="design-input-comprar" id="dataVolta" />
-                        <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
-                    </div>
-                    <div class="form-row col-12 justify-content-center">
-                        <button type="submit" class="btn-buscar-viagem-home col-8 "></button>
-                    </div>
+                <div class="form-row col-12 justify-content-center">
+                    <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
                 </div>
-                <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
-            </form>
-        </aside>
-        <article id="boasVindas" class="col-lg-7 text-center">
-            <h1>Bem Vindos ao site oficial da HeyBus!</h1>
-            <h2 class="pb-5">Aqui você encontra tudo sobre nós.</h2>
-            <ul>
-                <li><img src="~/images/historia.gif" style="width:30px;" /> História</li>
-                <li><img src="~/images/viagem.gif" style="width:30px;" /> Viagens</li>
-                <li><img src="~/images/servicos.gif" style="width:30px;" /> Serviços</li>
-                <li><img src="~/images/duvidas.gif" style="width:30px;" /> Tire suas dúvidas</li>
-            </ul>
-            E muitas outras coisas... Navegue e descubra mais!
-        </article>
-    </div>
-    <!-- Modal - form onde serão escritas as instruções-->
-    <div class="modal fade" id="instrucoes" tabindex="-1" role="dialog" aria-labelledby="instrucoesTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="instrucoesTitle">Instruções</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                    <div class="form-group">
-                        <label for="origem">Origem</label>
-                        <input type="text" class="design-input-comprar" placeholder="Digite seu ponto de partida." />
-                    </div>
-                    <div class="form-group">
-                        <label for="destino">Destino</label>
-                        <input type="text" class="design-input-comprar" placeholder="Digite seu destino." />
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-6 col-sm-12 col-md-6">
-                            <label for="dataIda">Data de Saída</label>
-                            <input type="date" class="design-input-comprar" id="dataIda" />
-                        </div>
-                        <div class="form-group col-6 col-sm-12 col-md-6">
-                            <label for="dataVolta">Data de Volta</label>
-                            <input type="date" class="design-input-comprar" id="dataVolta" />
-                            <small id="dataVoltaInfo" class="form-text text-muted">(Opcional)</small>
-                        </div>
-                        <div class="form-row col-12 justify-content-center">
-                            <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
-                        </div>
-                    </div>
-                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
-                </form>
+            </div>
+            <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
+        </form>
     </aside>
     <article id="boasVindas" class="col-lg-7 text-center">
         <h1>Bem Vindos ao site oficial da HeyBus!</h1>
@@ -271,6 +223,7 @@
                 </div>
             </div>
         </div>
-    </section>
     </div>
 </section>
+
+
