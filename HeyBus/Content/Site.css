@@ -588,7 +588,7 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .rodape-copyright p{padding-left: 10px;}
 .link{color:#007bff !important;}
 .link:hover {text-decoration:underline !important;}
-.hover-laranja:hover{color:rgb(207, 97, 5)!important;cursor:pointer;}
+.hover-laranja:hover{color:rgb(207, 97, 5)!important;cursor:pointer;text-decoration:none}
 @media (max-width: 768px){
     .rodape {
         grid-template-columns: 1fr 1fr;
@@ -649,9 +649,14 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
 .box-cadastro-cliente{margin-top:125px;font-family:Roboto;font-weight:600}
 .box-cadastro-cliente h1{color:rgba(0,0,0,.7);font-family:Roboto;font-weight:600;padding-left:25px}
 .box-cadastro-cliente p{color:rgba(0,0,0,.4);font-family:Roboto;font-weight:600;padding-left:25px}
-
+/*Alterar cadastro de cliente*/
+.alter-cli{
+    margin-top:12vh;
+}
+    .alter-cli h1{font-size:1.8rem;color:rgba(42,42,42,.89); padding:20px;padding-bottom:0px;}
+    .alter-cli h2{font-size:1.5rem;font-weight:300; color:rgba(42,42,42,.85);padding-left:20px;}
 /*Tela cadastro de funcionário*/
-.box-cadastro-funcionario{
+.box-cadastro-funcionario {
     margin-top: 100px;
 }
 
