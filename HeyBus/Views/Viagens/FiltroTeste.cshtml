@@ -25,7 +25,7 @@
     <div class="form-group col-11 col-sm-10 col-lg-5 col-xl-4">
         @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
         <div>
-            @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
+            @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar"} })
             @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Buscar Viagem" class="btn-laranja" style="font-weight:400" />
+                @Html.ActionLink("BuscarViagemCompleta", "BuscarViagemCompleta", new { dataPartida = Model.data_Ida, origem = Model.rot.origem_Rota, destino = Model.rot.destino_Rota, dataVolta = Model.data_Volta})
             </div>
     </div>
 </div>

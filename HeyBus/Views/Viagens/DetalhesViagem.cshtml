@@ -1,0 +1,65 @@
+﻿@model HeyBus.Models.Viagem
+
+@{
+    ViewBag.Title = "DetalhesViagem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetalhesViagem</h2>
+
+<div>
+    <h4>Viagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_Ida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_Ida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_Volta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_Volta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horario_Viagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horario_Viagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_Viagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_Viagem)
+        </dd>
+    </dl>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.assentos.bancos)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach(var bancos in Model.assentos.bancos)
+            {
+               <tr>
+                   <td>
+                       @Html.DisplayFor(modelItem => bancos)
+                   </td>
+               </tr>
+            }
+        </tbody>
+    </table>
+</div>

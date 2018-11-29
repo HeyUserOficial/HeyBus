@@ -135,7 +135,8 @@ namespace HeyBus.Repository
                     {
                         viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
-                        viag.data_Ida = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        viag.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
+                        viag.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
                         viag.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
@@ -143,6 +144,7 @@ namespace HeyBus.Repository
                         viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
                         viag.assentos.banco = Convert.ToInt32(dr["id_Bancos"].ToString());
                     }
+                    viag.assentos.bancos = new int[viag.assentos.banco];
                 }
             }
             catch (Exception)
