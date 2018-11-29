@@ -114,7 +114,15 @@ namespace HeyBus.Controllers
             ViewBag.Status = status;
             return View();
         }
+       
 
+        [HttpGet]
+        public ActionResult Perfil(int id)
+        {
+            return View(repCli.ConsultarPorId(id));
+        }
+
+        [HttpGet]
         public ActionResult Alterar(int id)
         {
             return View(repCli.ConsultarPorId(id));
@@ -124,12 +132,16 @@ namespace HeyBus.Controllers
         [ActionName("Alterar")]
         public ActionResult Alterar(Cliente cli)
         {
-            if (ModelState.IsValid)
+            try
             {
-                repCli.Update_Cliente(cli);
-                return RedirectToAction("Consultar");
+              repCli.Update_Cliente(cli);
+              return RedirectToAction("Index", "Home");
             }
-            return View();
+            catch (Exception)
+            {
+
+            }
+            return View(cli);
         }
 
         [NonAction]

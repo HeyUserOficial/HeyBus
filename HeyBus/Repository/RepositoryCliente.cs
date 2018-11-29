@@ -73,6 +73,29 @@ namespace HeyBus.Repository
             }
         }
 
+        public int RetornaId(string usuario)
+        {
+            Cliente c = new Cliente();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from cliente where usuario_Cliente = @usuario", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        c.id_Cliente = Convert.ToInt32(dr["id_Cliente"]);
+                    }
+                    dr.Close();
+                    return c.id_Cliente;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public void Insert_Cliente(Cliente cli)
         {
             try
@@ -137,6 +160,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        cli.id_Cliente = Convert.ToInt32(dr["id_Cliente"]);
                         cli.cpf_Cliente = dr["cpf_Cliente"].ToString();
                         cli.nome_Cliente = dr["nome_Cliente"].ToString();
                         cli.nascimento_Cliente = Convert.ToDateTime(dr["nascimento_Cliente"].ToString());
@@ -144,6 +168,7 @@ namespace HeyBus.Repository
                         cli.cel_Cliente = dr["cel_Cliente"].ToString();
                         cli.email_Cliente = dr["email_Cliente"].ToString();
                         cli.usuario_Cliente = dr["usuario_Cliente"].ToString();
+                        cli.senha_Cliente = dr["senha_Cliente"].ToString();
                     }
                     dr.Close();
                 }

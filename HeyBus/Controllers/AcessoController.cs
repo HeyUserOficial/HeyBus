@@ -36,7 +36,9 @@ namespace HeyBus.Controllers
                 if (autenticacaoCli == true)
                 {
                     var g = repCli.RetornaNome(cli.login_Acesso);
+                    var k = repCli.RetornaId(cli.login_Acesso);
                     Session["cliente_logado"] = g;
+                    Session["id_Cliente"] = k;
                     return RedirectToAction("Index", "Home");
                 }
                 else

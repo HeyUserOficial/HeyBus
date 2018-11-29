@@ -42,7 +42,7 @@ namespace HeyBus.Controllers
             if (ModelState.IsValid)
             {
                 repFunc.Update_Func(func);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("IndexFunc");
             }
             return View();
         }
