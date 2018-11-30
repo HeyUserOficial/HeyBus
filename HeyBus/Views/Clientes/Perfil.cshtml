@@ -8,9 +8,9 @@
     <section class="perfil-cliente">
         <div class="box-dados-clientes">
             <h1 class="pb-0">Dados</h1>
-            <hr style = "width:90%;" />
+            <hr style="width:90%;" />
             <form id="form-meu-perfil" class="p-2 pl-3">
-                @Html.HiddenFor( model => model.id_Cliente)
+                @Html.HiddenFor(model => model.id_Cliente)
                 <div class="form-group">
                     <label for="nome" class="mb-0">Nome Completo</label>
                     <br />
@@ -27,20 +27,22 @@
                     @Html.DisplayFor(model => model.nascimento_Cliente)
                 </div>
             </form>
-           @Html.ActionLink("Alterar", "Alterar", new{ id = Model.id_Cliente})
             <h1 class="pt-0 mt-0">Contato</h1>
-            <hr style = "width:90%;" />
+            <hr style="width:90%;" />
             <form id="form-meu-perfil-contato" class="p-2 pl-3">
                 <div class="d-flex align-items-baseline">
-                    <div style = "width:25px" class="m-2"><img src = "~/images/tel-preto.gif" style="width:15px" /></div><input type = "tel" class="design-input-perfil mt-0" id="telefone">
+                    <div style="width:25px" class="m-2"><img src="~/images/tel-preto.gif" style="width:15px" /></div><input type="tel" class="design-input-perfil mt-0" id="telefone">
                 </div>
                 <div class="d-flex align-items-baseline">
-                    <div style = "width:25px" class="m-2"><img src = "~/images/cel-preto.gif" style="width:12px" /></div><input type = "tel" class="design-input-perfil mt-0" id="celular">
+                    <div style="width:25px" class="m-2"><img src="~/images/cel-preto.gif" style="width:12px" /></div><input type="tel" class="design-input-perfil mt-0" id="celular">
                 </div>
                 <div class="d-flex align-items-baseline">
-                    <div style = "width:25px" class="m-2"><img src = "~/images/email-preto.gif" style="width:17px" /></div><input type = "text" class="design-input-perfil mt-0" id="email">
+                    <div style="width:25px" class="m-2 "><img src="~/images/email-preto.gif" style="width:17px" /></div><input type="text" class="design-input-perfil mt-0" id="email">
                 </div>
             </form>
+            <div class="text-right pr-4 pb-3">
+                @Html.ActionLink("Alterar", "Alterar", new { id = Model.id_Cliente }, new { @class = "btn btn-estilo-claro" })
+            </div>
         </div>
         <div class="pedidos-cliente">
             <h1>Pedidos</h1>
