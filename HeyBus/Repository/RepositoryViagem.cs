@@ -22,7 +22,7 @@ namespace HeyBus.Repository
                 using (cmd = new MySqlCommand("SP_Cadastrar_Viagem", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;,
                     cmd.Parameters.AddWithValue("@rota", viag.rot.id_Rota);
                     cmd.Parameters.AddWithValue("@onibus", viag.oni.id_Onibus);
                     cmd.Parameters.AddWithValue("@dataIda", viag.data_Ida);
@@ -31,9 +31,9 @@ namespace HeyBus.Repository
                     cmd.Parameters.AddWithValue("@valor", viag.valor_Viagem);
                     cmd.ExecuteNonQuery();
                 }
-            }catch(Exception)
+            }catch(Exception ex)
             {
-               throw;
+               throw new Exception(ex.Message.ToString());
             }
         }
 
@@ -187,7 +187,7 @@ namespace HeyBus.Repository
                     return v;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

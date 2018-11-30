@@ -46,12 +46,10 @@ namespace HeyBus.Controllers
         [ActionName("Cadastrar")]
         public ActionResult Cadastrar(Viagem vi)
         {
-            if (ModelState.IsValid)
-            {
+
                 vi.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
                 vi .rot.id_Rota = Convert.ToInt32(Request["destino"]);
                 repViagem.Insert_Viagem(vi);
-            }
             return View(vi);
         }
 
@@ -69,8 +67,6 @@ namespace HeyBus.Controllers
             var listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
             return View(listaViag);
         }
-
-      
 
         [HttpGet]
         public ActionResult BuscarViagemIda(DateTime? dataPartida, string origem, string destino)
@@ -94,15 +90,10 @@ namespace HeyBus.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult FiltroTeste(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
+        public ActionResult FiltroTeste(Viagem v)
         {
-            Viagem v = new Viagem();
-            if (ModelState.IsValid)
-            {
-                repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
-                Response.Redirect("BuscarViagemCompleta/" + v.data_Ida + "/" + v.rot.origem_Rota + "/" + v.rot.destino_Rota + "/" + v.data_Volta);
-            }
+           repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
+           Response.Redirect("BuscarViagemCompleta?dataPartida=" +v.data_Ida.ToString("MM/dd/yyyy")+"&origem="+v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta="+ v.data_Volta.ToString("MM/dd/yyyy"));
             return View(v);
         }
 
@@ -115,101 +106,3 @@ namespace HeyBus.Controllers
         }
     }
 }
-/*  [HttpGet]
-        public ActionResult Cadastrar()
-        {
-            Viagem viag = new Viagem();
-            viag.oni.PuxarOnibus = PegarOnibus();
-            viag.oni.PuxarCategoria = PegarCategoria();
-            viag.rot.PuxarRota = ew SelectList(PegarRota(), "Value", "Text");
-            viag.rot.PuxarOrigem = new SelectList(PegarOrigem(), "Value", "Text");
-            return View(viag);
-        }
-
-        [HttpPost]
-        [ActionName("Cadastrar")]
-        public ActionResult CadastrarViagem(Viagem viag)
-        {
-            if (ModelState.IsValid)
-            {
-                repViagem.Insert_Viagem(viag);
-                return RedirectToAction("Consultar");
-            }
-            return View(viag);
-        }
-
-        public IEnumerable<SelectListItem> PegarOnibus()
-        {
-            var onibus = repViagem.ProcurarOnibus().
-             Select(v => new SelectListItem
-             {
-                 Value = v.oni.id_Onibus.ToString(),
-                 Text = v.oni.viacao_Onibus,
-             });
-            return new SelectList(onibus, "Value", "Text");
-        }
-
-        public IEnumerable<SelectListItem> PegarCategoria()
-        {
-            var v = TrazerCategoria().
-                Select(c => new SelectListItem
-                {
-                    Value = c.oni.id_Onibus.ToString(),
-                    Text = c.oni.categoria_Onibus,
-                });
-            return new SelectList(v, "Value", "Text");
-        }
-
-
-        public IEnumerable<SelectListItem> PegarRota()
-        {
-            var g = repViagem.ProcurarRota().
-                Select(h => new SelectListItem
-                {
-                    Value = h.rot.id_Rota.ToString(),
-                    Text = h.rot.destino_Rota
-                });
-            return new SelectList(g, "Value", "Text");
-        }
-
-        public IEnumerable<SelectListItem> PegarOrigem()
-        {
-            var j = ProcurarOrigem().
-                Select(o => new SelectListItem
-                {
-                    Value = o.rot.id_Rota.ToString(),
-                    Text = o.rot.origem_Rota
-                });
-            return new SelectList(j, "Value", "Text");
-        }
-
-        [NonAction]
-        public IEnumerable<Viagem> ProcurarOrigem()
-
-        {
-            Viagem rota = new Viagem();
-            List<Viagem> listaRota = new List<Viagem>();
-            var b = PegarRota();
-            try
-            {
-                using (cmd = new MySqlCommand("Select * from Rota where id_Rota = @id", Conexao.conexao))
-                {
-                    conn.abrirConexao();
-                    cmd.Parameters.AddWithValue("@id", b.FirstOrDefault().Value);
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        rota.rot.id_Rota = Convert.ToInt32(dr["id_Rota"]);
-                        rota.rot.origem_Rota = dr["origem_Rota"].ToString();
-                        listaRota.Add(rota);
-                    }
-                    dr.Close();
-                    return listaRota;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-*/

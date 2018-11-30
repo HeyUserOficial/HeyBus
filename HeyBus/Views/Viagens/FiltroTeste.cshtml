@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+ //   @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
     <h4>Viagem</h4>
@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("BuscarViagemCompleta", "BuscarViagemCompleta", new { dataPartida = Model.data_Ida, origem = Model.rot.origem_Rota, destino = Model.rot.destino_Rota, dataVolta = Model.data_Volta})
+                <input type="submit" value="Cadastrar" class="btn-laranja" style="font-weight:400" />
             </div>
     </div>
 </div>
