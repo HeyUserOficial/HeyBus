@@ -154,9 +154,8 @@ namespace HeyBus.Repository
             return viag;
         }
 
-        public Viagem PesquisarViagemCompleto(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
+        public IEnumerable<Viagem> PesquisarViagemCompleto(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
-            Viagem v = new Viagem();
             List<Viagem> listaViag = new List<Viagem>();
             try
             {
@@ -171,6 +170,7 @@ namespace HeyBus.Repository
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
+                        Viagem v = new Viagem();
                         v.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
                         v.rot.destino_Rota = dr["destino_Rota"].ToString();
                         v.rot.origem_Rota = dr["origem_Rota"].ToString();
@@ -184,7 +184,7 @@ namespace HeyBus.Repository
                         listaViag.Add(v);
                     }
                     dr.Close();
-                    return v;
+                    return listaViag;
                 }
             }
             catch (Exception ex)
@@ -193,7 +193,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public List<Viagem> PesquisarViagemIda(DateTime? dataPartida, string origem, string destino)
+        public IEnumerable<Viagem> PesquisarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
             List<Viagem> listaViag = new List<Viagem>();
             try
@@ -230,7 +230,7 @@ namespace HeyBus.Repository
             }
         }
 
-        public List<Viagem> PesquisarViagemDestino(string origem, string destino)
+        public IEnumerable<Viagem> PesquisarViagemDestino(string origem, string destino)
         {
             List<Viagem> listaViag = new List<Viagem>();
             try

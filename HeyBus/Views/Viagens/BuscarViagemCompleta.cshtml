@@ -1,4 +1,4 @@
-﻿@model HeyBus.Models.Viagem
+﻿@model IEnumerable<HeyBus.Models.Viagem>
 
 @{
     ViewBag.Title = "BuscarViagemCompleta";
@@ -7,70 +7,47 @@
 
 <h2>BuscarViagemCompleta</h2>
 
-<div>
-    <h4>Viagem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @Html.HiddenFor(model => model.id_Viagem)
-        <dt>
-            @Html.DisplayNameFor(model => model.data_Ida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.data_Ida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.data_Volta)
-        </dt>
-        
-        <dd>
-            @Html.DisplayFor(model => model.data_Volta)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.horario_Viagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.horario_Viagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.valor_Viagem)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.valor_Viagem)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.rot.destino_Rota)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.rot.destino_Rota)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.rot.origem_Rota)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.rot.destino_Rota)
-        </dd>
-        <dd>
-            @Html.DisplayNameFor(model => model.rot.destino_Rota)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.rot.origem_Rota)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.rot.origem_Rota)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.oni.viacao_Onibus)
-        </dd>
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Comprar Passagem", "ComprarPassagem", new { id = Model.id_Viagem })
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.data_Ida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_Volta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horario_Viagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_Viagem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.HiddenFor(modelItem => item.id_Viagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_Ida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_Volta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horario_Viagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_Viagem)
+        </td>
+        <td>
+            @Html.ActionLink("Comprar Passagem", "Passagens/Comprar", new { id=item.id_Viagem }) 
+        </td>
+    </tr>
+}
+
+</table>

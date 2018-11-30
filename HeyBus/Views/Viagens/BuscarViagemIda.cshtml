@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<HeyBus.Models.Viagem>
 
 @{
-    ViewBag.Title = "BuscarViagemDestino";
+    ViewBag.Title = "BuscarViagemIda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BuscarViagemDestino</h2>
+<h2>BuscarViagemIda</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -45,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.valor_Viagem)
         </td>
         <td>
-            @Html.ActionLink("Comprar Passagem", "Passagens/Comprar", new { id = item.id_Viagem})
+            @Html.ActionLink("Comprar Passagem", "Passagens/Comprar", new { id=item.id_Viagem }) 
         </td>
     </tr>
 }

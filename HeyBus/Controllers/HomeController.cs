@@ -15,11 +15,37 @@ namespace HeyBus.Controllers
         Conexao conn = new Conexao();
         MySqlCommand cmd;
         MySqlDataReader dr;
-        RepositoryViagem repVi = new RepositoryViagem();
+        RepositoryViagem repViagem = new RepositoryViagem();
 
+        [HttpGet]
         public ActionResult Index()
+        {            
+            return View();           
+        }
+
+        [HttpPost]
+        public ActionResult Index(Viagem v)
         {
-            return View();
+            if (v.data_Volta == null)
+            {
+                repViagem.PesquisarViagemIda(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota);
+                Response.Redirect("~/Viagens/BuscarViagemIda?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota);
+            }
+            else if (v.data_Volta == null && v.data_Ida == null)
+            {
+                repViagem.PesquisarViagemDestino(v.rot.origem_Rota, v.rot.destino_Rota);
+                Response.Redirect("~/Viagens/BuscarViagemDestino?origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota);
+            }
+            else if (v.data_Volta != null && v.data_Ida != null && v.rot.origem_Rota != null && v.rot.destino_Rota != null)
+            {
+                repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
+                Response.Redirect("~/Viagens/BuscarViagemCompleta?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta=" + v.data_Volta.ToString("MM/dd/yyyy"));
+            }
+            else
+            {
+                repViagem
+            }
+            return View(v);
         }
 
         public ActionResult Sobre()

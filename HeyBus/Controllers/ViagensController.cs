@@ -64,15 +64,17 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult BuscarViagemCompleta(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
-            var listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta);
+            List<Viagem> listaViag = new List<Viagem>();
+            listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta).ToList();
             return View(listaViag);
         }
 
         [HttpGet]
         public ActionResult BuscarViagemIda(DateTime? dataPartida, string origem, string destino)
         {
-            var g = repViagem.PesquisarViagemIda(dataPartida, origem, destino);
-            return View(g);
+            List<Viagem> listaViag = new List<Viagem>();
+            listaViag = repViagem.PesquisarViagemIda(dataPartida, origem, destino).ToList();
+            return View(listaViag);
         }
 
         [HttpGet]
@@ -94,7 +96,7 @@ namespace HeyBus.Controllers
         {
            repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
            Response.Redirect("BuscarViagemCompleta?dataPartida=" +v.data_Ida.ToString("MM/dd/yyyy")+"&origem="+v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta="+ v.data_Volta.ToString("MM/dd/yyyy"));
-            return View(v);
+           return View(v);
         }
 
         [HttpGet]
