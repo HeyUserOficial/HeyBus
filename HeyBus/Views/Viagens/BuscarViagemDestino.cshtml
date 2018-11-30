@@ -1,17 +1,29 @@
 ﻿@model IEnumerable<HeyBus.Models.Viagem>
 
 @{
-    ViewBag.Title = "BuscarViagemDestino";
+    ViewBag.Title = "BuscarViagemCompleta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BuscarViagemDestino</h2>
+<h2>BuscarViagemCompleta</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rot.destino_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rot.origem_Rota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oni.categoria_Onibus)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.data_Ida)
         </th>
@@ -24,30 +36,44 @@
         <th>
             @Html.DisplayNameFor(model => model.valor_Viagem)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.rot.distancia_Rota)
+        </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.HiddenFor(modelItem => item.id_Viagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_Ida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_Volta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.horario_Viagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor_Viagem)
-        </td>
-        <td>
-            @Html.ActionLink("Comprar Passagem", "Passagens/Comprar", new { id = item.id_Viagem})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.rot.destino_Rota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rot.origem_Rota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oni.viacao_Onibus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oni.categoria_Onibus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_Ida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_Volta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.horario_Viagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor_Viagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rot.distancia_Rota)
+            </td>
+            <td>
+                @Html.ActionLink("Comprar Passagem", "Passagens/Comprar", new { id = item.id_Viagem })
+            </td>
+        </tr>
+    }
 
 </table>

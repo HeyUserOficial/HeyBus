@@ -26,12 +26,12 @@ namespace HeyBus.Controllers
         [HttpPost]
         public ActionResult Index(Viagem v)
         {
-            if (v.data_Volta == null)
+            if (v.data_Volta == Convert.ToDateTime("01/01/0001") && v.data_Ida == Convert.ToDateTime("01/01/0001") && v.rot.origem_Rota != null && v.rot.destino_Rota != null)
             {
-                repViagem.PesquisarViagemIda(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota);
-                Response.Redirect("~/Viagens/BuscarViagemIda?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota);
+                repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
+                Response.Redirect("~/Viagens/BuscarViagemCompleta?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta=" + v.data_Volta.ToString("MM/dd/yyyy"));
             }
-            else if (v.data_Volta == null && v.data_Ida == null)
+            else if (v.data_Volta == null && v.data_Ida == null && v.rot.origem_Rota != null && v.rot.destino_Rota != null)
             {
                 repViagem.PesquisarViagemDestino(v.rot.origem_Rota, v.rot.destino_Rota);
                 Response.Redirect("~/Viagens/BuscarViagemDestino?origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota);
@@ -41,9 +41,14 @@ namespace HeyBus.Controllers
                 repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
                 Response.Redirect("~/Viagens/BuscarViagemCompleta?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta=" + v.data_Volta.ToString("MM/dd/yyyy"));
             }
+            else if (v.data_Volta == null)
+            {
+                repViagem.PesquisarViagemIda(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota);
+                Response.Redirect("~/Viagens/BuscarViagemIda?dataPartida=" + v.data_Ida.ToString("MM/dd/yyyy") + "&origem=" + v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota);
+            }
             else
             {
-                repViagem
+                Response.Redirect("~/Viagens/");
             }
             return View(v);
         }

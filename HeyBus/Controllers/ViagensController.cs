@@ -46,10 +46,9 @@ namespace HeyBus.Controllers
         [ActionName("Cadastrar")]
         public ActionResult Cadastrar(Viagem vi)
         {
-
-                vi.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
-                vi .rot.id_Rota = Convert.ToInt32(Request["destino"]);
-                repViagem.Insert_Viagem(vi);
+            vi.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
+            vi .rot.id_Rota = Convert.ToInt32(Request["destino"]);
+            repViagem.Insert_Viagem(vi);
             return View(vi);
         }
 
@@ -65,7 +64,10 @@ namespace HeyBus.Controllers
         public ActionResult BuscarViagemCompleta(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
             List<Viagem> listaViag = new List<Viagem>();
-            listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta).ToList();
+            if (dataPartida.HasValue && dataVolta.HasValue)
+            {
+                listaViag = repViagem.PesquisarViagemCompleto(dataPartida, origem, destino, dataVolta).ToList();
+            }
             return View(listaViag);
         }
 
