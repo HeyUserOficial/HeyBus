@@ -90,34 +90,36 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.rot.origem_Rota, htmlAttributes: new { @class = "control-label" })
                     <div>
-                        @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                        @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder="Digite seu ponto de partida." } })
                         @Html.ValidationMessageFor(model => model.rot.origem_Rota, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
                     <div>
-                        @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                        @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder="Digite seu destino." } })
                         @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-row">
-                    @Html.LabelFor(model => model.data_Ida, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.data_Ida, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="form-group col-6 col-sm-12 col-md-6">
+                        @Html.LabelFor(model => model.data_Ida, htmlAttributes: new { @class = "" })
+
+                        @Html.EditorFor(model => model.data_Ida, new { htmlAttributes = new { @class = "design-input-comprar" } })
                         @Html.ValidationMessageFor(model => model.data_Ida, "", new { @class = "text-danger" })
                     </div>
-                    @Html.LabelFor(model => model.data_Volta, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.data_Volta, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="form-group col-6 col-sm-12 col-md-6">
+                        @Html.LabelFor(model => model.data_Volta, htmlAttributes: new { @class = "" })
+
+                        @Html.EditorFor(model => model.data_Volta, new { htmlAttributes = new { @class = "design-input-comprar" } })
                         @Html.ValidationMessageFor(model => model.data_Volta, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-row col-12 justify-content-center">
                         <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
                     </div>
                 </div>
-                <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
-            </form>
+                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
+</form>
         </aside>
         <article id="boasVindas" class="col-lg-7 text-center">
             <h1>Bem Vindos ao site oficial da HeyBus!</h1>

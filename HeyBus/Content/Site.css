@@ -679,3 +679,65 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
         color: rgb(255, 255, 255);
         text-decoration:none;
     }
+/*Tela consulta da viagem completa*/
+.viagem-completa{
+    margin-top: 11vh;
+}
+    .viagem-completa h1{
+        margin-bottom:8vh;
+        margin-left:2vw;
+        font-size:1.8rem;
+        color:rgba(0,0,0,.8);
+        font-weight:400;
+    }
+.box-viagem-completa{
+    font-family:Arial, Helvetica, sans-serif;
+    height:180px;
+    width:80%;
+    margin:0 auto;
+    box-shadow:rgba(42,42,42,.8) 0px 0px 10px;
+    margin-top:30px;
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:'destino viacao valor';
+   align-items:center;
+   text-align:center;
+   position:relative;
+}
+.ori-dest {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: rgba(0,0,0,.8);
+    grid-area:destino;
+}
+    .ori-dest span {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: rgb(204, 103, 21);
+    }
+.viacao{
+    grid-area:viacao;
+    font-size:1.7rem;
+    color:rgba(0,0,0,.8)
+}
+    .viacao span {
+        font-size: 1rem;
+        color: rgba(0,0,0,.5)
+    }
+.valor-viag {
+    grid-area: valor;
+}
+.valor-viag{
+    font-size: 1.4rem;
+}
+.valor-viag span{
+    font-weight:600;
+}
+.button-comprar{
+    position:absolute;
+    bottom:10px;
+    right:10px;    
+}
+.button-comprar a{
+    text-decoration: none;
+}
