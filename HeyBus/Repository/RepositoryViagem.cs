@@ -22,7 +22,7 @@ namespace HeyBus.Repository
                 using (cmd = new MySqlCommand("SP_Cadastrar_Viagem", Conexao.conexao))
                 {
                     conn.abrirConexao();
-                    cmd.CommandType = CommandType.StoredProcedure;,
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@rota", viag.rot.id_Rota);
                     cmd.Parameters.AddWithValue("@onibus", viag.oni.id_Onibus);
                     cmd.Parameters.AddWithValue("@dataIda", viag.data_Ida);

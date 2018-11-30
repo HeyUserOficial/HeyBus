@@ -11,6 +11,7 @@
     <h4>Viagem</h4>
     <hr />
     <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.id_Viagem)
         <dt>
             @Html.DisplayNameFor(model => model.data_Ida)
         </dt>
@@ -22,7 +23,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.data_Volta)
         </dt>
-
+        
         <dd>
             @Html.DisplayFor(model => model.data_Volta)
         </dd>
@@ -38,13 +39,38 @@
         <dt>
             @Html.DisplayNameFor(model => model.valor_Viagem)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.valor_Viagem)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.rot.destino_Rota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rot.destino_Rota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rot.origem_Rota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rot.destino_Rota)
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.rot.destino_Rota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rot.origem_Rota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rot.origem_Rota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.oni.viacao_Onibus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.oni.viacao_Onibus)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Viagem })
+    @Html.ActionLink("Comprar Passagem", "ComprarPassagem", new { id = Model.id_Viagem })
 </p>
