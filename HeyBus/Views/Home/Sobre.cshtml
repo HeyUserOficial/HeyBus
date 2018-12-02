@@ -1,41 +1,92 @@
-﻿<div class="sobre">
-    <h1>Rodoviária Hey<span>Bus</span> - São Paulo</h1>
-    <h3>Conheça o terminal rodoviário HeyBus</h3>
-    <hr />
-    <h2>A empresa</h2>
-    <p>
-        Fundada no ano de 2003, a Heybus é uma das empresas rodoviárias com
-        grande relevância no mercado de viagens, Situada na Rua Henrique da Rocha Lima, 45
-        na região do Butantã, recebe cerca de 5 mil passageiros por dia, contendo ao todo
-        cerca de 20 plataformas, sendo 10 para desembarque e 10 para embarque de
-        passageiros.
-    </p>
-    <p>
-        Possuímos um ambiente agradável, onde o passageiro pode embarcar e desambarcar com segurança,
-        desfrutar do conforto antes, durante e depois da viagem a partir dos nossos diferenciais<small><a href="Servicos"> Saiba mais</a></small>.
-        Nossa rodoviária é monitorizada pela Empresa HeyUser, que cuida do
-        desenvolvimento e atualização do nosso sistema, mantendo-o seguro e sempre funcional
-        de acordo com as nossas necessidades.
-    </p>
-    <h2>Missão</h2>
-    <p>
-        Nossa Missão é garantir e proporcionar uma experiência segura, rápida e
-        confiável através das nossas viagens e serviços, sempre agindo com responsabilidade e seguindo as normas de segurança
-        e ética para com todos.
-    </p>
-    <h2>Visão</h2>
-    <p>
-        Temos como visão crescer como empresa e rodoviária, proporcionar viagens internacionais na américa latina,
-        e seguir produzindo e mantendo o foco no agora para que no futuro possamos obter tais frutos
-        para um melhor atendimento aos nossos clientes.
-    </p>
-    <h2>Valores</h2>
-    <ul>
-        <li>Confiança.</li>
-        <li>Prestatividade.</li>
-        <li>Prezar pela segurança para com seus funcionários e clientes.</li>
-        <li>Respeito e Ética.</li>
-        <li> Foco em aperfeiçoamento continuo.</li>
-    </ul>
-</div>
-<aside class="comprar-passagem-fixed"><a href="#">&#xe087; Compre sua passagem</a></aside>  
+﻿@model HeyBus.Models.Viagem
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="sobre">
+        <h1>Rodoviária Hey<span>Bus</span> - São Paulo</h1>
+        <h3>Conheça o terminal rodoviário HeyBus</h3>
+        <hr />
+        <h2>A empresa</h2>
+        <p>
+            Fundada no ano de 2003, a Heybus é uma das empresas rodoviárias com
+            grande relevância no mercado de viagens, Situada na Rua Henrique da Rocha Lima, 45
+            na região do Butantã, recebe cerca de 5 mil passageiros por dia, contendo ao todo
+            cerca de 20 plataformas, sendo 10 para desembarque e 10 para embarque de
+            passageiros.
+        </p>
+        <p>
+            Possuímos um ambiente agradável, onde o passageiro pode embarcar e desambarcar com segurança,
+            desfrutar do conforto antes, durante e depois da viagem a partir dos nossos diferenciais<small><a href="Servicos"> Saiba mais</a></small>.
+            Nossa rodoviária é monitorizada pela Empresa HeyUser, que cuida do
+            desenvolvimento e atualização do nosso sistema, mantendo-o seguro e sempre funcional
+            de acordo com as nossas necessidades.
+        </p>
+        <h2>Missão</h2>
+        <p>
+            Nossa Missão é garantir e proporcionar uma experiência segura, rápida e
+            confiável através das nossas viagens e serviços, sempre agindo com responsabilidade e seguindo as normas de segurança
+            e ética para com todos.
+        </p>
+        <h2>Visão</h2>
+        <p>
+            Temos como visão crescer como empresa e rodoviária, proporcionar viagens internacionais na américa latina,
+            e seguir produzindo e mantendo o foco no agora para que no futuro possamos obter tais frutos
+            para um melhor atendimento aos nossos clientes.
+        </p>
+        <h2>Valores</h2>
+        <ul>
+            <li>Confiança.</li>
+            <li>Prestatividade.</li>
+            <li>Prezar pela segurança para com seus funcionários e clientes.</li>
+            <li>Respeito e Ética.</li>
+            <li> Foco em aperfeiçoamento continuo.</li>
+        </ul>
+    </div>
+    <aside class="comprar-passagem-fixed"><a style="cursor:pointer" class="aaa" data-toggle="modal" data-target="#linkCompraPassagem">&#xe087; Compre sua passagem</a></aside>
+
+    <div class="modal fade" id="linkCompraPassagem" tabindex="-1" role="dialog" aria-labelledby="instrucoesTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <aside id="box-comprar-passagem">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>Confira as viagens e compre a <span>passagem</span> que mais se adequa a você!</p>
+                    <form id="form-compra-passagem">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.rot.origem_Rota, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder = "Digite seu ponto de partida." } })
+                                @Html.ValidationMessageFor(model => model.rot.origem_Rota, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder = "Digite seu destino." } })
+                                @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6 col-sm-12 col-md-6">
+                                @Html.LabelFor(model => model.data_Ida, htmlAttributes: new { @class = "" })
+
+                                @Html.EditorFor(model => model.data_Ida, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.data_Ida, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-6 col-sm-12 col-md-6">
+                                @Html.LabelFor(model => model.data_Volta, htmlAttributes: new { @class = "" })
+
+                                @Html.EditorFor(model => model.data_Volta, new { htmlAttributes = new { @class = "design-input-comprar" } })
+                                @Html.ValidationMessageFor(model => model.data_Volta, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-row col-12 justify-content-center">
+                                <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </aside>
+            </div>
+        </div>
+    </div>
+}

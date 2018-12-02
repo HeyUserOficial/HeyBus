@@ -90,14 +90,14 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.rot.origem_Rota, htmlAttributes: new { @class = "control-label" })
                     <div>
-                        @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder="Digite seu ponto de partida." } })
+                        @Html.EditorFor(model => model.rot.origem_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder = "Digite seu ponto de partida." } })
                         @Html.ValidationMessageFor(model => model.rot.origem_Rota, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.rot.destino_Rota, htmlAttributes: new { @class = "control-label" })
                     <div>
-                        @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder="Digite seu destino." } })
+                        @Html.EditorFor(model => model.rot.destino_Rota, new { htmlAttributes = new { @class = "design-input-comprar", placeholder = "Digite seu destino." } })
                         @Html.ValidationMessageFor(model => model.rot.destino_Rota, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -118,8 +118,8 @@
                         <button type="submit" class="btn-buscar-viagem-home col-8 ">Buscar</button>
                     </div>
                 </div>
-                    <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
-</form>
+                <small class="text-link"><a data-toggle="modal" data-target="#instrucoes">Instruções</a></small>
+            </form>
         </aside>
         <article id="boasVindas" class="col-lg-7 text-center">
             <h1>Bem Vindos ao site oficial da HeyBus!</h1>

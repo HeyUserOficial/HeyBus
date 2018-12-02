@@ -669,13 +669,12 @@ background-position:center;opacity: 0.75;height: 440px;text-align: center;paddin
     padding: 10px;
     box-shadow: rgba(42,42,42,.5) 5px 5px 4px;
     border-radius: 5px;
+    color: rgba(237, 237, 237, 0.82);
+    font-weight: 600;
+    font-size: .94rem;
 }
-    .comprar-passagem-fixed a{
-        color:rgba(237, 237, 237, 0.82);
-        font-weight:600;
-        font-size:.94rem;
-    }
-    .comprar-passagem-fixed a:hover {
+    
+    .comprar-passagem-fixed:hover {
         color: rgb(255, 255, 255);
         text-decoration:none;
     }
