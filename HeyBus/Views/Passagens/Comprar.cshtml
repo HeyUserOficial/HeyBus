@@ -14,7 +14,7 @@
 
             @Html.HiddenFor(model => model.viag.id_Viagem)
 
-            @Html.DropDownListFor(m => m.assentos.listaBancos, Model.assentos.bancos, "Selecione o banco desejado")
+            @Html.DropDownList("bancos", "Selecione o banco desejado")
             <dt>
                 @Html.DisplayFor(model => model.oni.viacao_Onibus)
             </dt>

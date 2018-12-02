@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+HeyBus/Repository/RepositoryPassagem.cs
+HeyBus/obj/Debug/HeyBus.csproj.CoreCompileInputs.cache

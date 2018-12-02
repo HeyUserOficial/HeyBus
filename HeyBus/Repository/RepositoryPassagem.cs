@@ -56,7 +56,7 @@ namespace HeyBus.Repository
                         pass.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         pass.rot.destino_Rota = dr["destino_Rota"].ToString();
                         pass.viag.data_Ida = Convert.ToDateTime(dr["data_Viagem"].ToString());
-                        pass.forma_Pagamaneto = Convert.ToInt32(dr["nome_FormPag"]); 
+                        pass.forma_Pagamaneto = Convert.ToInt32(dr["nome_FormPag"].ToString());
                         pass.cpf_Cliente = dr["cpf"].ToString();
                         pass.desconto_Passagem = Convert.ToDouble(dr["desconto_Passagem"].ToString());
                         pass.valor_Passagem = Convert.ToDouble(dr["valor_Passagem"].ToString());
