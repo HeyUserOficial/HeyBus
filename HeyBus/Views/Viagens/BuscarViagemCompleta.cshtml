@@ -6,7 +6,36 @@
 }
 
 <section class="viagem-completa">
-    <h1>Consulte as passagens de ônibus referentes a sua consulta.</h1>
+    
+    <form class="form-consulta-viagem pt-4 pb-4">
+        <h1>Busque uma <span>viagem:</span></h1>
+        <div class="form-row  justify-content-between m-auto" style="width:85%;">
+            <div class="form-group col-6 col-md-4">
+                <label>Origem</label>
+                <div>
+                    <input type="text" placeholder="Origem" class="design-input-comprar" />
+                </div>
+            </div>
+            <div class="form-group col-6 col-md-4">
+                <label>Destino</label>
+                <div>
+                    <input type="text" placeholder="Destino" class="design-input-comprar" />
+                </div>
+            </div>
+            <div class="form-group col-6 col-md-2">
+                <label>Data de saída</label>
+                <input type="text" placeholder="__/__/____" class="design-input-comprar maskdata" />
+            </div>
+            <div class="form-group col-6 col-md-2">
+                <label>Data de volta</label>
+                <input type="text" placeholder="__/__/____" class="design-input-comprar maskdata" />
+            </div>
+            <div class="form-row col-12 justify-content-center justify-content-md-end pt-md-3 pr-md-5">
+                <button type="submit" class="btn-laranja col-sm-6 col-md-2 ">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <h2>Consulte as passagens referentes a sua consulta.</h2>
     <hr class="m-auto" style="background-color:rgb(255, 106, 0); opacity:.4;width:95%" />
     @foreach (var item in Model)
     {

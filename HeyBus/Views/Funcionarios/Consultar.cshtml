@@ -7,13 +7,18 @@
     <h1><span>Funcionário |</span> Consulta</h1>
     <img src="~/images/logoheybus-branco.png" />
 </header>
-<b>Procurar por : </b>
-<select id="Filtros">
-    <option value="ID">ID</option>
-    <option value="Nome">Nome</option>
-    <option value="CPF">CPF</option>
-</select><br /><br />
-@Html.TextBox("Filtrar")<input type="submit" id="BtnFiltrar" value="Filtrar" /><br /><br />
+<div class="filtro-consulta">
+    <div class="d-flex mb-2">
+        <h2>Procurar por: </h2>
+        <select id="Filtros" class="form-control form-control-sm col-md-1 col-4 ml-3">
+            <option value="ID">ID</option>
+            <option value="Nome">Nome</option>
+            <option value="CPF">CPF</option>
+        </select>
+    </div>
+    <input id="Filtrar" name="Filtrar" type="text" class="form-control col-8 col-sm-6 col-md-3">
+    <input type="submit" id="BtnFiltrar" value="Filtrar" class="btn-laranja mt-2"/>
+</div>
 <div class="box-consulta">
     <table class="table table-bordered tbResizable">
         <thead>
@@ -33,7 +38,6 @@
                 <th style="min-width:10px;max-width:340px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.endereco_Funcionario)
                 </th>
-                <th class="text-center">Ação</th>
                 <th style="min-width:10px;max-width:170px;font-weight:400" class="p-2">
                     @Html.DisplayNameFor(model => model.login_Acesso)
                 </th>

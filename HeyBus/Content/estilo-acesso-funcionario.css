@@ -1,4 +1,7 @@
-﻿body {margin-left: 55px;font-family:'Helvetica Neue',Roboto,Arial,sans-serif;background-color:rgba(195, 195, 195, 0.09)}
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {margin-left: 55px;font-family:'Helvetica Neue',Roboto,Arial,sans-serif;background-color:rgba(195, 195, 195, 0.09)}
 /*Configuração do menu do acesso funcionário*/
 .bar1, .bar2, .bar3{width: 25px;height: 3.1px;background-color: #fff; margin: 6px 0; transition: 0.4s;}
 
@@ -78,6 +81,7 @@ transition: all 0.5s ease; font-size: 1.1em; background: #404040; height: 100vh;
 
 /*Configuração padrão para todas as telas do "sistema de acesso pelo funcionário"*/
 .cabecalho {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-image: linear-gradient(to right,#e3e2de,#9f9f9e);
     color: #555;
     padding: 6.75px 0px 0.1px 45px;
@@ -120,14 +124,21 @@ transition: all 0.5s ease; font-size: 1.1em; background: #404040; height: 100vh;
     .box-consulta td {
         background-color: rgba(247, 243, 243, 0.76);
     }
+.filtro-consulta{
+    margin:20px;
+}
+    .filtro-consulta h2 {
+        color: #575757;
+        font-size: 1.5rem;
+    }
 /*Página index do funcionário*/
-.operador{
-    font-size:1.3rem;
-    padding:24px 40px 2px 0px;
-    font-weight:300;
-    color:rgba(42,42,42,.8);
-    text-align:right;
-    
+.operador {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.3rem;
+    padding: 24px 40px 2px 0px;
+    font-weight: 300;
+    color: rgba(42,42,42,.8);
+    text-align: right;
 }
     .operador span {
         color: rgb(2, 150, 245);
@@ -151,6 +162,7 @@ transition: all 0.5s ease; font-size: 1.1em; background: #404040; height: 100vh;
 
 /*Página Login do Cliente*/
 .login-cliente {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
     margin-top: 20vh;
     margin-bottom: 21vh;
 }
@@ -225,13 +237,14 @@ transition: all 0.5s ease; font-size: 1.1em; background: #404040; height: 100vh;
 
 /*Tela Login Funcionário*/
 .login-funcionario {
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
     width: 500px;
     box-shadow: rgb(42,42,42) 0px 0px 5px;
     margin: 0 auto;
     padding: 20px 20px;
     font-family: Roboto;
     background-color: rgba(255,255,255,.4);
-    border-radius:1rem;
+    border-radius: 1rem;
 }
     .login-funcionario h1 {
         margin:0;
@@ -291,78 +304,3 @@ transition: all 0.5s ease; font-size: 1.1em; background: #404040; height: 100vh;
         width: 300px
     }
 }
-
-/*Página Login do funcionário
-.login-funcionario {
-    margin-top: 20vh;
-    margin-bottom: 21vh;
-}
-
-.img-login-func {
-    background-color: rgba(197,92,44,.79);
-    width: 240px;
-    height: 240px;
-    padding-top: 12px;
-    text-align: center;
-    align-self: center;
-    border-radius: 25px;
-    border: 2px solid white;
-}
-
-.form-login-func {
-    background-color: rgba(255,255,255,.8);
-    height: 198px;
-    width: 450px;
-    align-self: center;
-}
-
-.input-login-func {
-    width: 100%;
-    height: calc(1.55rem);
-    padding: 1.3rem 0.85rem;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: #5e5f5f;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(42, 42, 42, 0.4);
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-    .input-login-func:focus {
-        border-bottom: 1px solid rgba(252, 162, 84, 0.88);
-        outline: 0;
-    }
-
-.img-login-func img {
-    width: 210px;
-    border-radius: 25px;
-    border: 2px solid rgba(255,255,255,.4);
-    opacity: .9;
-}
-
-.informativo-login {
-    border-left: 1px solid white;
-    margin-left: 15px;
-    padding-left: 15px;
-    padding-top: 75px;
-    height: 300px;
-}
-
-    .informativo-login h1 {
-        font-size: 2rem;
-        font-weight: 600;
-        color: rgba(42,42,42,.9)
-    }
-
-    .informativo-login h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: rgba(42,42,42,.84)
-    }
-
-    .informativo-login p {
-        font-weight: 500;
-        color: rgba(42,42,42,.8)
-    }
-*/
