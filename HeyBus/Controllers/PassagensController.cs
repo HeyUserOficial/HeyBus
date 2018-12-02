@@ -27,21 +27,21 @@ namespace HeyBus.Controllers
         }
 
         [HttpGet]
-        public ActionResult Comprar(Passagem pass)
+        public ActionResult Comprar(int id)
         {
-            return View();
+            Passagem pass = new Passagem();
+            pass.cli.id_Cliente = Convert.ToInt32(Session["id_Cliente"]);
+            RepositoryPassagem repPass = new RepositoryPassagem();
+            pass.assentos.bancos = new SelectList(pass.assentos.listaBancos);
+            return View(repPass.Detalhes_Viagem(id));
         }
 
         [HttpPost]
         [ActionName ("Comprar")]
-        public ActionResult ComprarPass(Passagem pass)
+        public ActionResult Comprar(Passagem pass)
         {
-            if (ModelState.IsValid)
-            {
-                repPass.Insert_Passagem(pass);
-                return RedirectToAction("Consultar");
-            }
-            return View();
+            repPass.Insert_Passagem(pass);
+            return View(pass);
         }
     }
 }

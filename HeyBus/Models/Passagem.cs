@@ -21,7 +21,7 @@ namespace HeyBus.Models
         public double valor_Passagem;
 
         [Display(Name = "Desconto"), MaxLength(15)]
-        public string forma_Pagamaneto { get; set; }
+        public int forma_Pagamaneto { get; set; }
 
         [Display (Name = "Data de compra")]
         public DateTime data_Compra { get; set; }
@@ -32,7 +32,9 @@ namespace HeyBus.Models
 
         public Cliente cli { get; set; }
 
-        public Onibus bus { get; set; }
+        public Onibus oni { get; set; }
+
+        public Assentos assentos { get; set; } = new Assentos();
 
     }
 }

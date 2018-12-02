@@ -120,40 +120,6 @@ namespace HeyBus.Repository
             }
         }
 
-        public Viagem Detalhes_Viagem(int id)
-        {
-            Viagem viag = new Viagem();
-            try
-            {
-                using(cmd = new MySqlCommand("SP_Detalhes_Viagem", Conexao.conexao))
-                {
-                    conn.abrirConexao();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@id", id);
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
-                        viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
-                        viag.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
-                        viag.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
-                        viag.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
-                        viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        viag.rot.destino_Rota = dr["destino_Rota"].ToString();
-                        viag.rot.origem_Rota = dr["origem_Rota"].ToString();
-                        viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
-                        viag.assentos.banco = Convert.ToInt32(dr["id_Bancos"].ToString());
-                    }
-                    viag.assentos.bancos = new int[viag.assentos.banco];
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return viag;
-        }
-
         public IEnumerable<Viagem> PesquisarViagemCompleto(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
         {
             List<Viagem> listaViag = new List<Viagem>();

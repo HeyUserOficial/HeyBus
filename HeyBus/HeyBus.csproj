@@ -295,7 +295,6 @@
     <Content Include="Views\Funcionarios\Cadastrar.cshtml" />
     <Content Include="Views\Funcionarios\Consultar.cshtml" />
     <Content Include="Views\Passagens\Consultar.cshtml" />
-    <Content Include="Views\Passagens\Comprar.cshtml" />
     <Content Include="Views\Home\Duvidas.cshtml" />
     <Content Include="Views\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Clientes\VerificacaoConta.cshtml" />
@@ -309,12 +308,12 @@
     <Content Include="Views\Funcionarios\IndexFunc.cshtml" />
     <Content Include="Views\Viagens\FiltroTeste.cshtml" />
     <Content Include="Views\Shared\_LayoutSemNav.cshtml" />
-    <Content Include="Views\Viagens\DetalhesViagem.cshtml" />
     <Content Include="Views\Clientes\Alterar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemCompleta.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemIda.cshtml" />
     <Content Include="Views\Viagens\BuscarViagemDestino.cshtml" />
+    <Content Include="Views\Passagens\Comprar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

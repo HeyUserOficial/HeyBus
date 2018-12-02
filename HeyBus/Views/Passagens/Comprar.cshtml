@@ -1,53 +1,40 @@
 ﻿@model HeyBus.Models.Passagem
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Passagem</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.cpf_Cliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cpf_Cliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cpf_Cliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.desconto_Passagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.desconto_Passagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.desconto_Passagem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.forma_Pagamaneto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.forma_Pagamaneto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.forma_Pagamaneto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.data_Compra, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data_Compra, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data_Compra, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+@{
+    ViewBag.Title = "Comprar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@using (Html.BeginForm())
+{
+    <h2>Comprar</h2>
+    <div>
+        <dl>
+            @Html.HiddenFor(model => model.cli.id_Cliente)
+
+            @Html.HiddenFor(model => model.viag.id_Viagem)
+
+            @Html.DropDownListFor(m => m.assentos.listaBancos, Model.assentos.bancos, "Selecione o banco desejado")
+            <dt>
+                @Html.DisplayFor(model => model.oni.viacao_Onibus)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.cpf_Cliente)
+                @Html.EditorFor(model => model.cpf_Cliente)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.oni.categoria_Onibus)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.rot.destino_Rota)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.rot.origem_Rota)
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.viag.valor_Viagem)
+            </dt>
+        </dl>
+    </div>
+    <input type="button" value="Comprar" class="btn-buscar-viagem-home"/>
+}

@@ -52,13 +52,6 @@ namespace HeyBus.Controllers
             return View(vi);
         }
 
-        [HttpGet]
-        public ActionResult ComprarPassagem(int id)
-        {
-            Viagem v = new Viagem();
-            v.assentos.bancos = new int[v.assentos.banco];
-            return View(repViagem.Detalhes_Viagem(id));
-        }
 
         [HttpGet]
         public ActionResult BuscarViagemCompleta(DateTime? dataPartida, string origem, string destino, DateTime? dataVolta)
@@ -99,14 +92,6 @@ namespace HeyBus.Controllers
            repViagem.PesquisarViagemCompleto(v.data_Ida, v.rot.origem_Rota, v.rot.destino_Rota, v.data_Volta);
            Response.Redirect("BuscarViagemCompleta?dataPartida=" +v.data_Ida.ToString("MM/dd/yyyy")+"&origem="+v.rot.origem_Rota + "&Destino=" + v.rot.destino_Rota + "&dataVolta="+ v.data_Volta.ToString("MM/dd/yyyy"));
            return View(v);
-        }
-
-        [HttpGet]
-        public ActionResult DetalhesViagem(int id)
-        {
-            Viagem v = new Viagem();
-            v.assentos.bancos = new int[v.assentos.banco];
-            return View(repViagem.Detalhes_Viagem(id));
         }
     }
 }
