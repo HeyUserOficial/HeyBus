@@ -29,9 +29,7 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult Comprar(int id)
         {
-            Passagem pass = new Passagem();
-            RepositoryPassagem repPass = new RepositoryPassagem();
-            ViewBag.bancos = pass.assentos.bancos = new SelectList(pass.assentos.listaBancos);
+            ViewBag.bancos = new SelectList(repPass.ProcurarBancos(), "assentos.id_Bancos", "assentos.num_Banco");
             return View(repPass.Detalhes_Viagem(id));
         }
 

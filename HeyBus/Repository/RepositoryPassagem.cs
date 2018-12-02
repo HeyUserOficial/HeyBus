@@ -72,7 +72,32 @@ namespace HeyBus.Repository
             }
         }
 
-        
+        public List<Passagem> ProcurarBancos()
+        {
+            List<Passagem> listaPass = new List<Passagem>();
+            try
+            {
+                using(cmd = new MySqlCommand("Select * from bancos", Conexao.conexao))
+                {
+                    conn.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Passagem pass = new Passagem();
+                        pass.assentos.id_Banco = Convert.ToInt32(dr["id_Bancos"]);
+                        pass.assentos.banco = Convert.ToInt32(dr["num_Banco"].ToString());
+                        listaPass.Add(pass);
+                    }
+                    dr.Close();
+                    return listaPass;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Passagem Detalhes_Viagem(int id)
         {
             Passagem pass = new Passagem();
