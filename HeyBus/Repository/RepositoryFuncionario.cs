@@ -133,6 +133,7 @@ namespace HeyBus.Repository
                         func.nome_Funcionario = dr["nome_Funcionario"].ToString();
                         func.email_Funcionario = dr["email_Funcionario"].ToString();
                         func.endereco_Funcionario = dr["endereco_Funcionario"].ToString();
+                        func.login_Funcionario = dr["login_Acesso"].ToString();
                         funcList.Add(func);
                     }
                     dr.Close();

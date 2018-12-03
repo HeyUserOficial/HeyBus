@@ -40,11 +40,11 @@
                 @Html.ValidationMessageFor(model => model.horario_Viagem, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group ml-2 ml-sm-3">
+        <div class="form-group ml-2 ml-sm-3 select">
             @Html.LabelFor(m => m.oni.viacao_Onibus)
             @Html.DropDownList("viacao", "Viações")
         </div>
-        <div class="form-group ml-2 ml-sm-3">
+        <div class="form-group ml-2 ml-sm-3 select">
             @Html.LabelFor(m => m.rot.destino_Rota)
             @Html.DropDownList("destino", "Destinos")
         </div>

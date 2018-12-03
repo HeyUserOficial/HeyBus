@@ -16,7 +16,7 @@
             <option value="CPF">CPF</option>
         </select>
     </div>
-    <input id="Filtrar" name="Filtrar" type="text" class="form-control col-8 col-sm-6 col-md-3">
+    <input id="Filtrar" name="Filtrar" type="text" class="form-control col-8 col-sm-6 col-md-3" placeholder="Digite o filtro aqui.">
     <input type="submit" id="BtnFiltrar" value="Filtrar" class="btn-laranja mt-2"/>
 </div>
 <div class="box-consulta">
@@ -63,7 +63,7 @@
                         @Html.DisplayFor(modelItem => item.endereco_Funcionario)
                     </td>
                     <td style="font-weight:300" class="p-2">
-                        @Html.DisplayFor(modelItem => item.login_Acesso)
+                        @Html.DisplayFor(modelItem => item.login_Funcionario)
                     </td>
                 </tr>
             }
