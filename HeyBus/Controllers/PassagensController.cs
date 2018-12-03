@@ -29,7 +29,7 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult Comprar(int id)
         {
-            ViewBag.bancos = new SelectList(repPass.ProcurarBancos(), "assentos.id_Bancos", "assentos.num_Banco");
+            ViewBag.bancos = new SelectList(repPass.ProcurarBancos(), "assentos.id_Bancos", "assentos.banco");
             return View(repPass.Detalhes_Viagem(id));
         }
 

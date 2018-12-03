@@ -84,7 +84,7 @@ namespace HeyBus.Repository
                     while (dr.Read())
                     {
                         Passagem pass = new Passagem();
-                        pass.assentos.id_Banco = Convert.ToInt32(dr["id_Bancos"]);
+                        pass.assentos.id_Bancos = Convert.ToInt32(dr["id_Bancos"]);
                         pass.assentos.banco = Convert.ToInt32(dr["num_Banco"].ToString());
                         listaPass.Add(pass);
                     }
@@ -116,12 +116,11 @@ namespace HeyBus.Repository
                         pass.viag.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
                         pass.viag.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
                         pass.viag.horario_Viagem = Convert.ToDateTime(dr["horario_Viagem"].ToString());
-                        pass.viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        pass.viag.rot.destino_Rota = dr["destino_Rota"].ToString();
-                        pass.viag.rot.origem_Rota = dr["origem_Rota"].ToString();
+                        pass.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
+                        pass.rot.destino_Rota = dr["destino_Rota"].ToString();
+                        pass.rot.origem_Rota = dr["origem_Rota"].ToString();
                         pass.viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
                         pass.assentos.banco = Convert.ToInt32(dr["id_Bancos"].ToString());
-                        pass.assentos.listaBancos.Add(pass.assentos.banco);
                     }
                     dr.Close();
                 }

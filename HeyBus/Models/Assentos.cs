@@ -13,7 +13,8 @@ namespace HeyBus.Models
         [Range(1, 50)]
         public int banco { get; set; }
 
-        public int id_Banco { get; set; }
+        public int id_Bancos { get; set; }
+
         public List<int> listaBancos {get;set;}
 
         public double[] bancosValor { get; set; }

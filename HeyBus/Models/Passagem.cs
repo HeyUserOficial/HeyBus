@@ -26,13 +26,13 @@ namespace HeyBus.Models
         [Display (Name = "Data de compra")]
         public DateTime data_Compra { get; set; }
 
-        public Rota rot { get; set; }
+        public Rota rot { get; set; } = new Rota();
 
-        public Viagem viag { get; set; } 
+        public Viagem viag { get; set; } = new Viagem();
 
-        public Cliente cli { get; set; }
+        public Cliente cli { get; set; } = new Cliente();
 
-        public Onibus oni { get; set; }
+        public Onibus oni { get; set; } = new Onibus();
 
         public Assentos assentos { get; set; } = new Assentos();
 

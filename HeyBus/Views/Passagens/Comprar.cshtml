@@ -9,19 +9,13 @@
 {
     <h2>Comprar</h2>
     <div>
+        @Html.HiddenFor(model => model.viag.id_Viagem)
+        @Html.HiddenFor(model => model.cli.id_Cliente)
+        <br />
+        <br />
         <dl>
-            @Html.HiddenFor(model => model.cli.id_Cliente)
-
-            @Html.HiddenFor(model => model.viag.id_Viagem)
-
-            @Html.DisplayNameFor(model => model.assentos.banco)
-            @Html.DropDownList("bancos", "Selecione o banco desejado")
             <dt>
                 @Html.DisplayFor(model => model.oni.viacao_Onibus)
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.cpf_Cliente)
-                @Html.EditorFor(model => model.cpf_Cliente)
             </dt>
             <dt>
                 @Html.DisplayFor(model => model.oni.categoria_Onibus)
@@ -37,5 +31,9 @@
             </dt>
         </dl>
     </div>
-    <input type="button" value="Comprar" class="btn-buscar-viagem-home"/>
+    foreach(var itens in (SelectList)ViewBag.bancos)
+    {
+        <input type="button" value="@itens.Text" id="@itens.Value" class="btn-buscar-viagem-home"/>
+    }
+    <input type="button" value="Comprar" class="btn-buscar-viagem-home" />
 }
