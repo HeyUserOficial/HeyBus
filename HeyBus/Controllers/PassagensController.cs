@@ -29,14 +29,18 @@ namespace HeyBus.Controllers
         [HttpGet]
         public ActionResult Comprar(int id)
         {
+            Passagem pass = new Passagem();
+            pass.cli.id_Cliente = Convert.ToInt32(Session["id_Cliente"]);
             ViewBag.bancos = new SelectList(repPass.ProcurarBancos(), "assentos.id_Bancos", "assentos.banco");
             return View(repPass.Detalhes_Viagem(id));
         }
 
         [HttpPost]
         [ActionName ("Comprar")]
-        public ActionResult Comprar(Passagem pass)
+        public ActionResult Comprar()
         {
+            Passagem pass = new Passagem();
+            pass.oni.id_Onibus = Convert.ToInt32(Request["bancos"]);
             repPass.Insert_Passagem(pass);
             return View(pass);
         }

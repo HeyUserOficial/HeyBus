@@ -1,5 +1,4 @@
 ﻿@model HeyBus.Models.Passagem
-
 @{
     ViewBag.Title = "Comprar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,6 +13,9 @@
         <br />
         <br />
         <dl>
+           <dt>
+               @Html.DropDownList("bancos", "Selecione o banco desejado")
+           </dt>
             <dt>
                 @Html.DisplayFor(model => model.oni.viacao_Onibus)
             </dt>
@@ -31,9 +33,6 @@
             </dt>
         </dl>
     </div>
-    foreach(var itens in (SelectList)ViewBag.bancos)
-    {
-        <input type="button" value="@itens.Text" id="@itens.Value" class="btn-buscar-viagem-home"/>
-    }
-    <input type="button" value="Comprar" class="btn-buscar-viagem-home" />
+
+    <input type="submit" value="Comprar" class="btn-buscar-viagem-home" />
 }

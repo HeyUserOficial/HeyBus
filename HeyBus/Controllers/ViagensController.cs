@@ -47,7 +47,7 @@ namespace HeyBus.Controllers
         public ActionResult Cadastrar(Viagem vi)
         {
             vi.oni.id_Onibus = Convert.ToInt32(Request["viacao"]);
-            vi .rot.id_Rota = Convert.ToInt32(Request["destino"]);
+            vi.rot.id_Rota = Convert.ToInt32(Request["destino"]);
             repViagem.Insert_Viagem(vi);
             return View(vi);
         }
