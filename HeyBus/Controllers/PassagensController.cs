@@ -30,7 +30,7 @@ namespace HeyBus.Controllers
         public ActionResult Comprar(int id)
         {
             Passagem pass = new Passagem();
-            pass.cli.id_Cliente = Convert.ToInt32(Session["id_Cliente"]);
+            pass.viag.id_Viagem = id;
             ViewBag.bancos = new SelectList(repPass.ProcurarBancos(), "assentos.id_Bancos", "assentos.banco");
             return View(repPass.Detalhes_Viagem(id));
         }
@@ -41,6 +41,7 @@ namespace HeyBus.Controllers
         {
             Passagem pass = new Passagem();
             pass.oni.id_Onibus = Convert.ToInt32(Request["bancos"]);
+            pass.cli.id_Cliente = Convert.ToInt32(Session["id_Cliente"]);
             repPass.Insert_Passagem(pass);
             return View(pass);
         }

@@ -26,10 +26,10 @@ namespace HeyBus.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@cliente", pass.cli.id_Cliente);
                     cmd.Parameters.AddWithValue("@viagem", pass.viag.id_Viagem);
-                    cmd.Parameters.AddWithValue("@formPag", pass.forma_Pagamaneto = 1);
+                    cmd.Parameters.AddWithValue("@formPag", pass.forma_Pagamaneto);
                     cmd.Parameters.AddWithValue("@cpf", pass.cpf_Cliente);
                     cmd.Parameters.AddWithValue("@poltrona", pass.assentos.id_Bancos);
-                    cmd.Parameters.AddWithValue("@valor", pass.valor_Passagem);
+                    cmd.Parameters.AddWithValue("@valor", pass.viag.valor_Viagem);
                     cmd.Parameters.AddWithValue("@data_Compra", DateTime.Now);
                     cmd.ExecuteNonQuery();
                 }

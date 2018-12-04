@@ -17,6 +17,10 @@
                @Html.DropDownList("bancos", "Selecione o banco desejado")
            </dt>
             <dt>
+                @Html.LabelFor(model => model.cpf_Cliente)
+                @Html.EditorFor(model => model.cpf_Cliente)
+            </dt>
+            <dt>
                 @Html.DisplayFor(model => model.oni.viacao_Onibus)
             </dt>
             <dt>
