@@ -103,10 +103,12 @@ namespace HeyBus.Repository
                     {
                         Viagem viag = new Viagem();
                         viag.id_Viagem = Convert.ToInt32(dr["id_Viagem"]);
+                        viag.rot.origem_Rota = dr["origem_Rota"].ToString();
                         viag.rot.destino_Rota = dr["destino_Rota"].ToString();
                         viag.oni.viacao_Onibus = dr["viacao_Onibus"].ToString();
                         viag.oni.categoria_Onibus = dr["categoria_Onibus"].ToString();
-                        viag.data_Ida = Convert.ToDateTime(dr["data_Viagem"].ToString());
+                        viag.data_Ida = Convert.ToDateTime(dr["data_Ida"].ToString());
+                        viag.data_Volta = Convert.ToDateTime(dr["data_Volta"].ToString());
                         viag.valor_Viagem = Convert.ToDouble(dr["valor_Viagem"].ToString());
                         viag.rot.distancia_Rota = dr["distancia_Rota"].ToString();
                         viagemList.Add(viag);

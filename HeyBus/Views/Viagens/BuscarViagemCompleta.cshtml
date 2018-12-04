@@ -42,10 +42,13 @@
         <div class="box-viagem-completa">
             <div class="ori-dest">
                 De @Html.DisplayFor(modelItem => item.rot.origem_Rota) para @Html.DisplayFor(modelItem => item.rot.destino_Rota) <br />
-                <span>Ida @Html.DisplayFor(modelItem => item.data_Ida) e @Html.DisplayFor(modelItem => item.data_Volta)</span>
+                <span>Ida @Html.DisplayFor(modelItem => item.data_Ida) - Volta @Html.DisplayFor(modelItem => item.data_Volta)</span>
             </div>
             <div class="viacao">@Html.DisplayFor(modelItem => item.oni.viacao_Onibus)<br /><span>@Html.DisplayFor(modelItem => item.oni.categoria_Onibus)</span></div>
-            <div class="valor-viag">Valor <br /><span>R$ @Html.DisplayFor(modelItem => item.valor_Viagem)</span>@Html.ActionLink("Comprar", "Passagens/Comprar", new { id = item.id_Viagem }, new { @class = "button-comprar btn-laranja" })</div>
+            <div class="valor-viag">
+                Valor <br /><span>R$ @Html.DisplayFor(modelItem => item.valor_Viagem)</span>
+                @Html.ActionLink("Comprar", "Comprar", "Passagem", new { id = item.id_Viagem }, new { @class = "button-comprar btn-laranja" })
+            </div>
         </div>
     }
 </section>
